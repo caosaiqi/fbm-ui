@@ -14,10 +14,10 @@
     "React",
     "Typescript"
   ],
-  "homepage": "https://github.com/SuperLuckyYU/vocano-ui.git",
+  "homepage": "git@gitlab.com:caosaiqi/avocado-ui.git",
   "repository": {
     "type": "git",
-    "url": "https://github.com/SuperLuckyYU/vocano-ui.git"
+    "url": "git@gitlab.com:caosaiqi/avocado-ui.git"
   },
   "files": [
     "dist"
