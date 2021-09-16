@@ -4,9 +4,7 @@
   "private": false,
   "description": "React components library",
   "author": "avocado",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./src/index.js",
   "license": "MIT",
   "keywords": [
     "Component",
@@ -36,6 +34,7 @@
     "react-dom": ">=16.8.0"
   },
   "scripts": {
+    "dev": "cd example/elikeji && npm run dev",
     "clean": "rimraf ./dist",
     "publish": "npm upblish"
   },
