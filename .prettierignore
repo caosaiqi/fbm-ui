@@ -1,7 +1,0 @@
-# umi
-.umi
-.umi-production
-.umi-test
-
-# Ignore all Markdown files:
-*.md
