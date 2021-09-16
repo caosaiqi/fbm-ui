@@ -1,0 +1,180 @@
+$sudokuPrefixCls: 'vo-sudoku';
+
+.#{$sudokuPrefixCls}-images-wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  padding-bottom: $skeleton-row-margin-top;
+  font-size: 0;
+
+  &.#{$sudokuPrefixCls}-images-wrapper-5 {
+    .#{$sudokuPrefixCls}-image-outer:nth-child(3) {
+      border-bottom-right-radius: $sudoku-border-radius;
+    }
+  }
+  &.#{$sudokuPrefixCls}-images-wrapper-7 {
+    .#{$sudokuPrefixCls}-image-outer:nth-child(6) {
+      border-bottom-right-radius: $sudoku-border-radius;
+    }
+  }
+  &.#{$sudokuPrefixCls}-images-wrapper-8 {
+    .#{$sudokuPrefixCls}-image-outer:nth-child(6) {
+      border-bottom-right-radius: $sudoku-border-radius;
+    }
+  }
+  &.#{$sudokuPrefixCls}-image-one {
+    .#{$sudokuPrefixCls}-image-watermark {
+      width: 40% !important;
+    }
+    &.#{$sudokuPrefixCls}-images-wrapper-horizontal {
+      .#{$sudokuPrefixCls}-image-outer {
+        width: 228px;
+        height: 171px;
+      }
+    }
+    &.#{$sudokuPrefixCls}-images-wrapper-square {
+      .#{$sudokuPrefixCls}-image-outer {
+        width: 228px;
+        height: 228px;
+      }
+    }
+    &.#{$sudokuPrefixCls}-images-wrapper-vertical {
+      .#{$sudokuPrefixCls}-image-outer {
+        width: 171px;
+        height: 274px;
+      }
+    }
+  }
+
+  &.#{$sudokuPrefixCls}-images-four {
+    width: 66.66666%;
+    .#{$sudokuPrefixCls}-image-outer {
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+      &:nth-child(3n) {
+        margin-right: $sudoku-image-space !important;
+      }
+
+      width: $sudoku-image-width-percentage-4;
+      height: 0;
+      margin-bottom: $sudoku-image-space;
+      padding-top: $sudoku-image-width-percentage-4;
+    }
+  }
+
+  .#{$sudokuPrefixCls}-image-outer {
+    position: relative;
+    width: $sudoku-image-width-percentage;
+    height: 0;
+    margin-right: $sudoku-image-space;
+    margin-bottom: $sudoku-image-space;
+    padding-top: $sudoku-image-width-percentage;
+    overflow: hidden;
+    font-size: 16px;
+    .#{$sudokuPrefixCls}-image-item-more {
+      .#{$sudokuPrefixCls}-image-item-more-mask {
+        background-color: #000;
+        opacity: 0.3;
+      }
+      .#{$sudokuPrefixCls}-image-item-more-number {
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 600;
+        font-size: 20px;
+      }
+      .#{$sudokuPrefixCls}-image-item-more-mask,
+      .#{$sudokuPrefixCls}-image-item-more-number {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .#{$sudokuPrefixCls}-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    &:nth-child(3n) {
+      margin-right: 0% !important;
+    }
+    .#{$sudokuPrefixCls}-image-item {
+      width: 100%;
+      height: 100%;
+    }
+    .#{$sudokuPrefixCls}-image-watermark {
+      width: 60%;
+    }
+
+    &:only-child {
+      border-radius: $sudoku-border-radius;
+    }
+    &:first-child {
+      border-top-left-radius: $sudoku-border-radius;
+    }
+    &:last-child {
+      border-bottom-right-radius: $sudoku-border-radius;
+    }
+    &:nth-child(3n + 1) {
+      &:last-child,
+      &:nth-last-child(2),
+      &:nth-last-child(3) {
+        border-bottom-left-radius: $sudoku-border-radius;
+      }
+    }
+    &:nth-child(2):last-child,
+    &:nth-child(3) {
+      border-top-right-radius: $sudoku-border-radius;
+    }
+    &:nth-child(3) {
+      border-top-right-radius: $sudoku-border-radius;
+    }
+    &:nth-child(2):nth-last-child(3) {
+      border-top-right-radius: $sudoku-border-radius;
+    }
+    &:nth-child(3):nth-last-child(2) {
+      border-radius: 0 0 0 $sudoku-border-radius;
+    }
+    &:nth-child(4):last-child {
+      border-radius: 0 0 $sudoku-border-radius 0;
+    }
+  }
+  .#{$sudokuPrefixCls}-image-placeholder {
+    width: $sudoku-image-width-percentage;
+    height: 0;
+  }
+}
+
+.#{$sudokuPrefixCls}-image {
+  min-height: $skeleton-row-height;
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 60%
+  )
+    $loading-grey;
+  background-color: $loading-grey;
+  background-position-x: 180%;
+  background-size: 200% 100%;
+  animation: 1s loading ease-in-out infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position-x: -20%;
+  }
+}
