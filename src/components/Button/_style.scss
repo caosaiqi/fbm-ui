@@ -1,0 +1,75 @@
+$buttonPrefixCls: 'vo-button';
+
+.#{$buttonPrefixCls} {
+  position: relative;
+  display: inline-block;
+  color: $body-color;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  border: $btn-border-width solid transparent;
+  box-shadow: $btn-box-shadow;
+  cursor: pointer;
+  transition: $btn-transition;
+  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $border-radius);
+  &.disabled,
+  &[disabled] {
+    box-shadow: none;
+    cursor: not-allowed;
+    opacity: $btn-disabled-opacity;
+    > * {
+      pointer-events: none;
+    }
+  }
+}
+
+.#{$buttonPrefixCls}-lg {
+  display: block;
+  width: 100%;
+  padding: $btn-padding-y-lg 0;
+  font-size: $btn-font-size-lg;
+  border-radius: $btn-border-radius-lg;
+}
+.#{$buttonPrefixCls}-sm {
+  @include button-size(
+    $btn-padding-y-sm,
+    $btn-padding-x-sm,
+    $btn-font-size-sm,
+    $btn-border-radius-sm
+  );
+}
+
+.#{$buttonPrefixCls}-primary {
+  @include button-style($primary, $primary, $white);
+}
+.#{$buttonPrefixCls}-danger {
+  @include button-style($danger, $danger, $white);
+}
+
+.#{$buttonPrefixCls}-default {
+  @include button-style($white, $gray-400, $body-color, $white, $primary, $primary);
+}
+
+.#{$buttonPrefixCls}-link {
+  color: $btn-link-color;
+  font-weight: $font-weight-normal;
+  text-decoration: $link-decoration;
+  box-shadow: none;
+  &:hover {
+    color: $btn-link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+  &:focus,
+  &.focus {
+    text-decoration: $link-hover-decoration;
+    box-shadow: none;
+  }
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+    pointer-events: none;
+  }
+}
