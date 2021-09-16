@@ -36,8 +36,8 @@
     "react-dom": ">=16.8.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "clean": "rimraf ./dist"
+    "clean": "rimraf ./dist",
+    "publish": "npm upblish"
   },
   "eslintConfig": {
     "extends": [
