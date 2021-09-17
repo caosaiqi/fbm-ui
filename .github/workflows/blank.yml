@@ -1,6 +1,5 @@
-name: docs
+name: build
 on:
-  # 每当 push 到 main 分支时触发部署
   push:
     branches:
       - main
@@ -8,10 +7,6 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-
-      # 运行构建脚本
       - name: Build 🔧
-        env:
-          TZ: Asia/Shanghai
         run: |
-          npm run 
+          npm run publish
