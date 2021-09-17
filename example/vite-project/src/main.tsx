@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Button } from "avocado-ui";
+import { Button, ThemeProvider } from 'avocado-ui';
+
 function App() {
   return (
     <div>
-
-    <Button />
+      <ThemeProvider>
+        <Button>asdasd</Button>
+      </ThemeProvider>
     </div>
   );
 }

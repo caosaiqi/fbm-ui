@@ -1,5 +1,5 @@
 
 import * as React from 'react';
-const Button = () => <h1>hello world</h1>
+import Button from '@material-ui/core/Button';
 
-export default Button
+export default () =>  <Button variant="contained" color="primary" >Hello world</Button>
