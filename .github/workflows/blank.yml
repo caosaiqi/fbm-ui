@@ -13,7 +13,4 @@ jobs:
       - name: Build
         run: |
           yarn build
-      - name: publish
-        run: |
-          yarn publish
 
