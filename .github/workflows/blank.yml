@@ -22,3 +22,7 @@ jobs:
         HEADLESS: false
         PROGRESS: none
         NODE_ENV: test
+    - name: Publish to NPM
+      run: npm publish || true
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
