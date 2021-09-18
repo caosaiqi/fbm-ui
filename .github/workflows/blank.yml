@@ -7,6 +7,10 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Build 🔧
+      - name: Build
         run: |
-          npm run publish
+          npm run build
+      - name: Build
+        run: |
+          npm publish
+
