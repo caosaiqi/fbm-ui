@@ -1,6 +1,6 @@
 {
-  "name": "avocado-ui",
-  "version": "0.1.0",
+  "name": "avocado-ui-base",
+  "version": "1.0.0",
   "private": false,
   "description": "React components library",
   "author": "avocado",
@@ -26,8 +26,7 @@
   "scripts": {
     "dev": "cd example/elikeji && npm run dev",
     "build": "npm run clean && node ./scripts/build.js",
-    "clean": "rimraf ./lib",
-    "publish": "npm run build && npm upblish"
+    "clean": "rimraf ./lib"
   },
   "eslintConfig": {
     "extends": [
