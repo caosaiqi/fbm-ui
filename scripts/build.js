@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-const shell = require('shelljs');
 const fs = require('fs')
 const path = require('path')
 const { buildSync } = require('esbuild')
