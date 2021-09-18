@@ -1,9 +1,9 @@
 {
-  "name": "avocado-ui-base",
-  "version": "1.0.6",
+  "name": "avocado-epdc",
+  "version": "1.0.0",
   "private": false,
   "description": "React components library",
-  "author": "avocado",
+  "author": "caosaiqi",
   "main": "./src/components/index.js",
   "license": "MIT",
   "keywords": [
@@ -12,10 +12,10 @@
     "React",
     "Typescript"
   ],
-  "homepage": "git@gitlab.com:caosaiqi/avocado-ui.git",
+  "homepage": "git@github.com:caosaiqi/avocado-ui.git",
   "repository": {
     "type": "git",
-    "url": "git@gitlab.com:caosaiqi/avocado-ui.git"
+    "url": "git@github.com:caosaiqi/avocado-ui.git"
   },
   "files": [
     "dist"
@@ -24,7 +24,7 @@
     "@material-ui/core": "^4.12.3"
   },
   "scripts": {
-    "dev": "cd example/elikeji && npm run dev",
+    "dev": "cd example/myapp && npm run dev",
     "build": "npm run clean && node ./scripts/build.js",
     "clean": "rimraf ./lib"
   },
