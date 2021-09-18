@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 
-import theme from '../../theme'
+import theme from './theme'
 
 export interface MuiThemeProviderPrpos {
     children: React.ReactNode,
