@@ -7,10 +7,13 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: install
+        run: | 
+          yarn
       - name: Build
         run: |
           npm run build
-      - name: Build
+      - name: publish
         run: |
           npm publish
 
