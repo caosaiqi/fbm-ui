@@ -1,27 +1,20 @@
 name: Node CI
 
-on: [push]
-
+on:
+  push:
+    branches:
+      - main
 jobs:
   build:
     runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node_version: [10.x, 12.x]
-        os: [ubuntu-latest]
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node_version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node_version }}
     - run: npm install
     - run: npm run build
       env:
         CI: true
         HEADLESS: false
         PROGRESS: none
-        NODE_ENV: test
+        NODE_ENV: pre
     - name: Publish to NPM
       run: npm publish || true
       env:
