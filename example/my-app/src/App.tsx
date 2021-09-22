@@ -2,9 +2,6 @@ import React from 'react';
 import './App.css';
 import { AThemeProvider } from 'avocado-ui'
 
-console.log(AThemeProvider)
-
-
 function App() {
   return (
     <div className="App">
