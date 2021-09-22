@@ -1,12 +1,13 @@
-name: Node CI
+name: install-build-publish
 
 on:
   push:
     branches:
       - main
+
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
     - run: npm install
     - run: npm run build
@@ -14,7 +15,7 @@ jobs:
         CI: true
         HEADLESS: false
         PROGRESS: none
-        NODE_ENV: pre
+        NODE_ENV: test
     - name: Publish to NPM
       run: npm publish || true
       env:
