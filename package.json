@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": false,
   "description": "React components library",
-  "author": "caosaiqi",
+  "author": "avocado",
   "main": "./src/components/index.js",
   "license": "MIT",
   "keywords": [
@@ -28,30 +28,8 @@
     "build": "npm run clean && node ./scripts/build.js",
     "clean": "rimraf ./lib"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "devDependencies": {
-    "@babel/core": "^7.14.6",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react-transition-group": "^4.4.1",
-    "@typescript-eslint/eslint-plugin": "^4.29.2",
     "esbuild": "^0.12.28",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-compat": "^3.9.0",
-    "eslint-plugin-markdown": "^2.2.0",
-    "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-unicorn": "^33.0.1",
     "react-docgen-typescript": "^2.0.0",
     "rimraf": "^2.7.1",
     "typescript": "^4.1.2"
