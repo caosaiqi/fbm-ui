@@ -7,12 +7,10 @@ export interface MuiThemeProviderPrpos {
     children: React.ReactNode,
 }
 
-const AuiThemeProvider: React.FC<MuiThemeProviderPrpos> = ({ children }) => {
-    return (
-        <ThemeProvider theme={theme}>
-            {children}
-        </ThemeProvider>
-    )
-}
+const AuiThemeProvider: React.FC<MuiThemeProviderPrpos> = ({ children }) => (
+    <ThemeProvider theme={theme}>
+        {children}
+    </ThemeProvider>
+)
 
 export default AuiThemeProvider

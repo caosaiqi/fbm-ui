@@ -2,7 +2,6 @@
 const fs = require('fs')
 const path = require('path')
 const { buildSync } = require('esbuild')
-const excludeFiles = []
 const getFiles = (paths, entryPoints = []) => {
     const strPaths = path.resolve(paths.join('/'))
     const files = fs.readdirSync(strPaths)
@@ -21,6 +20,8 @@ const getFiles = (paths, entryPoints = []) => {
 
 const entryPoints = getFiles(['./src'])
 
+
+
 buildSync({
 
     /** 入口文件 */
@@ -33,5 +34,5 @@ buildSync({
     allowOverwrite: true,
 
     /** 压缩文件 */
-    minify: true
+    // minify: true,
 })
