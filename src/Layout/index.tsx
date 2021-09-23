@@ -9,14 +9,25 @@ export interface LayoutProps {
     children: React.ReactNode,
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
-    return (
-        <ThemeProvider>
-            <Header />
-            <Menu />
-            <Content />
-        </ThemeProvider>
-    )
-}
+const Layout: React.FC<LayoutProps> = ({
+    children,
+}) => (
+    <ThemeProvider>
+        <Header />
+        <Content>
+            <Menu menus={[
+                {
+                    title: '首页',
+                    selected: true,
+                },
+                {
+                    title: '人才库',
+                },
+                
+            ]} />
+            {children}
+        </Content>
+    </ThemeProvider>
+)
 
 export default Layout
