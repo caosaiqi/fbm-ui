@@ -1,6 +1,6 @@
 export default {
     header: {
-       height: 64,
+       height: ({layout}) => layout.header.height,
        display: 'flex',
        alignItems: 'center',
        bgcolor: '#fff',

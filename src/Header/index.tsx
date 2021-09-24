@@ -9,12 +9,12 @@ export interface HeaderPrpos {
     logoProps?: LogoPropos
 }
 
-const Header: React.FC<HeaderPrpos> = ({ 
+const Header: React.FC<HeaderPrpos> = ({
     children,
     logoProps,
- }) => (
+}) => (
     <Box component='header' sx={styles.header}>
-        <Logo {...logoProps}/>
+        <Logo {...logoProps} />
         {children}
     </Box>
 )

@@ -1,5 +1,6 @@
 export default {
     content: {
-       display: 'flex',
+        display: 'flex',
+        height: ({ layout }) => layout.content.height,
     },
 }
