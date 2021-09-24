@@ -6,21 +6,21 @@ import Content from '../Content';
 import ThemeProvider from '../ThemeProvider'
 
 export interface LayoutProps {
-    children: React.ReactNode,
-    menuPrpos?: MenuPrpos
+  children: React.ReactNode,
+  menuPrpos?: MenuPrpos
 }
 
 const Layout: React.FC<LayoutProps> = ({
-    children,
-    menuPrpos,
+  children,
+  menuPrpos,
 }) => (
-    <ThemeProvider theme={{}}>
-        <Header />
-        <Content>
-            <Menu {...menuPrpos} />
-            {children}
-        </Content>
-    </ThemeProvider>
+  <ThemeProvider theme={{}}>
+    <Header />
+    <Content>
+      <Menu {...menuPrpos} />
+      {children}
+    </Content>
+  </ThemeProvider>
 )
 
 

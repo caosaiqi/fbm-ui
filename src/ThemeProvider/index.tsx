@@ -7,9 +7,9 @@ import defaultTheme, { layout } from './theme'
 export interface AuiThemeProviderProps extends ThemeProviderProps { }
 
 const AuiThemeProvider: React.FC<AuiThemeProviderProps> = ({ children, theme }) => (
-    <ThemeProvider theme={createTheme({ ...defaultTheme, ...theme }, { layout  })}>
-        {children}
-    </ThemeProvider>
+  <ThemeProvider theme={createTheme({ ...defaultTheme, ...theme }, { layout })}>
+    {children}
+  </ThemeProvider>
 )
 
 export default AuiThemeProvider
