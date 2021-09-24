@@ -5,18 +5,18 @@ import Logo, { LogoPropos } from '../Logo'
 import styles from './styles'
 
 export interface HeaderPrpos {
-    children: React.ReactNode,
-    logoProps?: LogoPropos
+  children: React.ReactNode,
+  logoProps?: LogoPropos
 }
 
 const Header: React.FC<HeaderPrpos> = ({
-    children,
-    logoProps,
+  children,
+  logoProps,
 }) => (
-    <Box component='header' sx={styles.header}>
-        <Logo {...logoProps} />
-        {children}
-    </Box>
+  <Box component='header' sx={styles.header}>
+    <Logo {...logoProps} />
+    {children}
+  </Box>
 )
 
 export default Header
