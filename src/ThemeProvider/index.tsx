@@ -1,13 +1,14 @@
 import * as React from 'react';
 import ThemeProvider, { ThemeProviderProps } from '@material-ui/core/styles/ThemeProvider';
-import createTheme from '@material-ui/core/styles/createTheme';
-
-import defaultTheme, { layout } from './theme'
+import createTheme from '@material-ui/core/styles/createTheme'
+import themeVars from './src'
 
 export interface AuiThemeProviderProps extends ThemeProviderProps { }
 
-const AuiThemeProvider: React.FC<AuiThemeProviderProps> = ({ children, theme }) => (
-  <ThemeProvider theme={createTheme({ ...defaultTheme, ...theme }, { layout })}>
+export const theme = createTheme(...themeVars)
+
+const AuiThemeProvider: React.FC<AuiThemeProviderProps> = ({ children }) => (
+  <ThemeProvider theme={theme}>
     {children}
   </ThemeProvider>
 )

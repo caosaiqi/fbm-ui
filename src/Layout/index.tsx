@@ -1,9 +1,10 @@
 import * as React from 'react';
 
-import Header from '../Header'
-import Menu, { MenuPrpos } from '../Menu'
-import Content from '../Content';
 import ThemeProvider from '../ThemeProvider'
+import Main from './src/main'
+import Header from './src/header'
+import Menu from './src/menu'
+import Content from './src/content';
 
 export interface LayoutProps {
   children: React.ReactNode,
@@ -16,10 +17,12 @@ const Layout: React.FC<LayoutProps> = ({
 }) => (
   <ThemeProvider theme={{}}>
     <Header />
-    <Content>
+    <Main>
       <Menu {...menuPrpos} />
-      {children}
-    </Content>
+      <Content>
+        {children}
+      </Content>
+    </Main>
   </ThemeProvider>
 )
 

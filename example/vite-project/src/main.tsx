@@ -1,10 +1,51 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Layout } from '../../../src'
 import {
-  FolderIcon, HomeIcon, LayerIcon, PeopleIcon, SettingIcon,
+  FolderIcon, HomeIcon,
 } from '@avocadoui/icons';
+// eslint-disable-next-line import/no-unresolved
+import { Layout, Typography } from '../../../src'
+import styles from './main.css'
+
+const Typographys = () => {
+  const colors = [
+    'error',
+    'warning',
+    'success',
+    'info',
+    'secondary',
+    'primary',
+    'disabled',
+  ]
+  const tags = [
+    'h4',
+    'h5',
+    'h6',
+    'subtitle1',
+    'subtitle2',
+    'body1',
+    'body2',
+    'caption',
+    'button',
+    'overline',
+  ]
+  const typographys: JSX.Element[] = []
+
+  tags.forEach(tag => {
+    colors.forEach(color => {
+      typographys.push(
+        <div key={`${tag}${color}`} style={{ marginBottom: 10 }}>
+          <Typography variant={tag} color={color}>
+            hello Typography
+          </Typography>
+        </div>,
+      )
+    })
+  })
+  return typographys
+}
+
 
 const Main = () => {
   const menuPrpos = {
@@ -12,7 +53,7 @@ const Main = () => {
       {
         title: '首页',
         icon: <HomeIcon />,
-        link:'/',
+        link: '/',
         selected: true,
       },
       {
@@ -25,7 +66,11 @@ const Main = () => {
   return (
     <React.StrictMode>
       <Layout menuPrpos={menuPrpos}>
-        <h1>hello world</h1>
+        <div style={{
+          padding: '15px 20px',
+        }}>
+          <Typographys />
+        </div>
       </Layout>
     </React.StrictMode>
   )

@@ -36,9 +36,9 @@ const MenuItem: React.FC<MenuItemProps> = ({
   )
 }
 
-const Menu: React.FC<MenuPrpos> = ({ menus, closedWidth, openWidth }) => (
+const Menu: React.FC<MenuPrpos> = ({ menus }) => (
   <Paper
-    sx={styles.menu({ closedWidth, openWidth })}
+    sx={styles.menu}
     elevation={0}
     square
   >
@@ -48,10 +48,5 @@ const Menu: React.FC<MenuPrpos> = ({ menus, closedWidth, openWidth }) => (
   </Paper>
 )
 
-
-Menu.defaultProps = {
-  closedWidth: 56,
-  openWidth: 186,
-}
 
 export default Menu
