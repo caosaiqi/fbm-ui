@@ -3,7 +3,8 @@ import ThemeProvider, { ThemeProviderProps } from '@material-ui/core/styles/Them
 import createTheme from '@material-ui/core/styles/createTheme'
 import themeVars from './src'
 
-export interface AuiThemeProviderProps extends ThemeProviderProps { }
+export interface AuiThemeProviderProps extends ThemeProviderProps {}
+
 
 export const theme = createTheme(...themeVars)
 

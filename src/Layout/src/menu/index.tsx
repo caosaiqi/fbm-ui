@@ -8,6 +8,7 @@ interface MenuItemProps {
   title?: string;
   icon?: React.ReactNode;
   link?: string;
+  onClick?: React.MouseEventHandler<HTMLElement>;
 }
 export interface MenuPrpos {
   menus?: MenuItemProps[];
@@ -15,21 +16,36 @@ export interface MenuPrpos {
   openWidth?: number;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({
-  title,
-  selected,
-  icon,
-}) => {
+const MenuItem: React.FC<MenuItemProps> = (props) => {
+  const {
+    title,
+    selected,
+    icon,
+    onClick,
+  } = props
   const Icon = () => {
     if (!icon) return null
     return <ListItemIcon className='icon'> {icon} </ListItemIcon>
   }
+
   const Title = () => {
     if (!title) return null
     return <ListItemText className='title' primary={title} />
   }
+
+  const handleClick = (e) => {
+    if (onClick && typeof onClick === 'function') {
+      onClick(e)
+    }
+  }
+
   return (
-    <ListItemButton component='li' sx={styles.listItemButton} selected={selected}>
+    <ListItemButton
+      component='li'
+      sx={styles.listItemButton}
+      selected={selected}
+      onClick={handleClick}
+    >
       <Icon />
       <Title />
     </ListItemButton>

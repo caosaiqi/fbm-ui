@@ -1,6 +1,4 @@
 
-const colors = ['primary', 'secondary', 'disabled']
-
 export default {
   fontFamily: [
     'PingFang SC',

@@ -13,6 +13,7 @@ export default {
       }),
       pt: 0,
       pb: 0,
+      zIndex: 3,
       overflowX: 'hidden',
       height: '100%',
       boxShadow: '0px 4px 8px 0px rgb(0, 0, 0, 0.16)',

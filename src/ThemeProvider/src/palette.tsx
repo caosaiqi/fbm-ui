@@ -86,4 +86,7 @@ export default {
     focusOpacity: 0.12,
     activatedOpacity: 0.12,
   },
+  mask: {
+    bgColor: 'rgba(0, 0, 0, 0.56)',
+  },
 }
