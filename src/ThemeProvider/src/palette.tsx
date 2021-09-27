@@ -1,6 +1,6 @@
 import { green, red } from '@material-ui/core/colors'
 
-const palette = {
+export default {
   common: {
     black: '#000',
     white: '#fff',
@@ -64,6 +64,7 @@ const palette = {
     primary: 'rgba(0, 0, 0, 0.86)',
     secondary: 'rgba(0, 0, 0, 0.56)',
     disabled: 'rgba(0, 0, 0, 0.26)',
+
     hint: 'rgba(0, 0, 0, 0.26)',
     link: '#576B95',
   },
@@ -85,88 +86,7 @@ const palette = {
     focusOpacity: 0.12,
     activatedOpacity: 0.12,
   },
-}
-
-const transitions = {
-  easing: {
-    easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
-    easeOut: 'cubic-bezier(0.0, 0, 0.2, 1)',
-    easeIn: 'cubic-bezier(0.4, 0, 1, 1)',
-    sharp: 'cubic-bezier(0.4, 0, 0.6, 1)',
+  mask: {
+    bgColor: 'rgba(0, 0, 0, 0.56)',
   },
-  duration: {
-    shortest: 150,
-    shorter: 200,
-    short: 250,
-    standard: 300,
-    complex: 375,
-    enteringScreen: 150,
-    leavingScreen: 150,
-  },
-}
-
-const typography = {
-  fontFamily: [
-    'PingFang SC',
-    '-apple-system',
-    'BlinkMacSystemFont',
-    '"Segoe UI"',
-    'Roboto',
-    '"Helvetica Neue"',
-    'Arial',
-    'sans-serif',
-    '"Apple Color Emoji"',
-    '"Segoe UI Emoji"',
-    '"Segoe UI Symbol"',
-  ].join(','),
-  fontSize: 14,
-  fontWeightLight: 300,
-  fontWeightRegular: 400,
-  fontWeightMedium: 500,
-  fontWeightBold: 700,
-  h4: {
-    fontSize: '34px',
-    lineHeight: '48px',
-  },
-  h5: {
-    fontSize: '24px',
-    lineHeight: '32px',
-  },
-  h6: {
-    fontSize: '20px',
-    lineHeight: '28px',
-  },
-  body1: {
-    fontSize: '16px',
-    lineHeight: '24px',
-  },
-  body2: {
-    fontSize: '14px',
-    lineHeight: '22px',
-  },
-  caption: {
-    fontSize: '12px',
-    lineHeight: '18px',
-  },
-  subtitle1: {
-    fontSize: '16px',
-    lineHeight: '24px',
-    fontWeight: 500,
-  },
-}
-
-
-export const layout = {
-  header: {
-    height: 64,
-  },
-  content: {
-    height: `calc(100vh - 64px)`,
-  },
-}
-
-export default {
-  transitions,
-  palette,
-  typography,
 }

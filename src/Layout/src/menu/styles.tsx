@@ -1,26 +1,32 @@
 import { listItemButtonClasses } from '@material-ui/core'
 
 export default {
-  menu: ({ closedWidth, openWidth }) => ({
-    width: closedWidth,
+  menu: {
+    width: (theme) => theme.layout.menu.closedWidth,
     borderRadius: 0,
 
     '& .menu-list': {
-      width: closedWidth,
+      width: (theme) => theme.layout.menu.closedWidth,
+      transition: (theme) => theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
       pt: 0,
       pb: 0,
+      zIndex: 3,
       overflowX: 'hidden',
       height: '100%',
       boxShadow: '0px 4px 8px 0px rgb(0, 0, 0, 0.16)',
-
+      bgcolor: '#fff',
       '&:hover': {
-        width: openWidth,
+        width: (theme) => theme.layout.menu.openWidth,
       },
     },
-  }),
+  },
 
   listItemButton: {
-    whiteSpace: 'nowrap',
+    width: (theme) => theme.layout.menu.openWidth,
+
     '& .icon': {
       color: 'rgba(0, 0, 0, 0.56)',
     },
