@@ -8,6 +8,10 @@ import {
 import typography from './pages/typography'
 import mask from './pages/mask'
 import tooltip from './pages/tooltip'
+import avatar from './pages/avatar'
+import menu from './pages/menu'
+import toast from './pages/toast'
+import dialog from './pages/dialog'
 
 const routes = [
   {
@@ -22,6 +26,22 @@ const routes = [
     path: '/tooltip',
     Component: tooltip,
   },
+  {
+    path: '/avatar',
+    Component: avatar,
+  },
+  {
+    path: '/menu',
+    Component: menu,
+  },
+  {
+    path: '/toast',
+    Component: toast,
+  },
+  {
+    path: '/dialog',
+    Component: dialog,
+  },
 ]
 
 export default () => {
@@ -29,14 +49,14 @@ export default () => {
   const styles = {
     padding: '20px',
     backgroundColor: '#F3F6F9',
-    height: '100%',
+    minHeight: '100%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
   }
   return (
     <div style={styles}>
-      <div style={{ backgroundColor: '#fff', padding: 15, borderRadius: 5, marginBottom: '30%' }}>
+      <div style={{ backgroundColor: '#fff',  borderRadius: 5, marginBottom: '30%' }}>
         <Router>
           <Switch>
             {routeItms}

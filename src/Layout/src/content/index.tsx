@@ -7,7 +7,6 @@ export interface ContentPrpos {
   children: React.ReactNode,
 }
 
-
 const Content: React.FC<ContentPrpos> = ({ children }) => (
   <Box sx={styles.content}>
       {children}

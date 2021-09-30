@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import ThemeProvider from '../ThemeProvider'
+import ThemeProvider from '../theme-provider'
 import Main from './src/main'
 import Header from './src/header'
 import Menu, { MenuPrpos } from './src/menu'
@@ -25,6 +25,5 @@ const Layout: React.FC<LayoutProps> = ({
     </Main>
   </ThemeProvider>
 )
-
 
 export default Layout
