@@ -12,6 +12,8 @@ import avatar from './pages/avatar'
 import menu from './pages/menu'
 import toast from './pages/toast'
 import dialog from './pages/dialog'
+import icon from './pages/icon'
+import alert from './pages/alert'
 
 const routes = [
   {
@@ -41,6 +43,14 @@ const routes = [
   {
     path: '/dialog',
     Component: dialog,
+  },
+  {
+    path: '/icon',
+    Component: icon,
+  },
+  {
+    path: '/alert',
+    Component: alert,
   },
 ]
 

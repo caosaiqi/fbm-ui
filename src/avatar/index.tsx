@@ -1,36 +1,37 @@
 import * as React from 'react';
 import { Avatar, AvatarProps } from '@material-ui/core'
+import styled from '@material-ui/core/styles/styled'
 import useThemeProps from '@material-ui/core/styles/useThemeProps'
 
-import getStyleOverrides from '../utils/getStyleOverrides'
-
-const componentName: string = 'Avatar'
+export const componentName: string = 'Aavatar'
 
 type SizeType = 'small' | 'middle' | 'large' | undefined;
-
-export interface AuiAvatarPropos extends AvatarProps {
+export interface AavatarPropos extends AvatarProps {
   size?: SizeType | string;
   disabled?: boolean,
 }
 
-const AuiAvatar: React.FC<AuiAvatarPropos> = (inProps) => {
-  const props = useThemeProps({ props: inProps, name: componentName });
-  const overrides = getStyleOverrides(componentName)
+const AvatarRoot: React.FC<AavatarPropos> = styled(Avatar, {
+  name: 'Aavatar',
+  slot: 'Root',
+  overridesResolver: (props, styles) => {
+    const { size, disabled} = props
+    return [
+      styles.root,
+      styles[size],
+      disabled && styles.disabled,
+    ]
+  },
+})(() => ({}))
 
+const Aavatar: React.FC<AavatarPropos> = (inProps) => {
   const {
     size,
-    sx,
     disabled,
     ...otherProps
-  } = props
+  } = useThemeProps({ props: inProps, name: componentName });
 
-  const style = {
-    ...overrides[size],
-    ...(disabled && overrides.disabled),
-    ...sx,
-  }
-
-  return (<Avatar sx={style}  {...otherProps} />)
+  return <AvatarRoot disabled={disabled} size={size}  {...otherProps} />
 }
 
-export default AuiAvatar
+export default Aavatar

@@ -7,7 +7,7 @@ export default {
       height: `calc(100vh - 64px)`,
     },
     menu: {
-      closedWidth: 56,
+      closedWidth: 52,
       openWidth: 186,
     },
   },

@@ -2,21 +2,21 @@ import * as React from 'react';
 import { CheckIcon, ErrorIcon, WarningIcon, InfoIcon } from '@avocadoui/icons';
 import { Snackbar, SnackbarProps, Box, Slide } from '@material-ui/core'
 
-import Typography from '../typography'
+import Typography from '../Typography'
 import getStyleOverrides from '../utils/getStyleOverrides'
 import renderIntoBody from '../utils/renderIntoBody'
 
 
 export const componentName: string = 'Toast'
 
-type noticeType = 'error' | 'warning' | 'success' | 'info'
+type NoticeType = 'error' | 'warning' | 'success' | 'info'
 interface CreateNotice {
   message?: string;
   onClose?: () => void;
-  type?: noticeType;
+  type?: NoticeType;
 }
 interface NoticeProps extends SnackbarProps {
-  type: noticeType;
+  type: NoticeType;
   onClose: () => void;
 }
 

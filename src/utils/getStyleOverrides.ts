@@ -1,4 +1,4 @@
-import { theme as customTheme } from '../theme-provider'
+import { theme as customTheme } from '../ThemeProvider'
 
 const getStyleOverrides = (name: string, theme = customTheme) => {
   if (theme.components && theme.components[name] && theme.components[name].styleOverrides) {

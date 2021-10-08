@@ -1,10 +1,9 @@
-
 const customComponets = {
   /** 
    * src/avatar/
    * example/vite-project/src/pages/avatar
    */
-  Avatar: {
+  Aavatar: {
     styleOverrides: {
       small: {
         width: 24,
@@ -89,7 +88,7 @@ const customComponets = {
         variant: 'text',
         color: 'secondary',
       },
-      okButtonProps: { 
+      okButtonProps: {
         variant: 'contained',
       },
     },
@@ -97,7 +96,7 @@ const customComponets = {
 
   DialogContent: {
     styleOverrides: {
-      root:{
+      root: {
         padding: 16,
         minWidth: 360,
       },
@@ -105,42 +104,83 @@ const customComponets = {
   },
 
   ADialogOkButton: {
-
-  },
-}
-
-
-export default {
-  MuiTooltip: {
     styleOverrides: {
-      tooltip: {
-        lineHeight: '1.2rem',
-        backgroundColor: 'rgba(0,0,0,0.8)',
-        fontWeight: 400,
+      root: {
+        padding: 16,
+        minWidth: 360,
       },
-      arrow: {
-        color: 'rgba(0,0,0,0.8)',
+    },
+  },
+
+  Aalert: {
+    styleOverrides: {
+      root: {
+        color: 'rgba(0, 0, 0, 0.56)',
+        padding: '4px 16px',
+        border: '1px solid',
+      },
+      success: {
+        borderColor: '#00d99d',
+        backgroundColor: 'rgba(0, 217, 157, 0.26)',
+      },
+      error: {
+        borderColor: '#ff6c6c',
+        backgroundColor: 'rgba(255, 108, 108, 0.26)',
+      },
+      warning: {
+        borderColor: '#F5C441',
+        backgroundColor: 'rgba(245, 196, 65, 0.26)',
+      },
+      info: {
+        borderColor: '#7c9df7',
+        backgroundColor: ' rgba(61, 160, 245, 0.26)',
       },
     },
     defaultProps: {
-      arrow: true,
+      type: 'info',
     },
   },
 
-  MuiListItemIcon: {
+  Aheader: {
     styleOverrides: {
       root: {
-        minWidth: 36,
+        display: 'flex',
+        alignItems: 'center',
+        height: 64,
+        backgroundColor: '#fff',
       },
     },
   },
 
-  MuiDialog: {
+  Alogo: {
     styleOverrides: {
-      paper: {
-        minWidth: 300,
+      root: {
+        display: 'flex',
+        alignItems: 'center',
+      },
+    },
+
+    defaultProps: {
+      logo: 'http://public-static-assets.oss-cn-beijing.aliyuncs.com/img/hr_logo.png',
+      describe: '方便面面试',
+      width: 32,
+      height: 32,
+    },
+  },
+
+  Amask: {
+    styleOverrides: {
+      root: {
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0.56)',
       },
     },
   },
-  ...customComponets,
 }
+
+
+export default customComponets

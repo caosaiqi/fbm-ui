@@ -1,29 +1,39 @@
 import * as React from 'react';
 
-import ThemeProvider from '../theme-provider'
+import ThemeProvider from '../ThemeProvider'
 import Main from './src/main'
-import Header from './src/header'
+import Header, { HeaderPrpos } from './src/header'
 import Menu, { MenuPrpos } from './src/menu'
 import Content from './src/content';
 
 export interface LayoutProps {
-  children: React.ReactNode,
-  menuPrpos?: MenuPrpos
+  children: React.ReactNode;
+  menuPrpos?: MenuPrpos;
+  header?: HeaderPrpos | null;
 }
 
 const Layout: React.FC<LayoutProps> = ({
   children,
   menuPrpos,
-}) => (
-  <ThemeProvider theme={undefined}>
-    <Header />
-    <Main>
-      <Menu {...menuPrpos} />
-      <Content>
-        {children}
-      </Content>
-    </Main>
-  </ThemeProvider>
-)
+  header,
+}) => {
+
+  const HeaderRender = () => {
+    if (header === null) return null
+    return <Header {...header} />
+  }
+
+  return (
+    <ThemeProvider>
+      <HeaderRender />
+      <Main>
+        <Menu {...menuPrpos} />
+        <Content>
+          {children}
+        </Content>
+      </Main>
+    </ThemeProvider>
+  )
+}
 
 export default Layout

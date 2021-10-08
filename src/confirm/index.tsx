@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { Box } from '@material-ui/core'
-import Dialog, { AuiDialogProps } from '../dialog'
+import Dialog, { AuiDialogProps } from '../Dialog'
 import renderIntoBody from '../utils/renderIntoBody'
-import ThemeProvider from '../theme-provider'
-import Typography from '../typography'
+import ThemeProvider from '../ThemeProvider'
+import Typography from '../Typography'
 
 export const componentName: string = 'Confirm'
 
 export interface ConfirmProps extends AuiDialogProps {
   content?: string | React.ReactNode
+  open?: boolean;
 }
 
 const confirm = (props: ConfirmProps) => {

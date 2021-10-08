@@ -6,7 +6,7 @@ import {
   CloseIcon,
 } from '@avocadoui/icons'
 
-import ListRow from '../list-row'
+import ListRow from '../ListRow'
 
 export const componentName: string = 'ADialog'
 
@@ -27,6 +27,12 @@ export interface AuiDialogProps extends DialogProps {
 }
 
 
+const Content = styled(Box, {
+  name: 'DialogContent',
+  slot: 'Root',
+  overridesResolver: (_, styles) => styles.root,
+})(() => ({}))
+
 const AuiDialog: React.FC<AuiDialogProps> = (inProps) => {
   const {
     type,
@@ -42,7 +48,7 @@ const AuiDialog: React.FC<AuiDialogProps> = (inProps) => {
     onClose,
     onOk,
     ...otherProps
-  } = useThemeProps({ props: inProps, name: componentName });
+  } = useThemeProps({ props: inProps, name: componentName })
 
   const doClose = () => {
     if (onClose && typeof onClose === 'function') {
@@ -58,12 +64,6 @@ const AuiDialog: React.FC<AuiDialogProps> = (inProps) => {
       }
     }
   }
-
-  const Content = styled(Box, {
-    name: 'DialogContent',
-    slot: 'Root',
-    overridesResolver: (_, styles) => styles.root,
-  })(() => ({}))
 
   const Title = () => {
     if (!title) return null
@@ -98,7 +98,7 @@ const AuiDialog: React.FC<AuiDialogProps> = (inProps) => {
             </Button>
           )
         }
-        <Button {...okButtonProps} onClick={doOk}>
+        <Button {...okButtonProps} onClick={doOk} color={type}>
           {okText}
         </Button>
       </DialogActions>

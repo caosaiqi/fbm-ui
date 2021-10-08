@@ -10,13 +10,20 @@ const params = {
   },
 }
 export default () => {
-  const handleClick = () => {
+  const handleClick = (parmas = {}) => {
     confirm({
       title: '确认？',
       content: '该候选人长时间未开始面试，建议发送短信提醒',
+      onOk:() => {
+        alert('确定')
+      },
+      ...parmas,
     })
   }
-  return [
-    <Button onClick={() => handleClick()} key={type}> {type}</Button>,
-  ]
+  return (<div>
+    <Button onClick={() => handleClick()}> difault</Button>
+    <Button onClick={() => handleClick({
+      type: 'error',
+    })}> error</Button>
+  </div>)
 }
