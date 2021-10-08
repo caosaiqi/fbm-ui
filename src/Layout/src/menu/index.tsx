@@ -23,6 +23,7 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
     icon,
     onClick,
   } = props
+  
   const Icon = () => {
     if (!icon) return null
     return <ListItemIcon className='icon'> {icon} </ListItemIcon>

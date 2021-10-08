@@ -1,23 +1,35 @@
 import * as React from 'react';
 import { Box } from '@material-ui/core'
+import styled from '@material-ui/core/styles/styled'
 
-// import Logo, { LogoPropos } from 'avocado-ui'
-import styles from './styles'
+import Logo, { AlogoProps } from '../../../Logo'
 
 export interface HeaderPrpos {
   children?: React.ReactNode,
-  // logoProps?: LogoPropos
+  logo?: AlogoProps
 }
+
+const HeaderRoot = styled(Box, {
+  name: 'Aheader',
+  slot: 'Root',
+  overridesResolver: (_, styles) => styles.root,
+})(() => ({}))
 
 const Header: React.FC<HeaderPrpos> = ({
   children,
-  // logoProps,
-}) => (
-  <Box component='header' sx={styles.header}>
-    {/* <Logo {...logoProps} /> */}
-     <h1>鳄梨科技</h1>
-    {children}
-  </Box>
-)
+  logo,
+}) => {
+  const LogoRender = () => {
+    if (logo === null) return null
+    return  <Logo {...logo} />
+  }
+
+  return (
+    <HeaderRoot>
+      <LogoRender />
+      {children}
+    </HeaderRoot>
+  )
+}
 
 export default Header

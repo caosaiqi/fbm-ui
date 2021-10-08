@@ -1,16 +1,17 @@
 import * as React from 'react';
 import { Box } from '@material-ui/core'
-
-import styles from './styles'
+import styled from '@material-ui/core/styles/styled'
 
 export interface MaskProps {
   zIndex?: number
 }
 
-const Mask: React.FC<MaskProps> = ({ zIndex, ...otherProps }) => <Box sx={styles} zIndex={zIndex} {...otherProps} />
+const MaskRoot: React.FC<MaskProps> = styled(Box, {
+  name: 'Amask',
+  slot: 'Root',
+  overridesResolver: (props, styles) => styles.root,
+})(() => ({}))
 
-Mask.defaultProps = {
-  zIndex: 2,
-}
+const Amask: React.FC<MaskProps> = (props) => <MaskRoot {...props} />
 
-export default Mask
+export default Amask

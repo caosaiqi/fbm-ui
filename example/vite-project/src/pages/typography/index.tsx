@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import React from 'react'
+import {useHistory} from 'react-router-dom'
 import { Typography } from "../../../../../src"
 
 const colors = [
@@ -25,6 +26,9 @@ const tags = [
 ]
 
 export default () => {
+  const history = useHistory();
+  console.log(history)
+
   const typographys: JSX.Element[] = []
   tags.forEach(tag => {
     colors.forEach(color => {

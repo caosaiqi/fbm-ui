@@ -1,39 +1,45 @@
 import * as React from 'react';
 import { Box, Typography } from '@material-ui/core'
+import styled from '@material-ui/core/styles/styled'
+import useThemeProps from '@material-ui/core/styles/useThemeProps'
 
 import Image, { ImagePropos } from '../Image';
-import styles from './styles'
 
-export interface LogoPropos extends ImagePropos {
+export const componentName: string = 'Alogo'
+
+export interface AlogoProps extends ImagePropos {
   logo?: string,
   link?: string,
   name?: string,
   describe?: string,
 }
 
-const Logo: React.FC<LogoPropos> = ({
-  logo,
-  describe,
-  height,
-  width,
-}) => (
-  <Box sx={styles.logo}>
-    <Image
-      src={logo}
-      width={width}
-      height={height}
-    />
-    <Typography className="describe">
-      {describe}
-    </Typography>
-  </Box>
-)
+const AlogoRoot: React.FC<AlogoProps> = styled(Box, {
+  name: 'Alogo',
+  slot: 'Root',
+  overridesResolver: (_, styles) => styles.root,
+})(() => ({}))
 
-Logo.defaultProps = {
-  logo: 'http://public-static-assets.oss-cn-beijing.aliyuncs.com/img/hr_logo.png',
-  describe: '方便面面试',
-  width: 32,
-  height: 32,
+const Alogo: React.FC<AlogoProps> = (inProps) => {
+  const {
+    logo,
+    describe,
+    height,
+    width,
+  } = useThemeProps({ props: inProps, name: componentName })
+
+  return (
+    <AlogoRoot>
+      <Image
+        src={logo}
+        width={width}
+        height={height}
+      />
+      <Typography className="describe">
+        {describe}
+      </Typography>
+    </AlogoRoot>
+  )
 }
 
-export default Logo
+export default Alogo

@@ -1,9 +1,12 @@
 import * as React from 'react';
+
 import ThemeProvider, { ThemeProviderProps } from '@material-ui/core/styles/ThemeProvider';
 import createTheme from '@material-ui/core/styles/createTheme'
 import themeVars from './src'
 
-export interface AuiThemeProviderProps extends ThemeProviderProps {}
+export interface AuiThemeProviderProps extends ThemeProviderProps {
+  theme?: any;
+}
 
 
 export const theme = createTheme(...themeVars)

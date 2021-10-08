@@ -1,3 +1,6 @@
+
+import customComponets from './customComponets'
+
 export default {
   MuiTooltip: {
     styleOverrides: {
@@ -14,4 +17,21 @@ export default {
       arrow: true,
     },
   },
+
+  MuiListItemIcon: {
+    styleOverrides: {
+      root: {
+        minWidth: 36,
+      },
+    },
+  },
+
+  MuiDialog: {
+    styleOverrides: {
+      paper: {
+        minWidth: 300,
+      },
+    },
+  },
+  ...customComponets,
 }
