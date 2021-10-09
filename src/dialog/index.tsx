@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { Dialog, DialogProps, Box, DialogActions, Button, ButtonProps } from '@material-ui/core'
+import { Dialog, DialogProps, Box, DialogActions, Button, ButtonProps, Slide } from '@material-ui/core'
 import useThemeProps from '@material-ui/core/styles/useThemeProps'
 import styled from '@material-ui/core/styles/styled'
-import {
-  CloseIcon,
-} from '@avocadoui/icons'
+import { CloseIcon } from '@avocadoui/icons'
 
 import ListRow from '../ListRow'
 
@@ -105,8 +103,9 @@ const AuiDialog: React.FC<AuiDialogProps> = (inProps) => {
     )
   }
 
+    
   return (
-    <Dialog {...otherProps}>
+    <Dialog  TransitionComponent={Slide} {...otherProps}>
       <Content>
         <Title />
         {children}

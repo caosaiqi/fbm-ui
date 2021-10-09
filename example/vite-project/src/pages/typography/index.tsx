@@ -26,9 +26,6 @@ const tags = [
 ]
 
 export default () => {
-  const history = useHistory();
-  console.log(history)
-
   const typographys: JSX.Element[] = []
   tags.forEach(tag => {
     colors.forEach(color => {

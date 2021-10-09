@@ -12,6 +12,8 @@ export { default as ListRow } from './ListRow';
 export { default as Toast } from './Toast';
 export { default as Alert } from './Alert';
 export { default as Icon } from './Icon';
+export { default as Loading } from './Loading';
+
 
 
 /** confirm 是一个方法并非组件， 所以用的小写开头 */

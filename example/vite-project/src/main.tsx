@@ -1,43 +1,43 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { useHistory, Route} from 'react-router-dom'
-import {
-  FolderIcon, HomeIcon,
-} from '@avocadoui/icons';
+import { LayerIcon } from '@avocadoui/icons';
 
-
-import Router from './Router'
+import Router, { routes } from './Router'
 import { Layout } from '../../../src'
 
 
-const Main = (props) => {
-  const history = useHistory();
-  console.log(history)
+const Main = () => {
+
+
   const menuPrpos = {
-    menus: [
-      {
-        title: 'Typography',
-        icon: <HomeIcon />,
-        link: '/',
-        selected: true,
+    menus: routes.map(route => ({
+        title: route.path,
+        icon: <LayerIcon />,
         onClick: () => {
-          console.log(props)
+          // browserHistory.push('/Typography')
+          location.href = `${location.origin}${route.path}`
         },
-      },
-      {
-        title: '人才库',
-        icon: <FolderIcon />,
-        link: '/',
-      },
-    ],
+      })),
+    // [
+    //   {
+    //     title: 'Typography',
+    //     icon: <LayerIcon />,
+    //     link: '/',
+    //     selected: true,
+    //     onClick: () => {
+    //       // browserHistory.push('/Typography')
+    //       location.href = `${location.origin}/Typography`
+    //     },
+    //   },
+    // ],
   }
 
   return (
     <React.StrictMode>
-        <Layout menuPrpos={menuPrpos}>
-          <Router />
-        </Layout>
+      <Layout menuPrpos={menuPrpos}>
+        <Router />
+      </Layout>
     </React.StrictMode>
   )
 }
