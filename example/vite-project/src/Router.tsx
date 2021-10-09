@@ -14,8 +14,9 @@ import toast from './pages/toast'
 import dialog from './pages/dialog'
 import icon from './pages/icon'
 import alert from './pages/alert'
+import loading from './pages/loading'
 
-const routes = [
+export const routes = [
   {
     path: '/typography',
     Component: typography,
@@ -52,6 +53,10 @@ const routes = [
     path: '/alert',
     Component: alert,
   },
+  {
+    path: '/loading',
+    Component: loading,
+  },
 ]
 
 export default () => {
@@ -64,9 +69,10 @@ export default () => {
     alignItems: 'center',
     justifyContent: 'center',
   }
+ 
   return (
     <div style={styles}>
-      <div style={{ backgroundColor: '#fff',  borderRadius: 5, marginBottom: '30%' }}>
+      <div style={{ backgroundColor: '#fff',  borderRadius: 5, marginBottom: '30%', padding: 30}}>
         <Router>
           <Switch>
             {routeItms}

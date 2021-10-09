@@ -46,7 +46,7 @@ const confirm = (props: ConfirmProps) => {
 
     const doClose = () => {
       setOpen(false)
-      if (onClose && typeof onClose === 'string') {
+      if (onClose && typeof onClose === 'function') {
         onClose()
       }
       confirmDiv.delete()

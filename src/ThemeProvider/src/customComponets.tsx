@@ -180,6 +180,12 @@ const customComponets = {
       },
     },
   },
+  Aloading: {
+    defaultProps: {
+      color: 'primary',
+      size: 'large',
+    },
+  },
 }
 
 
