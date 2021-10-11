@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import React from 'react'
-import { Avatar } from "../../../../../src"
+import { Avatar } from "../../../../src"
 import imgUrl from './img.jpg'
 
 // undefined = middle = 默认值

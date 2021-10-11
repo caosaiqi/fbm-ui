@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import React from 'react'
-import { Button, Toast } from "../../../../../src"
+import { Button, Toast } from "../../../../src"
 
 const types = ['error', 'warning', 'success', 'info']
 const msgs = {

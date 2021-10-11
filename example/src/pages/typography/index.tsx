@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import React from 'react'
 import {useHistory} from 'react-router-dom'
-import { Typography } from "../../../../../src"
+import { Typography } from "../../../../src"
 
 const colors = [
   'error',

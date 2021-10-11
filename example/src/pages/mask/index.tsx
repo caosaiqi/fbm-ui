@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Mask } from "../../../../../src"
+import { Mask } from "../../../../src"
 
 export default () => (
   <div style={

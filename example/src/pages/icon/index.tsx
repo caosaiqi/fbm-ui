@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Icon } from "../../../../../src"
+import { Icon } from "../../../../src"
 
 export default () => (
   <div>

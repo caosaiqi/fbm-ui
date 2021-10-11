@@ -3,7 +3,7 @@ import React from 'react'
 import {
   FolderIcon, ArrowDropRightIcon,
 } from '@avocadoui/icons';
-import { ListRow, List, FormControlLabel, Checkbox} from "../../../../../src"
+import { ListRow, List, FormControlLabel, Checkbox} from "../../../../src"
 
 const sx = {
   margin: '20px',

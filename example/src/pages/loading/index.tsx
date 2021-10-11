@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Loading } from "../../../../../src"
+import { Loading } from "../../../../src"
 
 export default () => (
   <div>
