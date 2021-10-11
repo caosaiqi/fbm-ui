@@ -10,7 +10,7 @@ export const componentName: string = 'ADialog'
 
 type dialogType = 'error' | 'warning' | 'success' | 'info';
 
-export interface AuiDialogProps extends DialogProps {
+export interface AdialogProps extends DialogProps {
   type?: dialogType;
   title?: string;
   footer?: React.ReactNode | boolean | null
@@ -31,7 +31,7 @@ const Content = styled(Box, {
   overridesResolver: (_, styles) => styles.root,
 })(() => ({}))
 
-const AuiDialog: React.FC<AuiDialogProps> = (inProps) => {
+const AuiDialog: React.FC<AdialogProps> = (inProps) => {
   const {
     type,
     title,

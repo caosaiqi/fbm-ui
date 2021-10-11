@@ -7,12 +7,12 @@ import Typography from '../Typography'
 
 export const componentName: string = 'Confirm'
 
-export interface ConfirmProps extends AuiDialogProps {
+export interface AconfirmProps{
   content?: string | React.ReactNode
   open?: boolean;
 }
 
-const confirm = (props: ConfirmProps) => {
+const confirm = (props: AconfirmProps) => {
   const {
     content,
     onClose,

@@ -1,12 +1,14 @@
 import * as React from 'react';
 import useThemeProps from '@material-ui/core/styles/useThemeProps'
 import * as Icons from '@avocadoui/icons';
+import { SvgIconProps } from '@material-ui/core'
 
 export const componentName: string = 'Aicon'
 
-export interface AiconProps {
+export interface AiconProps  extends SvgIconProps{
   name?: string
 }
+
 
 const Aicon:  React.FC<AiconProps>  = (inProps) => {
   const {

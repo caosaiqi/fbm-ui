@@ -1,7 +1,8 @@
+// 待开发
+
 import * as React from 'react';
 import { CircularProgress, CircularProgressProps } from '@material-ui/core'
 import styled from '@material-ui/core/styles/styled'
-import useThemeProps from '@material-ui/core/styles/useThemeProps'
 
 export const componentName: string = 'ACircularProgress'
 

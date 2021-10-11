@@ -49,7 +49,11 @@ const AuiAvatar: React.FC<ListRowPropos> = (inProps) => {
   const After = () => {
     if (!after) return null
     if (afterButtonProps) {
-      const btnProps = typeof afterButtonProps === 'boolean' ? { edge: 'end' } : afterButtonProps
+      const btnProps = 
+            typeof afterButtonProps === 'boolean'
+            ? { edge: 'end' } 
+            : afterButtonProps
+      
       return (
         <IconButton {...btnProps}>
           {after}
