@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import * as React from 'react';
-import { Tooltip, Button, Grid, Box } from "../../../../../src"
+import { Tooltip, Button, Grid, Box } from "../../../../src"
 
 export default () => (
   <Box sx={{ width: 500 }}>

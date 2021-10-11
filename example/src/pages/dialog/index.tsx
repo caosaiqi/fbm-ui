@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import React from 'react'
-import { Button, confirm } from "../../../../../src"
+import { Button, confirm } from "../../../../src"
 
 export default () => {
   const handleClick = (parmas = {}) => {

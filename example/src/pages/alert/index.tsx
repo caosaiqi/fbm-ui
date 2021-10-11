@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Alert } from "../../../../../src"
+import { Alert } from "../../../../src"
 
 const alerts = {
   'success': '这是一个Success提醒',

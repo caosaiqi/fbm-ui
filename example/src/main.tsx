@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import { LayerIcon } from '@avocadoui/icons';
 
 import Router, { routes } from './Router'
-import { Layout } from '../../../src'
+import { Layout } from '../../src'
 
 
 const Main = () => {

@@ -21,7 +21,7 @@
     "lib"
   ],
   "scripts": {
-    "dev": "cd example/myapp && npm run dev",
+    "dev": "cd example && npm run dev",
     "build": "npm run clean && node ./scripts/build.js",
     "clean": "rimraf ./lib"
   },
