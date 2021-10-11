@@ -24,7 +24,6 @@ export interface AdialogProps extends DialogProps {
   onOk?: () => void | Promise<void>;
 }
 
-
 const Content = styled(Box, {
   name: 'DialogContent',
   slot: 'Root',
