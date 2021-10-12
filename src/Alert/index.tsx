@@ -34,7 +34,7 @@ const Aalert: React.FC<AalertProps> = (inProps) => {
     ...otherProps
   } = useThemeProps({ props: inProps, name: componentName })
 
-  const Icon: React.ReactNode = () => {
+  const Icon = () => {
     if (icon === null) return null
 
     if (icon === undefined) {
@@ -53,14 +53,17 @@ const Aalert: React.FC<AalertProps> = (inProps) => {
     if (typeof icon === 'string') {
       return <Aicon name={icon} />
     }
-
-    return icon
   }
 
   const color = componentColor || type
 
   return (
-    <AlertRoot color={color} icon={<Icon />} type={type} {...otherProps}>
+    <AlertRoot 
+      color={color}
+      icon={<Icon />} 
+      type={type} 
+      {...otherProps}
+    >
       {children}
     </AlertRoot>
   )

@@ -1,39 +1,31 @@
 import * as React from 'react';
 
 import ThemeProvider from '../ThemeProvider'
-import Main from './src/main'
-import Header, { HeaderPrpos } from './src/header'
-import Menu, { MenuPrpos } from './src/menu'
-import Content from './src/content';
+import Header from './Header'
+import Menu from './Menu'
+import Content from './Content';
 
-export interface LayoutProps {
+interface InternalLayoutProps {
   children: React.ReactNode;
-  menuPrpos?: MenuPrpos;
-  header?: HeaderPrpos | null;
+}
+export interface LayoutProps extends React.FC<InternalLayoutProps> {
+  Header: typeof Header;
+  Content: typeof Content;
+  Menu: typeof Menu;
 }
 
-const Layout: React.FC<LayoutProps> = ({
+const InternalLayout: React.FC<InternalLayoutProps> = ({
   children,
-  menuPrpos,
-  header,
-}) => {
+}) => (
+  <ThemeProvider theme={undefined}>
+    {children}
+  </ThemeProvider>
+)
 
-  const HeaderRender = () => {
-    if (header === null) return null
-    return <Header {...header} />
-  }
+const Layout = InternalLayout as LayoutProps
 
-  return (
-    <ThemeProvider>
-      <HeaderRender />
-      <Main>
-        <Menu {...menuPrpos} />
-        <Content>
-          {children}
-        </Content>
-      </Main>
-    </ThemeProvider>
-  )
-}
+Layout.Header = Header
+Layout.Content = Content
+Layout.Menu = Menu
 
 export default Layout

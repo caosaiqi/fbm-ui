@@ -16,8 +16,6 @@ const LoadingRoot: React.FC<AloadingProps> = styled(CircularProgress, {
   overridesResolver: (_, styles) => styles.root,
 })(() => ({}))
 
-
-
 const ACircularProgress: React.FC<AloadingProps> = (inProps) => {
   const {
     size,

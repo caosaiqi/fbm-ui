@@ -2,15 +2,13 @@ import * as React from 'react';
 import { ListItem, ListItemProps, ListItemIcon, ListItemText, IconButton, IconButtonProps, Box } from '@material-ui/core'
 import useThemeProps from '@material-ui/core/styles/useThemeProps'
 
-const componentName: string = 'ListRow'
+const componentName: string = 'AlistRow'
 
 export interface ListRowPropos extends ListItemProps {
   text?: string | string[];
-
   before?: React.ReactNode;
   children?: React.ReactNode;
   after?: React.ReactNode;
-  afterButtonProps?: IconButtonProps | Boolean
 }
 
 const AuiAvatar: React.FC<ListRowPropos> = (inProps) => {
@@ -20,7 +18,6 @@ const AuiAvatar: React.FC<ListRowPropos> = (inProps) => {
     before,
     text,
     after,
-    afterButtonProps,
     ...otherProps
   } = props
 
@@ -48,14 +45,14 @@ const AuiAvatar: React.FC<ListRowPropos> = (inProps) => {
 
   const After = () => {
     if (!after) return null
-    if (afterButtonProps) {
-      const btnProps = typeof afterButtonProps === 'boolean' ? { edge: 'end' } : afterButtonProps
-      return (
-        <IconButton {...btnProps}>
-          {after}
-        </IconButton>
-      )
-    }
+    // if (afterButtonProps) {
+    //   const btnProps = { edge: 'end', ...(afterButtonProps || {}) }
+    //   return (
+    //     <IconButton {...btnProps}>
+    //       {after}
+    //     </IconButton>
+    //   )
+    // }
     return <Box>{after}</Box>
   }
 

@@ -186,6 +186,14 @@ const customComponets = {
       size: 'large',
     },
   },
+
+  AlayoutContent: {
+    styleOverrides: {
+      root: {
+        padding: '20px',
+      },
+    },
+  },
 }
 
 
