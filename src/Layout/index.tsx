@@ -1,23 +1,31 @@
 import * as React from 'react';
 
-// import ThemeProvider from '../ThemeProvider'
-import Main from './Main'
+import ThemeProvider from '../ThemeProvider'
 import Header from './Header'
 import Menu from './Menu'
 import Content from './Content';
 
-export interface LayoutProps {
+interface InternalLayoutProps {
   children: React.ReactNode;
 }
+export interface LayoutProps extends React.FC<InternalLayoutProps> {
+  Header: typeof Header;
+  Content: typeof Content;
+  Menu: typeof Menu;
+}
 
-// const Layout: React.FC<LayoutProps> = ({
-//   children,
-// }) => (
-//   <div>
-//     {children}
-//   </div>
-// )
+const InternalLayout: React.FC<InternalLayoutProps> = ({
+  children,
+}) => (
+  <ThemeProvider theme={undefined}>
+    {children}
+  </ThemeProvider>
+)
 
+const Layout = InternalLayout as LayoutProps
 
-// export { Header, Main, Content, Menu };
-export default { Header, Main, Content, Menu };
+Layout.Header = Header
+Layout.Content = Content
+Layout.Menu = Menu
+
+export default Layout

@@ -11,17 +11,28 @@ export const componentName: string = 'ADialog'
 type dialogType = 'error' | 'warning' | 'success' | 'info';
 
 export interface AdialogProps extends DialogProps {
+  /** ADialog类型 可选 */
   type?: dialogType;
+  /** 标题 */
   title?: string;
-  footer?: React.ReactNode | boolean | null
-  closeText?: string;
+  /** 传null则不显示， 传vnode则自定义底部内容， 不传则展示默认footer */
+  footer?: React.ReactNode | null
+  /** footer 确认按钮文案 默认为“好的”' */
   okText?: string;
-  isShowClose?: boolean;
-  isShowCloseButton?: boolean;
-  closeButtonProps?: ButtonProps;
-  okButtonProps?: ButtonProps;
-  onClose?: () => void;
+  /** footer 取消按钮文案 默认为“取消”' */
+  closeText?: string;
+  /** 是否显示dialog又上角“x” */
+  isShowHeaderClose?: boolean;
+  /** 是否显示取消按钮 */
+  isShowFooterClose?: boolean;
+  /** footer 取消按钮props */
+  okProps?: ButtonProps;
+  /** footer 取消按钮props */
+  closeProps?: ButtonProps;
+  /** footer 确定按钮click事件 */
   onOk?: () => void | Promise<void>;
+  /** footer 取消按钮事件 */
+  onClose?: () => void;
 }
 
 const Content = styled(Box, {
@@ -38,10 +49,10 @@ const AuiDialog: React.FC<AdialogProps> = (inProps) => {
     footer,
     okText,
     closeText,
-    isShowClose,
-    isShowCloseButton,
-    closeButtonProps,
-    okButtonProps,
+    isShowHeaderClose,
+    isShowFooterClose,
+    closeProps,
+    okProps,
     onClose,
     onOk,
     ...otherProps
@@ -68,7 +79,7 @@ const AuiDialog: React.FC<AdialogProps> = (inProps) => {
       text: title,
     }
 
-    if (isShowClose) {
+    if (isShowHeaderClose) {
       Object.assign(ListRowProps, {
         after: <CloseIcon />,
         afterButtonProps: {
@@ -89,13 +100,13 @@ const AuiDialog: React.FC<AdialogProps> = (inProps) => {
     return (
       <DialogActions sx={{ padding: 0 }}>
         {
-          isShowCloseButton && (
-            <Button {...closeButtonProps} onClick={doClose}>
+          isShowFooterClose && (
+            <Button {...closeProps} onClick={doClose}>
               {closeText}
             </Button>
           )
         }
-        <Button {...okButtonProps} onClick={doOk} color={type}>
+        <Button {...okProps} onClick={doOk} color={type}>
           {okText}
         </Button>
       </DialogActions>

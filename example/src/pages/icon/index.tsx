@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { Icon } from "../../../../src"
+import { Aicon } from "../../../../src"
 
 export default () => (
   <div>
-    <Icon name="ErrorIcon" color="error" />
-    <Icon name="WarningIcon" htmlColor="yellow"  />
-    <Icon name="InfoIcon"  fontSize="small" color="info" />
-    <Icon name="CheckIcon" color="success" />
+    <Aicon name="ErrorIcon" color="error" />
+    <Aicon name="WarningIcon" htmlColor="yellow"  />
+    <Aicon name="InfoIcon"  fontSize="small" color="info" />
+    <Aicon name="CheckIcon" color="success" />
   </div>
 )
