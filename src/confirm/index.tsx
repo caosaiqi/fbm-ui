@@ -52,7 +52,7 @@ const confirm = (props: AconfirmProps) => {
     }
 
     return (
-      <ThemeProvider>
+      <ThemeProvider theme={undefined}>
         <Dialog
           {...props}
           open={open}

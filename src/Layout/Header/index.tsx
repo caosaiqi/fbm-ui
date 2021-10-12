@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Box } from '@material-ui/core'
 import styled from '@material-ui/core/styles/styled'
 
-import Logo, { AlogoProps } from '../../../Logo'
+import Logo, { AlogoProps } from '../../Logo'
 
 export interface HeaderPrpos {
   children?: React.ReactNode,

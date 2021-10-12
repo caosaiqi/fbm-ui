@@ -15,7 +15,7 @@ const AvatarRoot: React.FC<AavatarPropos> = styled(Avatar, {
   name: 'Aavatar',
   slot: 'Root',
   overridesResolver: (props, styles) => {
-    const { size, disabled} = props
+    const { size, disabled } = props
     return [
       styles.root,
       styles[size],
