@@ -19,6 +19,7 @@ import icon from './pages/icon'
 export const routes = [
   {
     path: '/icon',
+    title: 'Icon 图标',
     Component: icon,
   },
   // {

@@ -190,7 +190,36 @@ const customComponets = {
   AlayoutContent: {
     styleOverrides: {
       root: {
-        padding: '20px',
+        display: 'flex',
+        height: 'calc(100vh - 64px)',
+
+      },
+    },
+  },
+
+  AlayoutPage: {
+    styleOverrides: {
+      root: {
+        flex: 1,
+        overflowY: 'auto',
+        boxSizing: 'border-box',
+      },
+    },
+  },
+
+  AlayoutHoverMenu: {
+    styleOverrides: {
+      root: {
+        width: 56,
+        zIndex: 1001,
+        overflowX: 'hidden',
+        height: '100%',
+        boxShadow: '0px 4px 8px 0px rgb(0, 0, 0, 0.16)',
+        backgroundColor: '#fff',
+        position: 'absolute',
+        '&:hover': {
+          width: 186,
+        },
       },
     },
   },
