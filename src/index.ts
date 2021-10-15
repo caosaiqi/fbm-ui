@@ -1,4 +1,4 @@
-// export * from '@material-ui/core'
+export * from '@material-ui/core'
 
 export { default as Alayout } from './Layout';
 export { default as AthemeProvider } from './ThemeProvider';

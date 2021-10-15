@@ -19,7 +19,6 @@ const Header: React.FC<HeaderPrpos> = ({
   children,
   logo,
 }) => {
-
   const LogoRender = () => {
     if (logo === null) return null
     return <Logo {...logo} />

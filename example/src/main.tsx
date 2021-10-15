@@ -1,41 +1,29 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import { LayerIcon } from '@avocadoui/icons';
+import { LayerIcon } from '@avocadoui/icons';
 
-import Router from './Router'
-import { Alayout } from '../../src'
+import Router, {routes} from './Router'
+import { Alayout, MenuItem} from '../../src'
 
-const { Header, Content, Menu } = Alayout
+const { Header, Content } = Alayout
 
-const Main = () =>
-// const menuPrpos = {
-//   menus: routes.map(route => ({
-//       title: route.path,
-//       icon: <LayerIcon />,
-//       onClick: () => {
-//         // browserHistory.push('/Typography')
-//         location.href = `${location.origin}${route.path}`
-//       },
-//     })),
-// [
-//   {
-//     title: 'Typography',
-//     icon: <LayerIcon />,
-//     link: '/',
-//     selected: true,
-//     onClick: () => {
-//       // browserHistory.push('/Typography')
-//       location.href = `${location.origin}/Typography`
-//     },
-//   },
-// ],
-// }
-(
+const menuPrpos = {
+  menus: routes.map(route => ({
+      title: route.title,
+      icon: <LayerIcon />,
+      onClick: () => {
+        location.href = `${location.origin}${route.path}`
+      },
+    })),
+}
+
+const Main = () =>(
   <React.StrictMode>
     <Alayout>
       <Header />
-      <Content>
+      <Content menu={menuPrpos} >
+        <MenuItem>asdsad</MenuItem>
         <Router />
       </Content>
     </Alayout>

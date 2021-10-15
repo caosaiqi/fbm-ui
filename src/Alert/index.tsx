@@ -10,7 +10,9 @@ const componentName: string = 'Aalert'
 type AlertType = 'error' | 'warning' | 'success' | 'info'
 
 export interface AalertProps extends AlertProps {
+  /** Alert类型 可选 默认为info */
   type?: AlertType;
+  /** Alert显示内容 */
   children?: React.ReactNode
 }
 

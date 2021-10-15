@@ -18,20 +18,5 @@ export default {
     },
   },
 
-  MuiListItemIcon: {
-    styleOverrides: {
-      root: {
-        minWidth: 36,
-      },
-    },
-  },
-
-  MuiDialog: {
-    styleOverrides: {
-      paper: {
-        minWidth: 300,
-      },
-    },
-  },
   ...customComponets,
 }
