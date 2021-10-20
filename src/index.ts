@@ -12,8 +12,10 @@ export { default as Atoast } from './Toast';
 export { default as Aalert } from './Alert';
 export { default as Aicon } from './Icon';
 export { default as Aloading } from './Loading';
-
+export { default as Abox } from './Box';
 
 
 /** confirm 是一个方法并非组件， 所以用的小写开头 */
-export { default as  confirm } from './confirm';
+export { default as confirm } from './confirm';
+
+export { default as styled } from '@material-ui/core/styles/styled'

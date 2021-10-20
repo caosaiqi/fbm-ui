@@ -5,9 +5,9 @@ import useThemeProps from '@material-ui/core/styles/useThemeProps'
 
 export const componentName: string = 'Aloading'
 
-type sizeTyoe = 'large' | 'small'
+type sizeType = 'large' | 'small'
 export interface AloadingProps extends CircularProgressProps {
-  size?: sizeTyoe | number
+  size?: sizeType | number
 }
 
 const LoadingRoot: React.FC<AloadingProps> = styled(CircularProgress, {
