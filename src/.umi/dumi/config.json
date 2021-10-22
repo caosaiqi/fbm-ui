@@ -1,0 +1,112 @@
+{
+  "menus": {
+    "en-US": {
+      "/components": [
+        {
+          "title": "Alert 提醒",
+          "meta": {
+            "__fallback": true
+          },
+          "children": [],
+          "path": "/components/alert"
+        },
+        {
+          "title": "Avatar 头像",
+          "meta": {
+            "__fallback": true
+          },
+          "children": [],
+          "path": "/components/avatar"
+        },
+        {
+          "title": "Box 容器",
+          "meta": {
+            "__fallback": true
+          },
+          "children": [],
+          "path": "/components/box"
+        },
+        {
+          "title": "confirm 二次确认方法",
+          "meta": {
+            "__fallback": true
+          },
+          "children": [],
+          "path": "/components/confirm"
+        },
+        {
+          "title": "Dialog 对话框",
+          "meta": {
+            "__fallback": true
+          },
+          "children": [],
+          "path": "/components/dialog"
+        },
+        {
+          "title": "Icon 图标",
+          "meta": {
+            "__fallback": true
+          },
+          "children": [],
+          "path": "/components/icon"
+        },
+        {
+          "title": "Loading 加载",
+          "meta": {
+            "__fallback": true
+          },
+          "children": [],
+          "path": "/components/loading"
+        },
+        {
+          "title": "Toast 全局提示",
+          "meta": {
+            "__fallback": true
+          },
+          "children": [],
+          "path": "/components/toast"
+        }
+      ],
+      "/typography": [
+        {
+          "path": "/typography",
+          "title": "Typography",
+          "meta": {}
+        }
+      ],
+      "*": [
+        {
+          "path": "/",
+          "title": "Index",
+          "meta": {}
+        }
+      ]
+    }
+  },
+  "locales": [
+    {
+      "name": "en-US",
+      "label": "English"
+    }
+  ],
+  "navs": {
+    "en-US": [
+      {
+        "path": "/typography",
+        "title": "Typography"
+      },
+      {
+        "title": "组件",
+        "path": "/components"
+      }
+    ]
+  },
+  "title": "avocado",
+  "logo": "https://avatars.githubusercontent.com/u/91235154?s=200&v=4",
+  "mode": "site",
+  "repository": {
+    "url": "https://github.com/caosaiqi/avocado-ui",
+    "branch": "master"
+  },
+  "theme": {}
+}

@@ -13,9 +13,10 @@ export interface AalertProps extends AlertProps {
   /** Alert类型 可选 默认为info */
   type?: AlertType;
   /** Alert显示内容 */
-  children?: React.ReactNode
+  children?: React.ReactNode,
+   /** 提示文案 */
+  message?:React.ReactNode, 
 }
-
 
 const AlertRoot: React.FC<AalertProps> = styled(Alert, {
   name: 'Aalert',
@@ -31,6 +32,7 @@ const Aalert: React.FC<AalertProps> = (inProps) => {
   const {
     type,
     children,
+    message,
     icon,
     color: componentColor,
     ...otherProps
@@ -66,7 +68,7 @@ const Aalert: React.FC<AalertProps> = (inProps) => {
       type={type} 
       {...otherProps}
     >
-      {children}
+      {message || children}
     </AlertRoot>
   )
 }

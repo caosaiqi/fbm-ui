@@ -9,7 +9,7 @@ import icon from './pages/icon'
 import typography from './pages/typography'
 // import mask from './pages/mask'
 // import tooltip from './pages/tooltip'
-// import avatar from './pages/avatar'
+import avatar from './pages/avatar'
 // import menu from './pages/menu'
 // import toast from './pages/toast'
 // import dialog from './pages/dialog'
@@ -34,10 +34,10 @@ export const routes = [
   //   path: '/tooltip',
   //   Component: tooltip,
   // },
-  // {
-  //   path: '/avatar',
-  //   Component: avatar,
-  // },
+  {
+    path: '/avatar',
+    Component: avatar,
+  },
   // {
   //   path: '/menu',
   //   Component: menu,

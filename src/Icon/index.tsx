@@ -5,7 +5,11 @@ import { SvgIconProps } from '@material-ui/core'
 
 export const componentName: string = 'Aicon'
 
-export interface AiconProps  extends SvgIconProps{
+export interface Props {
+ 
+}
+ interface AiconProps  extends SvgIconProps{
+  /** @avocadoui/icons组件名称 */
   name?: string
 }
 

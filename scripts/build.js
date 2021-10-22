@@ -2,6 +2,7 @@
 const fs = require('fs')
 const path = require('path')
 const { buildSync } = require('esbuild')
+
 const getFiles = (paths, entryPoints = []) => {
     const strPaths = path.resolve(paths.join('/'))
     const files = fs.readdirSync(strPaths)

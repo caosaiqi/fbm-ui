@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ListItem, ListItemProps, ListItemIcon, ListItemText, IconButton, IconButtonProps, Box } from '@material-ui/core'
+import { ListItem, ListItemProps, ListItemIcon, ListItemText } from '@material-ui/core'
 import useThemeProps from '@material-ui/core/styles/useThemeProps'
 
 const componentName: string = 'AlistRow'
@@ -43,21 +43,8 @@ const AuiAvatar: React.FC<ListRowPropos> = (inProps) => {
     )
   }
 
-  const After = () => {
-    if (!after) return null
-    // if (afterButtonProps) {
-    //   const btnProps = { edge: 'end', ...(afterButtonProps || {}) }
-    //   return (
-    //     <IconButton {...btnProps}>
-    //       {after}
-    //     </IconButton>
-    //   )
-    // }
-    return <Box>{after}</Box>
-  }
-
   return (
-    <ListItem secondaryAction={<After />} {...otherProps}>
+    <ListItem secondaryAction={after} {...otherProps}>
       <Before key='icon' />
       <Text key='text' />
     </ListItem>

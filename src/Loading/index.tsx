@@ -7,7 +7,10 @@ export const componentName: string = 'Aloading'
 
 type sizeType = 'large' | 'small'
 export interface AloadingProps extends CircularProgressProps {
+  /** 尺寸 */
   size?: sizeType | number
+  /** 颜色 */
+  color?: string,
 }
 
 const LoadingRoot: React.FC<AloadingProps> = styled(CircularProgress, {
@@ -26,9 +29,15 @@ const ACircularProgress: React.FC<AloadingProps> = (inProps) => {
     small: 16,
     large: 44,
   }
+
   const componentSize = sizeType[size] || size
 
-  return <LoadingRoot {...otherProps} size={componentSize} />
+  return <LoadingRoot size={componentSize} {...otherProps} />
+}
+
+ACircularProgress.defaultProps={
+  color: 'primary',
+  size: 'large',
 }
 
 export default ACircularProgress

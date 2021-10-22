@@ -87,6 +87,7 @@ export default {
     activatedOpacity: 0.12,
   },
   mask: {
-    bgColor: 'rgba(0, 0, 0, 0.56)',
+    dark: 'rgba(0, 0, 0, .56)',
+    white: 'rgba(255, 255, 255, .56)',
   },
 }
