@@ -1,5 +1,5 @@
 {
-  "name": "avocado-ui",
+  "name": "@avocadoui/ui",
   "version": "1.0.0",
   "private": false,
   "description": "React components library",
@@ -21,13 +21,16 @@
     "lib"
   ],
   "scripts": {
-    "dev": "cd example && npm run dev",
-    "build": "npm run clean && node ./scripts/build.js",
-    "clean": "rimraf ./lib"
+    "start": "npm run docs",
+    "build": "npm run clean & tsc",
+    "clean": "rimraf ./lib",
+    "docs": "dumi dev",
+    "docs:dbuild": "dumi build"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",
+    "dumi": "^1.1.30",
     "esbuild": "^0.12.28",
     "eslint": "^7.9.0",
     "eslint-config-airbnb": "^18.0.0",

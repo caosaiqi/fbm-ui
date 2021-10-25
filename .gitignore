@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+/src/.umi
 
 # testing
 /coverage
@@ -24,3 +25,4 @@ yarn-error.log*
 yarn.lock
 
 /lib
+

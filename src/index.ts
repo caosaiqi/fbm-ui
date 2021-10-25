@@ -6,14 +6,14 @@ export { default as Alogo } from './Logo';
 export { default as Aimage } from './Image';
 export { default as Atypography } from './Typography';
 export { default as Amask } from './Mask';
-// export { default as Avatar } from './Avatar';
+export { default as Aavatar } from './Avatar';
 export { default as AlistRow } from './ListRow';
 export { default as Atoast } from './Toast';
 export { default as Aalert } from './Alert';
 export { default as Aicon } from './Icon';
 export { default as Aloading } from './Loading';
+export { default as Abox } from './Box';
+export { default as Adialog } from './Dialog';
+export { default as Aconfirm } from './confirm';
 
-
-
-/** confirm 是一个方法并非组件， 所以用的小写开头 */
-export { default as  confirm } from './confirm';
+export { default as styled } from '@material-ui/core/styles/styled'

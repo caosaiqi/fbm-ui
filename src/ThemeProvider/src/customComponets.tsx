@@ -1,8 +1,4 @@
 const customComponets = {
-  /** 
-   * src/avatar/
-   * example/vite-project/src/pages/avatar
-   */
   Aavatar: {
     styleOverrides: {
       small: {
@@ -26,11 +22,6 @@ const customComponets = {
       disabled: false,
     },
   },
-
-  /** 
-   * src/list-row/
-   * example/vite-project/src/pages/menu
-   */
   ListRow: {
     defaultProps: {
       disablePadding: true,
@@ -39,10 +30,6 @@ const customComponets = {
     },
   },
 
-  /** 
-  * src/list-row/
-  * example/vite-project/src/pages/menu
-  */
   Toast: {
     styleOverrides: {
       root: {
@@ -80,25 +67,16 @@ const customComponets = {
 
   ADialog: {
     defaultProps: {
-      isShowCloseButton: true,
-      closeText: '取 消',
-      okText: '好 的',
       isShowClose: true,
-      closeButtonProps: {
+      isShowCloseBtn: true,
+      closeText: '取消',
+      okText: '好的',
+      closeProps: {
         variant: 'text',
         color: 'secondary',
       },
-      okButtonProps: {
+      okProps: {
         variant: 'contained',
-      },
-    },
-  },
-
-  DialogContent: {
-    styleOverrides: {
-      root: {
-        padding: 16,
-        minWidth: 360,
       },
     },
   },
@@ -176,7 +154,7 @@ const customComponets = {
         right: 0,
         bottom: 0,
         left: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.56)',
+        zIndex: 2,
       },
     },
   },
