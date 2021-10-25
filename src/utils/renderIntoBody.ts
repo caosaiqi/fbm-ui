@@ -1,8 +1,7 @@
-import * as React from 'react';
 import ReactDOM from 'react-dom'
 
 export interface RenderIntoBody {
-  (element: React.ReactNode): Element
+  (element: any): Element
 }
 
 const renderIntoBody: RenderIntoBody = (element) => {

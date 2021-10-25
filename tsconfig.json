@@ -7,8 +7,14 @@
     "jsx": "react",
     "moduleResolution":"Node",
     "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
   },
   "include": [
     "src"
   ],
+  "exclude": [
+    "src/*/*.md",
+    "src/.umi",
+    "src/.umi-production",
+  ]
 }
