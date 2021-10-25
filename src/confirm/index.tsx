@@ -43,10 +43,10 @@ const confirm = (props: AconfirmProps) => {
   const Modal = () => {
     const [open, setOpen] = React.useState(defaultOpen)
 
-    const doClose = () => {
+    const doClose = (event) => {
       setOpen(false)
       if (onClose && typeof onClose === 'function') {
-        onClose()
+        onClose(event, 'backdropClick')
       }
       confirmDiv.delete()
     }
