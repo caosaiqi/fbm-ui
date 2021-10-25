@@ -11,7 +11,7 @@ group:
 
 ```tsx
 import * as React from 'react';
-import { Aalert, Alayout} from 'avocado-ui'
+import { Aalert, Alayout} from 'fbm-ui'
 
 export default () => (
   <Alayout>

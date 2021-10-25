@@ -14,7 +14,7 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import { Alayout, Atypography } from 'avocado-ui'
+import { Alayout, Atypography } from 'fbm-ui'
 
 const colors = [
   'error',

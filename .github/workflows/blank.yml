@@ -9,14 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: yarn
-    - run: npm run build
-      env:
-        CI: true
-        HEADLESS: false
-        PROGRESS: none
-        NODE_ENV: test
-    - name: Publish to NPM
-      run: npm publish || true
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm install
+      - run: npm run install
+      - name: Publish to NPM
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -57,7 +57,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/Alert/index.md",
-          "updatedTime": 1634805385583,
+          "updatedTime": 1634889814000,
           "componentName": "Alert",
           "nav": {
             "title": "组件",
@@ -87,7 +87,7 @@ export function getRoutes() {
           ],
           "title": "Alert 提醒"
         },
-        "title": "Alert 提醒"
+        "title": "Alert 提醒 - fbm"
       },
       {
         "path": "/components/avatar",
@@ -95,7 +95,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/Avatar/index.md",
-          "updatedTime": 1634808123265,
+          "updatedTime": 1634889814000,
           "componentName": "Avatar",
           "nav": {
             "title": "组件",
@@ -125,7 +125,7 @@ export function getRoutes() {
           ],
           "title": "Avatar 头像"
         },
-        "title": "Avatar 头像"
+        "title": "Avatar 头像 - fbm"
       },
       {
         "path": "/components/box",
@@ -133,7 +133,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/Box/index.md",
-          "updatedTime": 1634808170121,
+          "updatedTime": 1634889814000,
           "componentName": "Box",
           "nav": {
             "title": "组件",
@@ -163,7 +163,7 @@ export function getRoutes() {
           ],
           "title": "Box 容器"
         },
-        "title": "Box 容器"
+        "title": "Box 容器 - fbm"
       },
       {
         "path": "/components/dialog",
@@ -171,7 +171,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/Dialog/index.md",
-          "updatedTime": 1634886409394,
+          "updatedTime": 1634889814000,
           "componentName": "Dialog",
           "nav": {
             "title": "组件",
@@ -201,7 +201,7 @@ export function getRoutes() {
           ],
           "title": "Dialog 对话框"
         },
-        "title": "Dialog 对话框"
+        "title": "Dialog 对话框 - fbm"
       },
       {
         "path": "/components/icon",
@@ -209,7 +209,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/Icon/index.md",
-          "updatedTime": 1634886903333,
+          "updatedTime": 1634889814000,
           "componentName": "Icon",
           "nav": {
             "title": "组件",
@@ -239,7 +239,7 @@ export function getRoutes() {
           ],
           "title": "Icon 图标"
         },
-        "title": "Icon 图标"
+        "title": "Icon 图标 - fbm"
       },
       {
         "path": "/components/loading",
@@ -247,7 +247,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/Loading/index.md",
-          "updatedTime": 1634887338335,
+          "updatedTime": 1634889814000,
           "componentName": "Loading",
           "nav": {
             "title": "组件",
@@ -277,7 +277,7 @@ export function getRoutes() {
           ],
           "title": "Loading 加载"
         },
-        "title": "Loading 加载"
+        "title": "Loading 加载 - fbm"
       },
       {
         "path": "/components/toast",
@@ -285,7 +285,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/Toast/index.md",
-          "updatedTime": 1634889471043,
+          "updatedTime": 1634889814000,
           "componentName": "Toast",
           "nav": {
             "title": "组件",
@@ -310,7 +310,7 @@ export function getRoutes() {
           ],
           "title": "Toast 全局提示"
         },
-        "title": "Toast 全局提示"
+        "title": "Toast 全局提示 - fbm"
       },
       {
         "path": "/components/typography",
@@ -318,7 +318,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/Typography/index.md",
-          "updatedTime": 1634889814000,
+          "updatedTime": 1635132159000,
           "componentName": "Typography",
           "nav": {
             "title": "组件",
@@ -348,7 +348,7 @@ export function getRoutes() {
           ],
           "title": "Typography 文字铸排"
         },
-        "title": "Typography 文字铸排"
+        "title": "Typography 文字铸排 - fbm"
       },
       {
         "path": "/components/confirm",
@@ -356,7 +356,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/confirm/index.md",
-          "updatedTime": 1634875393625,
+          "updatedTime": 1634889814000,
           "componentName": "confirm",
           "nav": {
             "title": "组件",
@@ -386,7 +386,39 @@ export function getRoutes() {
           ],
           "title": "confirm 二次确认方法"
         },
-        "title": "confirm 二次确认方法"
+        "title": "confirm 二次确认方法 - fbm"
+      },
+      {
+        "path": "/docs/getting-started",
+        "component": require('/Users/elikeji/work/avocado-ui/docs/getting-started.md').default,
+        "exact": true,
+        "meta": {
+          "filePath": "docs/getting-started.md",
+          "updatedTime": 1631779138000,
+          "title": "快速开始",
+          "order": 2,
+          "group": {
+            "path": "/docs/",
+            "title": "文档"
+          },
+          "nav": {
+            "title": "文档",
+            "path": "/docs"
+          },
+          "slugs": [
+            {
+              "depth": 2,
+              "value": "安装",
+              "heading": "安装"
+            },
+            {
+              "depth": 2,
+              "value": "在项目中使用",
+              "heading": "在项目中使用"
+            }
+          ]
+        },
+        "title": "快速开始 - fbm"
       },
       {
         "path": "/",
@@ -394,9 +426,9 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/index.md",
-          "updatedTime": 1631779138000,
+          "updatedTime": 1634889814000,
           "hero": {
-            "title": "acocado-ui",
+            "title": "fbm-ui",
             "actions": [
               {
                 "text": "快速上手",
@@ -425,16 +457,28 @@ export function getRoutes() {
           "slugs": [],
           "title": "Index"
         },
-        "title": "Index"
+        "title": "Index - fbm"
       },
       {
         "path": "/components",
         "meta": {},
         "exact": true,
         "redirect": "/components/alert"
+      },
+      {
+        "path": "/docs/",
+        "meta": {},
+        "exact": true,
+        "redirect": "/docs/getting-started"
+      },
+      {
+        "path": "/docs",
+        "meta": {},
+        "exact": true,
+        "redirect": "/docs/getting-started"
       }
     ],
-    "title": "avocado",
+    "title": "fbm",
     "component": (props) => props.children
   }
 ];

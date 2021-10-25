@@ -14,7 +14,7 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import { Adialog, Alayout, Button} from 'avocado-ui'
+import { Adialog, Alayout, Button} from 'fbm-ui'
 
 const CustomHeader =  ({ onClose }) => (
   <div style={{

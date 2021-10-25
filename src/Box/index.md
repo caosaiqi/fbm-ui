@@ -14,7 +14,7 @@ group:
  * desc: 给某个模块添加loaidng
  */
 import * as React from 'react';
-import { Abox, Alayout , Atypography, Divider, Switch} from 'avocado-ui'
+import { Abox, Alayout , Atypography, Divider, Switch} from 'fbm-ui'
 
 export default () =>{
   const [loading, setLoading] = React.useState(true)
@@ -65,7 +65,7 @@ export default () =>{
  * desc: 禁用某个模块
  */
 import * as React from 'react';
-import { Abox, Alayout , Atypography, Switch} from 'avocado-ui'
+import { Abox, Alayout , Atypography, Switch} from 'fbm-ui'
 
 export default () =>{
   const [disabled, setDisabled] = React.useState(true)

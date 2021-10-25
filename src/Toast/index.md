@@ -14,7 +14,7 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import {  Alayout, Atoast, Button} from 'avocado-ui'
+import {  Alayout, Atoast, Button} from 'fbm-ui'
 
 
 const types = ['error', 'warning', 'success', 'info' ]

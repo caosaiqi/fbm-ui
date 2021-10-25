@@ -1,6 +1,6 @@
 ---
 hero:
-  title: acocado-ui
+  title: fbm-ui
   actions:
     - text: 快速上手
       link: /components
