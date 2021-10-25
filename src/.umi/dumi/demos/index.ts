@@ -522,4 +522,39 @@ export default {
 },
     previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport {  Alayout, Atoast, Button} from 'avocado-ui'\n\n\nconst types = ['error', 'warning', 'success', 'info' ]\n\nconst closeCallback = () => console.log('提示关闭回调')\nconst handleClick = (type) => {\n\n  Atoast[type](`这是一段${type}提示`, closeCallback)\n}\n\nexport default () => types.map(type => (<Button color={type} key={type} onClick={() => Atoast[type](`这是一段${type}提示`)}> {type}</Button>))\n\n"}},"dependencies":{"react":{"version":"17.0.2"},"avocado-ui":{"version":"1.0.0"}},"componentName":"Toast","title":"基本","description":"<div class=\"markdown\"><p>基本使用</p></div>","identifier":"Toast-demo"},
   },
+  'Typography-demo': {
+    component: function DumiDemo() {
+  var React = _interopRequireWildcard(require("react"));
+
+  var _avocadoUi = require("avocado-ui");
+
+  function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+  function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+  var colors = ['error', 'warning', 'success', 'info', 'secondary', 'primary', 'disabled'];
+  var tags = ['h4', 'h5', 'h6', 'subtitle1', 'subtitle2', 'body1', 'body2', 'caption', 'button', 'overline'];
+  var typographys = [];
+  tags.forEach(function (tag) {
+    colors.forEach(function (color) {
+      typographys.push( /*#__PURE__*/React.createElement("div", {
+        key: "".concat(tag).concat(color),
+        style: {
+          marginBottom: 10
+        }
+      }, /*#__PURE__*/React.createElement(_avocadoUi.Atypography, {
+        variant: tag,
+        color: color
+      }, "tag: ", tag, " \xA0 color: ", color, "  \xA0 hello Typography")));
+    });
+  });
+
+  var _default = function _default() {
+    return /*#__PURE__*/React.createElement(_avocadoUi.Alayout, null, typographys);
+  };
+
+  return React["default"].createElement(_default);
+},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport { Alayout, Atypography } from 'avocado-ui'\n\nconst colors = [\n  'error',\n  'warning',\n  'success',\n  'info',\n  'secondary',\n  'primary',\n  'disabled',\n]\nconst tags = [\n  'h4',\n  'h5',\n  'h6',\n  'subtitle1',\n  'subtitle2',\n  'body1',\n  'body2',\n  'caption',\n  'button',\n  'overline',\n]\nconst typographys: JSX.Element[] = []\n\ntags.forEach(tag => {\n  colors.forEach(color => {\n    typographys.push(\n      <div key={`${tag}${color}`} style={{ marginBottom: 10 }}>\n        <Atypography variant={tag} color={color}>\n          tag: {tag} &nbsp;\n          color: {color}  &nbsp;\n          hello Typography\n        </Atypography>\n      </div>,\n    )\n  })\n})\n\nexport default () => (\n  <Alayout>\n     {typographys}\n  </Alayout>\n)\n"}},"dependencies":{"react":{"version":"17.0.2"},"avocado-ui":{"version":"1.0.0"}},"componentName":"Typography","title":"基本","description":"<div class=\"markdown\"><p>基本使用</p></div>","identifier":"Typography-demo"},
+  },
 };

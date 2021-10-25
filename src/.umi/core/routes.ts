@@ -313,21 +313,42 @@ export function getRoutes() {
         "title": "Toast 全局提示"
       },
       {
-        "path": "/typography",
+        "path": "/components/typography",
         "component": require('/Users/elikeji/work/avocado-ui/src/Typography/index.md').default,
         "exact": true,
         "meta": {
           "filePath": "src/Typography/index.md",
-          "updatedTime": 1634889764192,
+          "updatedTime": 1634889814000,
           "componentName": "Typography",
-          "slugs": [],
           "nav": {
-            "path": "/typography",
-            "title": "Typography"
+            "title": "组件",
+            "path": "/components"
           },
-          "title": "Typography"
+          "group": {
+            "title": "Typography 文字铸排",
+            "__fallback": true,
+            "path": "/components/typography"
+          },
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "Typography 文字铸排",
+              "heading": "typography-文字铸排"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 2,
+              "value": "API",
+              "heading": "api"
+            }
+          ],
+          "title": "Typography 文字铸排"
         },
-        "title": "Typography"
+        "title": "Typography 文字铸排"
       },
       {
         "path": "/components/confirm",

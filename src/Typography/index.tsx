@@ -1,10 +1,14 @@
 import * as React from 'react';
 import { Typography, TypographyProps } from '@material-ui/core'
 
+type ColorTypeMap = 'error' | 'warning' | 'success' | 'info' | 'black' | 'white' | 'secondary' | 'disabled'
+type WeightTypeMap = 'light' | 'regular' | 'medium' | 'bold'
 export interface AuiTypographyProps extends TypographyProps {
   children?: React.ReactNode;
-  color?: string;
-  weight?: string | number;
+  /** 字体颜色 */
+  color?: ColorTypeMap | string;
+  /** 字体色重 */
+  weight?: WeightTypeMap | string;
   /**
    *  variant?: OverridableStringUnion<Variant | 'inherit', TypographyPropsVariantOverrides>;
    * The component maps the variant prop to a range of different HTML element types.

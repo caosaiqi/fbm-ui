@@ -65,13 +65,14 @@
           },
           "children": [],
           "path": "/components/toast"
-        }
-      ],
-      "/typography": [
+        },
         {
-          "path": "/typography",
-          "title": "Typography",
-          "meta": {}
+          "title": "Typography 文字铸排",
+          "meta": {
+            "__fallback": true
+          },
+          "children": [],
+          "path": "/components/typography"
         }
       ],
       "*": [
@@ -91,10 +92,6 @@
   ],
   "navs": {
     "en-US": [
-      {
-        "path": "/typography",
-        "title": "Typography"
-      },
       {
         "title": "组件",
         "path": "/components"

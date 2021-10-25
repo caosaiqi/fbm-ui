@@ -1,5 +1,5 @@
 {
-  "name": "avocado-ui",
+  "name": "@avocadoui/ui",
   "version": "1.0.0",
   "private": false,
   "description": "React components library",
@@ -22,7 +22,6 @@
   ],
   "scripts": {
     "dev": "cd example && npm run dev",
-    "build": "npm run clean && node ./scripts/build.js",
     "clean": "rimraf ./lib",
     "docs": "dumi dev"
   },
