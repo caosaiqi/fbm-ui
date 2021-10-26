@@ -57,7 +57,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/Alert/index.md",
-          "updatedTime": 1634889814000,
+          "updatedTime": 1635166723000,
           "componentName": "Alert",
           "nav": {
             "title": "组件",
@@ -95,7 +95,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/Avatar/index.md",
-          "updatedTime": 1634889814000,
+          "updatedTime": 1635166723000,
           "componentName": "Avatar",
           "nav": {
             "title": "组件",
@@ -133,7 +133,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/Box/index.md",
-          "updatedTime": 1634889814000,
+          "updatedTime": 1635166723000,
           "componentName": "Box",
           "nav": {
             "title": "组件",
@@ -171,7 +171,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/Dialog/index.md",
-          "updatedTime": 1634889814000,
+          "updatedTime": 1635166723000,
           "componentName": "Dialog",
           "nav": {
             "title": "组件",
@@ -204,12 +204,50 @@ export function getRoutes() {
         "title": "Dialog 对话框 - fbm"
       },
       {
+        "path": "/components/form",
+        "component": require('/Users/elikeji/work/avocado-ui/src/Form/index.md').default,
+        "exact": true,
+        "meta": {
+          "filePath": "src/Form/index.md",
+          "updatedTime": 1635256614428,
+          "componentName": "Form",
+          "nav": {
+            "title": "组件",
+            "path": "/components"
+          },
+          "group": {
+            "title": "Form 表单",
+            "__fallback": true,
+            "path": "/components/form"
+          },
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "Form 表单",
+              "heading": "form-表单"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 2,
+              "value": "API",
+              "heading": "api"
+            }
+          ],
+          "title": "Form 表单"
+        },
+        "title": "Form 表单 - fbm"
+      },
+      {
         "path": "/components/icon",
         "component": require('/Users/elikeji/work/avocado-ui/src/Icon/index.md').default,
         "exact": true,
         "meta": {
           "filePath": "src/Icon/index.md",
-          "updatedTime": 1634889814000,
+          "updatedTime": 1635166723000,
           "componentName": "Icon",
           "nav": {
             "title": "组件",
@@ -242,12 +280,50 @@ export function getRoutes() {
         "title": "Icon 图标 - fbm"
       },
       {
+        "path": "/components/input",
+        "component": require('/Users/elikeji/work/avocado-ui/src/Input/index.md').default,
+        "exact": true,
+        "meta": {
+          "filePath": "src/Input/index.md",
+          "updatedTime": 1635256662637,
+          "componentName": "Input",
+          "nav": {
+            "title": "组件",
+            "path": "/components"
+          },
+          "group": {
+            "title": "Input 输入框",
+            "__fallback": true,
+            "path": "/components/input"
+          },
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "Input 输入框",
+              "heading": "input-输入框"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 2,
+              "value": "API",
+              "heading": "api"
+            }
+          ],
+          "title": "Input 输入框"
+        },
+        "title": "Input 输入框 - fbm"
+      },
+      {
         "path": "/components/loading",
         "component": require('/Users/elikeji/work/avocado-ui/src/Loading/index.md').default,
         "exact": true,
         "meta": {
           "filePath": "src/Loading/index.md",
-          "updatedTime": 1634889814000,
+          "updatedTime": 1635166723000,
           "componentName": "Loading",
           "nav": {
             "title": "组件",
@@ -285,7 +361,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/Toast/index.md",
-          "updatedTime": 1634889814000,
+          "updatedTime": 1635166723000,
           "componentName": "Toast",
           "nav": {
             "title": "组件",
@@ -318,7 +394,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/Typography/index.md",
-          "updatedTime": 1635132159000,
+          "updatedTime": 1635166723000,
           "componentName": "Typography",
           "nav": {
             "title": "组件",
@@ -356,7 +432,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/confirm/index.md",
-          "updatedTime": 1634889814000,
+          "updatedTime": 1635166723000,
           "componentName": "confirm",
           "nav": {
             "title": "组件",
@@ -394,7 +470,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/getting-started.md",
-          "updatedTime": 1631779138000,
+          "updatedTime": 1635166723000,
           "title": "快速开始",
           "order": 2,
           "group": {
@@ -407,14 +483,19 @@ export function getRoutes() {
           },
           "slugs": [
             {
-              "depth": 2,
+              "depth": 3,
+              "value": "兼容环境",
+              "heading": "兼容环境"
+            },
+            {
+              "depth": 3,
               "value": "安装",
               "heading": "安装"
             },
             {
-              "depth": 2,
-              "value": "在项目中使用",
-              "heading": "在项目中使用"
+              "depth": 4,
+              "value": "使用 npm 或 yarn 安装",
+              "heading": "使用-npm-或-yarn-安装"
             }
           ]
         },
@@ -426,7 +507,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/index.md",
-          "updatedTime": 1634889814000,
+          "updatedTime": 1635166723000,
           "hero": {
             "title": "fbm-ui",
             "actions": [

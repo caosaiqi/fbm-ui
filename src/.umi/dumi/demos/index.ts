@@ -27,7 +27,7 @@ export default {
 
   return React["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport { Aalert, Alayout} from 'fbm-ui'\n\nexport default () => (\n  <Alayout>\n    <Aalert type='success'>  这是一个Success提醒 </Aalert>\n    <br />\n    <Aalert type='error'>  这是一个Error提醒 </Aalert>\n    <br />\n    <Aalert type='warning'>  这是一个Warning提醒 </Aalert>\n    <br />\n    <Aalert type='info'>  这是一个Info提醒 </Aalert>\n</Alayout>\n)"}},"dependencies":{"react":{"version":"17.0.2"},"fbm-ui":{"version":"1.0.0"}},"componentName":"Alert","identifier":"Alert-demo"},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport { Aalert, Alayout} from 'fbm-ui'\n\nexport default () => (\n  <Alayout>\n    <Aalert type='success'>  这是一个Success提醒 </Aalert>\n    <br />\n    <Aalert type='error'>  这是一个Error提醒 </Aalert>\n    <br />\n    <Aalert type='warning'>  这是一个Warning提醒 </Aalert>\n    <br />\n    <Aalert type='info'>  这是一个Info提醒 </Aalert>\n</Alayout>\n)"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Alert","identifier":"Alert-demo"},
   },
   'Avatar-demo': {
     component: function DumiDemo() {
@@ -59,7 +59,7 @@ export default {
 
   return React["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport { Aavatar, Alayout} from 'fbm-ui'\n\nconst imgurl = 'https://joeschmoe.io/api/v1/random'\nexport default () =>(\n  <Alayout>\n    <Aavatar  src={imgurl} size='small' />\n    <br/>\n    <Aavatar  src={imgurl} size='middle' />\n    <br/>\n    <Aavatar  src={imgurl} size='large' />\n     <br/>\n    <Aavatar  src={imgurl} size={300} />\n    \n  </Alayout>\n)"}},"dependencies":{"react":{"version":"17.0.2"},"fbm-ui":{"version":"1.0.0"}},"componentName":"Avatar","title":"基本","description":"<div class=\"markdown\"><p>内置三种尺寸，size支持传入数字自定义尺寸</p></div>","identifier":"Avatar-demo"},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport { Aavatar, Alayout} from 'fbm-ui'\n\nconst imgurl = 'https://joeschmoe.io/api/v1/random'\nexport default () =>(\n  <Alayout>\n    <Aavatar  src={imgurl} size='small' />\n    <br/>\n    <Aavatar  src={imgurl} size='middle' />\n    <br/>\n    <Aavatar  src={imgurl} size='large' />\n     <br/>\n    <Aavatar  src={imgurl} size={300} />\n    \n  </Alayout>\n)"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Avatar","title":"基本","description":"<div class=\"markdown\"><p>内置三种尺寸，size支持传入数字自定义尺寸</p></div>","identifier":"Avatar-demo"},
   },
   'Avatar-demo-1': {
     component: function DumiDemo() {
@@ -83,7 +83,7 @@ export default {
 
   return React["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport { Aavatar, Alayout} from 'fbm-ui'\n\nconst imgurl = 'https://joeschmoe.io/api/v1/random'\nexport default () =>(\n  <Alayout>\n    <Aavatar  src={imgurl} size='large' disabled/>\n    \n  </Alayout>\n)"}},"dependencies":{"react":{"version":"17.0.2"},"fbm-ui":{"version":"1.0.0"}},"componentName":"Avatar","title":"disabled","description":"<div class=\"markdown\"><p>头像禁用状态</p></div>","identifier":"Avatar-demo-1"},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport { Aavatar, Alayout} from 'fbm-ui'\n\nconst imgurl = 'https://joeschmoe.io/api/v1/random'\nexport default () =>(\n  <Alayout>\n    <Aavatar  src={imgurl} size='large' disabled/>\n    \n  </Alayout>\n)"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Avatar","title":"disabled","description":"<div class=\"markdown\"><p>头像禁用状态</p></div>","identifier":"Avatar-demo-1"},
   },
   'Box-demo': {
     component: function DumiDemo() {
@@ -131,7 +131,7 @@ export default {
 
   return React["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport { Abox, Alayout , Atypography, Divider, Switch} from 'fbm-ui'\n\nexport default () =>{\n  const [loading, setLoading] = React.useState(true)\n  return (\n  <Alayout>\n    <Abox mb={3}>\n      <Switch\n        checked={loading}\n        onChange={(e) => setLoading(!loading)}\n      />\n    </Abox>\n    <Abox loading={{\n      loading,\n       desc: '这是loaidng 一段描述文案',\n       size: 35,\n    }}>\n      <Atypography variant=\"body1\" gutterBottom>\n        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos\n        blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,\n        neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum\n        quasi quidem quibusdam.\n         body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos\n        blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,\n        neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum\n        quasi quidem quibusdam.\n      </Atypography>\n      <br />\n    </Abox>\n    <Divider />\n    <Abox loading={loading}>\n       <br />\n      <Atypography variant=\"body1\" gutterBottom>\n        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos\n        blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,\n        neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum\n        quasi quidem quibusdam.\n      </Atypography>\n    </Abox>\n\n  </Alayout>\n)\n}"}},"dependencies":{"react":{"version":"17.0.2"},"fbm-ui":{"version":"1.0.0"}},"componentName":"Box","title":"loading","description":"<div class=\"markdown\"><p>给某个模块添加loaidng</p></div>","identifier":"Box-demo"},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport { Abox, Alayout , Atypography, Divider, Switch} from 'fbm-ui'\n\nexport default () =>{\n  const [loading, setLoading] = React.useState(true)\n  return (\n  <Alayout>\n    <Abox mb={3}>\n      <Switch\n        checked={loading}\n        onChange={(e) => setLoading(!loading)}\n      />\n    </Abox>\n    <Abox loading={{\n      loading,\n       desc: '这是loaidng 一段描述文案',\n       size: 35,\n    }}>\n      <Atypography variant=\"body1\" gutterBottom>\n        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos\n        blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,\n        neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum\n        quasi quidem quibusdam.\n         body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos\n        blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,\n        neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum\n        quasi quidem quibusdam.\n      </Atypography>\n      <br />\n    </Abox>\n    <Divider />\n    <Abox loading={loading}>\n       <br />\n      <Atypography variant=\"body1\" gutterBottom>\n        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos\n        blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,\n        neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum\n        quasi quidem quibusdam.\n      </Atypography>\n    </Abox>\n\n  </Alayout>\n)\n}"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Box","title":"loading","description":"<div class=\"markdown\"><p>给某个模块添加loaidng</p></div>","identifier":"Box-demo"},
   },
   'Box-demo-1': {
     component: function DumiDemo() {
@@ -173,7 +173,7 @@ export default {
 
   return React["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport { Abox, Alayout , Atypography, Switch} from 'fbm-ui'\n\nexport default () =>{\n  const [disabled, setDisabled] = React.useState(true)\n  return (\n    <Alayout>\n      <Abox mb={3}>\n        <Switch\n          checked={disabled}\n          onChange={(e) => setDisabled(!disabled)}\n        />\n      </Abox>\n      <Abox disabled={disabled} sx={{\n        display: 'inline-block',\n      }}>\n        <Atypography variant=\"body1\" gutterBottom>\n          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos\n          blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,\n          neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum\n          quasi quidem quibusdam.\n        </Atypography>\n      </Abox>\n    </Alayout>\n  )\n}"}},"dependencies":{"react":{"version":"17.0.2"},"fbm-ui":{"version":"1.0.0"}},"componentName":"Box","title":"disabled","description":"<div class=\"markdown\"><p>禁用某个模块</p></div>","identifier":"Box-demo-1"},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport { Abox, Alayout , Atypography, Switch} from 'fbm-ui'\n\nexport default () =>{\n  const [disabled, setDisabled] = React.useState(true)\n  return (\n    <Alayout>\n      <Abox mb={3}>\n        <Switch\n          checked={disabled}\n          onChange={(e) => setDisabled(!disabled)}\n        />\n      </Abox>\n      <Abox disabled={disabled} sx={{\n        display: 'inline-block',\n      }}>\n        <Atypography variant=\"body1\" gutterBottom>\n          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos\n          blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,\n          neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum\n          quasi quidem quibusdam.\n        </Atypography>\n      </Abox>\n    </Alayout>\n  )\n}"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Box","title":"disabled","description":"<div class=\"markdown\"><p>禁用某个模块</p></div>","identifier":"Box-demo-1"},
   },
   'Dialog-demo': {
     component: function DumiDemo() {
@@ -281,7 +281,60 @@ export default {
 
   return React["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport { Adialog, Alayout, Button} from 'fbm-ui'\n\nconst CustomHeader =  ({ onClose }) => (\n  <div style={{\n    display:'flex',\n    alignItems: 'center',\n  }}>\n    <p style={{ flex:1}}>CustomHeader</p>\n    <Button onClick={onClose}> 关闭</Button>\n  </div>\n )\n\nconst CustomFooter = ({onOK, onClose}) =>(\n <div style={{\n    display:'flex',\n    alignItems: 'center',\n  }}>\n      <p style={{ flex:1}}>CustomFooter</p>\n    <Button onClick={onClose}> 关闭</Button>\n  </div>\n )\n\n\nexport default () =>{\n  const [open, setOpen] = React.useState(false)\n  const [open1, setOpen1] = React.useState(false)\n  const [open2, setOpen2] = React.useState(false)\n  return (\n    <Alayout>\n        <Button onClick={() => setOpen(true)}> Show </Button>\n        <Adialog \n          open={open}\n          onClose={() => setOpen(false)}\n          onOk={() => setOpen(false)}\n        >\n          <h1>content</h1 >\n        </Adialog>\n\n\n         <Button onClick={() => setOpen1(true)}> 自定义Header </Button>\n          <Adialog \n            open={open1}\n            header={CustomHeader}\n            onClose={() => setOpen(false)}\n            onOk={() => setOpen(false)}\n          >\n            <h1>content</h1 >\n          </Adialog>\n\n          <Button onClick={() => setOpen2(true)}> 自定义 Footer </Button>\n          <Adialog \n            open={open2}\n            footer={CustomFooter}\n            onClose={() => setOpen(false)}\n            onOk={() => setOpen(false)}\n          >\n            <h1>content</h1 >\n          </Adialog>\n    </Alayout>\n  )\n}"}},"dependencies":{"react":{"version":"17.0.2"},"fbm-ui":{"version":"1.0.0"}},"componentName":"Dialog","title":"基本","description":"<div class=\"markdown\"><p>基本使用</p></div>","identifier":"Dialog-demo"},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport { Adialog, Alayout, Button} from 'fbm-ui'\n\nconst CustomHeader =  ({ onClose }) => (\n  <div style={{\n    display:'flex',\n    alignItems: 'center',\n  }}>\n    <p style={{ flex:1}}>CustomHeader</p>\n    <Button onClick={onClose}> 关闭</Button>\n  </div>\n )\n\nconst CustomFooter = ({onOK, onClose}) =>(\n <div style={{\n    display:'flex',\n    alignItems: 'center',\n  }}>\n      <p style={{ flex:1}}>CustomFooter</p>\n    <Button onClick={onClose}> 关闭</Button>\n  </div>\n )\n\n\nexport default () =>{\n  const [open, setOpen] = React.useState(false)\n  const [open1, setOpen1] = React.useState(false)\n  const [open2, setOpen2] = React.useState(false)\n  return (\n    <Alayout>\n        <Button onClick={() => setOpen(true)}> Show </Button>\n        <Adialog \n          open={open}\n          onClose={() => setOpen(false)}\n          onOk={() => setOpen(false)}\n        >\n          <h1>content</h1 >\n        </Adialog>\n\n\n         <Button onClick={() => setOpen1(true)}> 自定义Header </Button>\n          <Adialog \n            open={open1}\n            header={CustomHeader}\n            onClose={() => setOpen(false)}\n            onOk={() => setOpen(false)}\n          >\n            <h1>content</h1 >\n          </Adialog>\n\n          <Button onClick={() => setOpen2(true)}> 自定义 Footer </Button>\n          <Adialog \n            open={open2}\n            footer={CustomFooter}\n            onClose={() => setOpen(false)}\n            onOk={() => setOpen(false)}\n          >\n            <h1>content</h1 >\n          </Adialog>\n    </Alayout>\n  )\n}"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Dialog","title":"基本","description":"<div class=\"markdown\"><p>基本使用</p></div>","identifier":"Dialog-demo"},
+  },
+  'Form-demo': {
+    component: function DumiDemo() {
+  var React = _interopRequireWildcard(require("react"));
+
+  var _fbmUi = require("fbm-ui");
+
+  function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+  function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+  var formProps = {
+    initialValues: {
+      name: '',
+      password: ''
+    },
+    validate: function validate(values, props) {
+      var errors = {};
+      var helperTexts = {
+        name: '请输入名称',
+        password: '请输入密码'
+      };
+      Object.keys(helperTexts).forEach(function (k) {
+        if (values[k] === '') {
+          errors[k] = helperTexts[k];
+        }
+      });
+      return errors;
+    }
+  };
+
+  var _default = function _default() {
+    return /*#__PURE__*/React.createElement(_fbmUi.Alayout, null, /*#__PURE__*/React.createElement(_fbmUi.Aform, formProps, /*#__PURE__*/React.createElement(_fbmUi.Ainput, {
+      label: "\u540D\u79F0",
+      name: "name",
+      sx: {
+        mr: 2
+      }
+    }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement(_fbmUi.Ainput, {
+      label: "\u5BC6\u7801",
+      name: "password"
+    }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement(_fbmUi.Button, {
+      sx: {
+        m: '3px 0px 0 5px'
+      },
+      variant: "contained",
+      type: "submit"
+    }, "\u63D0\u4EA4")));
+  };
+
+  return React["default"].createElement(_default);
+},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport {  Alayout, Ainput, Aform, Button } from 'fbm-ui'\n\nconst formProps = {\n  initialValues: {\n    name: '',\n    password: '',\n  },\n  validate: (values, props) => {\n    const errors = {};\n    const helperTexts = {\n      name: '\b\b请输入名称',\n      password: '请输入密码',\n    }\n    Object.keys(helperTexts).forEach(k => {\n      if (values[k] === '') {\n        errors[k] = helperTexts[k]\n      }\n    })\n    return errors\n  }, \n}\n\nexport default () => (\n  <Alayout>\n    <Aform {...formProps}>\n      <Ainput label=\"名称\" name=\"name\" sx={{mr: 2}} />\n      <br/>\n      <Ainput label=\"密码\" name=\"password\" />\n       <br/>\n      <Button sx={{m: '3px 0px 0 5px'}} variant=\"contained\"  type=\"submit\">\n        提交\n      </Button>\n    </Aform>\n  </Alayout>\n)\n"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Form","title":"基本","description":"<div class=\"markdown\"><p>精简版Formik</p></div>","identifier":"Form-demo"},
   },
   'Icon-demo': {
     component: function DumiDemo() {
@@ -306,7 +359,31 @@ export default {
 
   return React["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport {  Alayout, Aicon } from 'fbm-ui'\n\nconst icons = ['CheckIcon', 'WarningIcon', 'ErrorIcon', 'InfoIcon']\n\nexport default () => icons.map(name => <Aicon name={name} key={name}/>)\n\n"}},"dependencies":{"react":{"version":"17.0.2"},"fbm-ui":{"version":"1.0.0"}},"componentName":"Icon","title":"基本","description":"<div class=\"markdown\"><p>基本使用</p></div>","identifier":"Icon-demo"},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport {  Alayout, Aicon } from 'fbm-ui'\n\nconst icons = ['CheckIcon', 'WarningIcon', 'ErrorIcon', 'InfoIcon']\n\nexport default () => icons.map(name => <Aicon name={name} key={name}/>)\n\n"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Icon","title":"基本","description":"<div class=\"markdown\"><p>基本使用</p></div>","identifier":"Icon-demo"},
+  },
+  'Input-demo': {
+    component: function DumiDemo() {
+  var React = _interopRequireWildcard(require("react"));
+
+  var _fbmUi = require("fbm-ui");
+
+  function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+  function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+  // eslint-disable-next-line import/no-extraneous-dependencies
+  var _default = function _default() {
+    return /*#__PURE__*/React.createElement(_fbmUi.Alayout, null, /*#__PURE__*/React.createElement(_fbmUi.Ainput, {
+      label: "\u540D\u79F0"
+    }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement(_fbmUi.Ainput, {
+      label: "\u540D\u79F0",
+      size: "small"
+    }));
+  };
+
+  return React["default"].createElement(_default);
+},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\n// eslint-disable-next-line import/no-extraneous-dependencies\nimport {  Alayout, Ainput } from 'fbm-ui'\n\nexport default () => (\n  <Alayout>\n    <Ainput label=\"名称\"  />\n    <br />\n    <Ainput label=\"名称\"  size=\"small\" />\n  </Alayout>\n)\n"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Input","title":"两种大小","description":"<div class=\"markdown\"><p>输入框定义了三种尺寸（默认、小），高度分别为44px和34px。</p></div>","identifier":"Input-demo"},
   },
   'Loading-demo': {
     component: function DumiDemo() {
@@ -330,7 +407,7 @@ export default {
 
   return React["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport {  Alayout, Aloading } from 'fbm-ui'\n\n\nexport default () => (\n  <Alayout>\n      <Aloading size=\"large\"/> \n      <br /><br /><br />\n      <Aloading size=\"small\"/>\n      <br /><br /><br />\n      <Aloading size={100} />\n  </Alayout>\n)\n\n"}},"dependencies":{"react":{"version":"17.0.2"},"fbm-ui":{"version":"1.0.0"}},"componentName":"Loading","title":"基本","description":"<div class=\"markdown\"><p>基本使用</p></div>","identifier":"Loading-demo"},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport {  Alayout, Aloading } from 'fbm-ui'\n\n\nexport default () => (\n  <Alayout>\n      <Aloading size=\"large\"/> \n      <br /><br /><br />\n      <Aloading size=\"small\"/>\n      <br /><br /><br />\n      <Aloading size={100} />\n  </Alayout>\n)\n\n"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Loading","title":"基本","description":"<div class=\"markdown\"><p>基本使用</p></div>","identifier":"Loading-demo"},
   },
   'Toast-demo': {
     component: function DumiDemo() {
@@ -366,7 +443,7 @@ export default {
 
   return React["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport {  Alayout, Atoast, Button} from 'fbm-ui'\n\n\nconst types = ['error', 'warning', 'success', 'info' ]\n\nconst closeCallback = () => console.log('提示关闭回调')\nconst handleClick = (type) => {\n\n  Atoast[type](`这是一段${type}提示`, closeCallback)\n}\n\nexport default () => types.map(type => (<Button color={type} key={type} onClick={() => Atoast[type](`这是一段${type}提示`)}> {type}</Button>))\n\n"}},"dependencies":{"react":{"version":"17.0.2"},"fbm-ui":{"version":"1.0.0"}},"componentName":"Toast","title":"基本","description":"<div class=\"markdown\"><p>基本使用</p></div>","identifier":"Toast-demo"},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport {  Alayout, Atoast, Button} from 'fbm-ui'\n\n\nconst types = ['error', 'warning', 'success', 'info' ]\n\nconst closeCallback = () => console.log('提示关闭回调')\nconst handleClick = (type) => {\n\n  Atoast[type](`这是一段${type}提示`, closeCallback)\n}\n\nexport default () => types.map(type => (<Button color={type} key={type} onClick={() => Atoast[type](`这是一段${type}提示`)}> {type}</Button>))\n\n"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Toast","title":"基本","description":"<div class=\"markdown\"><p>基本使用</p></div>","identifier":"Toast-demo"},
   },
   'Typography-demo': {
     component: function DumiDemo() {
@@ -401,7 +478,7 @@ export default {
 
   return React["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport { Alayout, Atypography } from 'fbm-ui'\n\nconst colors = [\n  'error',\n  'warning',\n  'success',\n  'info',\n  'secondary',\n  'primary',\n  'disabled',\n]\nconst tags = [\n  'h4',\n  'h5',\n  'h6',\n  'subtitle1',\n  'subtitle2',\n  'body1',\n  'body2',\n  'caption',\n  'button',\n  'overline',\n]\nconst typographys: JSX.Element[] = []\n\ntags.forEach(tag => {\n  colors.forEach(color => {\n    typographys.push(\n      <div key={`${tag}${color}`} style={{ marginBottom: 10 }}>\n        <Atypography variant={tag} color={color}>\n          tag: {tag} &nbsp;\n          color: {color}  &nbsp;\n          hello Typography\n        </Atypography>\n      </div>,\n    )\n  })\n})\n\nexport default () => (\n  <Alayout>\n     {typographys}\n  </Alayout>\n)\n"}},"dependencies":{"react":{"version":"17.0.2"},"fbm-ui":{"version":"1.0.0"}},"componentName":"Typography","title":"基本","description":"<div class=\"markdown\"><p>基本使用</p></div>","identifier":"Typography-demo"},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport { Alayout, Atypography } from 'fbm-ui'\n\nconst colors = [\n  'error',\n  'warning',\n  'success',\n  'info',\n  'secondary',\n  'primary',\n  'disabled',\n]\nconst tags = [\n  'h4',\n  'h5',\n  'h6',\n  'subtitle1',\n  'subtitle2',\n  'body1',\n  'body2',\n  'caption',\n  'button',\n  'overline',\n]\nconst typographys: JSX.Element[] = []\n\ntags.forEach(tag => {\n  colors.forEach(color => {\n    typographys.push(\n      <div key={`${tag}${color}`} style={{ marginBottom: 10 }}>\n        <Atypography variant={tag} color={color}>\n          tag: {tag} &nbsp;\n          color: {color}  &nbsp;\n          hello Typography\n        </Atypography>\n      </div>,\n    )\n  })\n})\n\nexport default () => (\n  <Alayout>\n     {typographys}\n  </Alayout>\n)\n"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Typography","title":"基本","description":"<div class=\"markdown\"><p>基本使用</p></div>","identifier":"Typography-demo"},
   },
   'confirm-demo': {
     component: function DumiDemo() {
@@ -513,6 +590,6 @@ export default {
 
   return React["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport { Aconfirm, Alayout, Button} from 'fbm-ui'\n\n\nconst CustomHeader =  ({ onClose }) => (\n  <div style={{\n    display:'flex',\n    alignItems: 'center',\n  }}>\n    <p style={{ flex:1}}>CustomHeader</p>\n    <Button onClick={onClose}> 关闭</Button>\n  </div>\n )\n\nconst CustomFooter = ({onOK, onClose}) =>(\n <div style={{\n    display:'flex',\n    alignItems: 'center',\n  }}>\n      <p style={{ flex:1}}>CustomFooter</p>\n    <Button onClick={onClose}> 关闭</Button>\n  </div>\n )\n\nexport default () =>(\n  <Alayout>\n    <Button onClick={() => {\n      Aconfirm({\n        title: '确认？',\n        content: '确认添加李小刚到此步骤',\n      })\n    }} >默认</Button>\n\n\n    <Button onClick={() => {\n      Aconfirm({\n        title: '确认？',\n        content: '确认将李小刚从该职位移动到所选职位吗？该操作无法被撤销。',\n        okText: '撤销',\n        okProps: {\n          color: 'error',\n          variant: 'contained',\n        },\n      })\n    }}  color=\"error\"> 告警 </Button>\n\n\n    <Button onClick={() => {\n      Aconfirm({\n        header: null,\n        content: '确认添加李小刚到此步骤？',\n        okText: '添加',\n      })\n    }}  >  隐藏 header </Button>\n\n    <Button onClick={() => {\n      Aconfirm({\n        header:CustomHeader,\n        content: '确认添加李小刚到此步骤？',\n        okText: '添加',\n      })\n    }}  >  自定义 header </Button>\n\n\n    <Button onClick={() => {\n      Aconfirm({\n        footer: null,\n        content: '确认添加李小刚到此步骤？',\n        okText: '添加',\n      })\n    }}  >  隐藏 footer </Button>\n\n\n    <Button onClick={() => {\n      Aconfirm({\n        footer: CustomFooter,\n        content: '确认添加李小刚到此步骤？',\n        okText: '添加',\n      })\n    }}  >  自定义 footer </Button>\n\n\n     <Button onClick={() => {\n      Aconfirm({\n        width: 600,\n        title: '设置大小',\n        content: '确认添加李小刚到此步骤？',\n        okText: '添加',\n      })\n    }}  > 设置弹框width </Button>\n  </Alayout>\n)"}},"dependencies":{"react":{"version":"17.0.2"},"fbm-ui":{"version":"1.0.0"}},"componentName":"confirm","title":"基本","description":"<div class=\"markdown\"><p>给某个模块添加loaidng</p></div>","identifier":"confirm-demo"},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport { Aconfirm, Alayout, Button} from 'fbm-ui'\n\n\nconst CustomHeader =  ({ onClose }) => (\n  <div style={{\n    display:'flex',\n    alignItems: 'center',\n  }}>\n    <p style={{ flex:1}}>CustomHeader</p>\n    <Button onClick={onClose}> 关闭</Button>\n  </div>\n )\n\nconst CustomFooter = ({onOK, onClose}) =>(\n <div style={{\n    display:'flex',\n    alignItems: 'center',\n  }}>\n      <p style={{ flex:1}}>CustomFooter</p>\n    <Button onClick={onClose}> 关闭</Button>\n  </div>\n )\n\nexport default () =>(\n  <Alayout>\n    <Button onClick={() => {\n      Aconfirm({\n        title: '确认？',\n        content: '确认添加李小刚到此步骤',\n      })\n    }} >默认</Button>\n\n\n    <Button onClick={() => {\n      Aconfirm({\n        title: '确认？',\n        content: '确认将李小刚从该职位移动到所选职位吗？该操作无法被撤销。',\n        okText: '撤销',\n        okProps: {\n          color: 'error',\n          variant: 'contained',\n        },\n      })\n    }}  color=\"error\"> 告警 </Button>\n\n\n    <Button onClick={() => {\n      Aconfirm({\n        header: null,\n        content: '确认添加李小刚到此步骤？',\n        okText: '添加',\n      })\n    }}  >  隐藏 header </Button>\n\n    <Button onClick={() => {\n      Aconfirm({\n        header:CustomHeader,\n        content: '确认添加李小刚到此步骤？',\n        okText: '添加',\n      })\n    }}  >  自定义 header </Button>\n\n\n    <Button onClick={() => {\n      Aconfirm({\n        footer: null,\n        content: '确认添加李小刚到此步骤？',\n        okText: '添加',\n      })\n    }}  >  隐藏 footer </Button>\n\n\n    <Button onClick={() => {\n      Aconfirm({\n        footer: CustomFooter,\n        content: '确认添加李小刚到此步骤？',\n        okText: '添加',\n      })\n    }}  >  自定义 footer </Button>\n\n\n     <Button onClick={() => {\n      Aconfirm({\n        width: 600,\n        title: '设置大小',\n        content: '确认添加李小刚到此步骤？',\n        okText: '添加',\n      })\n    }}  > 设置弹框width </Button>\n  </Alayout>\n)"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"confirm","title":"基本","description":"<div class=\"markdown\"><p>给某个模块添加loaidng</p></div>","identifier":"confirm-demo"},
   },
 };

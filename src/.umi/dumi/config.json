@@ -43,12 +43,28 @@
           "path": "/components/dialog"
         },
         {
+          "title": "Form 表单",
+          "meta": {
+            "__fallback": true
+          },
+          "children": [],
+          "path": "/components/form"
+        },
+        {
           "title": "Icon 图标",
           "meta": {
             "__fallback": true
           },
           "children": [],
           "path": "/components/icon"
+        },
+        {
+          "title": "Input 输入框",
+          "meta": {
+            "__fallback": true
+          },
+          "children": [],
+          "path": "/components/input"
         },
         {
           "title": "Loading 加载",
