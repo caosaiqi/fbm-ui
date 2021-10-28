@@ -1,5 +1,6 @@
 
 import customComponets from './customComponets'
+import palette from './palette'
 
 export default {
   MuiTooltip: {
@@ -15,6 +16,50 @@ export default {
     },
     defaultProps: {
       arrow: true,
+    },
+  },
+
+  MuiInputBase: {
+    styleOverrides: {
+      sizeSmall: {
+        fontSize: 14,
+      },
+      inputSizeSmall: {
+        padding: '5.5px 11px !important',
+      },
+      input: {
+        padding: '10.5px 11px !important',
+      },
+    },
+  },
+
+  MuiInputLabel: {
+    styleOverrides: {
+      root: {
+        lineHeight: 1,
+      },
+      sizeSmall: {
+        fontSize: 14,
+        lineHeight: '1.2em',
+      },
+    },
+  },
+
+  MuiOutlinedInput: {
+    styleOverrides: {
+      root: {
+        '&:hover .MuiOutlinedInput-notchedOutline':{
+          borderWidth: '1px',
+          borderColor: 'rgba(0,0,0,0.26)',
+        },
+        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+          borderWidth: 1,
+          borderColor: palette.primary.main,
+        },
+      },
+      notchedOutline: {
+        borderColor: 'rgba(0, 0, 0, .08)',
+      },
     },
   },
 

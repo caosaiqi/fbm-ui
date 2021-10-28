@@ -14,7 +14,7 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import {  Alayout, Aloading } from 'avocado-ui'
+import {  Alayout, Aloading } from 'fbm-ui'
 
 
 export default () => (

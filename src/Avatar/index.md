@@ -15,7 +15,7 @@ group:
  * desc: 内置三种尺寸，size支持传入数字自定义尺寸
  */
 import * as React from 'react';
-import { Aavatar, Alayout} from 'avocado-ui'
+import { Aavatar, Alayout} from 'fbm-ui'
 
 const imgurl = 'https://joeschmoe.io/api/v1/random'
 export default () =>(
@@ -38,7 +38,7 @@ export default () =>(
  * desc: 头像禁用状态
  */
 import * as React from 'react';
-import { Aavatar, Alayout} from 'avocado-ui'
+import { Aavatar, Alayout} from 'fbm-ui'
 
 const imgurl = 'https://joeschmoe.io/api/v1/random'
 export default () =>(

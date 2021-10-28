@@ -201,6 +201,11 @@ const customComponets = {
       },
     },
   },
+
+
+  Ainput: {
+    
+  },
 }
 
 

@@ -14,6 +14,8 @@ export { default as Aicon } from './Icon';
 export { default as Aloading } from './Loading';
 export { default as Abox } from './Box';
 export { default as Adialog } from './Dialog';
+export { default as Ainput } from './Input';
+export { default as Aform } from './Form';
 export { default as Aconfirm } from './confirm';
 
 export { default as styled } from '@material-ui/core/styles/styled'

@@ -14,7 +14,7 @@ group:
  * desc: 给某个模块添加loaidng
  */
 import * as React from 'react';
-import { Aconfirm, Alayout, Button} from 'avocado-ui'
+import { Aconfirm, Alayout, Button} from 'fbm-ui'
 
 
 const CustomHeader =  ({ onClose }) => (

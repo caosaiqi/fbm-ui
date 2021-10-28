@@ -14,7 +14,7 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import {  Alayout, Aicon } from 'avocado-ui'
+import {  Alayout, Aicon } from 'fbm-ui'
 
 const icons = ['CheckIcon', 'WarningIcon', 'ErrorIcon', 'InfoIcon']
 
