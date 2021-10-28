@@ -209,7 +209,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/Form/index.md",
-          "updatedTime": 1635256614428,
+          "updatedTime": 1635256739000,
           "componentName": "Form",
           "nav": {
             "title": "组件",
@@ -285,7 +285,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/Input/index.md",
-          "updatedTime": 1635256662637,
+          "updatedTime": 1635256739000,
           "componentName": "Input",
           "nav": {
             "title": "组件",
