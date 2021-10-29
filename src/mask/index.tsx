@@ -2,8 +2,7 @@ import * as React from 'react';
 import { Box, BoxProps } from '@material-ui/core'
 import styled from '@material-ui/core/styles/styled'
 
-export interface MaskProps extends BoxProps {
-}
+export interface MaskProps extends BoxProps {}
 
 const MaskRoot: React.FC<MaskProps> = styled(Box, {
   name: 'Amask',

@@ -9,18 +9,57 @@ group:
 ## 代码演示
 
 ```tsx
-/**
- * title: 基本
- * desc: 基本使用
- */
+
 import * as React from 'react';
-import {  Alayout, Aicon } from 'fbm-ui'
+import {  Alayout, Grid, Typography, Paper, Atoast } from 'fbm-ui'
+import  * as icons from '@avocadoui/icons'
+import toCopy from "copy-to-clipboard";
 
-const icons = ['CheckIcon', 'WarningIcon', 'ErrorIcon', 'InfoIcon']
+const itemStyle = {
+  textAlign: 'center',
+  padding: '10px',
+  opacity: 0.8,
+  
+  '&:hover': {
+    opacity: 1,
+  },
+}
 
-export default () => icons.map(name => <Aicon name={name} key={name}/>)
+const handleCopy = (displayName) => {
+  const content = `<${displayName} />`
+  const msg = `${content} copied`;
+  toCopy(content)
+  Atoast.success(msg)
+}
 
+const mapIcon = Object.keys(icons).map((displayName, index) => {
+  const Icon = icons[displayName]
+  return (
+    <Grid
+      style={{ cursor: "pointer" }}
+      item
+      key={displayName}
+      xs={2}
+      onClick={() => handleCopy(displayName)}
+    >
+      <Paper sx={itemStyle}>
+        <Icon style={{ fontSize: 36 }} />
+        <Typography style={{ wordBreak: "break-all" }}>
+          {displayName}
+        </Typography>
+      </Paper>
+    </Grid>
+  )
+})
 
+export default () => (
+  <Alayout>
+     <Grid container spacing={6}>
+        {mapIcon}
+      </Grid>
+  </Alayout>
+)
 ```
+
 
 <API></API>

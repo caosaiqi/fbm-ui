@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from 'react';
-import { ApplyPluginsType } from '/Users/elikeji/work/avocado-ui/node_modules/umi/node_modules/@umijs/runtime';
+import { ApplyPluginsType } from '/Users/elikeji/work/fbm-ui/node_modules/umi/node_modules/@umijs/runtime';
 import * as umiExports from './umiExports';
 import { plugin } from './plugin';
 
@@ -9,9 +9,9 @@ export function getRoutes() {
   {
     "path": "/~demos/:uuid",
     "layout": false,
-    "wrappers": [require('/Users/elikeji/work/avocado-ui/node_modules/@umijs/preset-dumi/lib/theme/layout').default],
+    "wrappers": [require('/Users/elikeji/work/fbm-ui/node_modules/@umijs/preset-dumi/lib/theme/layout').default],
     "component": (props) => {
-        const { default: getDemoRenderArgs } = require('/Users/elikeji/work/avocado-ui/node_modules/@umijs/preset-dumi/lib/plugins/features/demo/getDemoRenderArgs');
+        const { default: getDemoRenderArgs } = require('/Users/elikeji/work/fbm-ui/node_modules/@umijs/preset-dumi/lib/plugins/features/demo/getDemoRenderArgs');
         const { default: Previewer } = require('dumi-theme-default/es/builtins/Previewer.js');
         const { default: demos } = require('@@/dumi/demos');
         const { usePrefersColor } = require('dumi/theme');
@@ -49,11 +49,11 @@ export function getRoutes() {
     "__dumiRoot": true,
     "layout": false,
     "path": "/",
-    "wrappers": [require('/Users/elikeji/work/avocado-ui/node_modules/@umijs/preset-dumi/lib/theme/layout').default, require('/Users/elikeji/work/avocado-ui/node_modules/dumi-theme-default/es/layout.js').default],
+    "wrappers": [require('/Users/elikeji/work/fbm-ui/node_modules/@umijs/preset-dumi/lib/theme/layout').default, require('/Users/elikeji/work/fbm-ui/node_modules/dumi-theme-default/es/layout.js').default],
     "routes": [
       {
         "path": "/components/alert",
-        "component": require('/Users/elikeji/work/avocado-ui/src/Alert/index.md').default,
+        "component": require('/Users/elikeji/work/fbm-ui/src/Alert/index.md').default,
         "exact": true,
         "meta": {
           "filePath": "src/Alert/index.md",
@@ -91,7 +91,7 @@ export function getRoutes() {
       },
       {
         "path": "/components/avatar",
-        "component": require('/Users/elikeji/work/avocado-ui/src/Avatar/index.md').default,
+        "component": require('/Users/elikeji/work/fbm-ui/src/Avatar/index.md').default,
         "exact": true,
         "meta": {
           "filePath": "src/Avatar/index.md",
@@ -129,7 +129,7 @@ export function getRoutes() {
       },
       {
         "path": "/components/box",
-        "component": require('/Users/elikeji/work/avocado-ui/src/Box/index.md').default,
+        "component": require('/Users/elikeji/work/fbm-ui/src/Box/index.md').default,
         "exact": true,
         "meta": {
           "filePath": "src/Box/index.md",
@@ -166,8 +166,46 @@ export function getRoutes() {
         "title": "Box 容器 - fbm"
       },
       {
+        "path": "/components/button",
+        "component": require('/Users/elikeji/work/fbm-ui/src/Button/index.md').default,
+        "exact": true,
+        "meta": {
+          "filePath": "src/Button/index.md",
+          "updatedTime": 1635475396680,
+          "componentName": "Button",
+          "nav": {
+            "title": "组件",
+            "path": "/components"
+          },
+          "group": {
+            "title": "Button 按钮",
+            "__fallback": true,
+            "path": "/components/button"
+          },
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "Button 按钮",
+              "heading": "button-按钮"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 2,
+              "value": "API",
+              "heading": "api"
+            }
+          ],
+          "title": "Button 按钮"
+        },
+        "title": "Button 按钮 - fbm"
+      },
+      {
         "path": "/components/dialog",
-        "component": require('/Users/elikeji/work/avocado-ui/src/Dialog/index.md').default,
+        "component": require('/Users/elikeji/work/fbm-ui/src/Dialog/index.md').default,
         "exact": true,
         "meta": {
           "filePath": "src/Dialog/index.md",
@@ -205,7 +243,7 @@ export function getRoutes() {
       },
       {
         "path": "/components/form",
-        "component": require('/Users/elikeji/work/avocado-ui/src/Form/index.md').default,
+        "component": require('/Users/elikeji/work/fbm-ui/src/Form/index.md').default,
         "exact": true,
         "meta": {
           "filePath": "src/Form/index.md",
@@ -243,7 +281,7 @@ export function getRoutes() {
       },
       {
         "path": "/components/icon",
-        "component": require('/Users/elikeji/work/avocado-ui/src/Icon/index.md').default,
+        "component": require('/Users/elikeji/work/fbm-ui/src/Icon/index.md').default,
         "exact": true,
         "meta": {
           "filePath": "src/Icon/index.md",
@@ -281,7 +319,7 @@ export function getRoutes() {
       },
       {
         "path": "/components/input",
-        "component": require('/Users/elikeji/work/avocado-ui/src/Input/index.md').default,
+        "component": require('/Users/elikeji/work/fbm-ui/src/Input/index.md').default,
         "exact": true,
         "meta": {
           "filePath": "src/Input/index.md",
@@ -319,7 +357,7 @@ export function getRoutes() {
       },
       {
         "path": "/components/loading",
-        "component": require('/Users/elikeji/work/avocado-ui/src/Loading/index.md').default,
+        "component": require('/Users/elikeji/work/fbm-ui/src/Loading/index.md').default,
         "exact": true,
         "meta": {
           "filePath": "src/Loading/index.md",
@@ -357,7 +395,7 @@ export function getRoutes() {
       },
       {
         "path": "/components/toast",
-        "component": require('/Users/elikeji/work/avocado-ui/src/Toast/index.md').default,
+        "component": require('/Users/elikeji/work/fbm-ui/src/Toast/index.md').default,
         "exact": true,
         "meta": {
           "filePath": "src/Toast/index.md",
@@ -390,7 +428,7 @@ export function getRoutes() {
       },
       {
         "path": "/components/typography",
-        "component": require('/Users/elikeji/work/avocado-ui/src/Typography/index.md').default,
+        "component": require('/Users/elikeji/work/fbm-ui/src/Typography/index.md').default,
         "exact": true,
         "meta": {
           "filePath": "src/Typography/index.md",
@@ -428,7 +466,7 @@ export function getRoutes() {
       },
       {
         "path": "/components/confirm",
-        "component": require('/Users/elikeji/work/avocado-ui/src/confirm/index.md').default,
+        "component": require('/Users/elikeji/work/fbm-ui/src/confirm/index.md').default,
         "exact": true,
         "meta": {
           "filePath": "src/confirm/index.md",
@@ -466,7 +504,7 @@ export function getRoutes() {
       },
       {
         "path": "/docs/getting-started",
-        "component": require('/Users/elikeji/work/avocado-ui/docs/getting-started.md').default,
+        "component": require('/Users/elikeji/work/fbm-ui/docs/getting-started.md').default,
         "exact": true,
         "meta": {
           "filePath": "docs/getting-started.md",
@@ -503,7 +541,7 @@ export function getRoutes() {
       },
       {
         "path": "/",
-        "component": require('/Users/elikeji/work/avocado-ui/docs/index.md').default,
+        "component": require('/Users/elikeji/work/fbm-ui/docs/index.md').default,
         "exact": true,
         "meta": {
           "filePath": "docs/index.md",

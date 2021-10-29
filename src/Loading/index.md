@@ -14,16 +14,14 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import {  Alayout, Aloading } from 'fbm-ui'
-
+import {  Alayout, Aloading, Abox} from 'fbm-ui'
 
 export default () => (
   <Alayout>
-      <Aloading size="large"/> 
-      <br /><br /><br />
-      <Aloading size="small"/>
-      <br /><br /><br />
-      <Aloading size={100} />
+      <Abox sx={{ height: 100 }}>
+          <Aloading size={40}/> 
+      </Abox>
+      <Abox><Aloading size={20}/> </Abox>
   </Alayout>
 )
 
