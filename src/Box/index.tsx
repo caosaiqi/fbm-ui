@@ -6,7 +6,6 @@ import Loading from '../Loading'
 import Mask from '../Mask'
 
 export const componentName: string = 'Abox'
-
 interface LoadingProps {
   /** 遮罩loading */
   loading?: boolean;
@@ -30,27 +29,12 @@ const BoxRoot: React.FC<BoxProps> = styled(Box)({
   boxSizing: 'border-box',
 })
 
-const MaskRoot: React.FC<LoadingProps>= styled(Mask)(({ theme, isMask }) => {
-  const { white } = theme.palette.mask
-  return {
-    ...(isMask && {
-      backgroundColor: white,
-    }),
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
-})
-
-MaskRoot.defaultProps = {
-  isMask: true,
-}
 
 const DisabledMaskRender: React.FC<{
   disabled?: boolean
 }> = ({
   disabled,
-}) => disabled ? <MaskRoot /> : null
+}) => disabled ? <Mask /> : null
 
 const LoadingRender: React.FC<LoadingProps> = ({
   loading,
