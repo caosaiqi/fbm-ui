@@ -3,11 +3,9 @@ import { Box, BoxProps } from '@material-ui/core'
 import styled from '@material-ui/core/styles/styled'
 
 import Loading from '../Loading'
-import Typography from '../Typography'
 import Mask from '../Mask'
 
 export const componentName: string = 'Abox'
-
 interface LoadingProps {
   /** 遮罩loading */
   loading?: boolean;
@@ -15,6 +13,8 @@ interface LoadingProps {
   size?: 'large' | 'small' | number;
   /** Loading提示文案 */
   desc?: React.ReactNode;
+  /** 是否需要遮罩 */
+  isMask?: boolean;
 }
 
 export interface AboxProps extends BoxProps {
@@ -29,21 +29,12 @@ const BoxRoot: React.FC<BoxProps> = styled(Box)({
   boxSizing: 'border-box',
 })
 
-const MaskRoot = styled(Mask)(({ theme }) => {
-  const { white } = theme.palette.mask
-  return {
-    backgroundColor: white,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
-})
 
 const DisabledMaskRender: React.FC<{
   disabled?: boolean
 }> = ({
   disabled,
-}) => disabled ? <MaskRoot /> : null
+}) => disabled ? <Mask /> : null
 
 const LoadingRender: React.FC<LoadingProps> = ({
   loading,
@@ -51,30 +42,8 @@ const LoadingRender: React.FC<LoadingProps> = ({
   desc,
 }) => {
   if (!loading) return null
-
-  const LoadingTextRender: React.FC = () => {
-    if (!desc) return null;
-    if (typeof desc === 'string') {
-      return (
-        <Typography
-          variant='overline'
-          display='block'
-          weight='regular'
-        >
-          {desc}
-        </Typography>
-      )
-    }
-    return <span>{desc}</span>
-  }
-
   return (
-    <MaskRoot>
-      <Box textAlign='center'>
-        <Loading size={size} />
-        <LoadingTextRender />
-      </Box>
-    </MaskRoot>
+    <Loading desc={desc} size={size} />
   )
 }
 

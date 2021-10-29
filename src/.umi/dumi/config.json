@@ -27,6 +27,14 @@
           "path": "/components/box"
         },
         {
+          "title": "Button 按钮",
+          "meta": {
+            "__fallback": true
+          },
+          "children": [],
+          "path": "/components/button"
+        },
+        {
           "title": "confirm 二次确认方法",
           "meta": {
             "__fallback": true

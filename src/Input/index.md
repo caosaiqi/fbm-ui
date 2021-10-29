@@ -21,7 +21,11 @@ export default () => (
   <Alayout>
     <Ainput label="名称"  />
     <br />
+    <br />
     <Ainput label="名称"  size="small" />
+    <br />
+    <br />
+    <Ainput disabled label="名称"  />
   </Alayout>
 )
 

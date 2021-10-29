@@ -87,9 +87,9 @@ export default {
   },
   'Box-demo': {
     component: function DumiDemo() {
-  var _interopRequireDefault = require("/Users/elikeji/work/avocado-ui/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault");
+  var _interopRequireDefault = require("/Users/elikeji/work/fbm-ui/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault");
 
-  var _slicedToArray2 = _interopRequireDefault(require("/Users/elikeji/work/avocado-ui/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray"));
+  var _slicedToArray2 = _interopRequireDefault(require("/Users/elikeji/work/fbm-ui/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray"));
 
   var React = _interopRequireWildcard(require("react"));
 
@@ -135,9 +135,9 @@ export default {
   },
   'Box-demo-1': {
     component: function DumiDemo() {
-  var _interopRequireDefault = require("/Users/elikeji/work/avocado-ui/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault");
+  var _interopRequireDefault = require("/Users/elikeji/work/fbm-ui/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault");
 
-  var _slicedToArray2 = _interopRequireDefault(require("/Users/elikeji/work/avocado-ui/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray"));
+  var _slicedToArray2 = _interopRequireDefault(require("/Users/elikeji/work/fbm-ui/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray"));
 
   var React = _interopRequireWildcard(require("react"));
 
@@ -175,11 +175,249 @@ export default {
 },
     previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport { Abox, Alayout , Atypography, Switch} from 'fbm-ui'\n\nexport default () =>{\n  const [disabled, setDisabled] = React.useState(true)\n  return (\n    <Alayout>\n      <Abox mb={3}>\n        <Switch\n          checked={disabled}\n          onChange={(e) => setDisabled(!disabled)}\n        />\n      </Abox>\n      <Abox disabled={disabled} sx={{\n        display: 'inline-block',\n      }}>\n        <Atypography variant=\"body1\" gutterBottom>\n          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos\n          blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,\n          neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum\n          quasi quidem quibusdam.\n        </Atypography>\n      </Abox>\n    </Alayout>\n  )\n}"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Box","title":"disabled","description":"<div class=\"markdown\"><p>禁用某个模块</p></div>","identifier":"Box-demo-1"},
   },
+  'Button-demo': {
+    component: function DumiDemo() {
+  var React = _interopRequireWildcard(require("react"));
+
+  var _fbmUi = require("fbm-ui");
+
+  function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+  function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+  var _default = function _default() {
+    return /*#__PURE__*/React.createElement(_fbmUi.Alayout, null, /*#__PURE__*/React.createElement(_fbmUi.Abox, null, /*#__PURE__*/React.createElement(_fbmUi.Abox, {
+      sx: {
+        mb: 2
+      }
+    }, /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      sx: {
+        mr: 1
+      },
+      size: "small"
+    }, "\u6309\u94AE"), /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      sx: {
+        mr: 1
+      },
+      size: "medium"
+    }, "\u6309\u94AE"), /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      sx: {
+        mr: 1
+      },
+      size: "large"
+    }, "\u6309\u94AE")), /*#__PURE__*/React.createElement(_fbmUi.Abox, {
+      sx: {
+        mb: 2
+      }
+    }, /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      sx: {
+        mr: 1
+      },
+      startIcon: /*#__PURE__*/React.createElement(_fbmUi.Aicon, {
+        name: "AddIcon"
+      }),
+      size: "small"
+    }, "\u6309\u94AE"), /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      sx: {
+        mr: 1
+      },
+      startIcon: /*#__PURE__*/React.createElement(_fbmUi.Aicon, {
+        name: "AddIcon"
+      }),
+      size: "medium"
+    }, "\u6309\u94AE"), /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      sx: {
+        mr: 1
+      },
+      startIcon: /*#__PURE__*/React.createElement(_fbmUi.Aicon, {
+        name: "AddIcon"
+      }),
+      size: "large"
+    }, "\u6309\u94AE")), /*#__PURE__*/React.createElement(_fbmUi.Abox, {
+      sx: {
+        mb: 2
+      }
+    }, /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      sx: {
+        mr: 1
+      },
+      variant: "outlined",
+      size: "small"
+    }, "\u6309\u94AE"), /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      sx: {
+        mr: 1
+      },
+      variant: "outlined",
+      size: "medium"
+    }, "\u6309\u94AE"), /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      sx: {
+        mr: 1
+      },
+      variant: "outlined",
+      size: "large"
+    }, "\u6309\u94AE")), /*#__PURE__*/React.createElement(_fbmUi.Abox, {
+      sx: {
+        mb: 2
+      }
+    }, /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      sx: {
+        mr: 1
+      },
+      startIcon: /*#__PURE__*/React.createElement(_fbmUi.Aicon, {
+        name: "AddIcon"
+      }),
+      variant: "outlined",
+      size: "small"
+    }, "\u6309\u94AE"), /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      sx: {
+        mr: 1
+      },
+      startIcon: /*#__PURE__*/React.createElement(_fbmUi.Aicon, {
+        name: "AddIcon"
+      }),
+      variant: "outlined",
+      size: "medium"
+    }, "\u6309\u94AE"), /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      sx: {
+        mr: 1
+      },
+      startIcon: /*#__PURE__*/React.createElement(_fbmUi.Aicon, {
+        name: "AddIcon"
+      }),
+      variant: "outlined",
+      size: "large"
+    }, "\u6309\u94AE")), /*#__PURE__*/React.createElement(_fbmUi.Abox, {
+      sx: {
+        mb: 2
+      }
+    }, /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      sx: {
+        mr: 1
+      },
+      variant: "text",
+      size: "small"
+    }, "\u6309\u94AE"), /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      sx: {
+        mr: 1
+      },
+      variant: "text",
+      size: "medium"
+    }, "\u6309\u94AE"), /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      sx: {
+        mr: 1
+      },
+      variant: "text",
+      size: "large"
+    }, "\u6309\u94AE")), /*#__PURE__*/React.createElement(_fbmUi.Abox, {
+      sx: {
+        mb: 2
+      }
+    }, /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      sx: {
+        mr: 1
+      },
+      startIcon: /*#__PURE__*/React.createElement(_fbmUi.Aicon, {
+        name: "AddIcon"
+      }),
+      variant: "text",
+      size: "small"
+    }, "\u6309\u94AE"), /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      sx: {
+        mr: 1
+      },
+      startIcon: /*#__PURE__*/React.createElement(_fbmUi.Aicon, {
+        name: "AddIcon"
+      }),
+      variant: "text",
+      size: "medium"
+    }, "\u6309\u94AE"), /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      sx: {
+        mr: 1
+      },
+      startIcon: /*#__PURE__*/React.createElement(_fbmUi.Aicon, {
+        name: "AddIcon"
+      }),
+      variant: "text",
+      size: "large"
+    }, "\u6309\u94AE"))));
+  };
+
+  return React["default"].createElement(_default);
+},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport {  Alayout, Abutton, Abox, ButtonGroup, Button, Aicon} from 'fbm-ui'\n\nexport default () => (\n  <Alayout>\n    <Abox>\n      <Abox sx={{mb: 2}}>\n        <Abutton sx={{mr: 1}} size=\"small\">按钮</Abutton> \n        <Abutton sx={{mr: 1}} size=\"medium\">按钮</Abutton> \n        <Abutton sx={{mr: 1}} size=\"large\">按钮</Abutton> \n      </Abox>\n       <Abox sx={{mb: 2}}>\n        <Abutton sx={{mr: 1}} startIcon={<Aicon name=\"AddIcon\"/>} size=\"small\">按钮</Abutton> \n        <Abutton sx={{mr: 1}} startIcon={<Aicon name=\"AddIcon\"/>} size=\"medium\">按钮</Abutton> \n        <Abutton sx={{mr: 1}} startIcon={<Aicon name=\"AddIcon\"/>} size=\"large\">按钮</Abutton> \n      </Abox>\n      <Abox sx={{mb: 2}}>\n        <Abutton sx={{mr: 1}}  variant=\"outlined\" size=\"small\">按钮</Abutton> \n        <Abutton sx={{mr: 1}}  variant=\"outlined\" size=\"medium\">按钮</Abutton> \n        <Abutton sx={{mr: 1}}  variant=\"outlined\" size=\"large\">按钮</Abutton> \n      </Abox>\n       <Abox sx={{mb: 2}}>\n        <Abutton sx={{mr: 1}} startIcon={<Aicon name=\"AddIcon\"/>} variant=\"outlined\" size=\"small\">按钮</Abutton> \n        <Abutton sx={{mr: 1}} startIcon={<Aicon name=\"AddIcon\"/>} variant=\"outlined\" size=\"medium\">按钮</Abutton> \n        <Abutton sx={{mr: 1}} startIcon={<Aicon name=\"AddIcon\"/>} variant=\"outlined\" size=\"large\">按钮</Abutton> \n      </Abox>\n      <Abox sx={{mb: 2}}>\n        <Abutton sx={{mr: 1}} variant=\"text\" size=\"small\">按钮</Abutton> \n        <Abutton sx={{mr: 1}} variant=\"text\" size=\"medium\">按钮</Abutton> \n        <Abutton sx={{mr: 1}} variant=\"text\" size=\"large\">按钮</Abutton> \n      </Abox>\n         <Abox sx={{mb: 2}}>\n        <Abutton sx={{mr: 1}} startIcon={<Aicon name=\"AddIcon\"/>} variant=\"text\" size=\"small\">按钮</Abutton> \n        <Abutton sx={{mr: 1}} startIcon={<Aicon name=\"AddIcon\"/>} variant=\"text\" size=\"medium\">按钮</Abutton> \n        <Abutton sx={{mr: 1}} startIcon={<Aicon name=\"AddIcon\"/>} variant=\"text\" size=\"large\">按钮</Abutton> \n      </Abox>\n     </Abox>\n  </Alayout>\n)"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Button","title":"基本","description":"<div class=\"markdown\"><p>精简版Formik</p></div>","identifier":"Button-demo"},
+  },
+  'Button-demo-1': {
+    component: function DumiDemo() {
+  var React = _interopRequireWildcard(require("react"));
+
+  var _fbmUi = require("fbm-ui");
+
+  function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+  function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+  var _default = function _default() {
+    return /*#__PURE__*/React.createElement(_fbmUi.Alayout, null, /*#__PURE__*/React.createElement(_fbmUi.ButtonGroup, {
+      variant: "contained",
+      sx: {
+        mb: 2
+      }
+    }, /*#__PURE__*/React.createElement(_fbmUi.Abutton, null, "\u6309\u94AE"), /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      size: "small"
+    }, /*#__PURE__*/React.createElement(_fbmUi.Aicon, {
+      name: "OverflowIcon"
+    }))));
+  };
+
+  return React["default"].createElement(_default);
+},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport {  Alayout, Abutton, Abox, ButtonGroup, Aicon} from 'fbm-ui'\n\nexport default () => (\n  <Alayout>\n      <ButtonGroup variant=\"contained\" sx={{mb: 2}}>\n        <Abutton >按钮</Abutton> \n         <Abutton\n          size=\"small\"\n        >\n          <Aicon name=\"OverflowIcon\"/>\n        </Abutton>\n      </ButtonGroup>\n\n  </Alayout>\n)"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Button","title":"按钮组","description":"<div class=\"markdown\"><p>精简版Formik</p></div>","identifier":"Button-demo-1"},
+  },
+  'Button-demo-2': {
+    component: function DumiDemo() {
+  var React = _interopRequireWildcard(require("react"));
+
+  var _fbmUi = require("fbm-ui");
+
+  function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+  function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+  var _default = function _default() {
+    return /*#__PURE__*/React.createElement(_fbmUi.Alayout, null, /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      disabled: true
+    }, "\u6309\u94AE"), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null));
+  };
+
+  return React["default"].createElement(_default);
+},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport {  Alayout, Abutton } from 'fbm-ui'\n\nexport default () => (\n  <Alayout>\n    <Abutton disabled>按钮</Abutton> <br/><br/>\n    \n  </Alayout>\n)"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Button","title":"disabled","description":"<div class=\"markdown\"><p>精简版Formik</p></div>","identifier":"Button-demo-2"},
+  },
+  'Button-demo-3': {
+    component: function DumiDemo() {
+  var React = _interopRequireWildcard(require("react"));
+
+  var _fbmUi = require("fbm-ui");
+
+  function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+  function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+  var _default = function _default() {
+    return /*#__PURE__*/React.createElement(_fbmUi.Alayout, null, /*#__PURE__*/React.createElement(_fbmUi.Abutton, {
+      loading: true
+    }, "\u6309\u94AE"), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null));
+  };
+
+  return React["default"].createElement(_default);
+},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport {  Alayout, Abutton } from 'fbm-ui'\n\nexport default () => (\n  <Alayout>\n    <Abutton loading>按钮</Abutton> <br/><br/>\n  </Alayout>\n)"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Button","title":"loading","description":"<div class=\"markdown\"><p>精简版Formik</p></div>","identifier":"Button-demo-3"},
+  },
   'Dialog-demo': {
     component: function DumiDemo() {
-  var _interopRequireDefault = require("/Users/elikeji/work/avocado-ui/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault");
+  var _interopRequireDefault = require("/Users/elikeji/work/fbm-ui/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault");
 
-  var _slicedToArray2 = _interopRequireDefault(require("/Users/elikeji/work/avocado-ui/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray"));
+  var _slicedToArray2 = _interopRequireDefault(require("/Users/elikeji/work/fbm-ui/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/esm/slicedToArray"));
 
   var React = _interopRequireWildcard(require("react"));
 
@@ -338,28 +576,72 @@ export default {
   },
   'Icon-demo': {
     component: function DumiDemo() {
+  var _interopRequireDefault = require("/Users/elikeji/work/fbm-ui/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
   var React = _interopRequireWildcard(require("react"));
 
   var _fbmUi = require("fbm-ui");
+
+  var icons = _interopRequireWildcard(require("@avocadoui/icons"));
+
+  var _copyToClipboard = _interopRequireDefault(require("copy-to-clipboard"));
 
   function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
   function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-  var icons = ['CheckIcon', 'WarningIcon', 'ErrorIcon', 'InfoIcon'];
+  var itemStyle = {
+    textAlign: 'center',
+    padding: '10px',
+    opacity: 0.8,
+    '&:hover': {
+      opacity: 1
+    }
+  };
+
+  var handleCopy = function handleCopy(displayName) {
+    var content = "<".concat(displayName, " />");
+    var msg = "".concat(content, " copied");
+    (0, _copyToClipboard["default"])(content);
+
+    _fbmUi.Atoast.success(msg);
+  };
+
+  var mapIcon = Object.keys(icons).map(function (displayName, index) {
+    var Icon = icons[displayName];
+    return /*#__PURE__*/React.createElement(_fbmUi.Grid, {
+      style: {
+        cursor: "pointer"
+      },
+      item: true,
+      key: displayName,
+      xs: 2,
+      onClick: function onClick() {
+        return handleCopy(displayName);
+      }
+    }, /*#__PURE__*/React.createElement(_fbmUi.Paper, {
+      sx: itemStyle
+    }, /*#__PURE__*/React.createElement(Icon, {
+      style: {
+        fontSize: 36
+      }
+    }), /*#__PURE__*/React.createElement(_fbmUi.Typography, {
+      style: {
+        wordBreak: "break-all"
+      }
+    }, displayName)));
+  });
 
   var _default = function _default() {
-    return icons.map(function (name) {
-      return /*#__PURE__*/React.createElement(_fbmUi.Aicon, {
-        name: name,
-        key: name
-      });
-    });
+    return /*#__PURE__*/React.createElement(_fbmUi.Alayout, null, /*#__PURE__*/React.createElement(_fbmUi.Grid, {
+      container: true,
+      spacing: 6
+    }, mapIcon));
   };
 
   return React["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport {  Alayout, Aicon } from 'fbm-ui'\n\nconst icons = ['CheckIcon', 'WarningIcon', 'ErrorIcon', 'InfoIcon']\n\nexport default () => icons.map(name => <Aicon name={name} key={name}/>)\n\n"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Icon","title":"基本","description":"<div class=\"markdown\"><p>基本使用</p></div>","identifier":"Icon-demo"},
+    previewerProps: {"sources":{"_":{"tsx":"\nimport * as React from 'react';\nimport {  Alayout, Grid, Typography, Paper, Atoast } from 'fbm-ui'\nimport  * as icons from '@avocadoui/icons'\nimport toCopy from \"copy-to-clipboard\";\n\nconst itemStyle = {\n  textAlign: 'center',\n  padding: '10px',\n  opacity: 0.8,\n  \n  '&:hover': {\n    opacity: 1,\n  },\n}\n\nconst handleCopy = (displayName) => {\n  const content = `<${displayName} />`\n  const msg = `${content} copied`;\n  toCopy(content)\n  Atoast.success(msg)\n}\n\nconst mapIcon = Object.keys(icons).map((displayName, index) => {\n  const Icon = icons[displayName]\n  return (\n    <Grid\n      style={{ cursor: \"pointer\" }}\n      item\n      key={displayName}\n      xs={2}\n      onClick={() => handleCopy(displayName)}\n    >\n      <Paper sx={itemStyle}>\n        <Icon style={{ fontSize: 36 }} />\n        <Typography style={{ wordBreak: \"break-all\" }}>\n          {displayName}\n        </Typography>\n      </Paper>\n    </Grid>\n  )\n})\n\nexport default () => (\n  <Alayout>\n     <Grid container spacing={6}>\n        {mapIcon}\n      </Grid>\n  </Alayout>\n)"}},"dependencies":{"react":{"version":"^17.0.2"},"fbm-ui":{"version":"1.0.0"},"@avocadoui/icons":{"version":"1.1.22"},"copy-to-clipboard":{"version":"3.3.1"},"react-dom":{"version":"^17.0.2"},"@material-ui/core":{"version":"^4.9.10"}},"componentName":"Icon","identifier":"Icon-demo"},
   },
   'Input-demo': {
     component: function DumiDemo() {
@@ -375,15 +657,18 @@ export default {
   var _default = function _default() {
     return /*#__PURE__*/React.createElement(_fbmUi.Alayout, null, /*#__PURE__*/React.createElement(_fbmUi.Ainput, {
       label: "\u540D\u79F0"
-    }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement(_fbmUi.Ainput, {
+    }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement(_fbmUi.Ainput, {
       label: "\u540D\u79F0",
       size: "small"
+    }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement(_fbmUi.Ainput, {
+      disabled: true,
+      label: "\u540D\u79F0"
     }));
   };
 
   return React["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\n// eslint-disable-next-line import/no-extraneous-dependencies\nimport {  Alayout, Ainput } from 'fbm-ui'\n\nexport default () => (\n  <Alayout>\n    <Ainput label=\"名称\"  />\n    <br />\n    <Ainput label=\"名称\"  size=\"small\" />\n  </Alayout>\n)\n"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Input","title":"两种大小","description":"<div class=\"markdown\"><p>输入框定义了三种尺寸（默认、小），高度分别为44px和34px。</p></div>","identifier":"Input-demo"},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\n// eslint-disable-next-line import/no-extraneous-dependencies\nimport {  Alayout, Ainput } from 'fbm-ui'\n\nexport default () => (\n  <Alayout>\n    <Ainput label=\"名称\"  />\n    <br />\n    <br />\n    <Ainput label=\"名称\"  size=\"small\" />\n    <br />\n    <br />\n    <Ainput disabled label=\"名称\"  />\n  </Alayout>\n)\n"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Input","title":"两种大小","description":"<div class=\"markdown\"><p>输入框定义了三种尺寸（默认、小），高度分别为44px和34px。</p></div>","identifier":"Input-demo"},
   },
   'Loading-demo': {
     component: function DumiDemo() {
@@ -396,18 +681,20 @@ export default {
   function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
   var _default = function _default() {
-    return /*#__PURE__*/React.createElement(_fbmUi.Alayout, null, /*#__PURE__*/React.createElement(_fbmUi.Aloading, {
-      size: "large"
-    }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement(_fbmUi.Aloading, {
-      size: "small"
-    }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement(_fbmUi.Aloading, {
-      size: 100
-    }));
+    return /*#__PURE__*/React.createElement(_fbmUi.Alayout, null, /*#__PURE__*/React.createElement(_fbmUi.Abox, {
+      sx: {
+        height: 100
+      }
+    }, /*#__PURE__*/React.createElement(_fbmUi.Aloading, {
+      size: 40
+    })), /*#__PURE__*/React.createElement(_fbmUi.Abox, null, /*#__PURE__*/React.createElement(_fbmUi.Aloading, {
+      size: 20
+    }), " "));
   };
 
   return React["default"].createElement(_default);
 },
-    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport {  Alayout, Aloading } from 'fbm-ui'\n\n\nexport default () => (\n  <Alayout>\n      <Aloading size=\"large\"/> \n      <br /><br /><br />\n      <Aloading size=\"small\"/>\n      <br /><br /><br />\n      <Aloading size={100} />\n  </Alayout>\n)\n\n"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Loading","title":"基本","description":"<div class=\"markdown\"><p>基本使用</p></div>","identifier":"Loading-demo"},
+    previewerProps: {"sources":{"_":{"tsx":"import * as React from 'react';\nimport {  Alayout, Aloading, Abox} from 'fbm-ui'\n\nexport default () => (\n  <Alayout>\n      <Abox sx={{ height: 100 }}>\n          <Aloading size={40}/> \n      </Abox>\n      <Abox><Aloading size={20}/> </Abox>\n  </Alayout>\n)\n\n"}},"dependencies":{"react":{"version":">=16.8.0"},"fbm-ui":{"version":"1.0.0"},"react-dom":{"version":">=16.8.0"}},"componentName":"Loading","title":"基本","description":"<div class=\"markdown\"><p>基本使用</p></div>","identifier":"Loading-demo"},
   },
   'Toast-demo': {
     component: function DumiDemo() {
