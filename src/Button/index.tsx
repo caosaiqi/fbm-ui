@@ -1,20 +1,12 @@
 import * as React from 'react';
 import { Button, ButtonProps } from '@material-ui/core'
-import styled from '@material-ui/core/styles/styled'
 
 import Aloading from '../Loading'
 
-
 export const componentName: string = 'Ainput'
-
 export interface AbuttonProps extends ButtonProps {
   loading?: boolean;
 }
-
-// const BoxRoot = styled(Abox)({
-//   display: 'inline-block',
-// })
-
 
 const Abutton: React.FC<AbuttonProps> = (props) => {
   const { loading, children, ...buttonProps } = props

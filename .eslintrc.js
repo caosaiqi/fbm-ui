@@ -104,7 +104,7 @@ module.exports = {
     'react/no-unused-prop-types': 0,
     'react/default-props-match-prop-types': 0,
     'react-hooks/rules-of-hooks': 2, // Checks rules of Hooks
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "import/no-extraneous-dependencies": 0,
     'import/extensions': 0,
     'import/no-cycle': 0,
     // 'import/no-extraneous-dependencies': [
