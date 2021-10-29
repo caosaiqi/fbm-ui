@@ -3,8 +3,6 @@ import { outlinedInputClasses } from '@material-ui/core'
 import customComponets from './customComponets'
 import palette from './palette'
 
-console.log(outlinedInputClasses.notchedOutline)
-
 export default {
   MuiTooltip: {
     styleOverrides: {
@@ -22,20 +20,6 @@ export default {
     },
   },
 
-  MuiInputBase: {
-    styleOverrides: {
-      // sizeSmall: {
-      //   fontSize: 14,
-      // },
-      // inputSizeSmall: {
-      //   padding: '5.5px 11px !important',
-      // },
-      // input: {
-      //   padding: '10.5px 11px !important',
-      // },
-    },
-  },
-
   MuiInputLabel: {
     styleOverrides: {
       root: {
@@ -47,7 +31,6 @@ export default {
       },
     },
   },
-
 
   MuiOutlinedInput: {
     styleOverrides: {
