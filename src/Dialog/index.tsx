@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Dialog, DialogProps, Box, DialogActions, Button, ButtonProps, Slide, IconButton, ModalProps } from '@material-ui/core'
+import { Dialog, DialogProps, Box, DialogActions, Button, ButtonProps, Fade, IconButton, ModalProps } from '@material-ui/core'
 import useThemeProps from '@material-ui/core/styles/useThemeProps'
 import styled from '@material-ui/core/styles/styled'
 import { CloseIcon } from '@avocadoui/icons'
@@ -40,7 +40,12 @@ export interface FooterProps {
 
 }
 
-export interface ContentProps {
+export interface AdialogProps extends DialogProps, HeaderProps, FooterProps {
+  /** 弹框宽度 */
+  width?: number;
+}
+
+export interface RootProps {
   /** 弹框宽度 */
   width?: number;
   /** 是否显示header */
@@ -49,18 +54,13 @@ export interface ContentProps {
   isNullFooter: boolean;
 }
 
-export interface AdialogProps extends DialogProps, HeaderProps, FooterProps {
-  /** 弹框宽度 */
-  width?: number;
-}
-
-const Content: React.FC<ContentProps> = styled(Abox)(({
+const DialogRoot: React.FC<RootProps> = styled(Abox)(({
   width,
   isNullHeader,
   isNullFooter,
 }) => ({
   width: width || 360,
-  padding: 16,
+  padding: '16px 16px 12px 24px',
   ...(isNullHeader && {
     paddingTop: 0,
   }),
@@ -72,7 +72,7 @@ const Content: React.FC<ContentProps> = styled(Abox)(({
 const Header: React.FC<HeaderProps> = (props) => {
   const { title, isShowClose, header, onClose } = props
   if (header === null) return null
-
+  console.log(props)
   if (typeof (header) === 'function') {
     const CustomHeader: React.FC<HeaderProps> = header
     return <CustomHeader {...props} />
@@ -119,6 +119,11 @@ const Header: React.FC<HeaderProps> = (props) => {
   )
 }
 
+const Content: React.FC = ({ children }) => (
+  <Box m='24px 0 28px 0'>
+    {children}
+  </Box>
+)
 
 const Footer: React.FC<FooterProps> = (props) => {
   const {
@@ -197,7 +202,7 @@ const AuiDialog: React.FC<AdialogProps> = (inProps) => {
   }
 
 
-  const contentProps = {
+  const rootProps = {
     width,
     isNullHeader: header === null,
     isNullFooter: footer === null,
@@ -222,12 +227,14 @@ const AuiDialog: React.FC<AdialogProps> = (inProps) => {
   }
 
   return (
-    <Dialog TransitionComponent={Slide} {...otherProps}>
-      <Content {...contentProps}>
+    <Dialog TransitionComponent={Fade} {...otherProps}>
+      <DialogRoot {...rootProps}>
         <Header {...HeaderProps} />
-        {children}
+        <Content>
+          {children}
+        </Content>
         <Footer {...footerProps} />
-      </Content>
+      </DialogRoot>
     </Dialog>
   )
 }

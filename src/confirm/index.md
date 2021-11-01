@@ -43,6 +43,7 @@ export default () =>(
       Aconfirm({
         title: '确认？',
         content: '确认添加李小刚到此步骤',
+        isShowClose: false,
       })
     }} >默认</Button>
 

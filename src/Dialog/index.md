@@ -57,8 +57,8 @@ export default () =>{
           <Adialog 
             open={open1}
             header={CustomHeader}
-            onClose={() => setOpen(false)}
-            onOk={() => setOpen(false)}
+            onClose={() => setOpen1(false)}
+            onOk={() => setOpen1(false)}
           >
             <h1>content</h1 >
           </Adialog>
@@ -67,8 +67,8 @@ export default () =>{
           <Adialog 
             open={open2}
             footer={CustomFooter}
-            onClose={() => setOpen(false)}
-            onOk={() => setOpen(false)}
+            onClose={() => setOpen2(false)}
+            onOk={() => setOpen2(false)}
           >
             <h1>content</h1 >
           </Adialog>

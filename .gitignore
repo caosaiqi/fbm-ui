@@ -4,7 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-src/.umi
+/src/.umi
 
 # testing
 /coverage
@@ -23,5 +23,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 yarn.lock
-/lib
 

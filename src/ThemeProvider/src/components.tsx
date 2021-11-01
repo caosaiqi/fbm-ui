@@ -23,11 +23,20 @@ export default {
   MuiInputLabel: {
     styleOverrides: {
       root: {
-        lineHeight: 1,
+        top: '-2px',
+        left: '-2px',
+        [`&.${outlinedInputClasses.focused}`]: {
+          top: '0',
+          left: '0',
+        },
       },
-      sizeSmall: {
-        fontSize: 14,
-        lineHeight: '1.2em',
+
+      sizeSmall:{
+        top: '-1px',
+        fontSize:14,
+        [`&.${outlinedInputClasses.focused}`]: {
+          top: '1px',
+        },
       },
     },
   },
@@ -49,19 +58,19 @@ export default {
           borderColor: palette.error.main,
         },
         [`&.${outlinedInputClasses.disabled} .${outlinedInputClasses.notchedOutline}`]: {
-          borderColor: palette.action.disabled,
+          // borderColor: palette.action.disabled,
+          borderColor: 'rgba(225,225,225,1)',
           backgroundColor: palette.action.disabledBackground,
         },
       },
-
       input: {
-        font: '16px PingFangSC-Regular, PingFang SC',
-        height: 46,
-        padding: '0 11px',
+        fontSize: 16,
+        height: 48,
+        padding: '0 12px',
       },
-      sizeSmall: {
-        height: 32,
-        padding: '0 11px',
+      inputSizeSmall: {
+        height: 36,
+        fontSize: 14,
       },
     },
   },
@@ -71,18 +80,21 @@ export default {
       root: {
         boxShadow: 'none',
         fontSize: '14px',
+        lineHeight: '22px',
         '&:hover': {
           boxShadow: 'none',
           backgroundColor: 'rgba(76,175,80,0.8)',
         },
       },
       sizeSmall: {
-        padding: '0px 8px',
+        padding: '1px 9px',
       },
       sizeMedium: {
-        padding: '4px 16px',
+        padding: '5px 16px',
       },
-
+      sizeLarge: {
+        padding: '9px 24px',
+      },
       outlined: {
         borderColor: 'rgba(0,0,0,.12)',
         color: palette.text.primary,

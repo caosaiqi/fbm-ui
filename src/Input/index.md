@@ -15,16 +15,35 @@ group:
  */
 import * as React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
+import {  Alayout, Ainput, Abox} from 'fbm-ui'
+
+export default () => (
+  <Alayout>
+    <Abox>
+      <Abox>
+        <Ainput placeholder="请输入姓名" label="名称"  />
+      </Abox>
+    </Abox>
+
+      <Abox>
+        <Ainput placeholder="请输入姓名" label="名称" size="small"  />
+      </Abox>
+  </Alayout>
+)
+```
+
+
+```tsx
+/**
+ * title: disabled
+ * desc: 禁用状态
+ */
+import * as React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import {  Alayout, Ainput } from 'fbm-ui'
 
 export default () => (
   <Alayout>
-    <Ainput label="名称"  />
-    <br />
-    <br />
-    <Ainput label="名称"  size="small" />
-    <br />
-    <br />
     <Ainput disabled label="名称"  />
   </Alayout>
 )

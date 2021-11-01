@@ -11,7 +11,7 @@ group:
 ```tsx
 
 import * as React from 'react';
-import {  Alayout, Grid, Typography, Paper, Atoast } from 'fbm-ui'
+import {  Alayout, Grid, Typography, Paper, Amessage } from 'fbm-ui'
 import  * as icons from '@avocadoui/icons'
 import toCopy from "copy-to-clipboard";
 
@@ -29,7 +29,7 @@ const handleCopy = (displayName) => {
   const content = `<${displayName} />`
   const msg = `${content} copied`;
   toCopy(content)
-  Atoast.success(msg)
+  Amessage.success(msg)
 }
 
 const mapIcon = Object.keys(icons).map((displayName, index) => {

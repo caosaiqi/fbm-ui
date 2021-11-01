@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box } from '@material-ui/core'
+
 import Dialog, { AdialogProps } from '../Dialog'
 import renderIntoBody from '../utils/renderIntoBody'
 import ThemeProvider from '../ThemeProvider'
@@ -32,11 +32,7 @@ const confirm = (props: AconfirmProps) => {
       renderContent = content
     }
 
-    return (
-      <Box m='24px 0'>
-        {renderContent}
-      </Box>
-    )
+    return renderContent
   }
 
   let confirmDiv: any
@@ -54,9 +50,10 @@ const confirm = (props: AconfirmProps) => {
     return (
       <ThemeProvider theme={undefined}>
         <Dialog
-          {...props}
+          BackdropProps={{ open: false }}
           open={open}
           onClose={doClose}
+          {...props}
         >
           <Content />
         </Dialog>
@@ -66,10 +63,6 @@ const confirm = (props: AconfirmProps) => {
   confirmDiv = renderIntoBody(<Modal />)
 }
 
-confirm.defaultProps = {
-  BackdropProps: {
-    open: false,
-  },
-}
+
 
 export default confirm

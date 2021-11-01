@@ -14,16 +14,14 @@ export interface InputProps {
 const InputRoot: React.FC<InputProps> = styled(TextField, {
   name: 'Ainput',
   slot: 'Root',
-})(({ size, isFormik }) => {
+})(({ size }) => {
   const sizes = {
-    small: 32,
-    large: 46,
+    small: 36,
+    large: 48,
   }
   const helperTextHeight = 18
   return {
-    ...(isFormik && {
-      height:  sizes[size] + helperTextHeight,
-    }),
+    height: sizes[size] + helperTextHeight,
     marginBottom: 8,
   }
 })
@@ -36,12 +34,10 @@ const useInputProps = (inProps) => {
   const {
     getFieldProps,
     getFieldMeta,
-    // getFieldHelpers,
   } = formik
 
   const fieldProps = getFieldProps(inProps)
   const fieldMeta = getFieldMeta(inProps.name)
-  // const fieldHelpers = getFieldHelpers(props.name)
 
   const props = {
     ...inProps,
@@ -60,9 +56,8 @@ const useInputProps = (inProps) => {
 
 const Ainput: React.FC<InputProps> = (inProps) => {
   const props = useInputProps(inProps)
-  return <InputRoot {...props} />
+  return <InputRoot  {...props} />
 }
-
 
 Ainput.defaultProps = {
   size: 'large',
