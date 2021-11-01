@@ -503,6 +503,38 @@ export function getRoutes() {
         "title": "confirm 二次确认方法 - fbm"
       },
       {
+        "path": "/docs/future",
+        "component": require('/Users/elikeji/work/fbm-ui/docs/future.md').default,
+        "exact": true,
+        "meta": {
+          "filePath": "docs/future.md",
+          "updatedTime": 1635736986859,
+          "title": "待开发组件",
+          "order": 3,
+          "group": {
+            "path": "/docs/",
+            "title": "待开发组件"
+          },
+          "nav": {
+            "title": "待开发组件",
+            "path": "/docs"
+          },
+          "slugs": [
+            {
+              "depth": 3,
+              "value": "Nav",
+              "heading": "nav"
+            },
+            {
+              "depth": 3,
+              "value": "Table",
+              "heading": "table"
+            }
+          ]
+        },
+        "title": "待开发组件 - fbm"
+      },
+      {
         "path": "/docs/getting-started",
         "component": require('/Users/elikeji/work/fbm-ui/docs/getting-started.md').default,
         "exact": true,

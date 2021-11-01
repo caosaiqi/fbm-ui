@@ -11049,7 +11049,8 @@
       {
         "identifier": "BackdropProps",
         "description": "Props applied to the [`Backdrop`](/api/backdrop/) element.\nProps applied to the [`BackdropUnstyled`](/api/backdrop-unstyled/) element.",
-        "type": "Partial<BackdropProps<\"span\", {}>> & Partial<BackdropUnstyledProps<\"div\", {}>>"
+        "type": "Partial<BackdropProps<\"span\", {}>> & Partial<BackdropUnstyledProps<\"div\", {}>>",
+        "default": "{\n    open: false,\n  }"
       },
       {
         "identifier": "closeAfterTransition",

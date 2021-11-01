@@ -111,6 +111,13 @@
               "meta": {
                 "order": 2
               }
+            },
+            {
+              "path": "/docs/future",
+              "title": "待开发组件",
+              "meta": {
+                "order": 3
+              }
             }
           ]
         }

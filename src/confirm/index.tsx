@@ -57,9 +57,6 @@ const confirm = (props: AconfirmProps) => {
           {...props}
           open={open}
           onClose={doClose}
-          BackdropProps={{
-            open: false,
-          }}
         >
           <Content />
         </Dialog>
@@ -67,6 +64,12 @@ const confirm = (props: AconfirmProps) => {
     )
   }
   confirmDiv = renderIntoBody(<Modal />)
+}
+
+confirm.defaultProps = {
+  BackdropProps: {
+    open: false,
+  },
 }
 
 export default confirm
