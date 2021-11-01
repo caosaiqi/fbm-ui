@@ -1,6 +1,6 @@
 {
   "name": "fbm-ui",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": false,
   "description": "React components library",
   "author": "avocado",
@@ -12,11 +12,7 @@
     "React",
     "Typescript"
   ],
-  "homepage": "git@github.com:caosaiqi/@avocadoui.git",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:caosaiqi/@avocadoui.git"
-  },
+  "homepage": "https://github.com/AvocadoTechOpen",
   "files": [
     "lib"
   ],
