@@ -14,6 +14,11 @@ jobs:
           node-version: '14'
       - run: yarn install
       - run: yarn run build
+<<<<<<< HEAD
+=======
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+>>>>>>> 984d554150a27a23819c407df484fd7fe664e393
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
