@@ -1,6 +1,4 @@
-export * from '@material-ui/core'
-export * from '@avocadoui/icons'
-
+export * from '@material-ui/core';
 export { default as Alayout } from './Layout';
 export { default as AthemeProvider } from './ThemeProvider';
 export { default as Alogo } from './Logo';
@@ -19,5 +17,4 @@ export { default as Aform } from './Form';
 export { default as Ainput } from './Input';
 export { default as Abutton } from './Button';
 export { default as Aconfirm } from './confirm';
-
-export { default as styled } from '@material-ui/core/styles/styled'
+export { default as styled } from '@material-ui/core/styles/styled';

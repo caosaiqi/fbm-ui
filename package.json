@@ -1,10 +1,11 @@
 {
   "name": "fbm-ui",
-  "version": "1.0.7",
+  "version": "0.1.0",
   "private": false,
   "description": "React components library",
   "author": "avocado",
   "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
   "license": "MIT",
   "keywords": [
     "Component",

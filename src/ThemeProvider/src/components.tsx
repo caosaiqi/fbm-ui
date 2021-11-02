@@ -117,5 +117,28 @@ export default {
     },
   },
 
+  MuiIconButton: {
+    styleOverrides: {
+      sizeMedium: {
+        padding: '6px',
+        '& .MuiSvgIcon-root': {
+          fontSize: '24px'
+        }
+      },
+      sizeSmall: {
+        padding: '6px',
+        '& .MuiSvgIcon-root': {
+          fontSize: '18px'
+        }
+      }
+    }
+  },
+
+  MuiSvgIcon: {
+    fontSizeSmall: {
+      color: 'red'
+    }
+  },
+
   ...customComponets,
 }

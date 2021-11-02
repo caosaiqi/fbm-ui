@@ -20,7 +20,7 @@ export default () =>{
   const [loading, setLoading] = React.useState(true)
   return (
   <Alayout>
-    <Abox mb={3}>
+    <Abox mb={3} >
       <Switch
         checked={loading}
         onChange={(e) => setLoading(!loading)}
@@ -65,28 +65,50 @@ export default () =>{
  * desc: 禁用某个模块
  */
 import * as React from 'react';
-import { Abox, Alayout , Atypography, Switch} from 'fbm-ui'
+import { Abox, Alayout , Atypography, Switch, Paper } from 'fbm-ui'
 
 export default () =>{
   const [disabled, setDisabled] = React.useState(true)
   return (
     <Alayout>
-      <Abox mb={3}>
-        <Switch
-          checked={disabled}
-          onChange={(e) => setDisabled(!disabled)}
-        />
-      </Abox>
-      <Abox disabled={disabled} sx={{
-        display: 'inline-block',
-      }}>
-        <Atypography variant="body1" gutterBottom>
+      <Abox disabled elevation={10} sx={{ padding: 12 }}> 
+         <Atypography variant="body1" gutterBottom>
           body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
           blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,
           neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum
           quasi quidem quibusdam.
         </Atypography>
       </Abox>
+    </Alayout>
+  )
+}
+```
+
+
+```tsx
+/**
+ * title: Paper
+ */
+import * as React from 'react';
+import { Abutton, Alayout , Atypography, Paper } from 'fbm-ui'
+
+export default () =>{
+  const [elevation, setElevation] = React.useState(0)
+  return (
+    <Alayout>
+
+      <Abutton onClick={() => setElevation((elevation <= 25 ? elevation + 1 : 0))}>
+        elevation {elevation}
+      </Abutton>
+
+      <Paper elevation={elevation} sx={{ padding: '20px', mt: '30px'}}> 
+        <Atypography variant="body1">
+          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+          blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,
+          neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum
+          quasi quidem quibusdam.
+        </Atypography>
+      </Paper>
     </Alayout>
   )
 }

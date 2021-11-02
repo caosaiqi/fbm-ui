@@ -57,7 +57,6 @@ export default () => (
 ```tsx
 /**
  * title: 按钮组
- * desc: 精简版Formik
  */
 import * as React from 'react';
 import {  Alayout, Abutton, Abox, ButtonGroup, Aicon} from 'fbm-ui'
@@ -81,7 +80,6 @@ export default () => (
 ```tsx
 /**
  * title: disabled
- * desc: 精简版Formik
  */
 import * as React from 'react';
 import {  Alayout, Abutton } from 'fbm-ui'
@@ -98,18 +96,43 @@ export default () => (
 ```tsx
 /**
  * title: loading
- * desc: 精简版Formik
  */
 import * as React from 'react';
-import {  Alayout, Abutton } from 'fbm-ui'
+import {  Alayout, Abutton, IconButton, CheckIcon} from 'fbm-ui'
 
 export default () => (
   <Alayout>
     <Abutton loading>按钮</Abutton> <br/><br/>
+
+  
+
+
   </Alayout>
 )
 ```
 
 
+```tsx
+/**
+ * title: IconButton
+ */
+import * as React from 'react';
+import {Alayout, IconButton, CheckIcon} from 'fbm-ui'
+
+export default () => (
+  <Alayout>
+    
+    <IconButton size="small" aria-label="add to shopping cart">
+      <CheckIcon />
+    </IconButton>
+
+     <br/> 
+     
+    <IconButton  aria-label="add to shopping cart">
+     <CheckIcon />
+    </IconButton>
+  </Alayout>
+)
+```
 
 <API></API>
