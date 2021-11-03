@@ -103,14 +103,12 @@ export default {
           borderColor: 'rgba(0,0,0,.04)',
         },
       },
-
       text: {
         color: palette.text.secondary,
         '&:hover': {
           background: 'rgba(0,0,0,.04)',
         },
       },
-
       startIcon: {
         // marginRight: '3px',
       },
