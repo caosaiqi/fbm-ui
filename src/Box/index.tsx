@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Box, BoxProps } from '@material-ui/core'
-import styled from '@material-ui/core/styles/styled'
+import { Box, BoxProps } from '@mui/material'
+import styled from '@mui/material/styles/styled'
 
 import Loading from '../Loading'
 import Mask from '../Mask'

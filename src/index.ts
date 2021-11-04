@@ -1,5 +1,5 @@
-export * from '@material-ui/core'
-export * from '@avocadoui/icons'
+export * from '@mui/material'
+export * from './icons'
 
 export { default as Alayout } from './Layout';
 export { default as AthemeProvider } from './ThemeProvider';
@@ -11,7 +11,6 @@ export { default as Aavatar } from './Avatar';
 export { default as AlistRow } from './ListRow';
 export { default as Amessage } from './Message';
 export { default as Aalert } from './Alert';
-export { default as Aicon } from './Icon';
 export { default as Aloading } from './Loading';
 export { default as Abox } from './Box';
 export { default as Adialog } from './Dialog';
@@ -20,4 +19,4 @@ export { default as Ainput } from './Input';
 export { default as Abutton } from './Button';
 export { default as Aconfirm } from './confirm';
 
-export { default as styled } from '@material-ui/core/styles/styled'
+export { default as styled } from '@mui/material/styles/styled'

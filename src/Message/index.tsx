@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { CheckIcon, ErrorIcon, WarningIcon, InfoIcon } from '@avocadoui/icons';
-import { Snackbar, SnackbarProps, Box, Slide } from '@material-ui/core'
-import styled from '@material-ui/core/styles/styled'
+import { CheckIcon, ErrorIcon, WarningIcon, InfoIcon } from '../icons';
+import { Snackbar, SnackbarProps, Box, Slide } from '@mui/material'
+import styled from '@mui/material/styles/styled'
 
 import Typography from '../Typography'
 import renderIntoBody from '../utils/renderIntoBody'

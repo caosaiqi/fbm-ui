@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { CircularProgress } from '@material-ui/core'
-import styled from '@material-ui/core/styles/styled'
+import { CircularProgress } from '@mui/material'
+import styled from '@mui/material/styles/styled'
 
 import Mask from '../Mask'
 import Typography from '../Typography'

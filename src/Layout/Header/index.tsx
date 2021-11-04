@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Box } from '@material-ui/core'
-import styled from '@material-ui/core/styles/styled'
+import { Box } from '@mui/material'
+import styled from '@mui/material/styles/styled'
 
 import Logo, { AlogoProps } from '../../Logo'
 

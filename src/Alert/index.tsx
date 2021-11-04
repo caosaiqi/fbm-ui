@@ -1,9 +1,14 @@
 import * as React from 'react';
-import { Alert, AlertProps } from '@material-ui/core'
-import styled from '@material-ui/core/styles/styled'
-import useThemeProps from '@material-ui/core/styles/useThemeProps'
+import { Alert, AlertProps } from '@mui/material'
+import styled from '@mui/material/styles/styled'
+import useThemeProps from '@mui/material/styles/useThemeProps'
 
-import Aicon from '../Icon'
+import {
+  CheckIcon,
+  ErrorIcon,
+  WarningIcon,
+  InfoIcon
+} from '../icons'
 
 const componentName: string = 'Aalert'
 
@@ -14,19 +19,44 @@ export interface AalertProps extends AlertProps {
   type?: AlertType;
   /** Alert显示内容 */
   children?: React.ReactNode,
-   /** 提示文案 */
-  message?:React.ReactNode, 
+  /** 提示文案 */
+  message?: React.ReactNode,
+}
+
+interface IconProps {
+  icon: React.ReactNode;
+  type: AlertType
 }
 
 const AlertRoot: React.FC<AalertProps> = styled(Alert, {
   name: 'Aalert',
   slot: 'Root',
-  overridesResolver: (props, styles) => {
-    const { type } = props
-    return [styles.root, styles[type]]
-  },
-})(() => ({}))
+})(({ theme, type }) => (
+  {
+    color: theme.palette.text.secondary,
+    padding: '4px 16px',
+    border: '1px solid',
+    borderColor: theme.palette[type].main,
+    backgroundColor: theme.palette[type].bgColor,
+  }
+))
 
+const Icon: React.FC<IconProps> = ({ icon, type }) => {
+  if (icon === null) return null
+  if (icon === undefined) {
+    const typeIcons = {
+      success: <CheckIcon />,
+      error: <ErrorIcon />,
+      warning: <WarningIcon />,
+      info: <InfoIcon />,
+    }
+    if (typeIcons[type]) {
+      return typeIcons[type]
+    }
+  }
+
+  return <> {icon} </>
+}
 
 const Aalert: React.FC<AalertProps> = (inProps) => {
   const {
@@ -38,39 +68,24 @@ const Aalert: React.FC<AalertProps> = (inProps) => {
     ...otherProps
   } = useThemeProps({ props: inProps, name: componentName })
 
-  const Icon = () => {
-    if (icon === null) return null
-
-    if (icon === undefined) {
-      const typeIcons = {
-        success: 'CheckIcon',
-        error: 'ErrorIcon',
-        warning: 'WarningIcon',
-        info: 'InfoIcon',
-      }
-      if (typeIcons[type]) {
-        const name = typeIcons[type]
-        return <Aicon name={name} />
-      }
-    }
-
-    if (typeof icon === 'string') {
-      return <Aicon name={icon} />
-    }
-  }
-
   const color = componentColor || type
 
+  const AlertProps = {
+    type,
+    color,
+    icon: <Icon icon={icon} type={type} />,
+    ...otherProps
+  }
+
   return (
-    <AlertRoot 
-      color={color}
-      icon={<Icon />} 
-      type={type} 
-      {...otherProps}
-    >
+    <AlertRoot {...AlertProps}>
       {message || children}
     </AlertRoot>
   )
+}
+
+Aalert.defaultProps = {
+  type: 'info'
 }
 
 export default Aalert

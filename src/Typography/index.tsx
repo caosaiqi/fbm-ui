@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Typography, TypographyProps } from '@material-ui/core'
+import { Typography, TypographyProps } from '@mui/material'
 
 type ColorTypeMap = 'error' | 'warning' | 'success' | 'info' | 'black' | 'white' | 'secondary' | 'disabled'
 type WeightTypeMap = 'light' | 'regular' | 'medium' | 'bold'

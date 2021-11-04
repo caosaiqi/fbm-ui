@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { List, ListItemButton, ListItemText, ListItemIcon } from '@material-ui/core'
-import styled from '@material-ui/core/styles/styled'
+import { List, ListItemButton, ListItemText, ListItemIcon } from '@mui/material'
+import styled from '@mui/material/styles/styled'
 
 interface MenuItemProps {
   selected?: boolean;

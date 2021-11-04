@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { ListItem, ListItemProps, ListItemIcon, ListItemText } from '@material-ui/core'
-import useThemeProps from '@material-ui/core/styles/useThemeProps'
+import { ListItem, ListItemProps, ListItemIcon, ListItemText } from '@mui/material'
+import useThemeProps from '@mui/material/styles/useThemeProps'
 
 const componentName: string = 'AlistRow'
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Box, BoxProps } from '@material-ui/core'
-import styled from '@material-ui/core/styles/styled'
-import useThemeProps from '@material-ui/core/styles/useThemeProps'
+import { Box, BoxProps } from '@mui/material'
+import styled from '@mui/material/styles/styled'
+import useThemeProps from '@mui/material/styles/useThemeProps'
 
 import Menu, { MenuPrpos } from '../Menu'
 

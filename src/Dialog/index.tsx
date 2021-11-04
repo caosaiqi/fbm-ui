@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Dialog, DialogProps, Box, DialogActions, Button, ButtonProps, Fade, IconButton, ModalProps } from '@material-ui/core'
-import useThemeProps from '@material-ui/core/styles/useThemeProps'
-import styled from '@material-ui/core/styles/styled'
-import { CloseIcon } from '@avocadoui/icons'
+import { Dialog, DialogProps, Box, DialogActions, Button, ButtonProps, Fade, IconButton, ModalProps } from '@mui/material'
+import useThemeProps from '@mui/material/styles/useThemeProps'
+import styled from '@mui/material/styles/styled'
 
+import { CloseIcon } from '../icons'
 import Atypography from '../Typography'
 import Abox from '../Box'
 
@@ -200,7 +200,6 @@ const AuiDialog: React.FC<AdialogProps> = (inProps) => {
       }
     }
   }
-
 
   const rootProps = {
     width,

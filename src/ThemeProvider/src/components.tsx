@@ -1,5 +1,5 @@
 
-import { outlinedInputClasses } from '@material-ui/core'
+import { outlinedInputClasses } from '@mui/material'
 import customComponets from './customComponets'
 import palette from './palette'
 
@@ -129,12 +129,6 @@ export default {
           fontSize: '18px'
         }
       }
-    }
-  },
-
-  MuiSvgIcon: {
-    fontSizeSmall: {
-      color: 'red'
     }
   },
 

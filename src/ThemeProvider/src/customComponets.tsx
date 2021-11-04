@@ -1,27 +1,5 @@
 const customComponets = {
-  Aavatar: {
-    styleOverrides: {
-      small: {
-        width: 24,
-        height: 24,
-      },
-      middle: {
-        width: 36,
-        height: 36,
-      },
-      large: {
-        width: 48,
-        height: 48,
-      },
-      disabled: {
-        opacity: .8,
-      },
-    },
-    defaultProps: {
-      size: 'middle',
-      disabled: false,
-    },
-  },
+ 
   ListRow: {
     defaultProps: {
       disablePadding: true,
@@ -90,35 +68,6 @@ const customComponets = {
     },
   },
 
-  Aalert: {
-    styleOverrides: {
-      root: {
-        color: 'rgba(0, 0, 0, 0.56)',
-        padding: '4px 16px',
-        border: '1px solid',
-      },
-      success: {
-        borderColor: '#00d99d',
-        backgroundColor: 'rgba(0, 217, 157, 0.26)',
-      },
-      error: {
-        borderColor: '#ff6c6c',
-        backgroundColor: 'rgba(255, 108, 108, 0.26)',
-      },
-      warning: {
-        borderColor: '#F5C441',
-        backgroundColor: 'rgba(245, 196, 65, 0.26)',
-      },
-      info: {
-        borderColor: '#7c9df7',
-        backgroundColor: ' rgba(61, 160, 245, 0.26)',
-      },
-    },
-    defaultProps: {
-      type: 'info',
-    },
-  },
-
   Aheader: {
     styleOverrides: {
       root: {
@@ -146,18 +95,6 @@ const customComponets = {
     },
   },
 
-  Amask: {
-    styleOverrides: {
-      root: {
-        position: 'absolute',
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-        zIndex: 2,
-      },
-    },
-  },
   Aloading: {
     defaultProps: {
       color: 'primary',

@@ -1,14 +1,21 @@
 import * as React from 'react';
-import { Box, BoxProps } from '@material-ui/core'
-import styled from '@material-ui/core/styles/styled'
+import { Box } from '@mui/material'
+import styled from '@mui/material/styles/styled'
 
-export interface MaskProps extends BoxProps {}
+type ColorMap = 'white' | 'dark'
+export interface MaskProps { 
+  color?: ColorMap | string
+}
 
-const MaskRoot: React.FC<MaskProps> = styled(Box, {
-  name: 'Amask',
-  slot: 'Root',
-  overridesResolver: (props, styles) => styles.root,
-})(() => ({}))
+const MaskRoot: React.FC<MaskProps> = styled(Box)(({ theme, color }) => ({
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  bottom: 0,
+  left: 0,
+  zIndex: 2,
+  backgroundColor: theme.palette.mask[color] || color,
+}))
 
 const Amask: React.FC<MaskProps> = ({
   children,
@@ -19,5 +26,8 @@ const Amask: React.FC<MaskProps> = ({
   </MaskRoot>
 )
 
+Amask.defaultProps = {
+  color: 'white',
+}
 
 export default Amask

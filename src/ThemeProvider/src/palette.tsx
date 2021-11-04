@@ -1,4 +1,4 @@
-import { green, red } from '@material-ui/core/colors'
+import { green, red } from '@mui/material/colors'
 
 export default {
   common: {
@@ -23,24 +23,28 @@ export default {
     main: '#ff6c6c',
     dark: '#b24b4b',
     contrastText: '#fff',
+    bgColor: '#ff6c6c42',
   },
   warning: {
     light: '#f7cf67',
     main: '#f5c441',
     dark: '#ab892d',
     contrastText: '#fff',
+    bgColor: '#f5c44142',
   },
   success: {
     light: '#33e0b0',
     main: '#00d99d',
     dark: '#00976d',
     contrastText: '#fff',
+    bgColor: '#00d99d42',
   },
   info: {
     light: '#96b0f8',
     main: '#7c9df7',
     dark: '#566dac',
     contrastText: '#fff',
+    bgColor: '#7c9df742',
   },
   grey: {
     50: '#fafafa',
