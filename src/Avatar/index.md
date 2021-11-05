@@ -15,20 +15,20 @@ group:
  * desc: 内置三种尺寸，size支持传入数字自定义尺寸
  */
 import * as React from 'react';
-import { Aavatar, Alayout} from 'fbm-ui'
+import { Avatar, Layout} from 'fbm-ui'
 
 const imgurl = 'https://joeschmoe.io/api/v1/random'
 export default () =>(
-  <Alayout>
-    <Aavatar  src={imgurl} size='small' />
+  <Layout>
+    <Avatar  src={imgurl} size='small' />
     <br/>
-    <Aavatar  src={imgurl} size='middle' />
+    <Avatar  src={imgurl} size='middle' />
     <br/>
-    <Aavatar  src={imgurl} size='large' />
+    <Avatar  src={imgurl} size='large' />
      <br/>
-    <Aavatar  src={imgurl} size={300} />
+    <Avatar  src={imgurl} size={300} />
     
-  </Alayout>
+  </Layout>
 )
 ```
 
@@ -38,14 +38,14 @@ export default () =>(
  * desc: 头像禁用状态
  */
 import * as React from 'react';
-import { Aavatar, Alayout} from 'fbm-ui'
+import { Avatar, Layout} from 'fbm-ui'
 
 const imgurl = 'https://joeschmoe.io/api/v1/random'
 export default () =>(
-  <Alayout>
-    <Aavatar  src={imgurl} size='large' disabled/>
+  <Layout>
+    <Avatar  src={imgurl} size='large' disabled/>
     
-  </Alayout>
+  </Layout>
 )
 ```
 

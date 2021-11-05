@@ -1,6 +1,5 @@
 
 import { outlinedInputClasses } from '@mui/material'
-import customComponets from './customComponets'
 import palette from './palette'
 
 export default {
@@ -132,5 +131,20 @@ export default {
     }
   },
 
-  ...customComponets,
+  LayoutHoverMenu: {
+    styleOverrides: {
+      root: {
+        width: 56,
+        zIndex: 1001,
+        overflowX: 'hidden',
+        height: '100%',
+        boxShadow: '0px 4px 8px 0px rgb(0, 0, 0, 0.16)',
+        backgroundColor: '#fff',
+        position: 'absolute',
+        '&:hover': {
+          width: 186,
+        },
+      },
+    },
+  },
 }

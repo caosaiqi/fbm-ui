@@ -14,21 +14,19 @@ group:
  * desc: 输入框定义了三种尺寸（默认、小），高度分别为44px和34px。
  */
 import * as React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import {  Alayout, Ainput, Abox} from 'fbm-ui'
+import {  Layout, Input, Box } from 'fbm-ui'
 
 export default () => (
-  <Alayout>
-    <Abox>
-      <Abox>
-        <Ainput placeholder="请输入姓名" label="名称"  />
-      </Abox>
-    </Abox>
-
-      <Abox>
-        <Ainput placeholder="请输入姓名" label="名称" size="small"  />
-      </Abox>
-  </Alayout>
+  <Layout>
+    <Box>
+      <Box>
+        <Input placeholder="请输入姓名" label="名称"  />
+      </Box>
+    </Box>
+      <Box>
+        <Input placeholder="请输入姓名" label="名称" size="small"  />
+      </Box>
+  </Layout>
 )
 ```
 
@@ -40,12 +38,12 @@ export default () => (
  */
 import * as React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import {  Alayout, Ainput } from 'fbm-ui'
+import {  Layout, Input } from 'fbm-ui'
 
 export default () => (
-  <Alayout>
-    <Ainput disabled label="名称"  />
-  </Alayout>
+  <Layout>
+    <Input disabled label="名称"  />
+  </Layout>
 )
 
 ```

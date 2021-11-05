@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Alert, AlertProps } from '@mui/material'
 import styled from '@mui/material/styles/styled'
-import useThemeProps from '@mui/material/styles/useThemeProps'
+import { FbmThemeOptions } from '../ThemeProvider'
 
 import {
   CheckIcon,
@@ -10,11 +10,9 @@ import {
   InfoIcon
 } from '../icons'
 
-const componentName: string = 'Aalert'
-
 type AlertType = 'error' | 'warning' | 'success' | 'info'
 
-export interface AalertProps extends AlertProps {
+export interface FbmAlertProps extends AlertProps {
   /** Alert类型 可选 默认为info */
   type?: AlertType;
   /** Alert显示内容 */
@@ -28,18 +26,19 @@ interface IconProps {
   type: AlertType
 }
 
-const AlertRoot: React.FC<AalertProps> = styled(Alert, {
-  name: 'Aalert',
+const AlertRoot: React.FC<FbmAlertProps> = styled(Alert, {
+  name: 'Alert',
   slot: 'Root',
-})(({ theme, type }) => (
-  {
+})(({ theme, type }) => {
+  console.log(theme)
+  return {
     color: theme.palette.text.secondary,
     padding: '4px 16px',
     border: '1px solid',
     borderColor: theme.palette[type].main,
-    backgroundColor: theme.palette[type].bgColor,
+    backgroundColor: (theme as FbmThemeOptions).custom.bgColor[type],
   }
-))
+})
 
 const Icon: React.FC<IconProps> = ({ icon, type }) => {
   if (icon === null) return null
@@ -58,15 +57,14 @@ const Icon: React.FC<IconProps> = ({ icon, type }) => {
   return <> {icon} </>
 }
 
-const Aalert: React.FC<AalertProps> = (inProps) => {
-  const {
-    type,
-    children,
-    message,
-    icon,
-    color: componentColor,
-    ...otherProps
-  } = useThemeProps({ props: inProps, name: componentName })
+const FbmAlert: React.FC<FbmAlertProps> = ({
+  type,
+  children,
+  message,
+  icon,
+  color: componentColor,
+  ...otherProps
+}) => {
 
   const color = componentColor || type
 
@@ -84,8 +82,8 @@ const Aalert: React.FC<AalertProps> = (inProps) => {
   )
 }
 
-Aalert.defaultProps = {
-  type: 'info'
+FbmAlert.defaultProps = {
+  type: 'info',
 }
 
-export default Aalert
+export default FbmAlert

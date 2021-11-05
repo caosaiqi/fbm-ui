@@ -1,17 +1,15 @@
 import * as React from 'react';
 
-import Dialog, { AdialogProps } from '../Dialog'
+import Dialog, { FbmDialogProps } from '../Dialog'
 import renderIntoBody from '../utils/renderIntoBody'
 import ThemeProvider from '../ThemeProvider'
 import Typography from '../Typography'
 
-export const componentName: string = 'Confirm'
-
-export interface AconfirmProps extends AdialogProps {
+export interface FbmConfirmProps extends FbmDialogProps {
   content?: string | React.ReactNode
 }
 
-const confirm = (props: AconfirmProps) => {
+const fbmConfirm = (props: FbmConfirmProps) => {
   const {
     content,
     onClose,
@@ -48,7 +46,7 @@ const confirm = (props: AconfirmProps) => {
     }
 
     return (
-      <ThemeProvider theme={undefined}>
+      <ThemeProvider>
         <Dialog
           BackdropProps={{ open: false }}
           open={open}
@@ -64,5 +62,4 @@ const confirm = (props: AconfirmProps) => {
 }
 
 
-
-export default confirm
+export default fbmConfirm

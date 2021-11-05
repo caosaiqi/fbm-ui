@@ -11,7 +11,7 @@ group:
 ```tsx
 
 import * as React from 'react';
-import {  Alayout, Grid, Typography, Paper, Amessage }  from 'fbm-ui'
+import {  Layout, Grid, Typography, Paper, Message }  from 'fbm-ui'
 import toCopy from "copy-to-clipboard";
 
 import  * as icons from './index'
@@ -30,7 +30,7 @@ const handleCopy = (displayName) => {
   const content = `<${displayName} />`
   const msg = `${content} copied`;
   toCopy(content)
-  Amessage.success(msg)
+  Message.success(msg)
 }
 
 const mapIcon = Object.keys(icons).map((displayName, index) => {
@@ -54,11 +54,11 @@ const mapIcon = Object.keys(icons).map((displayName, index) => {
 })
 
 export default () => (
-  <Alayout>
+  <Layout>
      <Grid container spacing={6}>
         {mapIcon}
       </Grid>
-  </Alayout>
+  </Layout>
 )
 ```
 

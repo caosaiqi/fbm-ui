@@ -8,49 +8,48 @@ group:
 # Button 按钮
 ## 代码演示
 
-```tsx
+ ```tsx
 /**
  * title: 基本
- * desc: 精简版Formik
  */
 import * as React from 'react';
-import {  Alayout, Abutton, Abox, ButtonGroup, Button, Aicon} from 'fbm-ui'
+import {  Layout, Button, Box, ButtonGroup, AddIcon} from 'fbm-ui'
 
 export default () => (
-  <Alayout>
-    <Abox>
-      <Abox sx={{mb: 2}}>
-        <Abutton sx={{mr: 1}} size="small">按钮</Abutton> 
-        <Abutton sx={{mr: 1}} size="medium">按钮</Abutton> 
-        <Abutton sx={{mr: 1}} size="large">按钮</Abutton> 
-      </Abox>
-       <Abox sx={{mb: 2}}>
-        <Abutton sx={{mr: 1}} startIcon={<Aicon name="AddIcon"/>} size="small">按钮</Abutton> 
-        <Abutton sx={{mr: 1}} startIcon={<Aicon name="AddIcon"/>} size="medium">按钮</Abutton> 
-        <Abutton sx={{mr: 1}} startIcon={<Aicon name="AddIcon"/>} size="large">按钮</Abutton> 
-      </Abox>
-      <Abox sx={{mb: 2}}>
-        <Abutton sx={{mr: 1}}  variant="outlined" size="small">按钮</Abutton> 
-        <Abutton sx={{mr: 1}}  variant="outlined" size="medium">按钮</Abutton> 
-        <Abutton sx={{mr: 1}}  variant="outlined" size="large">按钮</Abutton> 
-      </Abox>
-       <Abox sx={{mb: 2}}>
-        <Abutton sx={{mr: 1}} startIcon={<Aicon name="AddIcon"/>} variant="outlined" size="small">按钮</Abutton> 
-        <Abutton sx={{mr: 1}} startIcon={<Aicon name="AddIcon"/>} variant="outlined" size="medium">按钮</Abutton> 
-        <Abutton sx={{mr: 1}} startIcon={<Aicon name="AddIcon"/>} variant="outlined" size="large">按钮</Abutton> 
-      </Abox>
-      <Abox sx={{mb: 2}}>
-        <Abutton sx={{mr: 1}} variant="text" size="small">按钮</Abutton> 
-        <Abutton sx={{mr: 1}} variant="text" size="medium">按钮</Abutton> 
-        <Abutton sx={{mr: 1}} variant="text" size="large">按钮</Abutton> 
-      </Abox>
-         <Abox sx={{mb: 2}}>
-        <Abutton sx={{mr: 1}} startIcon={<Aicon name="AddIcon"/>} variant="text" size="small">按钮</Abutton> 
-        <Abutton sx={{mr: 1}} startIcon={<Aicon name="AddIcon"/>} variant="text" size="medium">按钮</Abutton> 
-        <Abutton sx={{mr: 1}} startIcon={<Aicon name="AddIcon"/>} variant="text" size="large">按钮</Abutton> 
-      </Abox>
-     </Abox>
-  </Alayout>
+  <Layout>
+    <Box>
+      <Box sx={{mb: 2}}>
+        <Button sx={{mr: 1}} size="small">按钮</Button> 
+        <Button sx={{mr: 1}} size="medium">按钮</Button> 
+        <Button sx={{mr: 1}} size="large">按钮</Button> 
+      </Box>
+       <Box sx={{mb: 2}}>
+        <Button sx={{mr: 1}} startIcon={<AddIcon />} size="small">按钮</Button> 
+        <Button sx={{mr: 1}} startIcon={<AddIcon />} size="medium">按钮</Button> 
+        <Button sx={{mr: 1}} startIcon={<AddIcon />} size="large">按钮</Button> 
+      </Box>
+      <Box sx={{mb: 2}}>
+        <Button sx={{mr: 1}}  variant="outlined" size="small">按钮</Button> 
+        <Button sx={{mr: 1}}  variant="outlined" size="medium">按钮</Button> 
+        <Button sx={{mr: 1}}  variant="outlined" size="large">按钮</Button> 
+      </Box>
+       <Box sx={{mb: 2}}>
+        <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="outlined" size="small">按钮</Button> 
+        <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="outlined" size="medium">按钮</Button> 
+        <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="outlined" size="large">按钮</Button> 
+      </Box>
+      <Box sx={{mb: 2}}>
+        <Button sx={{mr: 1}} variant="text" size="small">按钮</Button> 
+        <Button sx={{mr: 1}} variant="text" size="medium">按钮</Button> 
+        <Button sx={{mr: 1}} variant="text" size="large">按钮</Button> 
+      </Box>
+         <Box sx={{mb: 2}}>
+        <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="text" size="small">按钮</Button> 
+        <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="text" size="medium">按钮</Button> 
+        <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="text" size="large">按钮</Button> 
+      </Box>
+     </Box>
+  </Layout>
 )
 ```
 
@@ -59,20 +58,20 @@ export default () => (
  * title: 按钮组
  */
 import * as React from 'react';
-import {  Alayout, Abutton, Abox, ButtonGroup, Aicon} from 'fbm-ui'
+import {  Layout, Button, Box, ButtonGroup, OverflowIcon} from 'fbm-ui'
 
 export default () => (
-  <Alayout>
+  <Layout>
       <ButtonGroup variant="contained" sx={{mb: 2}}>
-        <Abutton >按钮</Abutton> 
-         <Abutton
+        <Button >按钮</Button> 
+         <Button
           size="small"
         >
-          <Aicon name="OverflowIcon"/>
-        </Abutton>
+          <OverflowIcon />
+        </Button>
       </ButtonGroup>
 
-  </Alayout>
+  </Layout>
 )
 ```
 
@@ -82,13 +81,12 @@ export default () => (
  * title: disabled
  */
 import * as React from 'react';
-import {  Alayout, Abutton } from 'fbm-ui'
+import {  Layout, Button } from 'fbm-ui'
 
 export default () => (
-  <Alayout>
-    <Abutton disabled>按钮</Abutton> <br/><br/>
-    
-  </Alayout>
+  <Layout>
+    <Button disabled>按钮</Button> 
+  </Layout>
 )
 ```
 
@@ -98,16 +96,16 @@ export default () => (
  * title: loading
  */
 import * as React from 'react';
-import {  Alayout, Abutton, IconButton, CheckIcon} from 'fbm-ui'
+import {  Layout, Button, IconButton, CheckIcon} from 'fbm-ui'
 
 export default () => (
-  <Alayout>
-    <Abutton loading>按钮</Abutton> <br/><br/>
+  <Layout>
+    <Button loading>按钮</Button> <br/><br/>
 
   
 
 
-  </Alayout>
+  </Layout>
 )
 ```
 
@@ -117,10 +115,10 @@ export default () => (
  * title: IconButton
  */
 import * as React from 'react';
-import {Alayout, IconButton, CheckIcon} from 'fbm-ui'
+import {Layout, IconButton, CheckIcon} from 'fbm-ui'
 
 export default () => (
-  <Alayout>
+  <Layout>
     
     <IconButton size="small" aria-label="add to shopping cart">
       <CheckIcon />
@@ -131,7 +129,7 @@ export default () => (
     <IconButton  aria-label="add to shopping cart">
      <CheckIcon />
     </IconButton>
-  </Alayout>
+  </Layout>
 )
 ```
 

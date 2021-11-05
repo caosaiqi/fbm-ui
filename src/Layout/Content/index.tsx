@@ -5,9 +5,9 @@ import useThemeProps from '@mui/material/styles/useThemeProps'
 
 import Menu, { MenuPrpos } from '../Menu'
 
-export const componentName: string = 'AlayoutContent'
+export const componentName: string = 'LayoutContent'
 
-export interface AlayoutContentProps {
+export interface LayoutContentProps {
   children: React.ReactNode,
   menu?: MenuPrpos,
 }
@@ -16,7 +16,7 @@ interface ContentRootProps extends BoxProps {
   ownerState: object
 }
 const ContentRoot: React.FC<ContentRootProps> = styled(Box, {
-  name: 'AlayoutContent',
+  name: 'LayoutContent',
   slot: 'Root',
   overridesResolver: (_, styles) => styles.root,
 })(({ theme }) => ({
@@ -25,13 +25,13 @@ const ContentRoot: React.FC<ContentRootProps> = styled(Box, {
 
 interface PageRootProps extends BoxProps {}
 const PageRoot: React.FC<PageRootProps> = styled(Box, {
-  name: 'AlayoutPage',
+  name: 'LayoutPage',
   slot: 'Root',
   overridesResolver: (_, styles) => styles.root,
 })(() => ({
 }))
 
-const AlayoutContent: React.FC<AlayoutContentProps> = (inProps) => {
+const LayoutContent: React.FC<LayoutContentProps> = (inProps) => {
   const {
     children,
     menu,
@@ -57,4 +57,4 @@ const AlayoutContent: React.FC<AlayoutContentProps> = (inProps) => {
   )
 }
 
-export default AlayoutContent
+export default LayoutContent

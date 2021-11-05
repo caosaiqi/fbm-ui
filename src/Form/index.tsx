@@ -1,25 +1,25 @@
 import * as React from 'react';
 import { Formik, Form, FormikConfig } from 'formik';
 
-import Abox from '../Box'
+import Box from '../Box'
 
-export const componentName: string = 'Aform'
+export const componentName: string = 'Form'
 
-interface FormProps<Values = {}> extends FormikConfig<Values> {
+interface FbmFormProps<Values = {}> extends FormikConfig<Values> {
   loading?: boolean;
 }
 
-const Aform: React.FC<FormProps> = (props) => {
+const FbmForm: React.FC<FbmFormProps> = (props) => {
   const { loading, children, ...otherProps } = props;
   return (
-    <Abox loading={loading}>
+    <Box loading={loading}>
       <Formik {...otherProps}>
         <Form>
           {children}
         </Form>
       </Formik>
-    </Abox>
+    </Box>
   )
 }
 
-export default Aform
+export default FbmForm

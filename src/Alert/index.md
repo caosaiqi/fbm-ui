@@ -11,18 +11,18 @@ group:
 
 ```tsx
 import * as React from 'react';
-import { Aalert, Alayout} from 'fbm-ui'
+import { Alert, Layout } from 'fbm-ui'
 
 export default () => (
-  <Alayout>
-    <Aalert type='success'>  这是一个Success提醒 </Aalert>
+  <Layout>
+    <Alert type='success'>  这是一个Success提醒 </Alert>
     <br />
-    <Aalert type='error'>  这是一个Error提醒 </Aalert>
+    <Alert type='error'>  这是一个Error提醒 </Alert>
     <br />
-    <Aalert type='warning'>  这是一个Warning提醒 </Aalert>
+    <Alert type='warning'>  这是一个Warning提醒 </Alert>
     <br />
-    <Aalert type='info'>  这是一个Info提醒 </Aalert>
-</Alayout>
+    <Alert type='info'>  这是一个Info提醒 </Alert>
+</Layout>
 )
 ```
 <API></API>

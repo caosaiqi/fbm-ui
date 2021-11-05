@@ -23,28 +23,24 @@ export default {
     main: '#ff6c6c',
     dark: '#b24b4b',
     contrastText: '#fff',
-    bgColor: '#ff6c6c42',
   },
   warning: {
     light: '#f7cf67',
     main: '#f5c441',
     dark: '#ab892d',
     contrastText: '#fff',
-    bgColor: '#f5c44142',
   },
   success: {
     light: '#33e0b0',
     main: '#00d99d',
     dark: '#00976d',
     contrastText: '#fff',
-    bgColor: '#00d99d42',
   },
   info: {
     light: '#96b0f8',
     main: '#7c9df7',
     dark: '#566dac',
     contrastText: '#fff',
-    bgColor: '#7c9df742',
   },
   grey: {
     50: '#fafafa',
@@ -89,9 +85,5 @@ export default {
     focus: 'rgba(0, 0, 0, 0.12)',
     focusOpacity: 0.12,
     activatedOpacity: 0.12,
-  },
-  mask: {
-    dark: 'rgba(0, 0, 0, .56)',
-    white: 'rgba(255, 255, 255, .56)',
   },
 }

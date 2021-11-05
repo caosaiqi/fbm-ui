@@ -2,14 +2,15 @@ import * as React from 'react';
 import { CircularProgress } from '@mui/material'
 import styled from '@mui/material/styles/styled'
 
+import { FbmThemeOptions } from '../ThemeProvider'
 import Mask from '../Mask'
 import Typography from '../Typography'
 
-export const componentName: string = 'Aloading'
+export const componentName: string = 'Loading'
 
 type SizeType = 'small' | 'large'
 type ColorType = 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning' | 'inherit'
-export interface AloadingProps {
+export interface FbmLoadingProps {
   /** 尺寸 */
   size?: SizeType | number
   /** 颜色 */
@@ -20,11 +21,10 @@ export interface AloadingProps {
   isMask?: boolean;
 }
 
-const MaskRoot: React.FC<AloadingProps> = styled(Mask)(({ theme, isMask }) => {
-  const { white } = theme.palette.mask
+const MaskRoot: React.FC<FbmLoadingProps> = styled(Mask)(({ theme, isMask }) => {
   return {
     ...(isMask && {
-      backgroundColor: white,
+      backgroundColor: (theme as FbmThemeOptions).custom.mask.white,
     }),
     display: 'flex',
     alignItems: 'center',
@@ -37,8 +37,8 @@ MaskRoot.defaultProps = {
   isMask: true,
 }
 
-const LoadingRoot: React.FC<AloadingProps> = styled(CircularProgress, {
-  name: 'Aloading',
+const LoadingRoot: React.FC<FbmLoadingProps> = styled(CircularProgress, {
+  name: 'Loading',
   slot: 'Root',
   overridesResolver: (_, styles) => styles.root,
 })(() => ({}))
@@ -60,7 +60,7 @@ const LoadingTextRender: React.FC<{desc?: React.ReactNode}> = ({ desc }) => {
   return <span>{desc}</span>
 }
 
-const ACircularProgress: React.FC<AloadingProps> = (props) => {
+const FbmLoading: React.FC<FbmLoadingProps> = (props) => {
   const { isMask, desc,  ...loadingProps } = props
   return (
     <MaskRoot isMask={isMask}>
@@ -70,9 +70,9 @@ const ACircularProgress: React.FC<AloadingProps> = (props) => {
   )
 }
 
-ACircularProgress.defaultProps = {
+FbmLoading.defaultProps = {
   color: 'primary',
   size: 44,
 }
 
-export default ACircularProgress
+export default FbmLoading

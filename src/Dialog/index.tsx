@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { Dialog, DialogProps, Box, DialogActions, Button, ButtonProps, Fade, IconButton, ModalProps } from '@mui/material'
+import { Dialog, DialogProps, DialogActions, Button, ButtonProps, Fade, IconButton, ModalProps } from '@mui/material'
 import useThemeProps from '@mui/material/styles/useThemeProps'
 import styled from '@mui/material/styles/styled'
 
 import { CloseIcon } from '../icons'
-import Atypography from '../Typography'
-import Abox from '../Box'
+import Typography from '../Typography'
+
+import Box from '../Box'
 
 export const componentName: string = 'ADialog'
 
@@ -40,7 +41,7 @@ export interface FooterProps {
 
 }
 
-export interface AdialogProps extends DialogProps, HeaderProps, FooterProps {
+export interface FbmDialogProps extends DialogProps, HeaderProps, FooterProps {
   /** 弹框宽度 */
   width?: number;
 }
@@ -54,7 +55,7 @@ export interface RootProps {
   isNullFooter: boolean;
 }
 
-const DialogRoot: React.FC<RootProps> = styled(Abox)(({
+const DialogRoot: React.FC<RootProps> = styled(Box)(({
   width,
   isNullHeader,
   isNullFooter,
@@ -93,9 +94,9 @@ const Header: React.FC<HeaderProps> = (props) => {
     if (!title) return null
     return (
       <div style={{ flex: 1 }}>
-        <Atypography weight='medium'>
+        <Typography weight='medium'>
           {title}
-        </Atypography>
+        </Typography>
       </div>
     )
   }
@@ -164,7 +165,7 @@ const Footer: React.FC<FooterProps> = (props) => {
 }
 
 
-const AuiDialog: React.FC<AdialogProps> = (inProps) => {
+const FbmDialog: React.FC<FbmDialogProps> = (inProps) => {
   const {
     width,
 
@@ -238,7 +239,7 @@ const AuiDialog: React.FC<AdialogProps> = (inProps) => {
   )
 }
 
-AuiDialog.defaultProps = {
+FbmDialog.defaultProps = {
   isShowClose: true,
   isShowCloseBtn: true,
   closeText: '取消',
@@ -251,4 +252,4 @@ AuiDialog.defaultProps = {
     variant: 'contained',
   },
 }
-export default AuiDialog
+export default FbmDialog

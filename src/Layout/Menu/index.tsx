@@ -5,7 +5,7 @@ import useThemeProps from '@mui/material/styles/useThemeProps'
 
 import HoverMenu, { HoverMenuProps } from './HoverMenu'
 
-export const componentName: string = 'AlayoutMenu'
+export const componentName: string = 'LayoutMenu'
 
 export interface MenuPrpos extends HoverMenuProps {
   // closedWidth?: number;
@@ -13,14 +13,14 @@ export interface MenuPrpos extends HoverMenuProps {
 }
 
 const MenuRoot = styled(Paper, {
-  name: 'AlayoutMenu',
+  name: 'LayoutMenu',
   slot: 'root',
   overridesResolver: (_, styles) => styles.root,
 })({
   width: 52,
 })
 
-const AlayoutMenu: React.FC<MenuPrpos> = (inProps) => {
+const LayoutMenu: React.FC<MenuPrpos> = (inProps) => {
   const { menus } = useThemeProps({ props: inProps, name: componentName })
 
   return (
@@ -30,4 +30,4 @@ const AlayoutMenu: React.FC<MenuPrpos> = (inProps) => {
   )
 }
 
-export default AlayoutMenu
+export default LayoutMenu

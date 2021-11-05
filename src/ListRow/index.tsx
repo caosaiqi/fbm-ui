@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ListItem, ListItemProps, ListItemIcon, ListItemText } from '@mui/material'
 import useThemeProps from '@mui/material/styles/useThemeProps'
 
-const componentName: string = 'AlistRow'
+const componentName: string = 'ListRow'
 
 export interface ListRowPropos extends ListItemProps {
   text?: string | string[];

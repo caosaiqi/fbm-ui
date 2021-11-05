@@ -16,7 +16,7 @@ export interface HoverMenuProps {
 
 const MenuRoot = styled(List, {
   slot: 'root',
-  name: 'AlayoutHoverMenu',
+  name: 'LayoutHoverMenu',
   overridesResolver: (_, styles) => styles.root,
 })(({ theme }) => ({
   padding: 0,

@@ -7,7 +7,7 @@ import Typography from '../Typography'
 import renderIntoBody from '../utils/renderIntoBody'
 import { theme } from '../ThemeProvider'
 
-export const componentName: string = 'Amessage'
+export const componentName: string = 'Message'
 
 type NoticeType = 'error' | 'warning' | 'success' | 'info'
 

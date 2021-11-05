@@ -1,14 +1,11 @@
 import * as React from 'react';
 import { Avatar, AvatarProps } from '@mui/material'
 import styled from '@mui/material/styles/styled'
-import useThemeProps from '@mui/material/styles/useThemeProps'
 
 import Box from '../Box'
 
-export const componentName: string = 'Aavatar'
-
 type SizeType = 'small' | 'middle' | 'large';
-export interface AavatarPropos extends AvatarProps {
+export interface FbmAvatarPropos extends AvatarProps {
   /** 尺寸 */
   size?: SizeType | string | number;
   /** 是否为禁用状态 */
@@ -20,7 +17,7 @@ const BoxRoot = styled(Box)({
   borderRadius: '50%',
 })
 
-const AvatarRoot: React.FC<AavatarPropos> = styled(Avatar)
+const AvatarRoot: React.FC<FbmAvatarPropos> = styled(Avatar)
 (({ size }) => ({
   width: size,
   height: size
@@ -35,11 +32,12 @@ const formatSize = (size) => {
   return defaultSizes[size] || size
 }
 
-const Aavatar: React.FC<AavatarPropos> = ({
+const FbmAvatar: React.FC<FbmAvatarPropos> = ({
   size,
   disabled,
   ...otherProps
 }) => {
+  
   const avatarProps = {
     size: formatSize(size),
     ...otherProps
@@ -52,9 +50,9 @@ const Aavatar: React.FC<AavatarPropos> = ({
   )
 }
 
-Aavatar.defaultProps = {
+FbmAvatar.defaultProps = {
   size: 'middle',
   disabled: false,
 }
 
-export default Aavatar
+export default FbmAvatar

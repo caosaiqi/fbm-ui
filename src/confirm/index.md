@@ -14,7 +14,7 @@ group:
  * desc: 给某个模块添加loaidng
  */
 import * as React from 'react';
-import { Aconfirm, Alayout, Button} from 'fbm-ui'
+import { confirm, Layout, Button} from 'fbm-ui'
 
 
 const CustomHeader =  ({ onClose }) => (
@@ -38,9 +38,9 @@ const CustomFooter = ({onOK, onClose}) =>(
  )
 
 export default () =>(
-  <Alayout>
+  <Layout>
     <Button onClick={() => {
-      Aconfirm({
+      confirm({
         title: '确认？',
         content: '确认添加李小刚到此步骤',
         isShowClose: false,
@@ -49,7 +49,7 @@ export default () =>(
 
 
     <Button onClick={() => {
-      Aconfirm({
+      confirm({
         title: '确认？',
         content: '确认将李小刚从该职位移动到所选职位吗？该操作无法被撤销。',
         okText: '撤销',
@@ -62,7 +62,7 @@ export default () =>(
 
 
     <Button onClick={() => {
-      Aconfirm({
+      confirm({
         header: null,
         content: '确认添加李小刚到此步骤？',
         okText: '添加',
@@ -70,7 +70,7 @@ export default () =>(
     }}  >  隐藏 header </Button>
 
     <Button onClick={() => {
-      Aconfirm({
+      confirm({
         header:CustomHeader,
         content: '确认添加李小刚到此步骤？',
         okText: '添加',
@@ -79,7 +79,7 @@ export default () =>(
 
 
     <Button onClick={() => {
-      Aconfirm({
+      confirm({
         footer: null,
         content: '确认添加李小刚到此步骤？',
         okText: '添加',
@@ -88,7 +88,7 @@ export default () =>(
 
 
     <Button onClick={() => {
-      Aconfirm({
+      confirm({
         footer: CustomFooter,
         content: '确认添加李小刚到此步骤？',
         okText: '添加',
@@ -97,14 +97,14 @@ export default () =>(
 
 
      <Button onClick={() => {
-      Aconfirm({
+      confirm({
         width: 600,
         title: '设置大小',
         content: '确认添加李小刚到此步骤？',
         okText: '添加',
       })
     }}  > 设置弹框width </Button>
-  </Alayout>
+  </Layout>
 )
 ```
 

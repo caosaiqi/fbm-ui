@@ -5,7 +5,6 @@ import styled from '@mui/material/styles/styled'
 import Loading from '../Loading'
 import Mask from '../Mask'
 
-export const componentName: string = 'Abox'
 interface LoadingProps {
   /** 遮罩loading */
   loading?: boolean;
@@ -17,14 +16,14 @@ interface LoadingProps {
   isMask?: boolean;
 }
 
-export interface AboxProps extends BoxProps {
+export interface FbmBoxProps extends BoxProps {
   /** loading */
   loading?: boolean | LoadingProps;
   /** 是否禁用 */
   disabled?: boolean
 }
 
-const BoxRoot: React.FC<BoxProps> = styled(Box)({
+const BoxRoot: React.FC<FbmBoxProps> = styled(Box)({
   position: 'relative',
   boxSizing: 'border-box',
 })
@@ -47,7 +46,7 @@ const LoadingRender: React.FC<LoadingProps> = ({
   )
 }
 
-const Abox: React.FC<AboxProps> = ({
+const FbmBox: React.FC<FbmBoxProps> = ({
   loading,
   disabled,
   children,
@@ -71,4 +70,9 @@ const Abox: React.FC<AboxProps> = ({
   )
 }
 
-export default Abox
+FbmBox.defaultProps = {
+  loading: false,
+  disabled: false,
+}
+
+export default FbmBox

@@ -11,10 +11,9 @@ group:
 ```tsx
 /**
  * title: 基本
- * desc: 精简版Formik
  */
 import * as React from 'react';
-import {  Alayout, Ainput, Aform, Button } from 'fbm-ui'
+import {  Layout, Input, Form, Button } from 'fbm-ui'
 
 const formProps = {
   initialValues: {
@@ -37,17 +36,17 @@ const formProps = {
 }
 
 export default () => (
-  <Alayout>
-    <Aform {...formProps}>
-      <Ainput label="名称" name="name" sx={{mr: 2}} />
+  <Layout>
+    <Form {...formProps}>
+      <Input label="名称" name="name" sx={{mr: 2}} />
       <br/>
-      <Ainput label="密码" name="password" />
+      <Input label="密码" name="password" />
        <br/>
       <Button sx={{m: '3px 0px 0 5px'}} variant="contained"  type="submit">
         提交
       </Button>
-    </Aform>
-  </Alayout>
+    </Form>
+  </Layout>
 )
 
 ```

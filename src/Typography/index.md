@@ -14,7 +14,7 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import { Alayout, Atypography } from 'fbm-ui'
+import { Layout, Typography } from 'fbm-ui'
 
 const colors = [
   'error',
@@ -43,20 +43,20 @@ tags.forEach(tag => {
   colors.forEach(color => {
     typographys.push(
       <div key={`${tag}${color}`} style={{ marginBottom: 10 }}>
-        <Atypography variant={tag} color={color}>
+        <Typography variant={tag} color={color}>
           tag: {tag} &nbsp;
           color: {color}  &nbsp;
           hello Typography
-        </Atypography>
+        </Typography>
       </div>,
     )
   })
 })
 
 export default () => (
-  <Alayout>
+  <Layout>
      {typographys}
-  </Alayout>
+  </Layout>
 )
 
 ```

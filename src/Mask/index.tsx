@@ -2,22 +2,24 @@ import * as React from 'react';
 import { Box } from '@mui/material'
 import styled from '@mui/material/styles/styled'
 
+import { FbmThemeOptions } from '../ThemeProvider'
+
 type ColorMap = 'white' | 'dark'
-export interface MaskProps { 
+export interface FbmMaskProps { 
   color?: ColorMap | string
 }
 
-const MaskRoot: React.FC<MaskProps> = styled(Box)(({ theme, color }) => ({
+const MaskRoot: React.FC<FbmMaskProps> = styled(Box)(({ theme, color }) => ({
   position: 'absolute',
   top: 0,
   right: 0,
   bottom: 0,
   left: 0,
   zIndex: 2,
-  backgroundColor: theme.palette.mask[color] || color,
+  backgroundColor:  (theme as FbmThemeOptions).custom.mask[color] || color,
 }))
 
-const Amask: React.FC<MaskProps> = ({
+const FbmMask: React.FC<FbmMaskProps> = ({
   children,
   ...otherProps
 }) => (
@@ -26,8 +28,8 @@ const Amask: React.FC<MaskProps> = ({
   </MaskRoot>
 )
 
-Amask.defaultProps = {
+FbmMask.defaultProps = {
   color: 'white',
 }
 
-export default Amask
+export default FbmMask

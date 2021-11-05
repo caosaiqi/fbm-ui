@@ -1,22 +1,23 @@
-export * from '@mui/material'
-export * from './icons'
+export * as material  from '@mui/material'
+export * as lab  from '@mui/lab'
 
-export { default as Alayout } from './Layout';
-export { default as AthemeProvider } from './ThemeProvider';
-export { default as Alogo } from './Logo';
-export { default as Aimage } from './Image';
-export { default as Atypography } from './Typography';
-export { default as Amask } from './Mask';
-export { default as Aavatar } from './Avatar';
-export { default as AlistRow } from './ListRow';
-export { default as Amessage } from './Message';
-export { default as Aalert } from './Alert';
-export { default as Aloading } from './Loading';
-export { default as Abox } from './Box';
-export { default as Adialog } from './Dialog';
-export { default as Aform } from './Form';
-export { default as Ainput } from './Input';
-export { default as Abutton } from './Button';
-export { default as Aconfirm } from './confirm';
+export * from './icons'
+export { default as Layout } from './Layout';
+export { default as ThemeProvider } from './ThemeProvider';
+export { default as Logo } from './Logo';
+export { default as Image } from './Image';
+export { default as Typography } from './Typography';
+export { default as Mask } from './Mask';
+export { default as Avatar } from './Avatar';
+export { default as ListRow } from './ListRow';
+export { default as Message } from './Message';
+export { default as Alert } from './Alert';
+export { default as Loading } from './Loading';
+export { default as Box } from './Box';
+export { default as Dialog } from './Dialog';
+export { default as Form } from './Form';
+export { default as Input } from './Input';
+export { default as Button } from './Button';
+export { default as confirm } from './confirm';
 
 export { default as styled } from '@mui/material/styles/styled'

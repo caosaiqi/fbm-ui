@@ -3,7 +3,7 @@ import { Typography, TypographyProps } from '@mui/material'
 
 type ColorTypeMap = 'error' | 'warning' | 'success' | 'info' | 'black' | 'white' | 'secondary' | 'disabled'
 type WeightTypeMap = 'light' | 'regular' | 'medium' | 'bold'
-export interface AuiTypographyProps extends TypographyProps {
+export interface FbmTypographyProps extends TypographyProps {
   children?: React.ReactNode;
   /** 字体颜色 */
   color?: ColorTypeMap | string;
@@ -54,7 +54,7 @@ const weightTransformations = {
 
 const transformDeprecatedWeight = weight => weightTransformations[weight] || weight
 
-const AuiTypography: React.FC<AuiTypographyProps> = ({ children, color, weight, ...props }) => {
+const FbmTypographyProps: React.FC<FbmTypographyProps> = ({ children, color, weight, ...props }) => {
   const textColor = transformDeprecatedColors(color)
   const textWeight = transformDeprecatedWeight(weight)
 
@@ -69,4 +69,4 @@ const AuiTypography: React.FC<AuiTypographyProps> = ({ children, color, weight, 
   )
 }
 
-export default AuiTypography
+export default FbmTypographyProps

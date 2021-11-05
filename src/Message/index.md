@@ -14,7 +14,7 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import {  Alayout, Amessage, Button } from 'fbm-ui'
+import {  Layout, Message, Button } from 'fbm-ui'
 
 
 const types = ['error', 'warning', 'success', 'info' ]
@@ -23,9 +23,9 @@ const types = ['error', 'warning', 'success', 'info' ]
 export default () =>
 types.map(type => (
   // eslint-disable-next-line react/jsx-key
-  <Alayout>
-    <Button color={type} key={type} onClick={() => Amessage[type](`这是一段${type}提示`)}> {type}</Button>
-    </Alayout>
+  <Layout>
+    <Button color={type} key={type} onClick={() => Message[type](`这是一段${type}提示`)}> {type}</Button>
+    </Layout>
  ))
 ```
 

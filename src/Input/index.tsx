@@ -3,16 +3,16 @@ import { TextField } from '@mui/material'
 import styled from '@mui/material/styles/styled'
 import { useFormikContext } from 'formik'
 
-export const componentName: string = 'Ainput'
+export const componentName: string = 'Input'
 
 type SizeMap = 'small' | 'large';
-export interface InputProps {
+export interface FbmInputProps {
   isFormik?: boolean;
   size?: SizeMap
 }
 
-const InputRoot: React.FC<InputProps> = styled(TextField, {
-  name: 'Ainput',
+const InputRoot: React.FC<FbmInputProps> = styled(TextField, {
+  name: 'Input',
   slot: 'Root',
 })(({ size }) => {
   const sizes = {
@@ -25,7 +25,6 @@ const InputRoot: React.FC<InputProps> = styled(TextField, {
     marginBottom: 8,
   }
 })
-
 
 const useInputProps = (inProps) => {
   const formik = useFormikContext();
@@ -54,14 +53,14 @@ const useInputProps = (inProps) => {
   return props
 }
 
-const Ainput: React.FC<InputProps> = (inProps) => {
+const FbmInput: React.FC<FbmInputProps> = (inProps) => {
   const props = useInputProps(inProps)
   return <InputRoot  {...props} />
 }
 
-Ainput.defaultProps = {
+FbmInput.defaultProps = {
   size: 'large',
 }
 
-export default Ainput
+export default FbmInput
 

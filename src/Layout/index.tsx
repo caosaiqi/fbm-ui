@@ -17,7 +17,7 @@ export interface LayoutProps extends React.FC<InternalLayoutProps> {
 const InternalLayout: React.FC<InternalLayoutProps> = ({
   children,
 }) => (
-  <ThemeProvider theme={undefined}>
+  <ThemeProvider>
     {children}
   </ThemeProvider>
 )
