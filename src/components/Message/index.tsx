@@ -4,7 +4,7 @@ import { Snackbar, SnackbarProps, Box, Slide } from '@mui/material'
 import styled from '@mui/material/styles/styled'
 
 import Typography from '../Typography'
-import renderIntoBody from '../utils/renderIntoBody'
+import renderIntoBody from '../../utils/renderIntoBody'
 import { theme } from '../ThemeProvider'
 
 export const componentName: string = 'Message'

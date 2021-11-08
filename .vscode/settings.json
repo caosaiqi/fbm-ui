@@ -2,11 +2,10 @@
   "editor.fontSize": 13,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }, // #每次保存的时候自动格式化
-  "eslint.options": { //指定vscode的eslint所处理的文件的后缀
+  },
+  "eslint.options": { 
     "extensions": [
       ".js",
-      ".vue",
       ".ts",
       ".tsx"
     ]
@@ -15,6 +14,5 @@
     "wxml": "html"
   },
   "editor.detectIndentation": false,
-  // 重新设定tabsize
   "editor.tabSize": 2,
 }

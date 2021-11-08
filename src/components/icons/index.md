@@ -11,7 +11,8 @@ group:
 ```tsx
 
 import * as React from 'react';
-import {  Layout, Grid, Typography, Paper, Message }  from 'fbm-ui'
+import {  Layout, Typography, Message }  from 'fbm-ui'
+import { Grid, Paper } from '@mui/material'
 import toCopy from "copy-to-clipboard";
 
 import  * as icons from './index'
