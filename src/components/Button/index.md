@@ -52,7 +52,7 @@ export default () => (
   </Layout>
 )
 ```
-
+<!-- 
 ```tsx
 /**
  * title: 按钮组
@@ -73,10 +73,10 @@ export default () => (
 
   </Layout>
 )
-```
+``` -->
 
 
-```tsx
+<!-- ```tsx
 /**
  * title: disabled
  */
@@ -88,10 +88,10 @@ export default () => (
     <Button disabled>按钮</Button> 
   </Layout>
 )
-```
+``` -->
 
 
-```tsx
+<!-- ```tsx
 /**
  * title: loading
  */
@@ -101,15 +101,11 @@ import {  Layout, Button, IconButton, CheckIcon} from 'fbm-ui'
 export default () => (
   <Layout>
     <Button loading>按钮</Button> <br/><br/>
-
-  
-
-
   </Layout>
 )
-```
+``` -->
 
-
+<!-- 
 ```tsx
 /**
  * title: IconButton
@@ -131,6 +127,6 @@ export default () => (
     </IconButton>
   </Layout>
 )
-```
+``` -->
 
 <API></API>

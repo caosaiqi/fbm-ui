@@ -6,6 +6,7 @@ import Loading from '../Loading'
 export const componentName: string = 'Input'
 export interface FbmButtonProps extends ButtonProps {
   loading?: boolean;
+  disabled?: boolean;
 }
 
 const FbmButton: React.FC<FbmButtonProps> = (props) => {

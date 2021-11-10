@@ -13,6 +13,7 @@ export { default as Alert } from './Alert';
 export { default as Loading } from './Loading';
 export { default as Box } from './Box';
 export { default as Dialog } from './Dialog';
+export { default as Drawer } from './Drawer';
 export { default as Form } from './Form';
 export { default as Input } from './Input';
 export { default as Button } from './Button';

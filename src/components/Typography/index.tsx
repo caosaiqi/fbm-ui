@@ -40,11 +40,15 @@ const colorTransformations = {
   white: 'common.white',
   secondary: 'text.secondary',
   primary: 'text.primary',
-  disabled: 'text.disabled',
+  disabled: 'text.dićabled',
 }
 
 const transformDeprecatedColors = color => colorTransformations[color] || color
 
+// fontWeightLight: 300,
+// fontWeightRegular: 400,
+// fontWeightMedium: 500,
+// fontWeightBold: 700,
 const weightTransformations = {
   light: 'fontWeightLight',
   regular: 'fontWeightRegular',
@@ -67,6 +71,11 @@ const FbmTypographyProps: React.FC<FbmTypographyProps> = ({ children, color, wei
       {children}
     </Typography>
   )
+}
+
+FbmTypographyProps.defaultProps = {
+  weight: 'medium', // font-weight 500
+  color: 'secondary',
 }
 
 export default FbmTypographyProps
