@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ModalProps } from '@mui/material'
 import styled from '@mui/material/styles/styled'
 
 import Box from '../../Box'
-import Button from '../../Button'
+import Button, { FbmButtonProps } from '../../Button'
 
 export interface FbmFooterProps {
-  onOk?: () => void;
+  onOk?: (event: any) => void | Promise<void>;
   onClose?: ModalProps['onClose'];
   okText: string;
   closeText: string;
+  /** footer 取消按钮props */
+  okProps?: FbmButtonProps;
 }
 
 const FooterRoot = styled(Box)({
@@ -21,24 +23,43 @@ const FooterRoot = styled(Box)({
   borderTop: '1px solid rgba(0,0,0,0.08)'
 })
 
+
 const FbmFooter: React.FC<FbmFooterProps> = (props) => {
   const {
     okText,
     closeText,
     onOk,
-    onClose
+    onClose,
+    okProps
   } = props
+  const [okLoading, setOkLoading] = useState(false)
 
-  const handleOk = () => onOk()
+  const okDefaultProps = {
+    loading: okLoading,
+    ...okProps
+  }
+  
+  const doOk = async (event) => {
+    if (onOk && typeof onOk === 'function') {
+      setOkLoading(true)
+      const f = await onOk(event)
+      setOkLoading(false)
+      if (f === undefined || f) {
+        doClose(event)
+      }
+    }
+  }
 
-  const handleCancel = (event) => onClose(event, 'backdropClick')
+  const doClose = (event) => onClose(event, 'backdropClick')
 
   return (
     <FooterRoot>
-      <Button sx={{ mr: '8px' }} variant="text" onClick={handleCancel}>
+      <Button sx={{ mr: '8px' }} variant="text" onClick={doClose}>
         {closeText}
       </Button>
-      <Button onClick={handleOk}>
+      <Button
+        {...okDefaultProps}
+        onClick={doOk}>
         {okText}
       </Button>
     </FooterRoot>
@@ -50,6 +71,7 @@ FbmFooter.defaultProps = {
   onClose: () => { },
   okText: '确定',
   closeText: '取消',
+  okProps: {}
 }
 
 export default FbmFooter

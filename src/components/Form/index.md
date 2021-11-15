@@ -23,7 +23,7 @@ const formProps = {
   validate: (values, props) => {
     const errors = {};
     const helperTexts = {
-      name: '请输入名称',
+      name: '请输入名称',
       password: '请输入密码',
     }
     Object.keys(helperTexts).forEach(k => {

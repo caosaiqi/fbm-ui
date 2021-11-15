@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Dialog, DialogProps, DialogActions, Button, ButtonProps, Fade, IconButton, ModalProps } from '@mui/material'
+import React, { useState } from 'react';
+import { Dialog, DialogProps, DialogActions, ButtonProps, Fade, IconButton, ModalProps, formGroupClasses } from '@mui/material'
 import useThemeProps from '@mui/material/styles/useThemeProps'
 import styled from '@mui/material/styles/styled'
 
@@ -7,22 +7,23 @@ import { CloseIcon } from '../icons'
 import Typography from '../Typography'
 
 import Box from '../Box'
+import Button from '../Button'
 
 export const componentName: string = 'ADialog'
 
 interface HeaderProps {
-  /** 标题 */
+  /** 标题 */
   title?: string;
   /** 是否显示dialog又上角“x” */
   isShowClose?: boolean;
-  /** 传null则不显示， 传vnode则自定义底部内容， 不传则展示默认footer */
+  /** 传null则不显示， 传vnode则自定义底部内容， 不传则展示默认footer */
   header?: React.ReactElement;
   /** 关闭弹框事件 */
   onClose?: ModalProps['onClose'];
 }
 
 export interface FooterProps {
-  /** 传null则不显示， 传vnode则自定义底部内容， 不传则展示默认footer */
+  /** 传null则不显示， 传vnode则自定义底部内容， 不传则展示默认footer */
   footer?: React.ReactElement;
   /** footer 确认按钮文案 默认为“好的”' */
   okText?: string;
@@ -34,7 +35,7 @@ export interface FooterProps {
   okProps?: ButtonProps;
   /** footer 取消按钮props */
   closeProps?: ButtonProps;
-  // /** footer 确定按钮click事件 */
+  /** footer 确定按钮click事件 */
   onOk?: (event: any) => void | Promise<void>;
   /** 关闭弹框事件 */
   onClose?: ModalProps['onClose'];
@@ -137,7 +138,6 @@ const Footer: React.FC<FooterProps> = (props) => {
     onClose,
     onOk,
   } = props
-
   if (footer === null) return null
 
   if (typeof (footer) === 'function') {
@@ -187,6 +187,8 @@ const FbmDialog: React.FC<FbmDialogProps> = (inProps) => {
     ...otherProps
   } = useThemeProps({ props: inProps, name: componentName })
 
+  const [okLoading, setOkLoading] = useState(false)
+
   const doClose = (event, reason) => {
     if (onClose && typeof onClose === 'function') {
       onClose(event, reason)
@@ -195,8 +197,10 @@ const FbmDialog: React.FC<FbmDialogProps> = (inProps) => {
 
   const doOk = async (event) => {
     if (onOk && typeof onOk === 'function') {
+      setOkLoading(true)
       const f = await onOk(event)
-      if (f === undefined) {
+      setOkLoading(false)
+      if (f === undefined || f) {
         doClose(event, 'backdropClick')
       }
     }
@@ -221,7 +225,10 @@ const FbmDialog: React.FC<FbmDialogProps> = (inProps) => {
     closeText,
     isShowCloseBtn,
     closeProps,
-    okProps,
+    okProps: {
+      loading: okLoading,
+      ...okProps
+    },
     onClose: doClose,
     onOk: doOk,
   }

@@ -41,13 +41,21 @@ export default () =>{
   const [open, setOpen] = React.useState(false)
   const [open1, setOpen1] = React.useState(false)
   const [open2, setOpen2] = React.useState(false)
+
+  const handleOk = () => {
+    return new Promise((r) => {
+      setTimeout(() => {
+        r(false)
+      }, 1000)
+    })
+  }
   return (
     <Layout>
         <Button onClick={() => setOpen(true)}> Show </Button>
         <Dialog 
           open={open}
           onClose={() => setOpen(false)}
-          onOk={() => setOpen(false)}
+          onOk={handleOk}
         >
           <h1>content</h1 >
         </Dialog>
