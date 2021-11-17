@@ -14,6 +14,7 @@ group:
  */
 import * as React from 'react';
 import {  Layout, Input, Form, Button } from 'fbm-ui'
+import { useFormik } from 'formik';
 
 const formProps = {
   initialValues: {
@@ -33,11 +34,23 @@ const formProps = {
     })
     return errors
   }, 
+  onSubmit: values => {
+    alert(JSON.stringify(values, null, 2));
+  }
 }
 
-export default () => (
+export default () => {
+  const formik = useFormik(formProps)
+
+  const handleSubmit = async () => {
+    await formik.validateForm()
+    await formik.submitForm()
+    console.log(formik.values)
+  }
+  
+  return (
   <Layout>
-    <Form {...formProps}>
+    <Form {...formik}>
       <Input label="名称" name="name" sx={{mr: 2}} />
       <br/>
       <Input label="密码" name="password" />
@@ -46,9 +59,13 @@ export default () => (
         提交
       </Button>
     </Form>
+    <Button sx={{m: '3px 0px 0 5px'}} variant="contained" onClick={handleSubmit}>
+      提交
+    </Button>
   </Layout>
 )
 
+}
 ```
 
 <API></API>

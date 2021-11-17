@@ -1,7 +1,5 @@
-import * as React from 'react';
-import { Formik, Form, FormikConfig } from 'formik';
-
-import Box from '../Box'
+import React from 'react';
+import { Form, FormikConfig, FormikProvider } from 'formik';
 
 export const componentName: string = 'Form'
 
@@ -10,15 +8,13 @@ interface FbmFormProps<Values = {}> extends FormikConfig<Values> {
 }
 
 const FbmForm: React.FC<FbmFormProps> = (props) => {
-  const { loading, children, ...otherProps } = props;
+  const { loading, children, ...formik } = props
   return (
-    <Box loading={loading}>
-      <Formik {...otherProps}>
-        <Form>
-          {children}
-        </Form>
-      </Formik>
-    </Box>
+    <FormikProvider value={formik}>
+      <Form>
+        {children}
+      </Form>
+    </FormikProvider>
   )
 }
 

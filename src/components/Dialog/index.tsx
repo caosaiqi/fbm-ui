@@ -24,7 +24,7 @@ interface HeaderProps {
 
 export interface FooterProps {
   /** 传null则不显示， 传vnode则自定义底部内容， 不传则展示默认footer */
-  footer?: React.ReactElement;
+  footer?: React.ReactNode;
   /** footer 确认按钮文案 默认为“好的”' */
   okText?: string;
   /** footer 取消按钮文案 默认为“取消”' */
@@ -74,7 +74,7 @@ const DialogRoot: React.FC<RootProps> = styled(Box)(({
 const Header: React.FC<HeaderProps> = (props) => {
   const { title, isShowClose, header, onClose } = props
   if (header === null) return null
-  console.log(props)
+  
   if (typeof (header) === 'function') {
     const CustomHeader: React.FC<HeaderProps> = header
     return <CustomHeader {...props} />

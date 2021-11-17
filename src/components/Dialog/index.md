@@ -14,7 +14,8 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import { Dialog, Layout, Button} from 'fbm-ui'
+import { Dialog, Layout, Button, Form, Input} from 'fbm-ui'
+import { useFormik } from 'formik'
 
 const CustomHeader =  ({ onClose }) => (
   <div style={{
@@ -42,13 +43,39 @@ export default () =>{
   const [open1, setOpen1] = React.useState(false)
   const [open2, setOpen2] = React.useState(false)
 
-  const handleOk = () => {
-    return new Promise((r) => {
+  const handleOk = async () => {
+     new Promise((r) => {
       setTimeout(() => {
         r(false)
       }, 1000)
     })
   }
+
+  const formProps = {
+    initialValues: {
+      name: '',
+      password: '',
+    },
+    validate: (values, props) => {
+      const errors = {};
+      const helperTexts = {
+        name: '请输入名称',
+        password: '请输入密码',
+      }
+      Object.keys(helperTexts).forEach(k => {
+        if (values[k] === '') {
+          errors[k] = helperTexts[k]
+        }
+      })
+      return errors
+    }, 
+    onSubmit: values => {
+      alert(JSON.stringify(values, null, 2));
+    }
+  }
+
+   const formik = useFormik(formProps)
+
   return (
     <Layout>
         <Button onClick={() => setOpen(true)}> Show </Button>
@@ -57,7 +84,9 @@ export default () =>{
           onClose={() => setOpen(false)}
           onOk={handleOk}
         >
-          <h1>content</h1 >
+          <Form {...formik}>
+            <Input name="name" />
+          </Form>
         </Dialog>
 
 

@@ -7,9 +7,9 @@ export const componentName: string = 'Input'
 
 type SizeMap = 'small' | 'large';
 export interface FbmInputProps {
-  isFormik?: boolean;
   size?: SizeMap;
   name?: string;
+  label?: string;
 }
 
 const InputRoot: React.FC<FbmInputProps> = styled(TextField, {
@@ -42,7 +42,6 @@ const useInputProps = (inProps) => {
   const props = {
     ...inProps,
     ...fieldProps,
-    isFormik: true,
   }
 
 
