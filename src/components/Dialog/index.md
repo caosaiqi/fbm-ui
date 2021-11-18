@@ -50,45 +50,18 @@ export default () =>{
       }, 1000)
     })
   }
-
-  const formProps = {
-    initialValues: {
-      name: '',
-      password: '',
-    },
-    validate: (values, props) => {
-      const errors = {};
-      const helperTexts = {
-        name: '请输入名称',
-        password: '请输入密码',
-      }
-      Object.keys(helperTexts).forEach(k => {
-        if (values[k] === '') {
-          errors[k] = helperTexts[k]
-        }
-      })
-      return errors
-    }, 
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-    }
-  }
-
-   const formik = useFormik(formProps)
-
   return (
     <Layout>
         <Button onClick={() => setOpen(true)}> Show </Button>
-        <Dialog 
-          open={open}
-          onClose={() => setOpen(false)}
-          onOk={handleOk}
-        >
-          <Form {...formik}>
-            <Input fullWidth name="name" />
-          </Form>
-        </Dialog>
-
+        
+          <Dialog 
+            open={open}
+            title="12312321"
+            onClose={() => setOpen(false)}
+            onOk={() => setOpen(false)}
+          >
+            <h1>content</h1 >
+          </Dialog>
 
          <Button onClick={() => setOpen1(true)}> 自定义Header </Button>
           <Dialog 

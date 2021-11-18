@@ -39,7 +39,6 @@ export interface FooterProps {
   onOk?: (event: any) => void | Promise<void>;
   /** 关闭弹框事件 */
   onClose?: ModalProps['onClose'];
-
 }
 
 export interface FbmDialogProps extends DialogProps, HeaderProps, FooterProps {
@@ -95,7 +94,7 @@ const Header: React.FC<HeaderProps> = (props) => {
     if (!title) return null
     return (
       <div style={{ flex: 1 }}>
-        <Typography weight='medium'>
+        <Typography color='black' weight='medium'>
           {title}
         </Typography>
       </div>
@@ -250,7 +249,7 @@ const FbmDialog: React.FC<FbmDialogProps> = (inProps) => {
 }
 
 FbmDialog.defaultProps = {
-  isShowClose: true,
+  isShowClose: false,
   isShowCloseBtn: true,
   closeText: '取消',
   okText: '好的',

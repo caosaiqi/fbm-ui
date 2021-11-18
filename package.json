@@ -1,10 +1,10 @@
 {
   "name": "fbm-ui",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": false,
   "description": "React components library",
   "author": "avocado",
-  "main": "lib/components/index.js",
+  "main": "src/components/index.ts",
   "typings": "lib/components/index.d.ts",
   "license": "MIT",
   "keywords": [
@@ -50,7 +50,7 @@
   },
   "peerDependencies": {
     "@mui/lab": "^5.0.0-alpha.53",
-    "@mui/material": "^5.0.6",
+    "@mui/material": "^5.1.1",
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
   },
@@ -58,7 +58,7 @@
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@mui/lab": "^5.0.0-alpha.53",
-    "@mui/material": "5.1.1",
+    "@mui/material": "^5.1.1",
     "copy-to-clipboard": "^3.3.1",
     "formik": "^2.2.9",
     "react": ">=17.0.0",

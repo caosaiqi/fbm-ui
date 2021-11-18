@@ -25,8 +25,8 @@ export default {
         top: '-2px',
         left: '-2px',
         [`&.${outlinedInputClasses.focused}`]: {
-          top: '0',
-          left: '0',
+          top: '-2px',
+          left: '-2px',
         },
       },
 
@@ -34,7 +34,7 @@ export default {
         top: '-1px',
         fontSize:14,
         [`&.${outlinedInputClasses.focused}`]: {
-          top: '1px',
+          top: '-1px',
         },
       },
     },
