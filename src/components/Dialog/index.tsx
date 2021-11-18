@@ -74,7 +74,7 @@ const DialogRoot: React.FC<RootProps> = styled(Box)(({
 const Header: React.FC<HeaderProps> = (props) => {
   const { title, isShowClose, header, onClose } = props
   if (header === null) return null
-  
+
   if (typeof (header) === 'function') {
     const CustomHeader: React.FC<HeaderProps> = header
     return <CustomHeader {...props} />
@@ -141,8 +141,11 @@ const Footer: React.FC<FooterProps> = (props) => {
   if (footer === null) return null
 
   if (typeof (footer) === 'function') {
-    const CustomFooter: React.FC<FooterProps> = footer
-    return <CustomFooter {...props} />
+    return (
+      <>
+        {footer(props)}
+      </>
+    )
   }
 
   const CloseButton = () => {

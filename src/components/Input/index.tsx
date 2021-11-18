@@ -1,16 +1,23 @@
 import * as React from 'react';
-import { TextField } from '@mui/material'
+import { TextField, OutlinedTextFieldProps } from '@mui/material'
 import styled from '@mui/material/styles/styled'
 import { useFormikContext } from 'formik'
 
 export const componentName: string = 'Input'
 
 type SizeMap = 'small' | 'large';
-export interface FbmInputProps {
-  size?: SizeMap;
+
+type Props = {
+  size: SizeMap;
   name?: string;
   label?: string;
 }
+
+export type FbmInputProps =  {
+  size: SizeMap;
+  name?: string;
+  label?: string;
+} | OutlinedTextFieldProps
 
 const InputRoot: React.FC<FbmInputProps> = styled(TextField, {
   name: 'Input',
@@ -44,7 +51,6 @@ const useInputProps = (inProps) => {
     ...fieldProps,
   }
 
-
   if (fieldMeta.error) {
     props.helperText = fieldMeta.error
     props.error = true
@@ -55,6 +61,7 @@ const useInputProps = (inProps) => {
 
 const FbmInput: React.FC<FbmInputProps> = (inProps) => {
   const props = useInputProps(inProps)
+
   return <InputRoot  {...props} />
 }
 

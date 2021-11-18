@@ -3,12 +3,13 @@ import { Form, FormikConfig, FormikProvider } from 'formik';
 
 export const componentName: string = 'Form'
 
-interface FbmFormProps<Values = {}> extends FormikConfig<Values> {
+interface FbmFormProps{
   loading?: boolean;
+  formik: any
 }
 
 const FbmForm: React.FC<FbmFormProps> = (props) => {
-  const { loading, children, ...formik } = props
+  const { loading, children, formik } = props
   return (
     <FormikProvider value={formik}>
       <Form>

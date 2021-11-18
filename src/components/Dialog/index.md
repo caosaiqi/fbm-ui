@@ -85,7 +85,7 @@ export default () =>{
           onOk={handleOk}
         >
           <Form {...formik}>
-            <Input name="name" />
+            <Input fullWidth name="name" />
           </Form>
         </Dialog>
 

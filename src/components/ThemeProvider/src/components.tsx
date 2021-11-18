@@ -131,6 +131,14 @@ export default {
     }
   },
 
+  MuiDivider: {
+    styleOverrides: {
+      root:{
+        backgroundColor: 'rgba(0,0,0,0)'
+      }
+    },
+  },
+
   LayoutHoverMenu: {
     styleOverrides: {
       root: {
