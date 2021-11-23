@@ -43,27 +43,27 @@ export default () =>{
   const [open1, setOpen1] = React.useState(false)
   const [open2, setOpen2] = React.useState(false)
 
-  const handleOk = async () => {
-     new Promise((r) => {
+  const handleOk = async (props) => {
+    return new Promise((r) => {
       setTimeout(() => {
         r(false)
+        props.onClose()
       }, 1000)
     })
   }
   return (
     <Layout>
-        <Button onClick={() => setOpen(true)}> Show </Button>
-        
+        <Button onClick={() => setOpen(true)} sx={{mr:2}}> Show </Button>
           <Dialog 
             open={open}
             title="12312321"
             onClose={() => setOpen(false)}
-            onOk={() => setOpen(false)}
+            onOk={handleOk }
           >
             <h1>content</h1 >
           </Dialog>
 
-         <Button onClick={() => setOpen1(true)}> 自定义Header </Button>
+         <Button onClick={() => setOpen1(true)}  sx={{mr:2}}> 自定义Header </Button>
           <Dialog 
             open={open1}
             header={CustomHeader}
@@ -73,7 +73,7 @@ export default () =>{
             <h1>content</h1 >
           </Dialog>
 
-          <Button onClick={() => setOpen2(true)}> 自定义 Footer </Button>
+          <Button onClick={() => setOpen2(true)}  sx={{mr:2}}> 自定义 Footer </Button>
           <Dialog 
             open={open2}
             footer={CustomFooter}

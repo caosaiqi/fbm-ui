@@ -1,53 +1,55 @@
 import React from 'react';
-import { Drawer, DrawerProps } from '@mui/material'
-import styled from '@mui/material/styles/styled'
 
-import Box from '../Box'
-import Footer, { FbmFooterProps } from './src/Footer'
+import Root from './src/Root'
+import Content from './src/Content'
+import Footer from './src/Footer'
+import { FbmConfirmFooterProps } from '../ConfirmFooter'
 
-
-
-interface FbmDrawerProps extends DrawerProps, FbmFooterProps {
-  footer?: React.ReactNode;
+export interface FbmDrawerProps extends FbmConfirmFooterProps {
+  open: boolean;
+  footer?: React.ReactNode | null;
+  zIndex?: number;
 }
-
-const DrawerContent = styled(Box)({
-  height: 'calc(100vh - 80px)',
-  overflowY: 'auto'
-})
 
 const FbmDrawer: React.FC<FbmDrawerProps> = (props) => {
   const {
+    children,
     onOk,
     onClose,
     okText,
     closeText,
+    open,
 
-    children,
-
-    ...dividerProps
+    footer,
   } = props
 
   const footerProps = {
+    footer,
     onOk,
     onClose,
     okText,
     closeText,
   }
 
+  const drawerProps = {
+    open,
+    anchor: 'right',
+    onClose
+  }
+
   return (
-    <Drawer {...dividerProps}>
-      <DrawerContent>
+    <Root {...drawerProps}>
+      <Content>
         {children}
-      </DrawerContent>
+      </Content>
+
       <Footer {...footerProps} />
-    </Drawer>
+    </Root>
   )
 }
 
 FbmDrawer.defaultProps = {
   open: false,
-  anchor: 'right'
 }
 
 export default FbmDrawer

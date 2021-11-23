@@ -1,21 +1,30 @@
 import React from 'react';
-import { Form, FormikConfig, FormikProvider } from 'formik';
+import { Formik, useFormikContext} from 'formik';
 
 export const componentName: string = 'Form'
 
-interface FbmFormProps{
+interface FbmFormProps {
   loading?: boolean;
   formik: any
 }
 
+const Form = ({
+  children
+}) => {
+  const props = useFormikContext()
+  console.log(props)
+  return <form action="">
+
+    {children}
+  </form>
+}
+
 const FbmForm: React.FC<FbmFormProps> = (props) => {
-  const { loading, children, formik } = props
+  const { children, formik } = props
   return (
-    <FormikProvider value={formik}>
-      <Form>
-        {children}
-      </Form>
-    </FormikProvider>
+    <Formik>
+      <Form>{children}</Form>
+    </Formik>
   )
 }
 

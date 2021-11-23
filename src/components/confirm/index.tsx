@@ -5,8 +5,8 @@ import renderIntoBody from '../../utils/renderIntoBody'
 import ThemeProvider from '../ThemeProvider'
 import Typography from '../Typography'
 
-export interface FbmConfirmProps extends FbmDialogProps {
-  content?: string | React.ReactNode,
+export interface FbmConfirmProps {
+  content?: string | React.ReactNode;
 }
 
 const fbmConfirm = (props: FbmConfirmProps) => {

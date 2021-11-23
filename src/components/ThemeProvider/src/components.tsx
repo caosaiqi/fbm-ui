@@ -30,9 +30,9 @@ export default {
         },
       },
 
-      sizeSmall:{
+      sizeSmall: {
         top: '-1px',
-        fontSize:14,
+        fontSize: 14,
         [`&.${outlinedInputClasses.focused}`]: {
           top: '-1px',
         },
@@ -80,9 +80,15 @@ export default {
         boxShadow: 'none',
         fontSize: '14px',
         lineHeight: '22px',
+      },
+      containedPrimary: {
         '&:hover': {
-          boxShadow: 'none',
           backgroundColor: 'rgba(76,175,80,0.8)',
+        },
+      },
+      containedError: {
+        '&:hover': {
+          backgroundColor: 'rgba(255,108,108,0.8)',
         },
       },
       sizeSmall: {
@@ -133,7 +139,7 @@ export default {
 
   MuiDivider: {
     styleOverrides: {
-      root:{
+      root: {
         backgroundColor: 'rgba(0,0,0,0)'
       }
     },

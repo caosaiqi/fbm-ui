@@ -50,14 +50,8 @@ export default () => {
   
   return (
   <Layout>
-    <Form {...formik}>
+    <Form>
       <Input label="名称" name="name" sx={{mr: 2}} />
-      <br/>
-      <Input label="密码" name="password" />
-       <br/>
-      <Button sx={{m: '3px 0px 0 5px'}} variant="contained"  type="submit">
-        提交
-      </Button>
     </Form>
     <Button sx={{m: '3px 0px 0 5px'}} variant="contained" onClick={handleSubmit}>
       提交

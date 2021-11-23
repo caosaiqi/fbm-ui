@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Dialog, DialogProps, DialogActions, ButtonProps, Fade, IconButton, ModalProps, formGroupClasses } from '@mui/material'
+import React from 'react';
+import { Dialog, Fade, IconButton } from '@mui/material'
 import useThemeProps from '@mui/material/styles/useThemeProps'
 import styled from '@mui/material/styles/styled'
 
@@ -7,7 +7,7 @@ import { CloseIcon } from '../icons'
 import Typography from '../Typography'
 
 import Box from '../Box'
-import Button from '../Button'
+import ConfirmFooter, { FbmConfirmFooterProps } from '../ConfirmFooter'
 
 export const componentName: string = 'ADialog'
 
@@ -17,33 +17,23 @@ interface HeaderProps {
   /** 是否显示dialog又上角“x” */
   isShowClose?: boolean;
   /** 传null则不显示， 传vnode则自定义底部内容， 不传则展示默认footer */
-  header?: React.ReactElement;
+  header?: React.ReactElement | null;
   /** 关闭弹框事件 */
-  onClose?: ModalProps['onClose'];
+  onClose?: FbmConfirmFooterProps['onClose'];
 }
 
-export interface FooterProps {
+export interface FooterProps extends FbmConfirmFooterProps {
   /** 传null则不显示， 传vnode则自定义底部内容， 不传则展示默认footer */
-  footer?: React.ReactNode;
-  /** footer 确认按钮文案 默认为“好的”' */
-  okText?: string;
-  /** footer 取消按钮文案 默认为“取消”' */
-  closeText?: string;
-  /** 是否显示取消按钮 */
-  isShowCloseBtn?: boolean;
-  /** footer 取消按钮props */
-  okProps?: ButtonProps;
-  /** footer 取消按钮props */
-  closeProps?: ButtonProps;
-  /** footer 确定按钮click事件 */
-  onOk?: (event: any) => void | Promise<void>;
-  /** 关闭弹框事件 */
-  onClose?: ModalProps['onClose'];
+  footer?: React.ReactNode | null;
 }
 
-export interface FbmDialogProps extends DialogProps, HeaderProps, FooterProps {
+export interface FbmDialogProps extends HeaderProps, FooterProps {
+  /** 是否显示弹框 */
+  open: boolean;
   /** 弹框宽度 */
   width?: number;
+   /** ref */
+  ref?: React.Ref<HTMLDivElement>
 }
 
 export interface RootProps {
@@ -129,84 +119,39 @@ const Content: React.FC = ({ children }) => (
 const Footer: React.FC<FooterProps> = (props) => {
   const {
     footer,
-    okText,
-    closeText,
-    isShowCloseBtn,
-    closeProps,
-    okProps,
-    onClose,
-    onOk,
+    ...confirmFooterProps
   } = props
+
   if (footer === null) return null
 
-  if (typeof (footer) === 'function') {
-    return (
-      <>
-        {footer(props)}
-      </>
-    )
-  }
-
-  const CloseButton = () => {
-    if (!isShowCloseBtn) return null
-    return (
-      <Button {...closeProps} onClick={(event) => onClose(event, 'backdropClick')}>
-        {closeText}
-      </Button>
-    )
-  }
-
-  return (
-    <DialogActions sx={{ padding: 0 }}>
-      <CloseButton />
-      <Button {...okProps} onClick={(e) => onOk(e)}>
-        {okText}
-      </Button>
-    </DialogActions>
+  if (typeof (footer) === 'function') return (
+    <>
+      {footer(props)}
+    </>
   )
+
+  return <ConfirmFooter  {...confirmFooterProps} />
 }
 
 
-const FbmDialog: React.FC<FbmDialogProps> = (inProps) => {
+const FbmDialog: React.FC<FbmDialogProps> = React.forwardRef((inProps, ref) => {
   const {
     width,
-
     title,
     header,
     isShowClose,
-
     children,
     footer,
     okText,
     closeText,
-    isShowCloseBtn,
+    isCloseButton,
     closeProps,
     okProps,
-
     onClose,
     onOk,
-
     ...otherProps
   } = useThemeProps({ props: inProps, name: componentName })
 
-  const [okLoading, setOkLoading] = useState(false)
-
-  const doClose = (event, reason) => {
-    if (onClose && typeof onClose === 'function') {
-      onClose(event, reason)
-    }
-  }
-
-  const doOk = async (event) => {
-    if (onOk && typeof onOk === 'function') {
-      setOkLoading(true)
-      const f = await onOk(event)
-      setOkLoading(false)
-      if (f === undefined || f) {
-        doClose(event, 'backdropClick')
-      }
-    }
-  }
 
   const rootProps = {
     width,
@@ -218,25 +163,21 @@ const FbmDialog: React.FC<FbmDialogProps> = (inProps) => {
     title,
     header,
     isShowClose,
-    onClose: doClose,
+    onClose,
   }
 
   const footerProps = {
     footer,
     okText,
     closeText,
-    isShowCloseBtn,
+    isCloseButton,
     closeProps,
-    okProps: {
-      loading: okLoading,
-      ...okProps
-    },
-    onClose: doClose,
-    onOk: doOk,
+    onClose,
+    onOk,
   }
 
   return (
-    <Dialog TransitionComponent={Fade} {...otherProps}>
+    <Dialog TransitionComponent={Fade} {...otherProps} ref={ref}>
       <DialogRoot {...rootProps}>
         <Header {...HeaderProps} />
         <Content>
@@ -246,11 +187,11 @@ const FbmDialog: React.FC<FbmDialogProps> = (inProps) => {
       </DialogRoot>
     </Dialog>
   )
-}
+})
 
 FbmDialog.defaultProps = {
   isShowClose: false,
-  isShowCloseBtn: true,
+  isCloseButton: true,
   closeText: '取消',
   okText: '好的',
   closeProps: {

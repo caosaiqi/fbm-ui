@@ -18,14 +18,18 @@ import { Drawer, Layout, Button} from 'fbm-ui'
 
 export default () => {
   const [ open, setOpen ] = React.useState(false)
-   const handleOk = () => {
+   const handleOk = (props) => {
     return new Promise((r) => {
       setTimeout(() => {
         r(true)
+        props.onClose()
       }, 1000)
     })
   }
-  const handleClose = () => setOpen(false)
+  const handleClose = () => {
+    console.log('---------')
+    setOpen(false)
+  }
   return (
     <Layout>
       <Button onClick={() => setOpen(true)}>ASDAS</Button>

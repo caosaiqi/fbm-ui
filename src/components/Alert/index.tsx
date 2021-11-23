@@ -30,7 +30,6 @@ const AlertRoot: React.FC<FbmAlertProps> = styled(Alert, {
   name: 'Alert',
   slot: 'Root',
 })(({ theme, type }) => {
-  console.log(theme)
   return {
     color: theme.palette.text.secondary,
     padding: '4px 16px',

@@ -22,6 +22,7 @@ export default () => (
         <Button sx={{mr: 1}} size="small">按钮</Button> 
         <Button sx={{mr: 1}} size="medium">按钮</Button> 
         <Button sx={{mr: 1}} size="large">按钮</Button> 
+        <Button sx={{mr: 1}} size="medium" color="error">按钮</Button> 
       </Box>
        <Box sx={{mb: 2}}>
         <Button sx={{mr: 1}} startIcon={<AddIcon />} size="small">按钮</Button> 
