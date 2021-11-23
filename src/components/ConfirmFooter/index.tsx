@@ -54,6 +54,7 @@ const FbmConfirmFooter: React.FC<FbmConfirmFooterProps> = React.forwardRef((prop
   } = props
   const [loading, setLoading] = React.useState(false)
 
+  
   const handleClose = async () => {
     if (onClose) {
       try {

@@ -1,5 +1,3 @@
-import { readdirSync } from 'fs';
-import { join } from 'path';
 import { defineConfig } from 'dumi';
 
   

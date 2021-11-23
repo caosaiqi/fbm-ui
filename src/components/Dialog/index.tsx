@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dialog, Fade, IconButton } from '@mui/material'
+import { Dialog, Fade, IconButton, DialogProps } from '@mui/material'
 import useThemeProps from '@mui/material/styles/useThemeProps'
 import styled from '@mui/material/styles/styled'
 
@@ -29,11 +29,12 @@ export interface FooterProps extends FbmConfirmFooterProps {
 
 export interface FbmDialogProps extends HeaderProps, FooterProps {
   /** 是否显示弹框 */
-  open: boolean;
+  open?: boolean;
   /** 弹框宽度 */
   width?: number;
-   /** ref */
-  ref?: React.Ref<HTMLDivElement>
+  /** ref */
+  ref?: React.Ref<HTMLDivElement>,
+  BackdropProps?: DialogProps['BackdropProps']
 }
 
 export interface RootProps {
@@ -95,7 +96,7 @@ const Header: React.FC<HeaderProps> = (props) => {
     if (!isShowClose) return null
     return (
       <IconButton
-        onClick={(e) => onClose(e, 'backdropClick')}
+        onClick={onClose}
         style={{ padding: 0 }}>
         <CloseIcon />
       </IconButton>
@@ -152,11 +153,16 @@ const FbmDialog: React.FC<FbmDialogProps> = React.forwardRef((inProps, ref) => {
     ...otherProps
   } = useThemeProps({ props: inProps, name: componentName })
 
-
   const rootProps = {
     width,
     isNullHeader: header === null,
     isNullFooter: footer === null,
+  }
+
+  const dialogProps = {
+    open: false,
+    TransitionComponent: Fade,
+    ...otherProps
   }
 
   const HeaderProps = {
@@ -177,7 +183,7 @@ const FbmDialog: React.FC<FbmDialogProps> = React.forwardRef((inProps, ref) => {
   }
 
   return (
-    <Dialog TransitionComponent={Fade} {...otherProps} ref={ref}>
+    <Dialog {...dialogProps} ref={ref}>
       <DialogRoot {...rootProps}>
         <Header {...HeaderProps} />
         <Content>
