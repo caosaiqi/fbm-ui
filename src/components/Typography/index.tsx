@@ -75,7 +75,7 @@ const FbmTypographyProps: React.FC<FbmTypographyProps> = ({ children, color, wei
 
 FbmTypographyProps.defaultProps = {
   weight: 'regular', // font-weight 500
-  color: 'secondary',
+  color: 'primary',
 }
 
 export default FbmTypographyProps

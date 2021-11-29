@@ -18,7 +18,7 @@ import { useFormik } from 'formik';
 
 const formProps = {
   initialValues: {
-    name: '',
+    name: 'asdasd',
     password: '',
   },
   validate: (values, props) => {
@@ -36,24 +36,21 @@ const formProps = {
   }, 
   onSubmit: values => {
     alert(JSON.stringify(values, null, 2));
-  }
+  },
 }
 
 export default () => {
   const formik = useFormik(formProps)
-
-  const handleSubmit = async () => {
-    await formik.validateForm()
-    await formik.submitForm()
-    console.log(formik.values)
+  const handleClick = async () => {
+    console.log(formik)
+    await formik.executeSubmit()
   }
-  
   return (
   <Layout>
-    <Form>
+    <Form formik={formik}>
       <Input label="名称" name="name" sx={{mr: 2}} />
     </Form>
-    <Button sx={{m: '3px 0px 0 5px'}} variant="contained" onClick={handleSubmit}>
+    <Button sx={{m: '3px 0px 0 5px'}} variant="contained" onClick={handleClick}>
       提交
     </Button>
   </Layout>

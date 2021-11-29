@@ -180,6 +180,7 @@ const FbmDialog: React.FC<FbmDialogProps> = React.forwardRef((inProps, ref) => {
     closeProps,
     onClose,
     onOk,
+    okProps,
   }
 
   return (

@@ -62,6 +62,3 @@ export default () => (
   </Layout>
 )
 ```
-
-
-<API></API>

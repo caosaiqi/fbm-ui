@@ -50,7 +50,7 @@ export default () =>(
 
     <Button onClick={() => {
       confirm({
-        title: '确认？',
+        header: null,
         content: '确认将李小刚从该职位移动到所选职位吗？该操作无法被撤销。',
         okText: '撤销',
         okProps: {

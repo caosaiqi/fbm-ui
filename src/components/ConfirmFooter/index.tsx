@@ -38,23 +38,19 @@ const ConfirmFooterRoot = styled(Box)({
 const FbmConfirmFooter: React.FC<FbmConfirmFooterProps> = React.forwardRef((props, ref) => {
   const {
     size,
-
     onOk,
     okText,
     okDisabled,
     okProps,
-
     isCloseButton,
     onClose,
     closeText,
     closeProps,
-    
     footer,
     ...otherProps
   } = props
   const [loading, setLoading] = React.useState(false)
 
-  
   const handleClose = async () => {
     if (onClose) {
       try {
@@ -99,6 +95,9 @@ const FbmConfirmFooter: React.FC<FbmConfirmFooterProps> = React.forwardRef((prop
     onClick: handleOk,
     ...okProps
   }
+
+  console.log(okProps)
+
   const OkButton: React.FC = () => (
     <Button {...okButtonProps}>
       {okText}

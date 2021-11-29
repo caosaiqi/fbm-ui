@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Formik, useFormikContext} from 'formik';
+import { Formik, useFormikContext, FormikProvider, Form } from 'formik';
 
 // export const componentName: string = 'Form'
 
@@ -18,14 +18,12 @@ import React from 'react';
 //   </form>
 // }
 
-const FbmForm: React.FC = (props) => {
-  // const { children, formik } = props
-  // return (
-  //   <Formik>
-  //     <Form>{children}</Form>
-  //   </Formik>
-  // )
-  return null
+const FbmForm: React.FC = ({ formik, children }: any) => {
+  return (
+    <FormikProvider value={formik}>
+      {children}
+    </FormikProvider>
+  )
 }
 
 export default FbmForm
