@@ -16,7 +16,6 @@ interface TriggerProps {
   trigger?: TriggerMap
 }
 
-
 const FbmTrigger: React.FC<TriggerProps> = ({
   children,
   trigger,

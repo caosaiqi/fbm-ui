@@ -44,7 +44,7 @@ tags.forEach(tag => {
     typographys.push(
       <div key={`${tag}${color}`} style={{ marginBottom: 10 }}>
         <Typography variant={tag} color={color}>
-          tag: {tag} &nbsp;
+          variant: {tag} &nbsp;
           color: {color}  &nbsp;
           hello Typography
         </Typography>

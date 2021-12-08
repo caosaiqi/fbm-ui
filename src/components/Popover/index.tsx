@@ -7,17 +7,18 @@ import Popover from './src/Popover'
 
 export type Variant = 'popover' | 'popper';
 
-interface FmbPopoverProps {
+export interface FbmPopoverProps {
   popupId?: string;
-  content: React.ReactNode | (() => React.ReactNode);
+  content?: React.ReactNode | (() => React.ReactNode);
   variant?: Variant;
   children?: React.ReactNode | (() => React.ReactNode);
   trigger?: TriggerMap
   open?: boolean
 }
 
-const FmbPopover: React.FC<FmbPopoverProps> = React.forwardRef((props, ref) => {
+const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
   const { variant, children, trigger, content } = props
+
   return (
     <PopupState variant={variant}>
       {(popupState: InjectedProps) => {

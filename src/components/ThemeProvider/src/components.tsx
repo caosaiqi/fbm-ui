@@ -62,15 +62,15 @@ export default {
           backgroundColor: palette.action.disabledBackground,
         },
       },
-      input: {
-        fontSize: 16,
-        height: 48,
-        padding: '0 12px',
-      },
-      inputSizeSmall: {
-        height: 36,
-        fontSize: 14,
-      },
+      // input: {
+      //   fontSize: 16,
+      //   height: 48,
+      //   padding: '0 12px',
+      // },
+      // inputSizeSmall: {
+      //   height: 36,
+      //   fontSize: 14,
+      // },
     },
   },
 

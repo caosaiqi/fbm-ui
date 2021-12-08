@@ -27,7 +27,6 @@ export default () => {
     })
   }
   const handleClose = () => {
-    console.log('---------')
     setOpen(false)
   }
   return (

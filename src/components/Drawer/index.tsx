@@ -19,7 +19,7 @@ const FbmDrawer: React.FC<FbmDrawerProps> = (props) => {
     okText,
     closeText,
     open,
-
+    okProps,
     footer,
   } = props
 
@@ -29,6 +29,7 @@ const FbmDrawer: React.FC<FbmDrawerProps> = (props) => {
     onClose,
     okText,
     closeText,
+    okProps,
   }
 
   const drawerProps = {
@@ -42,7 +43,6 @@ const FbmDrawer: React.FC<FbmDrawerProps> = (props) => {
       <Content>
         {children}
       </Content>
-
       <Footer {...footerProps} />
     </Root>
   )

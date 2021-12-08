@@ -85,7 +85,7 @@ Message.defaultProps = {
   open: true,
   type: 'info',
   TransitionComponent: Slide,
-  autoHideDuration: 40000,
+  autoHideDuration: 4000,
   direction: 'down',
   anchorOrigin: {
     vertical: 'top',

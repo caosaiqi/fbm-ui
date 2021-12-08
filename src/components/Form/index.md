@@ -8,43 +8,55 @@ group:
 # Form 表单
 ## 代码演示
 
-```tsx
+```jsx
 /**
  * title: 基本
  */
 import * as React from 'react';
-import {  Layout, Input, Form, Button } from 'fbm-ui'
+import {  Layout, Input, Form, Button, Select} from 'fbm-ui'
 import { useFormik } from 'formik';
 
-const formProps = {
+const formProps= {
   initialValues: {
-    name: 'asdasd',
-    password: '',
+    name: '123',
   },
   validate: (values, props) => {
-    const errors = {};
-    const helperTexts = {
-      name: '请输入名称',
-      password: '请输入密码',
-    }
-    Object.keys(helperTexts).forEach(k => {
-      if (values[k] === '') {
-        errors[k] = helperTexts[k]
-      }
-    })
-    return errors
+    // const errors = {};
+    // const helperTexts = {
+    //   name: '请输入名称',
+    // }
+    // for (const key in values) {
+      
+    //   if (values[key]) {
+    //     delete values[key]
+    //   }
+    // }
+    // return helperTexts
   }, 
   onSubmit: values => {
     alert(JSON.stringify(values, null, 2));
   },
 }
 
+  
+  const ageOptions = [
+    {
+      label: '20岁',
+      value: 20
+    },
+    {
+      label: '男',
+      value: '男'
+    }
+  ]
+
 export default () => {
   const formik = useFormik(formProps)
   const handleClick = async () => {
-    console.log(formik)
-    await formik.executeSubmit()
+    const error = formik.validateForm()
   }
+
+
   return (
   <Layout>
     <Form formik={formik}>

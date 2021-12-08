@@ -7,25 +7,29 @@ export const componentName: string = 'Input'
 export interface FbmButtonProps extends ButtonProps {
   loading?: boolean;
   disabled?: boolean;
+  text?: string;
+  icon?: ButtonProps['startIcon']
 }
 
+const loadingProps = {
+  isMask: false,
+  size: 16,
+}
+
+
 const FbmButton: React.FC<FbmButtonProps> = (props) => {
-  const { loading, children, ...buttonProps } = props
+  const { loading, children, text, icon,  ...buttonProps } = props
 
   if (loading) {
     buttonProps.disabled = true
   }
-
-  const loadingProps = {
-    isMask: false,
-    size: 16,
-  }
-
+  
+  buttonProps['startIcon'] = buttonProps.startIcon || icon
+  
   const LoadingRender: React.FC = () => loading ? <Loading {...loadingProps} /> : null
-
   return (
     <Button {...buttonProps}>
-      {children}
+      {children || text}
       <LoadingRender />
     </Button>
   )

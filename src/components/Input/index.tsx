@@ -2,6 +2,7 @@ import * as React from 'react';
 import { TextField, OutlinedTextFieldProps } from '@mui/material'
 import styled from '@mui/material/styles/styled'
 import { useFormikContext } from 'formik'
+import useFormikFieldProps from '../hooks/useFormikFieldProps'
 
 export const componentName: string = 'Input'
 
@@ -34,34 +35,9 @@ const InputRoot: React.FC<FbmInputProps> = styled(TextField, {
   }
 })
 
-const useInputProps = (inProps) => {
-  const formik = useFormikContext();
-  if (!formik || (inProps && !inProps.name)) return inProps
-
-  const {
-    getFieldProps,
-    getFieldMeta,
-  } = formik
-
-  const fieldProps = getFieldProps(inProps)
-  const fieldMeta = getFieldMeta(inProps.name)
-
-  const props = {
-    ...inProps,
-    ...fieldProps,
-  }
-
-  if (fieldMeta.error) {
-    props.helperText = fieldMeta.error
-    props.error = true
-  }
-
-  return props
-}
-
 const FbmInput: React.FC<FbmInputProps> = (inProps) => {
-  const props = useInputProps(inProps)
-
+  const props = useFormikFieldProps(inProps)
+  console.log(props, '------')
   return <InputRoot  {...props} />
 }
 
