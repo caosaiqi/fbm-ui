@@ -1,0 +1,111 @@
+---
+nav:
+  title: 组件
+  path: /components
+group:
+  title: Table 列表
+---
+# Table 列表
+## 代码演示
+
+```tsx
+/**
+ * title: 基本
+ * desc: 基本使用
+ */
+import * as React from 'react';
+import { Table, Layout, Message, TableColumnActions, TableColumnUserInfo, TableColumnCheckbox } from 'fbm-ui'
+
+
+export default () =>{
+  const [actions, setActions] = React.useState([])
+  
+  const data = [
+    {
+      id: '1',
+      avatar: 'https://alicdn.fbmms.cn/avatar/IOFPNuz7Rg2lPqpMoa6gkwDwLLcRQ5XzQ1pp1638758794521612563.jpeg',
+      name: '小明',
+      age: '18'
+    },
+    {
+      id: '2',
+      avatar: 'https://alicdn.fbmms.cn/avatar/IOFPNuz7Rg2lPqpMoa6gkwDwLLcRQ5XzQ1pp1638758794521612563.jpeg',
+      name: '小明',
+      age: '18'
+    },
+    {
+      id: '3',
+      avatar: 'https://alicdn.fbmms.cn/avatar/IOFPNuz7Rg2lPqpMoa6gkwDwLLcRQ5XzQ1pp1638758794521612563.jpeg',
+      name: '小明',
+      age: '18'
+    }
+  ]
+
+  const columns = [
+    TableColumnCheckbox({
+      checked: ({ row }) => actions.includes(row.id),
+      allChecked: () => actions.length >= data.length ,
+      indeterminate: () => !!actions.length && actions.length < data.length,
+      onAllChange: (checked) => {
+        setActions(()=> {
+          if (checked) return data.map(row => row.id)
+          return []
+        })
+      },
+      onPageAllChange: () => {},
+      onChange:(checked, { row }) => {
+        setActions(() => {
+          if (checked) return actions.concat(row.id)
+          return actions.filter(id => id !== row.id)
+        })
+      }
+    }),
+    TableColumnUserInfo({
+      label: '候选人资料',
+      formatProps: ({ row }) => {
+        return {
+          sex: 1,
+          avatar: row.avatar,
+          name: row.name,
+          desc: `男 19岁 182381823`
+        }
+      }
+    }),
+    {
+      id: 'name',
+      label: '名称',
+    },
+    {
+      id: 'age',
+      label: '性别',
+    },
+    TableColumnActions({
+      width: 220,
+      actions: [
+        { 
+          text: '认证流程',
+          variant: 'outlined',
+          onClick: (data) => {
+            console.log(data)
+          }
+        },
+        { 
+          text: '新增用户',
+          onClick: () => Message.success('新增用户')
+        },
+      ]
+    })
+  ]
+
+  const 
+  
+
+  return (
+    <Layout>
+      <Table data={data} columns={columns} actions={} />
+    </Layout>
+  )
+}
+```
+
+<API></API>

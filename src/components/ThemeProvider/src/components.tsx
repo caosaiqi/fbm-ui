@@ -170,4 +170,19 @@ export default {
       },
     },
   },
+
+  MuiListSubheader: {
+    styleOverrides: {
+      root: {
+        fontSize: '12px',
+        color: 'rgba(0,0,0,0.56)',
+        backgroundColor: '#f5f5f5',
+        height: '24px',
+        lineHeight: '24px',
+      },
+      sticky: {
+        backgroundColor: '#f5f5f5',
+      },
+    },
+  }
 }

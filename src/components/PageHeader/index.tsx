@@ -5,6 +5,7 @@ import Box from '../Box'
 import Typography from '../Typography'
 import Button, { FbmButtonProps } from '../Button'
 import Popactions from '../Popactions'
+import Actions from '../Actions'
 
 
 interface ActionItemType extends FbmButtonProps {
@@ -23,12 +24,6 @@ const PageHeaderRoot = styled(Box)({
   borderBottom: '1px solid rgba(0, 0, 0, 0.08)'
 })
 
-
-const ActionsRoot = styled(Box)({
-  display: 'flex',
-  alignItems: 'center',
-})
-
 const TitleRender: React.FC = ({ children }) => (
   <Box sx={{ flex: 1 }}>
     <Typography variant='h5'>
@@ -37,31 +32,6 @@ const TitleRender: React.FC = ({ children }) => (
   </Box>
 )
 
-const ActionsRender: React.FC<PropsType> = ({ actions }) => {
-  const actionBtns = actions.map((actionsItems) => {
-    const { text, actions: subActons, ...buttonProps } = actionsItems
-    if (subActons && subActons.length > 0) {
-      return (
-        <Popactions key={actionsItems.text} actions={subActons}>
-          <Button sx={{ ml: '17px' }} {...buttonProps}>
-            {text}
-          </Button>
-        </Popactions>
-      )
-    }
-    return (
-      <Button sx={{ ml: '17px' }} key={actionsItems.text} {...buttonProps}>
-        {text}
-      </Button>
-    )
-  })
-  return (
-    <ActionsRoot>
-      {actionBtns}
-    </ActionsRoot>
-  )
-}
-
 const PageHeader: React.FC<PropsType> = ({
   title,
   actions
@@ -69,7 +39,7 @@ const PageHeader: React.FC<PropsType> = ({
   return (
     <PageHeaderRoot>
       <TitleRender> {title} </TitleRender>
-      <ActionsRender actions={actions} />
+      <Actions actions={actions} />
     </PageHeaderRoot>
   )
 }

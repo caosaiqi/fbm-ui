@@ -1,5 +1,6 @@
 
 export * from './icons'
+export * from './Table/columns';
 export { default as Layout } from './Layout';
 export { default as ThemeProvider } from './ThemeProvider';
 export { default as Logo } from './Logo';
@@ -22,3 +23,5 @@ export { default as Popover } from './Popover';
 export { default as Popconfirm } from './Popconfirm';
 export { default as Select } from './Select';
 export { default as PageHeader } from './PageHeader';
+export { default as Table } from './Table';
+export { default as UserInfo } from './UserInfo';

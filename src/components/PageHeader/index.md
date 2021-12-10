@@ -14,7 +14,7 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import {  Layout, PageHeader, Message, AddIcon} from 'fbm-ui'
+import {  Layout, PageHeader, Message, AddIcon,  DocExcelIcon, DocPdfIcon, EditIcon } from 'fbm-ui'
 
 export default () =>{
 
@@ -31,14 +31,28 @@ export default () =>{
     },
     { 
       text: '操作',
+      icon: <EditIcon />,
       actions: [
         { 
-          text: '编辑',
-           onClick: () => Message.success('编辑用户')
+          text: 'Excel导入',
+          icon: <DocExcelIcon />,
+          onClick: () => Message.success('编辑用户')
         },
         { 
-          text: '删除',
-          onClick: () => Message.success('删除用户')
+          text: '手动添加',
+          icon: <DocExcelIcon />,
+          actions: [
+            {
+              text: '手动添加A',
+              icon: <DocPdfIcon />,
+              onClick: () => Message.success('删除用户')
+            },
+             {
+              text: '手动添加B',
+              icon: <DocPdfIcon />,
+              onClick: () => Message.success('删除用户')
+            }
+          ]
         }
       ]
     }

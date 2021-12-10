@@ -22,8 +22,9 @@ export default () =>(
   <Layout>
     <Avatar  src={imgurl} size='small' />
     <br/>
-    <Avatar  src={imgurl} size='middle' />
+    <Avatar  sex="1" src={imgurl} size='middle' />
     <br/>
+     <Avatar  sex="0" src={imgurl} size='middle' />
     <Avatar  src={imgurl} size='large' />
      <br/>
     <Avatar  src={imgurl} size={300} />

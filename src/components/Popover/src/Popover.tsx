@@ -1,6 +1,6 @@
 import React from 'react';
-import PopupState, { InjectedProps, bindPopover } from 'material-ui-popup-state'
-import { Popover, Box } from '@mui/material'
+import { InjectedProps, bindPopover } from 'material-ui-popup-state'
+import { Popover } from '@mui/material'
 
 export interface PopoverOrigin {
   vertical: 'top' | 'center' | 'bottom' | number;
@@ -11,7 +11,6 @@ export interface FbmPopoverProps {
   popupState?: InjectedProps
   anchorOrigin?: PopoverOrigin
 }
-
 
 const FbmPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
   const { popupState, children, ...otherProps} = props
