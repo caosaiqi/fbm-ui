@@ -19,10 +19,20 @@ export interface TbodyCellProps extends TableCellProps {
   render?: (props: RenderProps) => any
 }
 
-const TableCellRoot = styled(TableCell)({
-  padding: '16px',
-  fontSize: 14,
-  borderBottom: '1px solid #f4f4f4',
+const TableCellRoot: React.FC<TbodyCellProps> = styled(TableCell)(({ type }) => {
+  return {
+    padding: '16px',
+    fontSize: 14,
+    borderBottom: '1px solid #f4f4f4',
+    ...(type === 'actions' && {
+      display: 'flex',
+      alignItems: 'center',
+      position: 'absolute',
+      right: 0,
+      top: 0,
+      bottom: 0,
+    })
+  }
 })
 
 const CellEmpty: React.FC = () => {

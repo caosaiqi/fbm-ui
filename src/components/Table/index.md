@@ -79,9 +79,9 @@ export default () =>{
     {
       id: 'age',
       label: '性别',
+      width: 350
     },
     TableColumnActions({
-      width: 220,
       actions: [
         { 
           text: '认证流程',

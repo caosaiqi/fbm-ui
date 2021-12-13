@@ -22,11 +22,22 @@ const FbmTable: React.FC<FbmTableProps> = React.forwardRef(({
   batchActions,
   selectedText,
 }) => {
+  const TheadProps = {
+    selectedText,
+    columns,
+    batchActions
+  }
+  
+  const TbodyProps = {
+    data,
+    columns
+  }
+
   return (
     <TableContainer component={Paper}>
       <Table>
-        <Thead selectedText={selectedText} columns={columns} batchActions={batchActions} />
-        <Tbody data={data} columns={columns} />
+        <Thead {...TheadProps} />
+        <Tbody {...TbodyProps} />
       </Table>
       <Pagination {...pagination} />
     </TableContainer>
