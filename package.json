@@ -1,6 +1,6 @@
 {
   "name": "fbm-ui",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "private": false,
   "description": "React components library",
   "author": "avocado",
@@ -19,7 +19,7 @@
     "material"
   ],
   "scripts": {
-    "start": "npm run docs",
+    "start": "npm run docs",   
     "build": "npm run clean && tsc",
     "clean": "rimraf ./lib",
     "docs": "dumi dev",

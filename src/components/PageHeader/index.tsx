@@ -3,18 +3,12 @@ import styled from '@mui/material/styles/styled'
 
 import Box from '../Box'
 import Typography from '../Typography'
-import Button, { FbmButtonProps } from '../Button'
-import Popactions from '../Popactions'
-import Actions from '../Actions'
+import Actions, { FbmActionProps } from '../Actions'
 
 
-interface ActionItemType extends FbmButtonProps {
-  actions: FbmButtonProps[]
-}
-
-interface PropsType {
+export interface FbmHeaderProps {
   title?: React.ReactNode;
-  actions?: ActionItemType[]
+  actions?: FbmActionProps['actions']
 }
 
 const PageHeaderRoot = styled(Box)({
@@ -26,13 +20,13 @@ const PageHeaderRoot = styled(Box)({
 
 const TitleRender: React.FC = ({ children }) => (
   <Box sx={{ flex: 1 }}>
-    <Typography variant='h5'>
+    <Typography variant='h6'>
       {children}
     </Typography>
   </Box>
 )
 
-const PageHeader: React.FC<PropsType> = ({
+const PageHeader: React.FC<FbmHeaderProps> = ({
   title,
   actions
 }) => {

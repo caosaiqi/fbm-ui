@@ -202,7 +202,6 @@ export default {
       indeterminateIcon: <IndeterminateCheckBoxIcon />,
       checkedIcon: <CheckBoxOutlineBlankIcon />,
       icon: <CheckBoxIcon />,
-      color: 'primary',
     }
   },
 
