@@ -11,6 +11,7 @@ export interface RenderProps {
 }
 
 export interface TbodyCellProps extends TableCellProps {
+  type?: string;
   id?: string;
   label?: string;
   row?: object;

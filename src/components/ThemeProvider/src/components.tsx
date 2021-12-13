@@ -1,6 +1,8 @@
 
+import React from 'react'
 import { outlinedInputClasses } from '@mui/material'
 import palette from './palette'
+import {IndeterminateCheckBoxIcon, CheckBoxOutlineBlankIcon, CheckBoxIcon} from '../../icons'
 
 export default {
   MuiTooltip: {
@@ -184,5 +186,36 @@ export default {
         backgroundColor: '#f5f5f5',
       },
     },
+  },
+
+  MuiCheckbox: {
+    styleOverrides: {
+      root: {
+        color: 'rgba(0, 0, 0, 0.26)',
+        padding: 12,
+        '&:hover': {
+          backgroundColor: 'rgba(255, 255, 255, 0)',
+        },
+      },
+    },
+    defaultProps: {
+      indeterminateIcon: <IndeterminateCheckBoxIcon />,
+      checkedIcon: <CheckBoxOutlineBlankIcon />,
+      icon: <CheckBoxIcon />,
+      color: 'primary',
+    }
+  },
+
+  MuiPaginationItem: {
+    styleOverrides: {
+      root: {
+        color: 'rgba(0, 0, 0, 0.86)',
+
+        '&.Mui-selected': {
+          backgroundColor: 'rgba(0, 0, 0, 0)',
+          color: palette.primary.main,
+        }
+      },
+    }
   }
 }

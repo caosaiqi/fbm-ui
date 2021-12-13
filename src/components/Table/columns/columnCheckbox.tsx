@@ -9,8 +9,9 @@ import Popactions from '../../Popactions'
 import styled from '@mui/material/styles/styled'
 
 
-interface ColumnCheckboxProps {
+export interface ColumnCheckboxProps {
   checked?: (props: RenderProps) => boolean | boolean;
+  selected?: unknown[];
   allChecked?:  () => boolean | boolean;
   indeterminate?:  () => boolean | boolean;
   onChange?: (checked: boolean, props: RenderProps) => void;
@@ -23,6 +24,7 @@ const ArrowDropDownIconRoow = styled(ArrowDropDownIcon)({
   cursor: 'pointer',
   position: 'relative',
   top: '3px',
+  left: '-3px',
 })
 
 const ThRoot = styled(Box)({
@@ -31,7 +33,7 @@ const ThRoot = styled(Box)({
 })
 
 const ColumnCheckbox = (options: ColumnCheckboxProps): TbodyCellProps | TheadCellProps => {
-  const { checked, allChecked, indeterminate, onChange, onAllChange, onPageAllChange } = options
+  const { selected, checked, allChecked, indeterminate, onChange, onAllChange, onPageAllChange } = options
 
   const formatBool = (boolOrFunc): boolean  => {
     if (typeof boolOrFunc === 'boolean') return boolOrFunc
@@ -39,7 +41,13 @@ const ColumnCheckbox = (options: ColumnCheckboxProps): TbodyCellProps | TheadCel
     return false
   }
 
+  const boolIndeterminate: boolean = formatBool(indeterminate);
+  const boolAllChecked: boolean = formatBool(allChecked);
+
   return {
+    selected,
+    type: 'checkbox',
+    indeterminate: boolIndeterminate,
     width: 52,
     sx: {
       pl: '5px',
@@ -48,7 +56,7 @@ const ColumnCheckbox = (options: ColumnCheckboxProps): TbodyCellProps | TheadCel
     thReader: () => {
       const handleChange = (event) => {
         const checked = event.target.checked
-        if (onChange) onAllChange(checked)
+        if (onAllChange) onAllChange(checked)
       }
 
       const actions = [
@@ -72,12 +80,12 @@ const ColumnCheckbox = (options: ColumnCheckboxProps): TbodyCellProps | TheadCel
         <ThRoot>
           <Checkbox
             sx={{ pr: 0 }}
-            checked={formatBool(allChecked)}
-            indeterminate={formatBool(indeterminate)}
+            checked={boolAllChecked}
+            indeterminate={boolIndeterminate}
             onChange={handleChange}
           />
           {
-            (actions && actions.length) &&
+            (actions && actions.length > 0) &&
             <Popactions actions={actions}>
               <ArrowDropDownIconRoow />
             </Popactions>

@@ -43,6 +43,7 @@ export default () =>{
 
   const columns = [
     TableColumnCheckbox({
+      selected: actions,
       checked: ({ row }) => actions.includes(row.id),
       allChecked: () => actions.length >= data.length ,
       indeterminate: () => !!actions.length && actions.length < data.length,
@@ -52,7 +53,7 @@ export default () =>{
           return []
         })
       },
-      onPageAllChange: () => {},
+      // onPageAllChange: () => {},
       onChange:(checked, { row }) => {
         setActions(() => {
           if (checked) return actions.concat(row.id)
@@ -85,6 +86,19 @@ export default () =>{
         { 
           text: '认证流程',
           variant: 'outlined',
+          actions: [
+        { 
+          text: '认证流程',
+          variant: 'outlined',
+          onClick: (data) => {
+            console.log(data)
+          }
+        },
+        { 
+          text: '新增用户',
+          onClick: () => Message.success('新增用户')
+        },
+      ],
           onClick: (data) => {
             console.log(data)
           }
@@ -97,12 +111,44 @@ export default () =>{
     })
   ]
 
-  const 
-  
+  const batchActions = [ 
+    { 
+      text: '认证流程',
+      variant: 'outlined',
+      actions: [
+        { 
+          text: '认证流程',
+          variant: 'outlined',
+          onClick: (data) => {
+            console.log(data)
+          }
+        },
+        { 
+          text: '新增用户',
+          onClick: () => Message.success('新增用户')
+        },
+      ],
+    },
+    { 
+      text: '新增用户',
+      onClick: () => Message.success('新增用户')
+    }
+  ]
+
+  const pagination = {
+    total: 20,
+    onPageChange: async  (_, page) => {}
+  }
 
   return (
     <Layout>
-      <Table data={data} columns={columns} actions={} />
+      <Table 
+        selectedText={() => '候选人'}
+        data={data}
+        columns={columns}
+        batchActions={batchActions}
+        pagination={pagination}
+      />
     </Layout>
   )
 }
