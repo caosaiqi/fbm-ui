@@ -16,7 +16,8 @@ export interface TbodyCellProps extends TableCellProps {
   label?: string;
   row?: object;
   width?: string | number;
-  render?: (props: RenderProps) => any
+  render?: (props: RenderProps) => any;
+  thReader?: any;
 }
 
 const TableCellRoot: React.FC<TbodyCellProps> = styled(TableCell)(({ type }) => {

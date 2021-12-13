@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Button, ButtonProps } from '@mui/material'
+import styled from '@mui/material/styles/styled'
 
 import Loading from '../Loading'
 
@@ -16,6 +17,16 @@ const loadingProps = {
   size: 16,
 }
 
+const ButtonRoot = styled(Button)(({ variant }) => {
+  return {
+    '&:hover': {
+      boxShadow: 'none',
+    },
+    ...(variant === 'outlined' && {
+      backgroundColor: '#fff',
+    })
+  }
+})
 
 const FbmButton: React.FC<FbmButtonProps> = (props) => {
   const { loading, children, text, icon,  ...buttonProps } = props
@@ -28,10 +39,10 @@ const FbmButton: React.FC<FbmButtonProps> = (props) => {
   
   const LoadingRender: React.FC = () => loading ? <Loading {...loadingProps} /> : null
   return (
-    <Button {...buttonProps}>
+    <ButtonRoot {...buttonProps}>
       {children || text}
       <LoadingRender />
-    </Button>
+    </ButtonRoot>
   )
 }
 

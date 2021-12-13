@@ -21,12 +21,8 @@ const FbmUserInfoRoot = styled(Box)({
 })
 
 
-const FbmUserInfo: React.FC<FbmUserInfoProps> = ({
-  avatar,
-  sex,
-  name,
-  desc
-}) => {
+const FbmUserInfo: React.FC<FbmUserInfoProps> = (props) => {
+  const { avatar, sex, name, desc } = props
   return (
     <FbmUserInfoRoot>
       <Avatar src={avatar} sex={sex} />
@@ -38,6 +34,4 @@ const FbmUserInfo: React.FC<FbmUserInfoProps> = ({
   )
 }
 
-
-
-export default FbmUserInfo
+export default React.memo(FbmUserInfo)

@@ -3,9 +3,9 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Popconfirm 
+  title: Popactions 
 ---
-# Popconfirm
+# Popactions
 ## 代码演示
 
 ```tsx
@@ -14,16 +14,24 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import {  Popconfirm, Button, Layout} from 'fbm-ui'
+import { Layout, Popactions, Button, } from 'fbm-ui'
 
 export default () =>{
-  const content = <div style={{height: 300, width: 400}}><h1>hell world</h1></div>
-  const handleOk = ()=> new Promise((r) => setTimeout(r, 1500))
+  const actions = [
+    { 
+      text: '认证流程',
+      variant: 'outlined',
+    },
+    { 
+      text: '新增用户',
+    },
+ ]
+
   return (
     <Layout>
-      <Popconfirm content={content} onOk={handleOk}>
-        <Button >Popconfirm</Button>
-      </Popconfirm>
+      <Popactions actions={actions}>
+        <Button>Popactions</Button>
+      </Popactions>
     </Layout>
   )
 }

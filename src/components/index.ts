@@ -21,6 +21,7 @@ export { default as Button } from './Button';
 export { default as confirm } from './confirm';
 export { default as Popover } from './Popover';
 export { default as Popconfirm } from './Popconfirm';
+export { default as Popactions } from './Popactions';
 export { default as Select } from './Select';
 export { default as PageHeader } from './PageHeader';
 export { default as Table } from './Table';
