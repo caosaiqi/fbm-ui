@@ -11,8 +11,6 @@ export interface TheadCellProps {
   id?: string;
   label?: string;
   width?: string | number;
-  /** 当前有checkbox 有无选中 */
-  indeterminate?: boolean;
   selected?: unknown[],
   selectedText?: () => string | string;
   batchActions?: FbmActionProps['actions'];

@@ -12,8 +12,7 @@ import styled from '@mui/material/styles/styled'
 export interface ColumnCheckboxProps {
   checked?: (props: RenderProps) => boolean | boolean;
   selected?: unknown[];
-  allChecked?:  () => boolean | boolean;
-  indeterminate?:  () => boolean | boolean;
+  allChecked?: () => boolean | boolean;
   onChange?: (checked: boolean, props: RenderProps) => void;
   onAllChange?: (checked: boolean) => void;
   onPageAllChange?: (checked: boolean) => void;
@@ -33,16 +32,16 @@ const ThRoot = styled(Box)({
 })
 
 const ColumnCheckbox = (options: ColumnCheckboxProps): TbodyCellProps | TheadCellProps => {
-  const { selected, checked, allChecked, indeterminate, onChange, onAllChange, onPageAllChange } = options
+  const { selected, checked, allChecked, onChange, onAllChange, onPageAllChange } = options
 
-  const formatBool = (boolOrFunc): boolean  => {
+  const formatBool = (boolOrFunc): boolean => {
     if (typeof boolOrFunc === 'boolean') return boolOrFunc
     if (boolOrFunc && typeof boolOrFunc === 'function') return boolOrFunc()
     return false
   }
 
-  const boolIndeterminate: boolean = formatBool(indeterminate);
   const boolAllChecked: boolean = formatBool(allChecked);
+  const boolIndeterminate: boolean = boolAllChecked === false && (selected && selected.length > 0)
 
   return {
     selected,
@@ -103,6 +102,7 @@ const ColumnCheckbox = (options: ColumnCheckboxProps): TbodyCellProps | TheadCel
       const getChecked = () => {
         if (typeof checked === 'boolean') return checked
         if (checked && typeof checked === 'function') return checked(props)
+        console.log('----=')
       }
 
       return (

@@ -137,3 +137,4 @@ export { default as ThumbIcon } from './src/ThumbIcon';
 export { default as VideoPauseIcon } from './src/VideoPauseIcon';
 export { default as VideoRecordIcon } from './src/VideoRecordIcon';
 export { default as VideoStopIcon } from './src/VideoStopIcon';
+export { default as RobotIcon } from './src/RobotIcon';
