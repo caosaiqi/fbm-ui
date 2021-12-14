@@ -10,7 +10,7 @@ type OptionMap = {
   value: unknown
 }
 
-interface FbmSelect extends SelectProps {
+export interface FbmSelectProps extends SelectProps {
   name: string;
   label?: string;
   value: unknown
@@ -22,7 +22,7 @@ interface FbmSelect extends SelectProps {
 }
 
 
-const FbmSelect: React.FC<FbmSelect> = React.forwardRef((props, ref) => {
+const FbmSelect: React.FC<FbmSelectProps> = React.forwardRef((props, ref) => {
   const {
     name,
     label,

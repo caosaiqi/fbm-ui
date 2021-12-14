@@ -26,7 +26,7 @@ const TitleRender: React.FC = ({ children }) => (
   </Box>
 )
 
-const PageHeader: React.FC<FbmHeaderProps> = ({
+const FbmHeader: React.FC<FbmHeaderProps> = ({
   title,
   actions
 }) => {
@@ -38,9 +38,9 @@ const PageHeader: React.FC<FbmHeaderProps> = ({
   )
 }
 
-PageHeader.defaultProps = {
+FbmHeader.defaultProps = {
   title: '',
   actions: []
 }
 
-export default PageHeader
+export default FbmHeader

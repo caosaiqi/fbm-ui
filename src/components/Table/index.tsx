@@ -6,7 +6,7 @@ import Thead, { FbmTheadProps } from './src/Thead'
 import Tbody, { TbodyProps } from './src/Tbody'
 import Pagination, { FbmPaginationProps } from './src/Pagination'
 
-interface FbmTableProps {
+export interface FbmTableProps {
   align: string;
   data: TbodyProps['data'];
   columns: FbmTheadProps['columns'];

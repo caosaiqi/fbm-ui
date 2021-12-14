@@ -14,18 +14,23 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import { Layout, UserInfo } from 'fbm-ui'
+import { Layout, UserInfo, FbmUserInfoProps } from 'fbm-ui'
 
-
-export default () =>{
+const User: React.FC<FbmUserInfoProps> = () => {
   return (
-    <Layout>
-      <UserInfo 
+    <UserInfo 
         avatar={'https://alicdn.fbmms.cn/avatar/IOFPNuz7Rg2lPqpMoa6gkwDwLLcRQ5XzQ1pp1638758794521612563.jpeg'}
         sex={1}
         name={'小明'}
         desc={'19岁 初中 18841889422'}
       />
+  )
+}
+
+export default () =>{
+  return (
+    <Layout>
+        <User />
     </Layout>
   )
 }
