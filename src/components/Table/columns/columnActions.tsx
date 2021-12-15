@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { TbodyCellProps } from '../src/TbodyCell'
+import { ColumnProps} from '../types'
 import Actions from '../../Actions'
 
-interface ActionsOptions extends TbodyCellProps {
+interface ActionsOptions extends ColumnProps {
   actions: object[]
 }
 
-const columnActions = (options: ActionsOptions): TbodyCellProps => ({
+const columnActions = (options: ActionsOptions): ColumnProps => ({
   type: 'actions',
   id: 'columnActions',
   // thReader: null,

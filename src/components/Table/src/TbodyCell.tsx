@@ -1,13 +1,13 @@
 import React from 'react';
 
 import styled from '@mui/material/styles/styled'
-import { TableCell, TableCellProps } from '@mui/material'
+import { TableCell } from '@mui/material'
 
 import { FbmTdColumnProps } from '../types'
 import { isEmpty } from '../../../utils'
 
 
-interface RootProps extends TableCellProps {
+interface RootProps {
   type?: FbmTdColumnProps['type'];
   width?: FbmTdColumnProps['width'];
 } 
