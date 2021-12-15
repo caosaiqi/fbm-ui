@@ -45,15 +45,15 @@ export default () =>{
     TableColumnCheckbox({
       selected: actions,
       checked: ({ row }) => actions.includes(row.id),
-      allChecked: () => actions.length >= data.length ,
-      indeterminate: () => !!actions.length && actions.length < data.length,
+      allChecked: ({ data }) => {
+        return  actions.length >= data.length
+      } ,
       onAllChange: (checked) => {
         setActions(()=> {
           if (checked) return data.map(row => row.id)
           return []
         })
       },
-      // onPageAllChange: () => {},
       onChange:(checked, { row }) => {
         setActions(() => {
           if (checked) return actions.concat(row.id)
@@ -86,20 +86,6 @@ export default () =>{
         { 
           text: '认证流程',
           variant: 'outlined',
-          actions: [
-        { 
-          text: '认证流程',
-          variant: 'outlined',
-          onClick: (data) => {
-          }
-        },
-        { 
-          text: '新增用户',
-          onClick: () => Message.success('新增用户')
-        },
-      ],
-          onClick: (data) => {
-          }
         },
         { 
           text: '新增用户',

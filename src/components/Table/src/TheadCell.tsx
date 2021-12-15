@@ -41,6 +41,7 @@ const ActionText: React.FC = styled(Typography)(() => ({
 const TheadCell: React.FC<ColumnProps> = ({
   label,
   type,
+  data,
   selected,
   selectedText,
   batchActions,
@@ -51,7 +52,7 @@ const TheadCell: React.FC<ColumnProps> = ({
   const Cell: React.FC = () => {
     //处理自定义render返回
     if (thReader) {
-      return <>{thReader()}</>
+      return <>{thReader({ data })}</>
     }
     return (
       <Typography color='secondary' weight="medium" variant='body2'>

@@ -11,6 +11,7 @@ const TableHeadRoot = styled(TableHead)({
 })
 
 const FbmThead: React.FC<FbmTheadProps> = ({
+  data,
   columns,
   selectedText,
   batchActions
@@ -22,6 +23,7 @@ const FbmThead: React.FC<FbmTheadProps> = ({
           return (
             <TheadCell
               key={columnItem.id}
+              data={data}
               batchActions={batchActions}
               selectedText={selectedText}
               {...columnItem}

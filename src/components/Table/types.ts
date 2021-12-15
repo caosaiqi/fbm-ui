@@ -1,5 +1,5 @@
 
-import { TableCellProps, PaginationProps, TableProps} from '@mui/material'
+import { TableCellProps, PaginationProps, TableProps } from '@mui/material'
 import { FbmActionProps } from '../Actions'
 
 export interface CellRenderProps {
@@ -7,6 +7,9 @@ export interface CellRenderProps {
   row: unknown;
 }
 
+
+
+export type DataList = unknown[]
 // tdProps
 export interface FbmTdColumnProps extends TableCellProps {
   id: string;
@@ -18,10 +21,11 @@ export interface FbmTdColumnProps extends TableCellProps {
 
 // thProps
 export interface FbmThColumnProps extends TableCellProps {
+  data?: DataList;
   selected?: unknown[],
   batchActions?: FbmActionProps['actions'];
   selectedText?: () => string | string;
-  thReader?: () => React.ReactNode;
+  thReader?: (props: { data: DataList }) => React.ReactNode;
 }
 
 // 分页
@@ -37,14 +41,15 @@ export interface FbmPaginationProps extends PaginationProps {
 
 export type ColumnProps = FbmTdColumnProps & FbmThColumnProps;
 
-export interface FbmTheadProps{
+export interface FbmTheadProps {
+  data?: DataList;
   columns?: ColumnProps[]
   batchActions?: FbmThColumnProps['batchActions'];
   selectedText?: FbmThColumnProps['selectedText'];
 }
 
-export interface FbmTbodyProps{
-  data?: unknown[];
+export interface FbmTbodyProps {
+  data?: DataList;
   columns?: ColumnProps[]
 }
 
@@ -52,4 +57,4 @@ export interface FbmTbodyProps{
 export type FbmTableProps = {
   align?: string;
   pagination?: FbmPaginationProps;
-}  & FbmTbodyProps & FbmTheadProps
+} & FbmTbodyProps & FbmTheadProps

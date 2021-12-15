@@ -3,15 +3,15 @@ import { Checkbox } from '@mui/material'
 
 import Box from '../../Box'
 import { ArrowDropDownIcon } from '../../icons'
-import { ColumnProps, CellRenderProps} from '../types'
+import { ColumnProps, CellRenderProps } from '../types'
 import Popactions from '../../Popactions'
 import styled from '@mui/material/styles/styled'
 
 
 export interface ColumnCheckboxProps {
-  checked?: (props: CellRenderProps) => boolean | boolean;
+  checked?: (props: CellRenderProps) => boolean;
   selected?: unknown[];
-  allChecked?: () => boolean | boolean;
+  allChecked?: (params: any) => boolean;
   onChange?: (checked: boolean, props: CellRenderProps) => void;
   onAllChange?: (checked: boolean) => void;
   onPageAllChange?: (checked: boolean) => void;
@@ -32,16 +32,7 @@ const ThRoot = styled(Box)({
 
 const ColumnCheckbox = (options: ColumnCheckboxProps): ColumnProps => {
   const { selected, checked, allChecked, onChange, onAllChange, onPageAllChange } = options
-
-  const formatBool = (boolOrFunc): boolean => {
-    if (typeof boolOrFunc === 'boolean') return boolOrFunc
-    if (boolOrFunc && typeof boolOrFunc === 'function') return boolOrFunc()
-    return false
-  }
-
-  const boolAllChecked: boolean = formatBool(allChecked);
-  const boolIndeterminate: boolean = boolAllChecked === false && (selected && selected.length > 0)
-
+  
   return {
     selected,
     id: 'columnCheckbox',
@@ -51,7 +42,8 @@ const ColumnCheckbox = (options: ColumnCheckboxProps): ColumnProps => {
       pl: '5px',
       pr: '5px',
     },
-    thReader: () => {
+    thReader: ({ data }) => {
+
       const handleChange = (event) => {
         const checked = event.target.checked
         if (onAllChange) onAllChange(checked)
@@ -73,6 +65,9 @@ const ColumnCheckbox = (options: ColumnCheckboxProps): ColumnProps => {
           }
         },
       ].filter((item) => !!item)
+
+      const boolAllChecked: boolean = allChecked({ data })
+      const boolIndeterminate: boolean = boolAllChecked === false && (selected && selected.length > 0)
 
       return (
         <ThRoot>

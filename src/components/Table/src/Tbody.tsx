@@ -21,8 +21,8 @@ const Tbody: React.FC<FbmTbodyProps> = ({
     if (isEmpty(data)) return null
     const rows = data.map((row, index) => (
       <TbodyRow
-        index={index}
         key={index}
+        index={index}
       >
         {columns.map((columnItem) => (
           <TbodyCell

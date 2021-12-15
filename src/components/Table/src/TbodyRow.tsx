@@ -4,7 +4,7 @@ import styled from '@mui/material/styles/styled'
 import { TableRow } from '@mui/material'
 
 interface TbodyRowProps {
-  index: number
+  index: number,
 }
 
 const TableRowRoot: React.FC<TbodyRowProps> = styled(TableRow)(({ index }) => {
@@ -14,7 +14,6 @@ const TableRowRoot: React.FC<TbodyRowProps> = styled(TableRow)(({ index }) => {
       backgroundColor: '#f4f4f4'
     },
     backgroundColor: index % 2 === 0 ? '#FAFAFA' : '#fff',
-
     '& td[type="actions"]': {
       opacity: 0,
       transition: 'opacity 0.06s'

@@ -10,7 +10,7 @@ interface ActionsOptions extends ColumnProps {
 const columnActions = (options: ActionsOptions): ColumnProps => ({
   type: 'actions',
   id: 'columnActions',
-  // thReader: null,
+  thReader: null,
   render: (props) => {
     return (
       <Actions actions={options.actions} data={props} />
