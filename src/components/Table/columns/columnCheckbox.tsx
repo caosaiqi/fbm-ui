@@ -50,7 +50,7 @@ const ColumnCheckbox = (options: ColumnCheckboxProps): ColumnProps => {
       }
 
       const actions = [
-        onAllChange && {
+        (onAllChange && onPageAllChange) && {
           text: '全选当前页面',
           onClick: (popup) => {
             popup.onClose()

@@ -47,8 +47,10 @@ export { default as Popactions } from './Popactions';
 export { default as Select } from './Select';
 
 export { default as Header } from './Header';
+export * from './Header'
 
 export { default as Table } from './Table';
+export * from './Table/types'
 
 export { default as UserInfo } from './UserInfo';
 

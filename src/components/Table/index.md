@@ -126,7 +126,6 @@ export default () =>{
   return (
     <Layout>
       <Table 
-        selectedText={() => '候选人'}
         data={data}
         columns={columns}
         batchActions={batchActions}

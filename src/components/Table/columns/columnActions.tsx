@@ -3,7 +3,7 @@ import React from 'react'
 import { ColumnProps} from '../types'
 import Actions from '../../Actions'
 
-interface ActionsOptions extends ColumnProps {
+interface ActionsOptions{
   actions: object[]
 }
 
