@@ -2,13 +2,8 @@ import React from 'react';
 import styled from '@mui/material/styles/styled'
 import { TableHead, TableRow } from '@mui/material'
 
-import TheadCell, { TheadCellProps } from './TheadCell'
-
-export interface FbmTheadProps {
-  columns: TheadCellProps[];
-  batchActions?: TheadCellProps['batchActions']
-  selectedText?: TheadCellProps['selectedText']
-}
+import TheadCell from './TheadCell'
+import { FbmTheadProps } from '../types'
 
 const TableHeadRoot = styled(TableHead)({
   backgroundColor: '#fafafa',
@@ -24,7 +19,14 @@ const FbmThead: React.FC<FbmTheadProps> = ({
     <TableHeadRoot>
       <TableRow>
         {columns.map((columnItem) => {
-          return <TheadCell key={columnItem.id} {...columnItem} batchActions={batchActions} selectedText={selectedText} />
+          return (
+            <TheadCell
+              key={columnItem.id}
+              batchActions={batchActions}
+              selectedText={selectedText}
+              {...columnItem}
+            />
+          )
         })}
       </TableRow>
     </TableHeadRoot>

@@ -1,16 +1,17 @@
 import React from 'react'
 
-import { TbodyCellProps } from '../src/TbodyCell'
+import { ColumnProps} from '../types'
 import UserInfo, { FbmUserInfoProps } from '../../UserInfo'
 
-interface UserInfoOptions extends TbodyCellProps {
+interface UserInfoOptions extends ColumnProps {
   formatProps?: (props) => FbmUserInfoProps
 }
 
-const columnUserInfo = (options: UserInfoOptions): TbodyCellProps => {
-  const { formatProps, ...otherOptions} = options
+const columnUserInfo = (options: UserInfoOptions): ColumnProps => {
+  const { formatProps, ...otherOptions } = options
   return {
-    render (props) {
+    id: 'columnUserInfo',
+    render(props) {
       const userInfoProps = {
         ...(formatProps && formatProps(props))
       }

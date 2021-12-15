@@ -91,7 +91,6 @@ export default () =>{
           text: '认证流程',
           variant: 'outlined',
           onClick: (data) => {
-            console.log(data)
           }
         },
         { 

@@ -3,17 +3,16 @@ import { Checkbox } from '@mui/material'
 
 import Box from '../../Box'
 import { ArrowDropDownIcon } from '../../icons'
-import { TbodyCellProps, RenderProps } from '../src/TbodyCell'
-import { TheadCellProps } from '../src/TheadCell'
+import { ColumnProps, CellRenderProps} from '../types'
 import Popactions from '../../Popactions'
 import styled from '@mui/material/styles/styled'
 
 
 export interface ColumnCheckboxProps {
-  checked?: (props: RenderProps) => boolean | boolean;
+  checked?: (props: CellRenderProps) => boolean | boolean;
   selected?: unknown[];
   allChecked?: () => boolean | boolean;
-  onChange?: (checked: boolean, props: RenderProps) => void;
+  onChange?: (checked: boolean, props: CellRenderProps) => void;
   onAllChange?: (checked: boolean) => void;
   onPageAllChange?: (checked: boolean) => void;
 }
@@ -31,7 +30,7 @@ const ThRoot = styled(Box)({
   alignItems: 'center',
 })
 
-const ColumnCheckbox = (options: ColumnCheckboxProps): TbodyCellProps | TheadCellProps => {
+const ColumnCheckbox = (options: ColumnCheckboxProps): ColumnProps => {
   const { selected, checked, allChecked, onChange, onAllChange, onPageAllChange } = options
 
   const formatBool = (boolOrFunc): boolean => {
@@ -45,8 +44,8 @@ const ColumnCheckbox = (options: ColumnCheckboxProps): TbodyCellProps | TheadCel
 
   return {
     selected,
+    id: 'columnCheckbox',
     type: 'checkbox',
-    indeterminate: boolIndeterminate,
     width: 52,
     sx: {
       pl: '5px',
@@ -102,7 +101,6 @@ const ColumnCheckbox = (options: ColumnCheckboxProps): TbodyCellProps | TheadCel
       const getChecked = () => {
         if (typeof checked === 'boolean') return checked
         if (checked && typeof checked === 'function') return checked(props)
-        console.log('----=')
       }
 
       return (

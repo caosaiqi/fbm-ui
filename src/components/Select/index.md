@@ -34,7 +34,6 @@ export default () =>{
   ]
 
   const handleChange = (e) => {
-    console.log(e.target.value)
     setAge(e.target.value)
   }
   return (

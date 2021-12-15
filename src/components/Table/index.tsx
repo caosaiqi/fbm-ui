@@ -2,20 +2,12 @@ import React from 'react';
 import { TableContainer } from '@mui/material'
 
 import Table from './src/Table'
-import Thead, { FbmTheadProps } from './src/Thead'
-import Tbody, { TbodyProps } from './src/Tbody'
-import Pagination, { FbmPaginationProps } from './src/Pagination'
+import Thead from './src/Thead'
+import Tbody from './src/Tbody'
+import Pagination from './src/Pagination'
+import { FbmTableProps } from './types'
 
-export interface FbmTableProps {
-  align?: string;
-  data?: TbodyProps['data'];
-  columns?: FbmTheadProps['columns'];
-  batchActions?: FbmTheadProps['batchActions'];
-  selectedText?: FbmTheadProps['selectedText'],
-  pagination?: FbmPaginationProps
-}
-
-const FbmTable: React.FC<FbmTableProps> = React.forwardRef(({
+const FbmTable: React.FC<FbmTableProps> =({
   data,
   pagination,
   columns,
@@ -28,7 +20,7 @@ const FbmTable: React.FC<FbmTableProps> = React.forwardRef(({
     columns,
     batchActions
   }
-  
+
   const TbodyProps = {
     data,
     columns
@@ -43,7 +35,7 @@ const FbmTable: React.FC<FbmTableProps> = React.forwardRef(({
       <Pagination {...pagination} />
     </TableContainer>
   )
-})
+}
 
 FbmTable.defaultProps = {
   align: 'left',

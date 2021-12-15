@@ -3,24 +3,16 @@ import React from 'react';
 import styled from '@mui/material/styles/styled'
 import { TableCell, TableCellProps } from '@mui/material'
 
+import { FbmTdColumnProps } from '../types'
 import { isEmpty } from '../../../utils'
 
-export interface RenderProps {
-  cell: any;
-  row: object;
-}
 
-export interface TbodyCellProps extends TableCellProps {
-  type?: string;
-  id?: string;
-  label?: string;
-  row?: object;
-  width?: string | number;
-  render?: (props: RenderProps) => any;
-  thReader?: any;
-}
+interface RootProps extends TableCellProps {
+  type?: FbmTdColumnProps['type'];
+  width?: FbmTdColumnProps['width'];
+} 
 
-const TableCellRoot: React.FC<TbodyCellProps> = styled(TableCell)(({ type }) => {
+const TableCellRoot: React.FC<RootProps> = styled(TableCell)(({ type }) => {
   return {
     padding: '16px',
     fontSize: 14,
@@ -40,8 +32,13 @@ const CellEmpty: React.FC = () => {
   return <span>-</span>
 }
 
-const TbodyCell: React.FC<TbodyCellProps> = (props) => {
-  const { id, row, render, ...tableCellProps } = props
+const TbodyCell: React.FC<FbmTdColumnProps> = ({
+  type,
+  id,
+  width,
+  row,
+  render,
+}) => {
   const cell = row[id]
   const isEmptyValue = isEmpty(cell)
 
@@ -59,8 +56,12 @@ const TbodyCell: React.FC<TbodyCellProps> = (props) => {
     return cell
   }
 
+  const rootProps = {
+    type,
+    width
+  }
   return (
-    <TableCellRoot {...tableCellProps}>
+    <TableCellRoot {...rootProps}>
       <Cell />
     </TableCellRoot>
   )

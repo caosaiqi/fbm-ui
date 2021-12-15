@@ -1,19 +1,14 @@
 import React from 'react';
-import styled from '@mui/material/styles/styled'
-import { TableBody, TableRow } from '@mui/material'
+import { TableBody } from '@mui/material'
 
 import { isEmpty } from '../../../utils'
 import Empty from './Empty'
 import TbodyRow from './TbodyRow'
-import TbodyCell, { TbodyCellProps } from './TbodyCell'
-
-export interface TbodyProps {
-  columns: TbodyCellProps[];
-  data: object[];
-}
+import TbodyCell  from './TbodyCell'
+import { FbmTbodyProps } from '../types'
 
 
-const Tbody: React.FC<TbodyProps> = ({
+const Tbody: React.FC<FbmTbodyProps> = ({
   data,
   columns,
 }) => {
@@ -27,6 +22,7 @@ const Tbody: React.FC<TbodyProps> = ({
     const rows = data.map((row, index) => (
       <TbodyRow
         index={index}
+        key={index}
       >
         {columns.map((columnItem) => (
           <TbodyCell
@@ -38,7 +34,7 @@ const Tbody: React.FC<TbodyProps> = ({
       </TbodyRow>
     ))
 
-    return <> {rows} </>
+    return <>{rows}</>
   }
 
   return (

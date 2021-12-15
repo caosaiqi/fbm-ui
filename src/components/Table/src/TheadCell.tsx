@@ -5,17 +5,7 @@ import { TableCell, Box } from '@mui/material'
 import Typography from '../../Typography'
 import { isEmpty } from '../../../utils'
 import Actions, { FbmActionProps } from '../../Actions'
-
-export interface TheadCellProps {
-  type?: string,
-  id?: string;
-  label?: string;
-  width?: string | number;
-  selected?: unknown[],
-  selectedText?: () => string | string;
-  batchActions?: FbmActionProps['actions'];
-  thReader?: any;
-}
+import { ColumnProps }  from '../types'
 
 const TableCellRoot = styled(TableCell)({
   height: 54,
@@ -23,8 +13,9 @@ const TableCellRoot = styled(TableCell)({
   borderBottom: '1px solid #f4f4f4',
 })
 
-
-const ActionRoot: React.FC<TheadCellProps> = styled(Box)(({ selected }) => {
+const ActionRoot: React.FC<{
+  selected: ColumnProps['selected']
+}> = styled(Box)(({ selected }) => {
   const isSelected = selected && selected.length > 0
   return {
     position: 'absolute',
@@ -47,20 +38,20 @@ const ActionText: React.FC = styled(Typography)(() => ({
   marginLeft: 5,
 }))
 
-const TheadCell: React.FC<TheadCellProps> = ({
+const TheadCell: React.FC<ColumnProps> = ({
   label,
   type,
   selected,
   selectedText,
   batchActions,
   thReader,
-  ...tableCellProps
 }) => {
   if (thReader === null) return null
+
   const Cell: React.FC = () => {
-    // 处理自定义render返回
+    //处理自定义render返回
     if (thReader) {
-      return thReader()
+      return <>{thReader()}</>
     }
     return (
       <Typography color='secondary' weight="medium" variant='body2'>
@@ -93,7 +84,7 @@ const TheadCell: React.FC<TheadCellProps> = ({
   }
 
   return (
-    <TableCellRoot {...tableCellProps}>
+    <TableCellRoot>
       <Cell />
       <CheckActions />
     </TableCellRoot>
