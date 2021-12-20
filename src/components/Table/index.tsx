@@ -1,22 +1,30 @@
 import React from 'react';
 import { TableContainer } from '@mui/material'
+import styled from '@mui/material/styles/styled'
 
 import Table from './src/Table'
 import Thead from './src/Thead'
 import Tbody from './src/Tbody'
+import Loading from './src/Loading'
 import Pagination from './src/Pagination'
 import { FbmTableProps } from './types'
 
+const Container = styled(TableContainer)({
+  position: 'relative'
+})
+
 const FbmTable: React.FC<FbmTableProps> =({
+  loading,
   data,
   pagination,
   columns,
   batchActions,
-  selectedText,
+  nameText,
 }) => {
+
   const TheadProps = {
     data,
-    selectedText,
+    nameText,
     columns,
     batchActions
   }
@@ -26,14 +34,20 @@ const FbmTable: React.FC<FbmTableProps> =({
     columns
   }
 
+  const loadingProps = {
+    loading,
+    nameText
+  }
+
   return (
-    <TableContainer>
+    <Container>
       <Table>
         <Thead {...TheadProps} />
         <Tbody {...TbodyProps} />
       </Table>
+      <Loading {...loadingProps} />
       <Pagination {...pagination} />
-    </TableContainer>
+    </Container>
   )
 }
 

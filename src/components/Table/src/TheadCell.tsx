@@ -12,10 +12,11 @@ const TableCellRoot = styled(TableCell)({
   padding: '0 16px',
   borderBottom: '1px solid #f4f4f4',
 })
-
-const ActionRoot: React.FC<{
+interface ActionRootProps{
   selected: ColumnProps['selected']
-}> = styled(Box)(({ selected }) => {
+}
+
+const ActionRoot: React.FC<ActionRootProps> = styled(Box)(({ selected }) => {
   const isSelected = selected && selected.length > 0
   return {
     position: 'absolute',
@@ -30,20 +31,20 @@ const ActionRoot: React.FC<{
   }
 })
 
-const ActionText: React.FC = styled(Typography)(() => ({
+const ActionText: React.FC = styled(Typography)({
   color: '#4BB051',
   fontSize: '13px',
   fontWeight: 400,
   marginRight: 10,
   marginLeft: 5,
-}))
+})
 
 const TheadCell: React.FC<ColumnProps> = ({
   label,
   type,
   data,
   selected,
-  selectedText,
+  nameText,
   batchActions,
   thReader,
 }) => {
@@ -68,9 +69,9 @@ const TheadCell: React.FC<ColumnProps> = ({
 
     const text = () => {
       let defaultText = `已选择${len}个`
-      if (selectedText) {
-        if (typeof selectedText === 'string') return `${defaultText}${selectedText}`
-        if (typeof selectedText === 'function') return `${defaultText}${selectedText()}`
+      if (nameText) {
+        if (typeof nameText === 'string') return `${defaultText}${nameText}`
+        if (typeof nameText === 'function') return nameText('checkbox')
       }
       return defaultText
     }

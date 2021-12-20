@@ -3,7 +3,7 @@ import { Avatar, AvatarProps } from '@mui/material'
 import styled from '@mui/material/styles/styled'
 
 import Box from '../Box'
-import { MaleIcon } from '../icons'
+import { MaleIcon, FemaleIIcon } from '../icons'
 
 type SizeType = 'small' | 'middle' | 'large';
 export interface FbmAvatarPropos extends AvatarProps {
@@ -21,24 +21,27 @@ const BoxRoot = styled(Box)({
   position: 'relative',
 })
 
-const SexRoot = styled(Box)({
-  position: 'absolute',
-  width: 14,
-  height: 14,
-  right: 0,
-  bottom: '-0px',
-  background: 'rgb(75, 132, 255)',
-  display: 'flex',
-  alignItems: 'center',
-  borderRadius: '50%',
-  border: '1px solid #fff'
+const SexRoot: React.FC<{
+  sex: FbmAvatarPropos['sex']
+}> = styled(Box)(({ sex }) => {
+  const bgColor = {
+    1: 'rgb(75, 132, 255)',
+    2: 'rgb(255, 79, 123)'
+  }
+  return {
+    position: 'absolute',
+    width: 14,
+    height: 14,
+    right: 0,
+    bottom: 0,
+    display: 'flex',
+    alignItems: 'center',
+    borderRadius: '50%',
+    border: '1px solid #fff',
+    background: bgColor[sex],
+  }
 })
 
-const SexIconRoot = styled(MaleIcon)({
-  fontSize: 12,
-  color: '#ffffff'
-})
- 
 
 const AvatarRoot: React.FC<FbmAvatarPropos> = styled(Avatar)
   (({ size }) => ({
@@ -68,11 +71,20 @@ const FbmAvatar: React.FC<FbmAvatarPropos> = ({
   }
 
   const SexRender = () => {
-    if (!sex && sex !== 0) return null
+    const icons = {
+      1: MaleIcon,
+      2: FemaleIIcon
+    }
 
+    if (!sex || !icons[sex]) return null
+
+    const Icon = styled(icons[sex])({
+      fontSize: 12,
+      color: '#ffffff'
+    })
     return (
-      <SexRoot>
-        <SexIconRoot />
+      <SexRoot sex={sex}>
+        <Icon />
       </SexRoot>
     )
   }

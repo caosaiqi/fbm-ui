@@ -1,13 +1,13 @@
 import { green, red } from '@mui/material/colors'
 
 export default {
+  type: 'light',
   common: {
     black: '#000',
     white: '#fff',
   },
-  type: 'light',
   primary: {
-    light: green[300],
+    light: green[50],
     main: green[500],
     dark: green[600],
     contrastText: '#fff',

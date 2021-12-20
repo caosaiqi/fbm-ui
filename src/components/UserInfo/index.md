@@ -16,21 +16,26 @@ group:
 import * as React from 'react';
 import { Layout, UserInfo, FbmUserInfoProps } from 'fbm-ui'
 
-const User: React.FC<FbmUserInfoProps> = () => {
-  return (
-    <UserInfo 
-        avatar={'https://alicdn.fbmms.cn/avatar/IOFPNuz7Rg2lPqpMoa6gkwDwLLcRQ5XzQ1pp1638758794521612563.jpeg'}
-        sex={1}
-        name={'小明'}
-        desc={'19岁 初中 18841889422'}
-      />
-  )
-}
-
 export default () =>{
+  const chips = [
+    {
+      label: '有纹身',
+      color: 'error'
+    },
+    {
+      label: '大厂经历',
+      onClick: (error) => console.log(error),
+    }
+  ]
   return (
     <Layout>
-        <User />
+     <UserInfo 
+        avatar={'https://alicdn.fbmms.cn/avatar/IOFPNuz7Rg2lPqpMoa6gkwDwLLcRQ5XzQ1pp1638758794521612563.jpeg'}
+        sex={1}
+        name={'马云'}
+        desc={'19岁 初中 18841889422'}
+        chips={chips}
+      />
     </Layout>
   )
 }

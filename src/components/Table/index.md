@@ -14,27 +14,39 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import { Table, Layout, Message, TableColumnActions, TableColumnUserInfo, TableColumnCheckbox } from 'fbm-ui'
+import { Table, Layout, Message, TableColumnActions, TableColumnUserInfo, TableColumnCheckbox, Button} from 'fbm-ui'
 
 
 export default () =>{
   const [actions, setActions] = React.useState([])
+  const [loading, setLoading] = React.useState(true)
   
+  React.useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false)
+      }, 1000)
+    }
+  }, [loading])
+
   const data = [
     {
       id: '1',
+      sex: 1,
       avatar: 'https://alicdn.fbmms.cn/avatar/IOFPNuz7Rg2lPqpMoa6gkwDwLLcRQ5XzQ1pp1638758794521612563.jpeg',
       name: '小明',
       age: '18'
     },
     {
       id: '2',
+      sex: 2,
       avatar: 'https://alicdn.fbmms.cn/avatar/IOFPNuz7Rg2lPqpMoa6gkwDwLLcRQ5XzQ1pp1638758794521612563.jpeg',
-      name: '小明',
+      name: '小红',
       age: '18'
     },
     {
       id: '3',
+      sex: '未知',
       avatar: 'https://alicdn.fbmms.cn/avatar/IOFPNuz7Rg2lPqpMoa6gkwDwLLcRQ5XzQ1pp1638758794521612563.jpeg',
       name: '小明',
       age: '18'
@@ -64,11 +76,21 @@ export default () =>{
     TableColumnUserInfo({
       label: '候选人资料',
       formatProps: ({ row }) => {
+        
         return {
-          sex: 1,
+          sex: row.sex,
           avatar: row.avatar,
           name: row.name,
-          desc: `男 19岁 182381823`
+          desc: `男 19岁 182381823`,
+          chips: [
+            {
+              label: '大厂经历'
+            },
+            {
+              label: '有纹身',
+              color: 'error'
+            },
+          ]
         }
       }
     }),
@@ -89,7 +111,7 @@ export default () =>{
         },
         { 
           text: '新增用户',
-          onClick: () => Message.success('新增用户')
+          onClick: ({ row }) => Message.success('新增用户')
         },
       ]
     })
@@ -99,6 +121,7 @@ export default () =>{
     { 
       text: '认证流程',
       variant: 'outlined',
+  
       actions: [
         { 
           text: '认证流程',
@@ -114,6 +137,7 @@ export default () =>{
     },
     { 
       text: '新增用户',
+      color: 'error',
       onClick: () => Message.success('新增用户')
     }
   ]
@@ -123,9 +147,12 @@ export default () =>{
     onPageChange: async  (_, page) => {}
   }
 
+  
   return (
     <Layout>
-      <Table 
+      <Table
+        nameText="候选人"
+        loading={loading}
         data={data}
         columns={columns}
         batchActions={batchActions}

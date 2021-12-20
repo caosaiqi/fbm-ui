@@ -54,3 +54,5 @@ export * from './Table/types'
 
 export { default as UserInfo } from './UserInfo';
 
+export { default as Chip } from './Chip';
+export * from './Chip'
