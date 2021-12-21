@@ -13,60 +13,56 @@ group:
  * title: 基本
  */
 import * as React from 'react';
-import {  Layout, Input, Form, Button, Select} from 'fbm-ui'
+import {  Layout, Input, Form, FormItem, Button, Select} from 'fbm-ui'
 import { useFormik } from 'formik';
+
+const { useForm } = Form
 
 const formProps= {
   initialValues: {
-    name: '123',
+    name: 'asdasd',
   },
   validate: (values, props) => {
-    // const errors = {};
-    // const helperTexts = {
-    //   name: '请输入名称',
-    // }
-    // for (const key in values) {
-      
-    //   if (values[key]) {
-    //     delete values[key]
-    //   }
-    // }
-    // return helperTexts
+    const errors = {
+      name: '请输入名称'
+    }
+    if (!values.name) {
+      return errors
+    }
+    return {}
   }, 
   onSubmit: values => {
     alert(JSON.stringify(values, null, 2));
   },
 }
 
-  
-  const ageOptions = [
-    {
-      label: '20岁',
-      value: 20
-    },
-    {
-      label: '男',
-      value: '男'
-    }
-  ]
+const sexs = [
+  {
+    label: '男',
+    value: '1'
+  },
+  {
+    label: '女',
+    value: '2'
+  }
+]
 
 export default () => {
   const formik = useFormik(formProps)
-  const handleClick = async () => {
-    const error = formik.validateForm()
-  }
 
 
   return (
-  <Layout>
-    <Form formik={formik}>
-      <Input label="名称" name="name" sx={{mr: 2}} />
-    </Form>
-    <Button sx={{m: '3px 0px 0 5px'}} variant="contained" onClick={handleClick}>
-      提交
-    </Button>
-  </Layout>
-)
+    <Layout>
+      <Form formik={formik}>
+        <FormItem
+          name='name'
+          label="名称"
+        >
+          <Input />
+        </FormItem>
+      </Form>
+    </Layout>
+  )
 
 }
 ```

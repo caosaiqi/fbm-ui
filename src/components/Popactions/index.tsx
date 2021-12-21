@@ -92,7 +92,7 @@ const Popactions: React.FC<PropsType> = (props) => {
 }
 
 Popactions.defaultProps = {
-  trigger: 'click',
+  trigger: 'hover',
   actions: [],
 }
 

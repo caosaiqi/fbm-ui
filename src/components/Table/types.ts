@@ -15,6 +15,7 @@ export interface FbmTdColumnProps extends TableCellProps {
   type?: string;
   label?: string;
   row?: unknown;
+  checked?: ((props: CellRenderProps) => boolean) | boolean;
   render?: (props: CellRenderProps) => React.ReactNode;
 }
 

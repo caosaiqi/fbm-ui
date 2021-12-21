@@ -49,7 +49,6 @@ const TheadCell: React.FC<ColumnProps> = ({
   thReader,
 }) => {
   if (thReader === null) return null
-
   const Cell: React.FC = () => {
     //处理自定义render返回
     if (thReader) {

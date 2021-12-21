@@ -1,7 +1,11 @@
 import React from 'react';
-import { FormikProvider } from 'formik';
+import { FormikProvider, FormikConfig } from 'formik';
 
-const FbmForm: React.FC = ({ formik, children }: any) => {
+interface FbmForm {
+ 
+}
+
+const FbmForm: React.FC = ({ formik,  children}: any) => {
   return (
     <FormikProvider value={formik}>
       {children}

@@ -5,7 +5,6 @@ import Box from '../Box'
 import Typography from '../Typography'
 import Actions, { FbmActionProps } from '../Actions'
 
-
 export interface FbmHeaderProps {
   title?: React.ReactNode;
   actions?: FbmActionProps['actions']

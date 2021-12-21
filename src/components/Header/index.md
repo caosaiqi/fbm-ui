@@ -3,9 +3,9 @@ nav:
   title: 组件
   path: /components
 group:
-  title: PageHeader 标题+操作
+  title: Header 标题+操作
 ---
-# PageHeader 标题+操作
+# Header 标题+操作
 ## 代码演示
 
 ```tsx
@@ -14,7 +14,7 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import {  Layout, PageHeader, Message, AddIcon,  DocExcelIcon, DocPdfIcon, EditIcon } from 'fbm-ui'
+import {  Layout, Header, Message, AddIcon,  DocExcelIcon, DocPdfIcon, EditIcon } from 'fbm-ui'
 
 export default () =>{
 
@@ -60,7 +60,7 @@ export default () =>{
 
  return (
     <Layout>
-      <PageHeader 
+      <Header 
         title="用户中心" 
         actions={actions}
       />

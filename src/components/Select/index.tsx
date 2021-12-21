@@ -1,75 +1,78 @@
 
 // dev阶段
 import React from 'react';
-import { Select, InputLabel, FormControl, MenuItem, SelectProps, FormHelperText } from '@mui/material'
+import { Select, SelectProps, InputLabel, FormControl, MenuItem, MenuItemProps, FormHelperText } from '@mui/material'
 
 import useFormikFieldProps from '../hooks/useFormikFieldProps'
 
 type OptionMap = {
   label: string;
-  value: unknown
+  value: MenuItemProps['value'],
 }
 
 export interface FbmSelectProps extends SelectProps {
-  name: string;
-  label?: string;
-  value: unknown
+  id?: string;
+  name?: string;
   options?: OptionMap[];
-  labelId?: string;
-  variant?: 'standard' | 'outlined' | 'filled';
-  disabled?: boolean;
-  fullWidth: boolean;
 }
-
 
 const FbmSelect: React.FC<FbmSelectProps> = React.forwardRef((props, ref) => {
   const {
+    id,
     name,
     label,
     value,
     options,
-    children,
-    labelId,
-    variant, fullWidth,
-    ...otherProps
+    variant,
+    labelId: labelIdProp,
+    children: childrenProp,
+    ...otherSelectProps
   } = props
 
+  let children = childrenProp
+  if (options && options.length > 0) {
+    children = options.map(({ label, value }) => {
+      return (
+        <MenuItem key={label} value={value}>
+          {label || value}
+        </MenuItem>
+      )
+    })
+  }
 
-  const selectProps = useFormikFieldProps({
-    value,
-    ref,
-    name,
-    labelId: labelId || `${label}_${name}`,
-    ...otherProps
-  })
-
+  const labelId = labelIdProp || [id, name, 'lable'].filter(v => !!v).join('-')
+  
   const formControlProps = {
     variant,
-    fullWidth,
-    error: selectProps.error
+  }
+
+  const selectProps = {
+    labelId,
+    label,
+    ...otherSelectProps
+  }
+
+  const inputLabelProps = {
+    labelId,
   }
 
   return (
-    <FormControl {...formControlProps} sx={{ mb: 30 }}>
-      <InputLabel id={selectProps.labelId}>
+    <FormControl {...formControlProps}>
+      <InputLabel {...inputLabelProps}>
         {label}
       </InputLabel>
-      <Select {...selectProps}>
-        {/* {
-          children ? children : options.map(({ label, value }) => (
-            <MenuItem key={label} value={value}>
-              {label || value}
-            </MenuItem>
-          ))
-        } */}
+      <Select { ...selectProps}>
+        {children}
       </Select>
-      <FormHelperText>{selectProps.helperText}</FormHelperText>
+      <FormHelperText>
+      
+      </FormHelperText>
     </FormControl>
   )
 })
 
 FbmSelect.defaultProps = {
-  fullWidth: true,
+  id: `select${new Date().getTime()}`,
   variant: 'outlined',
   options: [],
 }

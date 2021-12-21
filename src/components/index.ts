@@ -56,3 +56,5 @@ export { default as UserInfo } from './UserInfo';
 
 export { default as Chip } from './Chip';
 export * from './Chip'
+
+export { default as FormItem } from './FormItem';

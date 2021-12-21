@@ -38,6 +38,7 @@ const FbmButton: React.FC<FbmButtonProps> = (props) => {
   buttonProps['startIcon'] = buttonProps.startIcon || icon
   
   const LoadingRender: React.FC = () => loading ? <Loading {...loadingProps} /> : null
+  
   return (
     <ButtonRoot {...buttonProps}>
       {children || text}

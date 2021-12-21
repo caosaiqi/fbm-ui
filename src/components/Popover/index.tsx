@@ -1,9 +1,10 @@
 import React from 'react';
-import Popover from 'material-ui-popup-state/HoverPopover'
-import PopupState, { InjectedProps, bindHover, bindPopover, bindTrigger } from 'material-ui-popup-state'
-import { Box, Button, Typography } from '@mui/material'
+
+import PopupState, { InjectedProps, bindPopover } from 'material-ui-popup-state'
+import { Box } from '@mui/material'
 
 import Trigger, { TriggerMap } from './src/Trigger'
+import Popover from './src/Popover'
 
 export type Variant = 'popover' | 'popper';
 
@@ -17,26 +18,18 @@ export interface FbmPopoverProps {
 }
 
 const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
-  const { variant, children, trigger, content } = props
+  const { popupId, variant, children, trigger, content } = props
 
   return (
-    <PopupState popupId={'adasdsadasd'} variant={variant}>
+    <PopupState popupId={popupId} variant={variant}>
       {(popupState: InjectedProps) => {
         return (
           <Box>
-            <Button variant="contained" {...bindHover(popupState)} >
-              Open Popover
-            </Button>
+            <Trigger children={children} trigger={trigger} popupState={popupState} />
             <Popover
               {...bindPopover(popupState)}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'center',
-              }}
             >
-              <Typography>
-                The content of the Popover.
-              </Typography>
+              {content}
             </Popover>
           </Box>
         )

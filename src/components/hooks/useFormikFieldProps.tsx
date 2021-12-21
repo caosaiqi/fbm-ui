@@ -1,6 +1,6 @@
 import { useFormikContext } from 'formik'
 
-const useFormikFieldProps = (inProps) => {
+function useFormikFieldProps (inProps){
   const formik = useFormikContext();
   // 判断在<Form>组件下使用
   if (!formik || (inProps && !inProps.name)) return inProps

@@ -22,48 +22,48 @@ export default {
   },
 
   MuiInputLabel: {
-    styleOverrides: {
-      root: {
-        top: '-2px',
-        left: '-2px',
-        [`&.${outlinedInputClasses.focused}`]: {
-          top: '-2px',
-          left: '-2px',
-        },
-      },
+    // styleOverrides: {
+    //   root: {
+    //     top: '-2px',
+    //     left: '-2px',
+    //     [`&.${outlinedInputClasses.focused}`]: {
+    //       top: '-2px',
+    //       left: '-2px',
+    //     },
+    //   },
 
-      sizeSmall: {
-        top: '-1px',
-        fontSize: 14,
-        [`&.${outlinedInputClasses.focused}`]: {
-          top: '-1px',
-        },
-      },
-    },
+    //   sizeSmall: {
+    //     top: '-1px',
+    //     fontSize: 14,
+    //     [`&.${outlinedInputClasses.focused}`]: {
+    //       top: '-1px',
+    //     },
+    //   },
+    // },
   },
 
   MuiOutlinedInput: {
-    styleOverrides: {
-      root: {
-        [`& .${outlinedInputClasses.notchedOutline}`]: {
-          borderColor: 'rgba(0,0,0,0.08)',
-        },
-        [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
-          borderColor: 'rgba(0,0,0,0.26)',
-        },
-        [`&.${outlinedInputClasses.focused} .${outlinedInputClasses.notchedOutline}`]: {
-          borderColor: palette.primary.main,
-          borderWidth: 1,
-        },
-        [`&.${outlinedInputClasses.error} .${outlinedInputClasses.notchedOutline}`]: {
-          borderColor: palette.error.main,
-        },
-        [`&.${outlinedInputClasses.disabled} .${outlinedInputClasses.notchedOutline}`]: {
-          // borderColor: palette.action.disabled,
-          borderColor: 'rgba(225,225,225,1)',
-          backgroundColor: palette.action.disabledBackground,
-        },
-      },
+    // styleOverrides: {
+    //   root: {
+    //     [`& .${outlinedInputClasses.notchedOutline}`]: {
+    //       borderColor: 'rgba(0,0,0,0.08)',
+    //     },
+    //     [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
+    //       borderColor: 'rgba(0,0,0,0.26)',
+    //     },
+    //     [`&.${outlinedInputClasses.focused} .${outlinedInputClasses.notchedOutline}`]: {
+    //       borderColor: palette.primary.main,
+    //       borderWidth: 1,
+    //     },
+    //     [`&.${outlinedInputClasses.error} .${outlinedInputClasses.notchedOutline}`]: {
+    //       borderColor: palette.error.main,
+    //     },
+    //     [`&.${outlinedInputClasses.disabled} .${outlinedInputClasses.notchedOutline}`]: {
+    //       // borderColor: palette.action.disabled,
+    //       borderColor: 'rgba(225,225,225,1)',
+    //       backgroundColor: palette.action.disabledBackground,
+    //     },
+    //   },
       // input: {
       //   fontSize: 16,
       //   height: 48,
@@ -73,7 +73,7 @@ export default {
       //   height: 36,
       //   fontSize: 14,
       // },
-    },
+    // },
   },
 
   MuiButton: {

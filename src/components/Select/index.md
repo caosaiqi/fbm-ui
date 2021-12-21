@@ -44,6 +44,7 @@ export default () =>{
         value={age}
         options={options}
         onChange={handleChange}
+        width={200}
       >
       </Select>
     </Layout>

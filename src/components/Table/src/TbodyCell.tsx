@@ -10,13 +10,17 @@ import { isEmpty } from '../../../utils'
 interface RootProps {
   type?: FbmTdColumnProps['type'];
   width?: FbmTdColumnProps['width'];
+  checked: FbmTdColumnProps['checked'];
 } 
 
-const TableCellRoot: React.FC<RootProps> = styled(TableCell)(({ type }) => {
+const TableCellRoot: React.FC<RootProps> = styled(TableCell)(({ type, checked, theme}) => {
   return {
     padding: '16px',
     fontSize: 14,
     borderBottom: '1px solid #f4f4f4',
+    ...(checked  && {
+      background: theme.palette.primary.light,
+    }),
     ...(type === 'actions' && {
       display: 'flex',
       alignItems: 'center',
@@ -37,6 +41,7 @@ const TbodyCell: React.FC<FbmTdColumnProps> = ({
   id,
   width,
   row,
+  checked,
   render,
 }) => {
   const cell = row[id]
@@ -58,7 +63,8 @@ const TbodyCell: React.FC<FbmTdColumnProps> = ({
 
   const rootProps = {
     type,
-    width
+    width,
+    checked
   }
   return (
     <TableCellRoot {...rootProps}>

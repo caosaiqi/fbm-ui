@@ -1,49 +1,55 @@
 import * as React from 'react';
-import { TextField, OutlinedTextFieldProps } from '@mui/material'
+import { OutlinedInput, OutlinedInputProps, outlinedInputClasses } from '@mui/material'
 import styled from '@mui/material/styles/styled'
-import { useFormikContext } from 'formik'
-import useFormikFieldProps from '../hooks/useFormikFieldProps'
 
-export const componentName: string = 'Input'
+import useFormItem from '../FormItem/useFormItem'
 
-type SizeMap = 'small' | 'large';
-
-type Props = {
-  size: SizeMap;
-  name?: string;
-  label?: string;
-}
-
-export type FbmInputProps =  {
-  size: SizeMap;
-  name?: string;
-  label?: string;
-} | OutlinedTextFieldProps
-
-const InputRoot: React.FC<FbmInputProps> = styled(TextField, {
-  name: 'Input',
-  slot: 'Root',
-})(({ size }) => {
-  const sizes = {
-    small: 36,
-    large: 48,
-  }
-  const helperTextHeight = 18
+const InputRoot = styled(OutlinedInput)(({ theme }) => {
   return {
-    height: sizes[size] + helperTextHeight,
-    marginBottom: 8,
+    '@media (hover: none)': {
+      [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
+        borderColor: 'rgba(0, 0, 0, 0.08)',
+      },
+    },
+    [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
+      borderColor: 'rgba(0,0,0,0.26)',
+    },
+
+    [`&.${outlinedInputClasses.focused} .${outlinedInputClasses.notchedOutline}`]: {
+      borderColor: theme.palette.primary.main,
+      borderWidth: 1,
+    },
+    [`&.${outlinedInputClasses.error} .${outlinedInputClasses.notchedOutline}`]: {
+      borderColor: theme.palette.error.main,
+    },
+    [`&.${outlinedInputClasses.disabled} .${outlinedInputClasses.notchedOutline}`]: {
+      borderColor: theme.palette.action.disabled,
+    },
   }
 })
 
-const FbmInput: React.FC<FbmInputProps> = (inProps) => {
-  const props = useFormikFieldProps(inProps)
-  console.log(props, '------')
-  return <InputRoot  {...props} />
+
+const FbmInput: React.FC<OutlinedInputProps> = (inProps) => {
+  const {
+    value,
+    onChange,
+    name,
+    error,
+    label
+  } = useFormItem()
+
+  const props = {
+    name,
+    value,
+    label,
+    onChange,
+    error: !!error,
+    ...inProps
+  }
+
+  return <InputRoot {...props} />
 }
 
-FbmInput.defaultProps = {
-  size: 'large',
-}
 
 export default FbmInput
 
