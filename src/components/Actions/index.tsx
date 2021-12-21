@@ -6,12 +6,21 @@ import Box from '../Box'
 import Popactions from '../Popactions'
 
 export interface FbmActionProps extends FbmButtonProps {
+  /** 按钮展示文字 */
+  text: string,
+  /** 下拉展示更多按钮 */
   actions?: FbmActionProps[]
+  /** 按钮间距 */
   spacing?: number | string;
+  /** click Params */
   data?: any
 }
 
-const ActionsRoot: React.FC<FbmActionProps> = styled(Box)(({ spacing }) => (
+interface RootProps {
+  spacing?: FbmActionProps['spacing']
+}
+
+const ActionsRoot: React.FC<RootProps> = styled(Box)(({ spacing }) => (
   {
     display: 'flex',
     alignItems: 'center',
@@ -29,8 +38,7 @@ const FbmAction: React.FC<FbmActionProps> = ({
   actions,
   data,
 }) => {
-
-  const actionBtns = actions.map((actionsItems) => {
+  const actionBtns = actions.map(actionsItems => {
     const { text, actions: subActons, onClick, ...buttonProps } = actionsItems
 
     const handleClick = () => {
@@ -41,7 +49,7 @@ const FbmAction: React.FC<FbmActionProps> = ({
 
     if (subActons && subActons.length > 0) {
       return (
-        <Popactions key={actionsItems.text} actions={subActons}>
+        <Popactions key={text} actions={subActons}>
           <Button
             onClick={handleClick}
             {...buttonProps}
@@ -53,7 +61,7 @@ const FbmAction: React.FC<FbmActionProps> = ({
     }
     return (
       <Button
-        key={actionsItems.text}
+        key={text}
         onClick={handleClick}
         {...buttonProps}
       >

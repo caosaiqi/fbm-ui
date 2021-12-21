@@ -14,7 +14,8 @@ group:
  * desc: 给某个模块添加loaidng
  */
 import * as React from 'react';
-import { Box, Layout , Typography, Divider, Switch} from 'fbm-ui'
+import { Box, Layout , Typography } from 'fbm-ui'
+import { Switch, Divider } from '@mui/material'
 
 export default () =>{
   const [loading, setLoading] = React.useState(true)
@@ -65,7 +66,8 @@ export default () =>{
  * desc: 禁用某个模块
  */
 import * as React from 'react';
-import { Box, Layout , Typography, Switch, Paper } from 'fbm-ui'
+import { Box, Layout , Typography } from 'fbm-ui'
+import { Switch, Divider, Paper} from '@mui/material'
 
 export default () =>{
   const [disabled, setDisabled] = React.useState(true)
@@ -90,7 +92,9 @@ export default () =>{
  * title: Paper
  */
 import * as React from 'react';
-import { Button, Layout , Typography, Paper } from 'fbm-ui'
+import { Button, Layout , Typography } from 'fbm-ui'
+import { Paper } from '@mui/material'
+
 
 export default () =>{
   const [elevation, setElevation] = React.useState(0)

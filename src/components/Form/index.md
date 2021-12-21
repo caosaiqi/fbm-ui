@@ -57,9 +57,7 @@ export default () => {
         <FormItem
           name='name'
           label="名称"
-        >
-          <Input />
-        </FormItem>
+          />
       </Form>
     </Layout>
   )

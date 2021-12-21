@@ -6,9 +6,13 @@ import Loading from '../Loading'
 
 export const componentName: string = 'Input'
 export interface FbmButtonProps extends ButtonProps {
+  /** 按钮loading */
   loading?: boolean;
+  /** 按钮禁用 */
   disabled?: boolean;
+  /** 按钮显示文字 */
   text?: string;
+  /** 按钮icon */
   icon?: ButtonProps['startIcon']
 }
 
@@ -38,7 +42,7 @@ const FbmButton: React.FC<FbmButtonProps> = (props) => {
   buttonProps['startIcon'] = buttonProps.startIcon || icon
   
   const LoadingRender: React.FC = () => loading ? <Loading {...loadingProps} /> : null
-  
+
   return (
     <ButtonRoot {...buttonProps}>
       {children || text}

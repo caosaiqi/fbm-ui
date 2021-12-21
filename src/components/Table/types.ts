@@ -60,8 +60,11 @@ export interface FbmTableLoading {
 }
 
 export type FbmTableProps = {
+  /** table对其方式 */
   align?: string;
+  /** 分页 */
   pagination?: FbmPaginationProps;
+  /** table为空展示的文字 */
   emptyText?: string;
   loading?: boolean;
   nameText?: NameText;

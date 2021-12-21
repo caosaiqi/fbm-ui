@@ -4,9 +4,10 @@ import { MenuItem, Box, ListItemIcon, ListSubheader } from '@mui/material'
 
 import Popover, { FbmPopoverProps } from '../Popover'
 import { FbmButtonProps } from '../Button'
+import { FbmActionProps } from '../Actions'
 
 export interface PropsType extends FbmPopoverProps {
-  actions?: FbmButtonProps[]
+  actions?: FbmActionProps[]
 }
 
 interface ActionMenusTitle {
@@ -50,7 +51,7 @@ const ActionMenu: React.FC<ActionsMenu> = (props) => {
     const { text, icon, onClick, actions, } = actionsItem
     if (actions && actions.length) {
       return [
-        <ListSubheader>
+        <ListSubheader key={text}>
           {text}
         </ListSubheader>,
         ...getMenuItems(actions)
@@ -64,7 +65,7 @@ const ActionMenu: React.FC<ActionsMenu> = (props) => {
     }
 
     return (
-      <ActionMenuItem icon={icon} onClick={handleMenuItemClick}>
+      <ActionMenuItem key={text} icon={icon} onClick={handleMenuItemClick}>
         {text}
       </ActionMenuItem>
     )

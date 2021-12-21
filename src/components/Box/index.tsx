@@ -60,7 +60,7 @@ const FbmBox: React.FC<FbmBoxProps> = ({
         : loading
     ),
   }
-
+  
   return (
     <BoxRoot {...otherProps}>
       <LoadingRender {...loadingProps} />

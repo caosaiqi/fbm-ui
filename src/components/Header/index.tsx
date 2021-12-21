@@ -6,7 +6,9 @@ import Typography from '../Typography'
 import Actions, { FbmActionProps } from '../Actions'
 
 export interface FbmHeaderProps {
+  /** 标题 */
   title?: React.ReactNode;
+  /** 操作, 具体参数可查看Actions组件 */
   actions?: FbmActionProps['actions']
 }
 
