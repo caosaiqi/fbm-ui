@@ -19,9 +19,7 @@ import { Select, Layout } from 'fbm-ui'
 import { MenuItem, FormControl, InputLabel} from '@mui/material'
 
 export default () =>{
-  const content = <div style={{height: 300, width: 400}}><h1>hell world</h1></div>
   const [age, setAge] = React.useState(20)
-  
   const options = [
     {
       label: '20岁',
@@ -36,15 +34,13 @@ export default () =>{
   const handleChange = (e) => {
     setAge(e.target.value)
   }
+
   return (
     <Layout>
       <Select
-        label="年龄"
-        name="age"
         value={age}
         options={options}
         onChange={handleChange}
-        width={200}
       >
       </Select>
     </Layout>

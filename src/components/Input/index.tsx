@@ -6,13 +6,15 @@ import useFormItem from '../FormItem/useFormItem'
 
 const InputRoot = styled(OutlinedInput)(({ theme }) => {
   return {
-    '@media (hover: none)': {
-      [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
-        borderColor: 'rgba(0, 0, 0, 0.08)',
-      },
+    [`.${outlinedInputClasses.notchedOutline}`]: {
+      borderColor: 'rgba(0,0,0,0.08)',
     },
     [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
       borderColor: 'rgba(0,0,0,0.26)',
+    },
+
+    [`& .${outlinedInputClasses.input}`]: {
+      padding: '12px'
     },
 
     [`&.${outlinedInputClasses.focused} .${outlinedInputClasses.notchedOutline}`]: {
@@ -48,6 +50,12 @@ const FbmInput: React.FC<OutlinedInputProps> = (inProps) => {
   }
 
   return <InputRoot {...props} />
+}
+
+
+FbmInput.defaultProps = {
+
+  fullWidth: true,
 }
 
 

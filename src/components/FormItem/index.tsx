@@ -5,6 +5,7 @@ import {
   FormControl,
   InputLabel,
   FormHelperText,
+  inputLabelClasses,
 
   OutlinedInputProps,
   BaseTextFieldProps,
@@ -20,7 +21,7 @@ interface FbmFormItemProps {
   name?: BaseTextFieldProps['name'];
 
   label?: BaseTextFieldProps['label'];
-  labelProps: InputLabelProps;
+  labelProps?: InputLabelProps;
  
   helperText?: BaseTextFieldProps['helperText'];
   helperTextProps?: FormHelperTextProps;
@@ -29,9 +30,17 @@ interface FbmFormItemProps {
 }
 
 
-const FormItemRoot = styled(FormControl)({});
+const FormItemRoot = styled(FormControl)({
+  display: 'block',
+  height: '84px',
+});
 
-const LabelRoot = styled(InputLabel)({});
+const LabelRoot = styled(InputLabel)({
+  lineHeight: 1,
+  [`&.${inputLabelClasses.shrink}`]: {
+    transform: 'translate(14px, -7px) scale(0.75)',
+  },
+});
 
 const Label: React.FC<InputLabelProps> = (props) => {
   const { children, ...labelProps } = props
@@ -56,9 +65,9 @@ const HelperText: React.FC<FormHelperTextProps> = (props) => {
 const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef(({
   name,
   label,
-  children,
   helperText,
-  inputProps
+  inputProps,
+  children: childrenProp,
 }, ref) => {
   const formItemValues: any = {
     label,
@@ -89,9 +98,13 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef(({
     error: !!errorText
   }
 
-  let childrenNode = children
-  if (!childrenNode) {
-    childrenNode = <Input {...inputProps} />
+  let children = null
+  if (childrenProp != null) {
+    children = childrenProp
+  } else if (typeof childrenProp === 'function') {
+    children = childrenProp(formItemValues)
+  } else {
+    children = <Input {...inputProps} />
   }
 
   return (
@@ -99,7 +112,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef(({
       <FormItemRoot {...formItemProps}>
         <Label {...labelProps} />
 
-        {childrenNode}
+        {children}
 
         <HelperText {...helperTextProps} />
       </FormItemRoot>

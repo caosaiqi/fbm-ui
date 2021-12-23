@@ -1,14 +1,12 @@
 import React from 'react';
-import { FormikProvider, FormikConfig } from 'formik';
+import { FormikProvider, FormikValues, FormikProps, Form } from 'formik';
 
-interface FbmForm {
- 
-}
-
-const FbmForm: React.FC = ({ formik,  children}: any) => {
+const FbmForm: React.FC<FormikProps<FormikValues>> = ({ children, ...formik }) => {
   return (
     <FormikProvider value={formik}>
-      {children}
+      <Form>
+        {children}
+      </Form>
     </FormikProvider>
   )
 }

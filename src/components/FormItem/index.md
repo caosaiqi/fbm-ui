@@ -22,6 +22,7 @@ export default () => {
     <Layout>
       <FormItem
         name='name'
+        label="名称"
       >
         <Input placeholder="请输入名称" />
       </FormItem>

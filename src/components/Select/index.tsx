@@ -1,9 +1,12 @@
 
 // dev阶段
 import React from 'react';
-import { Select, SelectProps, InputLabel, FormControl, MenuItem, MenuItemProps, FormHelperText } from '@mui/material'
+import { Select, SelectProps, selectClasses, MenuItem, MenuItemProps } from '@mui/material'
+import styled from '@mui/material/styles/styled'
 
-import useFormikFieldProps from '../hooks/useFormikFieldProps'
+import Input from '../Input'
+import { ArrowDropDownIcon } from '../icons'
+import { isEmpty } from '../../utils'
 
 type OptionMap = {
   label: string;
@@ -11,70 +14,47 @@ type OptionMap = {
 }
 
 export interface FbmSelectProps extends SelectProps {
-  id?: string;
   name?: string;
   options?: OptionMap[];
 }
 
+const SelectRoot = styled(Select)({
+  [`& .${selectClasses.icon}`]: {
+    color: 'rgba(0, 0, 0, 0.56)'
+  }
+})
+
 const FbmSelect: React.FC<FbmSelectProps> = React.forwardRef((props, ref) => {
   const {
-    id,
-    name,
-    label,
-    value,
     options,
-    variant,
-    labelId: labelIdProp,
     children: childrenProp,
-    ...otherSelectProps
+    ...selectProps
   } = props
 
-  let children = childrenProp
-  if (options && options.length > 0) {
-    children = options.map(({ label, value }) => {
-      return (
-        <MenuItem key={label} value={value}>
-          {label || value}
-        </MenuItem>
-      )
-    })
-  }
-
-  const labelId = labelIdProp || [id, name, 'lable'].filter(v => !!v).join('-')
+  let children = null
   
-  const formControlProps = {
-    variant,
-  }
-
-  const selectProps = {
-    labelId,
-    label,
-    ...otherSelectProps
-  }
-
-  const inputLabelProps = {
-    labelId,
+  if (childrenProp != null) {
+    children = childrenProp
+  } else if (!isEmpty(options)) {
+    children = options.map(({label, value}) => (
+      <MenuItem key={label} value={value}>
+        {label || value}
+      </MenuItem>
+    ))
   }
 
   return (
-    <FormControl {...formControlProps}>
-      <InputLabel {...inputLabelProps}>
-        {label}
-      </InputLabel>
-      <Select { ...selectProps}>
-        {children}
-      </Select>
-      <FormHelperText>
-      
-      </FormHelperText>
-    </FormControl>
+    <SelectRoot {...selectProps}>
+      {children}
+    </SelectRoot>
   )
 })
 
 FbmSelect.defaultProps = {
-  id: `select${new Date().getTime()}`,
-  variant: 'outlined',
+  input: <Input />,
+  IconComponent: ArrowDropDownIcon,
   options: [],
+  fullWidth: true,
 }
 
 export default FbmSelect

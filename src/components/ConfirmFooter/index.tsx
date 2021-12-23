@@ -95,7 +95,6 @@ const FbmConfirmFooter: React.FC<FbmConfirmFooterProps> = React.forwardRef((prop
     onClick: handleOk,
     ...okProps
   }
-
   const OkButton: React.FC = () => (
     <Button {...okButtonProps}>
       {okText}
