@@ -30,27 +30,6 @@ export default () =>{
   }, [loading])
 
   const data = [
-    {
-      id: '1',
-      sex: 1,
-      avatar: 'https://alicdn.fbmms.cn/avatar/IOFPNuz7Rg2lPqpMoa6gkwDwLLcRQ5XzQ1pp1638758794521612563.jpeg',
-      name: '小明',
-      age: '18'
-    },
-    {
-      id: '2',
-      sex: 2,
-      avatar: 'https://alicdn.fbmms.cn/avatar/IOFPNuz7Rg2lPqpMoa6gkwDwLLcRQ5XzQ1pp1638758794521612563.jpeg',
-      name: '小红',
-      age: '18'
-    },
-    {
-      id: '3',
-      sex: '未知',
-      avatar: 'https://alicdn.fbmms.cn/avatar/IOFPNuz7Rg2lPqpMoa6gkwDwLLcRQ5XzQ1pp1638758794521612563.jpeg',
-      name: '小明',
-      age: '18'
-    }
   ]
 
   const columns = [
@@ -76,7 +55,6 @@ export default () =>{
     TableColumnUserInfo({
       label: '候选人资料',
       formatProps: ({ row }) => {
-        
         return {
           sex: row.sex,
           avatar: row.avatar,

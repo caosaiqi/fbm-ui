@@ -7,7 +7,7 @@ import Popactions from '../Popactions'
 
 export interface FbmActionProps extends FbmButtonProps {
   /** 按钮展示文字 */
-  text: string,
+  text?: string,
   /** 下拉展示更多按钮 */
   actions?: FbmActionProps[]
   /** 按钮间距 */

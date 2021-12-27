@@ -13,7 +13,10 @@ const Tbody: React.FC<FbmTbodyProps> = ({
   columns,
 }) => {
   const EmptyRender: React.FC = () => {
-    if (isEmpty(data)) return <Empty />
+    console.log(data)
+    if (!data || (data && data.length === 0)) {
+      return <Empty colSpan={columns.length} />;
+    }
     return null
   }
 
@@ -23,7 +26,7 @@ const Tbody: React.FC<FbmTbodyProps> = ({
     const commonProps = {
       checked: false
     }
-    
+
     const columnsRender = columns.map(columnItem => {
       if (columnItem.type === 'checkbox') {
         const { checked } = columnItem

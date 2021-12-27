@@ -13,7 +13,7 @@ const TableRowRoot: React.FC<TbodyRowProps> = styled(TableRow)(({ index }) => {
     '&:hover': {
       backgroundColor: '#f4f4f4'
     },
-    backgroundColor: index % 2 === 0 ? '#FAFAFA' : '#fff',
+    backgroundColor: index % 2 === 0 ? '#fff' : '#FAFAFA',
     '& td[type="actions"]': {
       opacity: 0,
       transition: 'opacity 0.06s'

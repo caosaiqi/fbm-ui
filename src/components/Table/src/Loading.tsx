@@ -9,7 +9,6 @@ import Typography from '../../Typography'
 const Root: React.FC<{
   loading: FbmTableLoading['loading']
 }> = styled(Box)(({ theme, loading }) => {
-  console.log(loading)
   const height = 54
   const s = loading ? '0.07s' : '0.15s'
   return {
