@@ -21,26 +21,32 @@ const loadingProps = {
   size: 16,
 }
 
-const ButtonRoot = styled(Button)(({ variant }) => {
+const ButtonRoot = styled(Button)(({ color, theme }) => {
   return {
     '&:hover': {
       boxShadow: 'none',
     },
-    ...(variant === 'outlined' && {
-      backgroundColor: '#fff',
+    ...(color === 'inherit' && {
+      borderColor: 'rgba(0,0,0,.12)',
+      color: theme.palette.text.primary,
+      '&:hover': {
+        background: theme.palette.action.hover,
+        borderColor: 'rgba(0,0,0,.04)',
+      },
     })
+
   }
 })
 
 const FbmButton: React.FC<FbmButtonProps> = (props) => {
-  const { loading, children, text, icon,  ...buttonProps } = props
+  const { loading, children, text, icon, ...buttonProps } = props
 
   if (loading) {
     buttonProps.disabled = true
   }
-  
+
   buttonProps['startIcon'] = buttonProps.startIcon || icon
-  
+
   const LoadingRender: React.FC = () => loading ? <Loading {...loadingProps} /> : null
 
   return (

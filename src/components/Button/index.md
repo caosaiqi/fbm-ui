@@ -30,7 +30,7 @@ export default () => (
         <Button sx={{mr: 1}} startIcon={<AddIcon />} size="large">按钮</Button> 
       </Box>
       <Box sx={{mb: 2}}>
-        <Button sx={{mr: 1}}  variant="outlined" size="small">按钮</Button> 
+        <Button sx={{mr: 1}}  variant="outlined" size="small" color="error">按钮</Button> 
         <Button sx={{mr: 1}}  variant="outlined" size="medium">按钮</Button> 
         <Button sx={{mr: 1}}  variant="outlined" size="large">按钮</Button> 
       </Box>

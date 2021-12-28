@@ -19,6 +19,8 @@ import {  Layout, Input, Box } from 'fbm-ui'
 export default () => (
   <Layout>
     <Input placeholder="请输入姓名" />
+    <Input disabled placeholder="请输入姓名" />
+
   </Layout>
 )
 ```

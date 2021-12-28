@@ -14,7 +14,7 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import { Table, Layout, Message, TableColumnActions, TableColumnUserInfo, TableColumnCheckbox, Button} from 'fbm-ui'
+import { Table, Layout, Message, TableColumnActions, TableColumnUserInfo, TableColumnCheckbox, Button, Paper } from 'fbm-ui'
 
 
 export default () =>{
@@ -29,8 +29,7 @@ export default () =>{
     }
   }, [loading])
 
-  const data = [
-  ]
+  const data = []
 
   const columns = [
     TableColumnCheckbox({
@@ -46,7 +45,7 @@ export default () =>{
         })
       },
       onChange:(checked, { row }) => {
-        setActions(() => {
+        setActions(() => { 
           if (checked) return actions.concat(row.id)
           return actions.filter(id => id !== row.id)
         })
@@ -99,7 +98,7 @@ export default () =>{
     { 
       text: '认证流程',
       variant: 'outlined',
-  
+      color: 'error',
       actions: [
         { 
           text: '认证流程',
@@ -129,12 +128,16 @@ export default () =>{
   return (
     <Layout>
       <Table
+        emptyText="暂无数据"
         nameText="候选人"
         loading={loading}
         data={data}
         columns={columns}
         batchActions={batchActions}
         pagination={pagination}
+        tableContainerProps={{
+          component: Paper
+        }}
       />
     </Layout>
   )

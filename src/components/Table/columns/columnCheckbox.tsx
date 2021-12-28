@@ -30,20 +30,6 @@ const ThRoot = styled(Box)({
   alignItems: 'center',
 })
 
-// const RowSelectedBg: React.FC<{
-//   checked: boolean,
-// }> = styled(Box)(({ checked, theme }) => {
-//   return {
-//     position: 'absolute',
-//     top: 0,
-//     bottom: 0,
-//     left: 0,
-//     right: 0,
-//     background: theme.palette.primary.light,
-//     // opacity: checked ? 1 : 0,
-//     transition: 'top 0.05s  ease-in-out',
-//   }
-// })
 
 const columnCheckbox = (options: ColumnCheckboxProps): ColumnProps => {
   const { selected, checked, allChecked, onChange, onAllChange, onPageAllChange } = options
@@ -82,7 +68,7 @@ const columnCheckbox = (options: ColumnCheckboxProps): ColumnProps => {
         },
       ].filter((item) => !!item)
 
-      const boolAllChecked: boolean = allChecked({ data })
+      const boolAllChecked: boolean = data && data.length > 0 ?  allChecked({ data }) : false
       const boolIndeterminate: boolean = boolAllChecked === false && (selected && selected.length > 0)
 
       return (

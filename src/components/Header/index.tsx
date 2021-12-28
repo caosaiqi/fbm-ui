@@ -21,7 +21,7 @@ const PageHeaderRoot = styled(Box)({
 
 const TitleRender: React.FC = ({ children }) => (
   <Box sx={{ flex: 1 }}>
-    <Typography variant='h6'>
+    <Typography variant='h6' weight='medium'>
       {children}
     </Typography>
   </Box>

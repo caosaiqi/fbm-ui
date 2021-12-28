@@ -102,14 +102,14 @@ export default {
       sizeLarge: {
         padding: '9px 24px',
       },
-      outlined: {
-        borderColor: 'rgba(0,0,0,.12)',
-        color: palette.text.primary,
-        '&:hover': {
-          background: palette.action.hover,
-          borderColor: 'rgba(0,0,0,.04)',
-        },
-      },
+      // outlined: {
+      //   borderColor: 'rgba(0,0,0,.12)',
+      //   color: palette.text.primary,
+      //   '&:hover': {
+      //     background: palette.action.hover,
+      //     borderColor: 'rgba(0,0,0,.04)',
+      //   },
+      // },
       text: {
         color: palette.text.secondary,
         '&:hover': {

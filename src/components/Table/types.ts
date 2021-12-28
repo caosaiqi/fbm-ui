@@ -1,5 +1,5 @@
 
-import { TableCellProps, PaginationProps } from '@mui/material'
+import { TableCellProps, PaginationProps, TableContainerProps } from '@mui/material'
 import { FbmActionProps } from '../Actions'
 
 export interface CellRenderProps {
@@ -51,7 +51,11 @@ export interface FbmTheadProps {
 
 export interface FbmTbodyProps {
   data?: Data;
-  columns?: ColumnProps[]
+  columns?: ColumnProps[];
+  /** table为空展示的文字 */
+  emptyText?: string;
+  /** loading */
+  loading?: boolean;
 }
 
 export interface FbmTableLoading {
@@ -59,13 +63,13 @@ export interface FbmTableLoading {
   nameText?: NameText;
 }
 
+
+
 export type FbmTableProps = {
   /** table对其方式 */
   align?: string;
   /** 分页 */
   pagination?: FbmPaginationProps;
-  /** table为空展示的文字 */
-  emptyText?: string;
-  loading?: boolean;
   nameText?: NameText;
+  tableContainerProps?: TableContainerProps
 } & FbmTbodyProps & FbmTheadProps

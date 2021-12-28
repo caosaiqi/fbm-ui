@@ -11,11 +11,13 @@ import { FbmTbodyProps, FbmTdColumnProps } from '../types'
 const Tbody: React.FC<FbmTbodyProps> = ({
   data,
   columns,
+  loading,
+  emptyText,
 }) => {
   const EmptyRender: React.FC = () => {
-    console.log(data)
-    if (!data || (data && data.length === 0)) {
-      return <Empty colSpan={columns.length} />;
+    console.log(loading, '----')
+    if (!data || (data && data.length === 0) && !loading) {
+      return <Empty colSpan={columns.length} desc={emptyText} />;
     }
     return null
   }

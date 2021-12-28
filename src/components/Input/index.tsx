@@ -25,7 +25,8 @@ const InputRoot = styled(OutlinedInput)(({ theme }) => {
       borderColor: theme.palette.error.main,
     },
     [`&.${outlinedInputClasses.disabled} .${outlinedInputClasses.notchedOutline}`]: {
-      borderColor: theme.palette.action.disabled,
+      borderColor: 'rgba(0, 0, 0, 0.08)',
+      backgroundColor: theme.palette.action.disabledBackground
     },
   }
 })
@@ -48,13 +49,11 @@ const FbmInput: React.FC<OutlinedInputProps> = (inProps) => {
     error: !!error,
     ...inProps
   }
-
   return <InputRoot {...props} />
 }
 
 
 FbmInput.defaultProps = {
-
   fullWidth: true,
 }
 

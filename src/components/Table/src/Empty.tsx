@@ -1,35 +1,20 @@
 import React from 'react';
-import { SpeedIcon } from '../../icons';
-import styled from '@mui/material/styles/styled'
-import { Box, TableRow, TableCell } from '@mui/material'
+import { TableRow, TableCell } from '@mui/material'
+import Empty from '../../Empty'
 
-import Typography from '../../Typography'
-
-const EmptyRoot: React.FC = styled(Box)()
-
-const Icon: React.FC = styled(SpeedIcon)({
-  fontSize: '5em',
-})
-
-const Text: React.FC = styled(Typography)({
-
-})
-
-Text.defaultProps = {
-  color: 'secondary'
+interface TableEmpty {
+  desc?: string;
+  colSpan?: number;
 }
 
-export default ({ colSpan }) => {
+const TableEmpty: React.FC<TableEmpty> = ({ colSpan, desc }) => {
   return (
     <TableRow>
-      <TableCell colSpan={12} align="center">
-        <EmptyRoot>
-          <Icon />
-          <Text>
-            暂无数据
-          </Text>
-        </EmptyRoot>
+      <TableCell colSpan={colSpan} align="center">
+        <Empty desc={desc}/>
       </TableCell>
     </TableRow>
   )
 };
+
+export default TableEmpty

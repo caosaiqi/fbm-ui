@@ -44,7 +44,7 @@ const FbmSelect: React.FC<FbmSelectProps> = React.forwardRef((props, ref) => {
   }
 
   return (
-    <SelectRoot {...selectProps}>
+    <SelectRoot {...selectProps} ref={ref}>
       {children}
     </SelectRoot>
   )
