@@ -16,19 +16,22 @@ import {
 
 import FormItemContext from './FormItemContext'
 import Input from '../Input'
+import { isEmpty } from '../../utils'
 
 interface FbmFormItemProps {
   name?: BaseTextFieldProps['name'];
-
   label?: BaseTextFieldProps['label'];
   labelProps?: InputLabelProps;
- 
   helperText?: BaseTextFieldProps['helperText'];
+  extra?: string;
   helperTextProps?: FormHelperTextProps;
-
   inputProps?: OutlinedInputProps;
 }
 
+interface HelperProps extends FormHelperTextProps {
+  extra?: FbmFormItemProps['extra']
+  error: boolean;
+}
 
 const FormItemRoot = styled(FormControl)({
   display: 'block',
@@ -52,12 +55,19 @@ const Label: React.FC<InputLabelProps> = (props) => {
   )
 }
 
-const HelperText: React.FC<FormHelperTextProps> = (props) => {
-  const { children, ...helperTextProps } = props
+const Helper: React.FC<HelperProps> = (props) => {
+  const { children: childrenProp , extra, ...helperTextProps } = props
+ 
+  let children = childrenProp
+  if (!children) {
+    children = extra
+  }
+
   if (!children) return null
+  
   return (
     <FormHelperText {...helperTextProps}>
-      {children}
+      {children || extra}
     </FormHelperText>
   )
 }
@@ -66,6 +76,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef(({
   name,
   label,
   helperText,
+  extra,
   inputProps,
   children: childrenProp,
 }, ref) => {
@@ -73,32 +84,36 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef(({
     label,
     name,
   }
+
   const formik = useFormikContext();
   if (formik) {
     const { getFieldMeta, getFieldProps } = formik
     const fieldProps = getFieldProps({ name })
     const fieldMeta = getFieldMeta(name)
-
     Object.assign(formItemValues, fieldMeta, fieldProps)
   }
+
+  // status
+  const statusError:boolean = !isEmpty(formItemValues.error)
 
   const labelProps = {
     id: `${name}-label`,
     htmlFor: name,
     children: label,
   }
-
-  const errorText = (helperText || helperText === null) || formItemValues.error
+  
   const helperTextProps = {
+    extra,
+    error: statusError,
     id: `${name}-helper-text`,
-    children: errorText
+    children:  helperText || formItemValues.error
   }
 
   const formItemProps = {
-    error: !!errorText
+    error: statusError
   }
 
-  let children = null
+  let children = childrenProp
   if (childrenProp != null) {
     children = childrenProp
   } else if (typeof childrenProp === 'function') {
@@ -114,7 +129,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef(({
 
         {children}
 
-        <HelperText {...helperTextProps} />
+        <Helper {...helperTextProps} />
       </FormItemRoot>
     </FormItemContext.Provider>
   )

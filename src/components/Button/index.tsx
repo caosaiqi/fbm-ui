@@ -21,7 +21,7 @@ const loadingProps = {
   size: 16,
 }
 
-const ButtonRoot = styled(Button)(({ color, theme }) => {
+const ButtonRoot = styled(Button)(({ color, theme, variant }) => {
   return {
     '&:hover': {
       boxShadow: 'none',
@@ -33,8 +33,10 @@ const ButtonRoot = styled(Button)(({ color, theme }) => {
         background: theme.palette.action.hover,
         borderColor: 'rgba(0,0,0,.04)',
       },
+    }),
+    ...(variant === 'outlined' && {
+      backgroundColor: '#fff'
     })
-
   }
 })
 

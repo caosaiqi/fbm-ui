@@ -15,7 +15,6 @@ const Tbody: React.FC<FbmTbodyProps> = ({
   emptyText,
 }) => {
   const EmptyRender: React.FC = () => {
-    console.log(loading, '----')
     if (!data || (data && data.length === 0) && !loading) {
       return <Empty colSpan={columns.length} desc={emptyText} />;
     }

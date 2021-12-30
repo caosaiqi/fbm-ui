@@ -13,11 +13,11 @@ group:
  * title: 基本
  */
 import * as React from 'react';
-import {  Layout, Button, Box, ButtonGroup, AddIcon} from 'fbm-ui'
+import { Layout, Button, Box, ButtonGroup, AddIcon} from 'fbm-ui'
 
 export default () => (
   <Layout>
-    <Box>
+    <Box style={{ backgroundColor: '#FAFAFA'}}>
       <Box sx={{mb: 2}}>
         <Button sx={{mr: 1}} size="small">按钮</Button> 
         <Button sx={{mr: 1}} size="medium">按钮</Button> 

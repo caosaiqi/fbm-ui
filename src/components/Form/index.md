@@ -19,18 +19,21 @@ import {useFormik} from 'formik'
 
 const formProps= {
   initialValues: {
-    name: undefined,
+    name:'',
     sex: 1,
   },
   validate: (values, props) => {
-    const errors = {
-      name: '请输入名称',
-      sex: '请选择年龄'
+    const errors = {}
+    if (!values.name)  {
+      errors['name'] = '请输入名称'
+    }
+    if (!values.sex) {
+      errors['sex'] = '请选择年龄'
     }
     return errors
   }, 
   onSubmit: values => {
-    // alert(JSON.stringify(values, null, 2));
+    alert(JSON.stringify(values, null, 2));
   },
 }
 
@@ -52,9 +55,11 @@ export default () => {
   return (
     <Layout>
       <Form {...formikValues}>
-        <FormItem name='name' label="名称">
-          <Input />
-        </FormItem>
+        <FormItem 
+          name='name' 
+          label="名称"
+          extra="这是一段辅助文案" 
+          />
         <FormItem name='sex' label="性别">
           <Select options={sexs} />
         </FormItem>
@@ -62,7 +67,6 @@ export default () => {
       <Button onClick={handleSubmit}>
         提交
       </Button>
-
     </Layout>
   )
 

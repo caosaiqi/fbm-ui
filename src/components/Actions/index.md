@@ -24,6 +24,9 @@ const actions = [
   {
     text: '删除',
     color: 'error',
+    onConfirm: () => {
+      
+    }
   },
   {
     text: '添加',

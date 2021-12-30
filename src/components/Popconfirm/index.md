@@ -21,7 +21,7 @@ export default () =>{
   const handleOk = ()=> new Promise((r) => setTimeout(r, 1500))
   return (
     <Layout>
-      <Popconfirm content={content} onOk={handleOk}>
+      <Popconfirm message={'您确定要删除吗'} onOk={handleOk}>
         <Button >Popconfirm</Button>
       </Popconfirm>
     </Layout>

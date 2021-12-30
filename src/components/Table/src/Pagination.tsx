@@ -26,6 +26,9 @@ const FbmPagination: React.FC<FbmPaginationProps> = ({
   onPageChange,
   ...otherProps
 }) => {
+
+  if (!total || total <= 0) return null;
+
   const [pageNum, setPageNum] = React.useState(page)
   // 总页数
   const count = Math.ceil(total / pageSize)
