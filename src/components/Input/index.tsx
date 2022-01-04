@@ -1,8 +1,15 @@
 import * as React from 'react';
-import { OutlinedInput, OutlinedInputProps, outlinedInputClasses } from '@mui/material'
+import { OutlinedInput, OutlinedInputProps, outlinedInputClasses, IconButton } from '@mui/material'
 import styled from '@mui/material/styles/styled'
 
-import useFormItem from '../FormItem/useFormItem'
+import useFormItemContext from '../FormItem/useFormItemContext';
+import { CloseIcon } from '../icons'
+import { isFunction } from '../../utils'
+
+interface FbmInputProps extends OutlinedInputProps {
+  clear?: string;
+  onClear?: () => void;
+}
 
 const InputRoot = styled(OutlinedInput)(({ theme }) => {
   return {
@@ -31,25 +38,57 @@ const InputRoot = styled(OutlinedInput)(({ theme }) => {
 })
 
 
-const FbmInput: React.FC<OutlinedInputProps> = (inProps) => {
+const EndButton = styled(IconButton)({
+  padding: 3,
+
+  '& svg': {
+    fontSize: '16px !important'
+  }
+})
+
+const FbmInput: React.FC<FbmInputProps> = (inProps) => {
+  const {clear, onClear} = inProps
+
   const {
     value,
     onChange,
     name,
-    error,
-    label
-  } = useFormItem()
+    label,
+    statusError,
+    setValue,
+    initialValue,
+  } = useFormItemContext()
+
+  const handleClear = (e) => {
+    if (isFunction(onClear)) {
+      onClear()
+    }
+    if (setValue) {
+      setValue(initialValue)
+    }
+  }
 
   const props = {
     name,
     value,
     label,
     onChange,
-    error: !!error,
+    error: statusError,
+    ...((value && clear) && {
+      endAdornment: (
+        <EndButton size='small' onClick={handleClear}>
+          <CloseIcon />
+        </EndButton>
+      )
+    }),
     ...inProps
   }
-  
-  return <InputRoot {...props} />
+
+  return (
+    <InputRoot
+      {...props}
+    />
+  )
 }
 
 

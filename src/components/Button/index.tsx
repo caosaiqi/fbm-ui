@@ -42,11 +42,9 @@ const ButtonRoot = styled(Button)(({ color, theme, variant }) => {
 
 const FbmButton: React.FC<FbmButtonProps> = (props) => {
   const { loading, children, text, icon, ...buttonProps } = props
-
   if (loading) {
     buttonProps.disabled = true
   }
-
   buttonProps['startIcon'] = buttonProps.startIcon || icon
 
   const LoadingRender: React.FC = () => loading ? <Loading {...loadingProps} /> : null

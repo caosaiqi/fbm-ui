@@ -24,6 +24,9 @@ export default () => {
         name='name'
         label='名称'
         extra='这是一段辅助文字'
+        rules={[
+          
+        ]}
       >
         <Input placeholder="请输入名称" />
       </FormItem>

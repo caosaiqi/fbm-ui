@@ -13,7 +13,8 @@ group:
  * title: 基本
  */
 import * as React from 'react';
-import {  Layout, Input, Form, FormItem, Button, Select } from 'fbm-ui'
+import { Layout, Input, Form, FormItem, Button, Select, rules } from 'fbm-ui'
+
 
 import {useFormik} from 'formik'
 
@@ -22,18 +23,8 @@ const formProps= {
     name:'',
     sex: 1,
   },
-  validate: (values, props) => {
-    const errors = {}
-    if (!values.name)  {
-      errors['name'] = '请输入名称'
-    }
-    if (!values.sex) {
-      errors['sex'] = '请选择年龄'
-    }
-    return errors
-  }, 
   onSubmit: values => {
-    alert(JSON.stringify(values, null, 2));
+    console.log('onSubmit', values)
   },
 }
 
@@ -50,7 +41,9 @@ const sexs = [
 
 export default () => {
   const formikValues =  useFormik(formProps)
-  const handleSubmit = () => formikValues.handleSubmit()
+  const handleSubmit = () => {
+    formikValues.handleSubmit()
+  }
 
   return (
     <Layout>
@@ -58,14 +51,21 @@ export default () => {
         <FormItem 
           name='name' 
           label="名称"
-          extra="这是一段辅助文案" 
-          />
+          extra='这是一段辅助文字'
+          max={20}
+          inputProps={{ 
+            clear: true
+          }}
+         />
         <FormItem name='sex' label="性别">
           <Select options={sexs} />
         </FormItem>
       </Form>
       <Button onClick={handleSubmit}>
         提交
+      </Button>
+      <Button variant="outlined" onClick={formikValues.handleReset}>
+          重置
       </Button>
     </Layout>
   )

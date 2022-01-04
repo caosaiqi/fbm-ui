@@ -19,7 +19,7 @@ import {  Layout, Input, Box } from 'fbm-ui'
 export default () => (
   <Layout>
     <Box style={{backgroundColor: '#FAFAFA', padding: 20}}>
-    <Input placeholder="请输入姓名" />
+    <Input placeholder="请输入姓名" clear />
         <br/> <br/> <br/>
         <Input disabled placeholder="请输入姓名" />
     </Box>

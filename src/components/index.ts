@@ -64,3 +64,6 @@ export { default as Actions } from './Actions';
 // export { default as Autocomplete } from './Autocomplete';
 
 export { default as Empty } from './Empty';
+
+export * as rules from '../utils/rules';
+

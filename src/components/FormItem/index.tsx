@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@mui/material/styles/styled'
-import { useFormikContext } from 'formik'
+import { FormikErrors } from 'formik'
 import {
   FormControl,
   InputLabel,
@@ -17,6 +17,9 @@ import {
 import FormItemContext from './FormItemContext'
 import Input from '../Input'
 import { isEmpty } from '../../utils'
+import useFormItem from './useFormItem'
+
+
 
 interface FbmFormItemProps {
   name?: BaseTextFieldProps['name'];
@@ -26,10 +29,15 @@ interface FbmFormItemProps {
   extra?: string;
   helperTextProps?: FormHelperTextProps;
   inputProps?: OutlinedInputProps;
+  max?: number;
+  rules?: FbmFormItemProps['validate'][]
+  validate: (values: any) => void | object | Promise<FormikErrors<any>>
 }
 
 interface HelperProps extends FormHelperTextProps {
-  extra?: FbmFormItemProps['extra']
+  extra?: FbmFormItemProps['extra'];
+  max?: number;
+  length?: number;
   error: boolean;
 }
 
@@ -45,6 +53,12 @@ const LabelRoot = styled(InputLabel)({
   },
 });
 
+const HelperTextRoot = styled(FormHelperText)({
+  display: 'flex',
+  alignItems: 'center',
+});
+
+
 const Label: React.FC<InputLabelProps> = (props) => {
   const { children, ...labelProps } = props
   if (!children) return null
@@ -56,57 +70,71 @@ const Label: React.FC<InputLabelProps> = (props) => {
 }
 
 const Helper: React.FC<HelperProps> = (props) => {
-  const { children: childrenProp , extra, ...helperTextProps } = props
- 
+  const { children: childrenProp, extra, length, max, ...helperTextProps } = props
+
   let children = childrenProp
   if (!children) {
     children = extra
   }
 
-  if (!children) return null
-  
   return (
-    <FormHelperText {...helperTextProps}>
-      {children || extra}
-    </FormHelperText>
+    <HelperTextRoot {...helperTextProps}>
+      <span style={{ flex: 1 }}>
+        {children || extra}
+      </span>
+      {
+        (max && max > 0) && (
+          <span>
+            {length}/{max}
+          </span>
+        )
+      }
+    </HelperTextRoot>
   )
 }
+
+
 
 const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef(({
   name,
   label,
+  max,
   helperText,
   extra,
   inputProps,
+  rules,
+  validate: validateFn,
   children: childrenProp,
 }, ref) => {
-  const formItemValues: any = {
+
+  const formItem =  useFormItem({
     label,
     name,
-  }
+    extra,
+    value: '',
+    rules,
+    max,
+    validateFn,
+  })
 
-  const formik = useFormikContext();
-  if (formik) {
-    const { getFieldMeta, getFieldProps } = formik
-    const fieldProps = getFieldProps({ name })
-    const fieldMeta = getFieldMeta(name)
-    Object.assign(formItemValues, fieldMeta, fieldProps)
-  }
+  const valueLength = formItem.value.length || 0
 
   // status
-  const statusError:boolean = !isEmpty(formItemValues.error)
+  const statusError: boolean = !isEmpty(formItem.error)
 
   const labelProps = {
     id: `${name}-label`,
     htmlFor: name,
     children: label,
   }
-  
+
   const helperTextProps = {
     extra,
     error: statusError,
     id: `${name}-helper-text`,
-    children:  helperText || formItemValues.error
+    children: helperText || formItem.error,
+    max: max,
+    length: valueLength
   }
 
   const formItemProps = {
@@ -117,18 +145,16 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef(({
   if (childrenProp != null) {
     children = childrenProp
   } else if (typeof childrenProp === 'function') {
-    children = childrenProp(formItemValues)
+    children = childrenProp(formItem)
   } else {
     children = <Input {...inputProps} />
   }
 
   return (
-    <FormItemContext.Provider value={formItemValues}>
+    <FormItemContext.Provider value={formItem}>
       <FormItemRoot {...formItemProps}>
         <Label {...labelProps} />
-
         {children}
-
         <Helper {...helperTextProps} />
       </FormItemRoot>
     </FormItemContext.Provider>
