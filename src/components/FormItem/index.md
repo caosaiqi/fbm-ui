@@ -14,22 +14,23 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import { Layout, FormItem , Button, Input} from 'fbm-ui'
+import { Layout, FormItem , Button, Input, rules } from 'fbm-ui'
 
 export default () => {
- 
+  const [value, setValue] = React.useState('')
+  const handleChange = (e) => {
+    setValue(e.target.value)
+  }
+
   return (
     <Layout>
       <FormItem
-        name='name'
         label='名称'
-        extra='这是一段辅助文字'
-        rules={[
-          
-        ]}
-      >
-        <Input placeholder="请输入名称" />
-      </FormItem>
+        value={value}
+        max={5}
+        onChange={handleChange}
+        validate={(value, { isDeyond }) => isDeyond ? true : ''}
+      />
     </Layout>
   )
 }

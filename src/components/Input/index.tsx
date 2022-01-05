@@ -7,7 +7,7 @@ import { CloseIcon } from '../icons'
 import { isFunction } from '../../utils'
 
 interface FbmInputProps extends OutlinedInputProps {
-  clear?: string;
+  clear?: boolean;
   onClear?: () => void;
 }
 

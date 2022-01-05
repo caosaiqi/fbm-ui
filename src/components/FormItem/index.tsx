@@ -19,9 +19,8 @@ import Input from '../Input'
 import { isEmpty } from '../../utils'
 import useFormItem from './useFormItem'
 
-
-
 interface FbmFormItemProps {
+  value: any, 
   name?: BaseTextFieldProps['name'];
   label?: BaseTextFieldProps['label'];
   labelProps?: InputLabelProps;
@@ -96,6 +95,7 @@ const Helper: React.FC<HelperProps> = (props) => {
 
 
 const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef(({
+  value,
   name,
   label,
   max,
@@ -105,19 +105,21 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef(({
   rules,
   validate: validateFn,
   children: childrenProp,
+  ...otherInputProps
 }, ref) => {
 
   const formItem = useFormItem({
     label,
     name,
     extra,
-    value: '',
+    value,
     rules,
     max,
     validateFn,
+    childrenProp
   })
 
-  const valueLength = formItem.value.length || 0
+  const valueLength = formItem?.value?.length || 0
 
   // status
   const statusError: boolean = !isEmpty(formItem.error)
@@ -147,7 +149,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef(({
   } else if (typeof childrenProp === 'function') {
     children = childrenProp(formItem)
   } else {
-    children = <Input {...inputProps} />
+    children = <Input value={value} {...otherInputProps} {...inputProps}/>
   }
 
   return (

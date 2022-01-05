@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFormikContext } from 'formik'
 import getValueLength from '../../utils/getValueLength'
-import { isFunction, isPromise} from '../../utils'
+import { isFunction, isPromise } from '../../utils'
 
 
 async function _validate(value) {
@@ -9,7 +9,7 @@ async function _validate(value) {
   const formItem = this
   const { rules, max, extra, validateFn } = (formItem || {})
 
-  return new Promise(async (resolve, reject)  => {
+  return new Promise(async (resolve, reject) => {
     if (rules && rules.length > 0) {
       const len = rules.length
       for (let i = 0; i < len; i++) {
@@ -25,7 +25,7 @@ async function _validate(value) {
     }
 
     if (validateFn && (isFunction(validateFn) || isPromise(validateFn))) {
-      const errMsg:string = validateFn(value)
+      const errMsg: string = validateFn(value)
       if (errMsg) {
         return resolve(errMsg)
       }
@@ -35,25 +35,34 @@ async function _validate(value) {
     if (max) {
       const { isDeyond } = getValueLength({ value, max })
       if (isDeyond) {
-         return resolve(extra || true)
+        return resolve(extra || true)
       }
     }
-    
+
     return resolve(undefined)
   })
 }
 
 export default function useItem(formItem) {
-  const { name, validateFn } = formItem
+  const { name, validateFn, childrenProp, value: valueProp, max } = formItem
 
   const formik = useFormikContext();
 
   // 判断是否使用 src/components/Form
   if (!formik) {
+    if (validateFn && isFunction(validateFn)) {
+      const value = valueProp || childrenProp?.props?.value
+      const { isDeyond } = getValueLength({ value, max })
+      Object.assign(formItem, {
+        isDeyond,
+        value: value,
+        error: validateFn(value, { isDeyond })
+      })
+    }
     return formItem
   }
 
-  const { getFieldMeta, getFieldProps, getFieldHelpers} = formik
+  const { getFieldMeta, getFieldProps, getFieldHelpers } = formik
   const fieldProps = getFieldProps({ name })
   const fieldMeta = getFieldMeta(name)
   const fieldHelpers = getFieldHelpers(name)

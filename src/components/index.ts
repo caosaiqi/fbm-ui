@@ -58,6 +58,7 @@ export { default as Chip } from './Chip';
 export * from './Chip'
 
 export { default as FormItem } from './FormItem';
+export * from './FormItem'
 
 export { default as Actions } from './Actions';
 
