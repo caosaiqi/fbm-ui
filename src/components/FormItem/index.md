@@ -29,7 +29,6 @@ export default () => {
         value={value}
         max={5}
         onChange={handleChange}
-        validate={(value, { isDeyond }) => isDeyond ? true : ''}
       />
     </Layout>
   )

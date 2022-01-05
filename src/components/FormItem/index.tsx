@@ -134,7 +134,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef(({
     extra,
     error: statusError,
     id: `${name}-helper-text`,
-    children: helperText || formItem.error,
+    children: helperText || (formItem?.error?.isDeyond ?  extra : formItem.error),
     max: max,
     length: valueLength
   }

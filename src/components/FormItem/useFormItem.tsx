@@ -35,7 +35,7 @@ async function _validate(value) {
     if (max) {
       const { isDeyond } = getValueLength({ value, max })
       if (isDeyond) {
-        return resolve(extra || true)
+        return resolve({ isDeyond })
       }
     }
 
@@ -50,15 +50,29 @@ export default function useItem(formItem) {
 
   // 判断是否使用 src/components/Form
   if (!formik) {
-    if (validateFn && isFunction(validateFn)) {
-      const value = valueProp || childrenProp?.props?.value
-      const { isDeyond } = getValueLength({ value, max })
-      Object.assign(formItem, {
-        isDeyond,
-        value: value,
-        error: validateFn(value, { isDeyond })
-      })
-    }
+    const value = valueProp || childrenProp?.props?.value
+
+    Object.assign(formItem, {
+      value: value,
+      error: (() => {
+        if (validateFn && isFunction(validateFn)) {
+          const errMsg: string = validateFn(value)
+          if (errMsg) {
+            return errMsg
+          }
+        }
+
+        if (max) {
+          const { isDeyond } = getValueLength({ value, max })
+          if (isDeyond) {
+            return { isDeyond }
+          }
+        }
+      })()
+    })
+
+    console.log(formItem)
+
     return formItem
   }
 
