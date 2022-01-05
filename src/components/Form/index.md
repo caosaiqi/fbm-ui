@@ -53,6 +53,9 @@ export default () => {
           label="名称"
           extra='这是一段辅助文字'
           max={20}
+          rules={[
+            rules.required()
+          ]}
           inputProps={{ 
             clear: true
           }}
