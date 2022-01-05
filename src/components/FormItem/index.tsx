@@ -107,7 +107,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef(({
   children: childrenProp,
 }, ref) => {
 
-  const formItem =  useFormItem({
+  const formItem = useFormItem({
     label,
     name,
     extra,

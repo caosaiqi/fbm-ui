@@ -1,4 +1,4 @@
----
+<!-- ---
 nav:
   title: 组件
   path: /components
@@ -46,4 +46,4 @@ export default () =>{
 }
 ```
 
-<API></API>
+<API></API> -->
