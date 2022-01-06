@@ -7,12 +7,11 @@ export default function useFormItem(cloneProps) {
   const {
     name,
     value: valueProp,
-    validate: validateProp,
     children: childrenProp,
   } = cloneProps
 
   const formik = useFormikContext()
-  
+
   // 判断是否使用 src/components/Form
   if (!formik) {
     const value = valueProp || childrenProp?.props?.value
@@ -21,7 +20,7 @@ export default function useFormItem(cloneProps) {
         value
       })
     }
-   
+
     return cloneProps
   }
 
@@ -39,14 +38,14 @@ export default function useFormItem(cloneProps) {
   React.useEffect(() => {
     registerField(name, {
       validate: async (value) => {
-        console.log(value)
-        // await validate(value, )
+        const error = await validate(value, cloneProps)
+        return error
       }
     });
     return () => {
       unregisterField(name);
     };
-  }, [registerField, unregisterField, name, validateProp]);
+  }, [registerField, unregisterField, name]);
 
   return cloneProps
 }

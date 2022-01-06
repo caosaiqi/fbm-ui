@@ -1,10 +1,11 @@
 import React from 'react'
 
 import FormItem, { FbmFormItemProps } from './FormItem'
+import { FbmInputProps} from '../Input'
 import useFormItem from './useFormItem'
 
-
-const FormItemIndex: React.FC<FbmFormItemProps> = ({
+const FormItemIndex: React.FC<FbmFormItemProps & FbmInputProps> = ({
+  clear,
   name,
   value,
   max,
@@ -12,7 +13,7 @@ const FormItemIndex: React.FC<FbmFormItemProps> = ({
   rules,
   validate,
   children,
-  ...inputProps
+  inputProps = {}
 }) => {
   const props = useFormItem({
     name,
@@ -24,11 +25,13 @@ const FormItemIndex: React.FC<FbmFormItemProps> = ({
     extra,
   })
 
-  console.log(props)
-
   return (
     <FormItem
       {...props}
+      inputProps={{
+        clear,
+        ...inputProps
+      }}
     />
   )
 }

@@ -19,7 +19,6 @@ import { Layout, FormItem , Button, Input, rules } from 'fbm-ui'
 export default () => {
   const [value, setValue] = React.useState('123')
   const handleChange = (e) => {
-    console.log(e)
     setValue(e.target.value)
   }
 

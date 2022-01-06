@@ -6,7 +6,7 @@ import useFormItemContext from '../FormItem/useFormItemContext';
 import { CloseIcon } from '../icons'
 import { isFunction } from '../../utils'
 
-interface FbmInputProps extends OutlinedInputProps {
+export interface FbmInputProps extends OutlinedInputProps {
   clear?: boolean;
   onClear?: () => void;
 }
@@ -47,7 +47,7 @@ const EndButton = styled(IconButton)({
 })
 
 const FbmInput: React.FC<FbmInputProps> = (inProps) => {
-  const {clear, onClear} = inProps
+  const {clear, onClear, ...otherProps} = inProps
 
   const {
     value,
@@ -81,7 +81,7 @@ const FbmInput: React.FC<FbmInputProps> = (inProps) => {
         </EndButton>
       )
     }),
-    ...inProps
+    ...otherProps
   }
 
   return (

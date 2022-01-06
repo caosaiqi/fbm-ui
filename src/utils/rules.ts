@@ -1,7 +1,9 @@
 export const required = (helperText, type = 'input') => {
 
-  return () => {
-    return '12312'
+  return (value) => {
+    if (!value || value === '') {
+      return helperText || '必填项'
+    }
   }
 }
 

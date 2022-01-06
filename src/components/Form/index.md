@@ -20,7 +20,7 @@ import {useFormik} from 'formik'
 
 const formProps= {
   initialValues: {
-    name:'123123',
+    name:'',
     sex: 1,
   },
   onSubmit: values => {

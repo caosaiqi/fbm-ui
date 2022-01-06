@@ -14,7 +14,7 @@ import {
 } from '@mui/material'
 
 import FormItemContext from './FormItemContext'
-import Input from '../Input'
+import Input, { FbmInputProps } from '../Input'
 import { isEmpty } from '../../utils'
 
 type Error = string | {
