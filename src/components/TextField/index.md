@@ -25,13 +25,13 @@ export default () => {
   return (
     <Layout>
       <TextField
+        name='name' 
+        extra='这是一段辅助文字'
         label='名称'
         max={5}
         value={value}
-        rules={[
-          rules.required()
-        ]}
         onChange={handleChange}
+        onClear={() => setValue('')}
       />
     </Layout>
   )

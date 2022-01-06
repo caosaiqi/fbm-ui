@@ -74,7 +74,7 @@ const FbmInput: React.FC<FbmInputProps> = (inProps) => {
     label,
     onChange,
     error: statusError,
-    ...((value && clear) && {
+    ...((value && (clear ||  isFunction(onClear))) && {
       endAdornment: (
         <EndButton size='small' onClick={handleClear}>
           <CloseIcon />

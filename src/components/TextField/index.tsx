@@ -1,29 +1,44 @@
 import React from 'react'
 
 import FormItem, { FbmFormItemProps } from '../FormItem/FormItem'
+import { FbmInputProps } from '../Input'
 import useTextField from './useTextField'
+import { isFunction } from '../../utils'
 
-const FbmTextField: React.FC<FbmFormItemProps> = ({
+const FbmTextField: React.FC<FbmFormItemProps & FbmInputProps> = ({
   name,
+  label,
   value,
   max,
   rules,
   validate,
-  children,
-  ...InputProps
+  
+  ...inputProps
 }) => {
-  const props = useTextField(
-    {
-      name,
-      value,
-      max,
-      rules,
-      validate,
-      children,
-      ...InputProps
-    }
+
+  const props = useTextField({
+    label,
+    name,
+    value,
+    max,
+    rules,
+    validate,
+  })
+
+  return (
+    <FormItem
+      {...props}
+      inputProps={{
+        ...inputProps,
+        onChange: (event) => {
+          if (isFunction(inputProps.onChange)) {
+            inputProps.onChange(event)
+          }
+          props.handleChange(event)
+        }
+      }}
+    />
   )
-  return <FormItem {...props} />
 }
 
 export default FbmTextField

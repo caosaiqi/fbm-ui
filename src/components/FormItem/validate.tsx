@@ -5,7 +5,7 @@ export default async function validate(value, props) {
   // this => formItem
   const formItem = props || this
   const { rules, max, validate: validateFn } = (formItem || {})
- 
+  
   return new Promise(async (resolve) => {
     if (rules && rules.length > 0) {
       const len = rules.length
