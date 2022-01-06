@@ -20,7 +20,7 @@ import {useFormik} from 'formik'
 
 const formProps= {
   initialValues: {
-    name:'',
+    name:'123123',
     sex: 1,
   },
   onSubmit: values => {
@@ -40,7 +40,7 @@ const sexs = [
 ]
 
 export default () => {
-  const formikValues =  useFormik(formProps)
+  const formikValues = useFormik(formProps)
   const handleSubmit = () => {
     formikValues.handleSubmit()
   }
@@ -49,6 +49,7 @@ export default () => {
     <Layout>
       <Form {...formikValues}>
         <FormItem 
+          clear
           name='name' 
           label="名称"
           extra='这是一段辅助文字'
@@ -56,9 +57,6 @@ export default () => {
           rules={[
             rules.required()
           ]}
-          inputProps={{ 
-            clear: true
-          }}
          />
         <FormItem name='sex' label="性别">
           <Select options={sexs} />

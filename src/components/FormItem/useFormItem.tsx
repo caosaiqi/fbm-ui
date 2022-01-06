@@ -1,97 +1,52 @@
 import React from 'react'
 import { useFormikContext } from 'formik'
-import getValueLength from '../../utils/getValueLength'
-import { isFunction, isPromise } from '../../utils'
 
+import validate from './validate'
 
-async function _validate(value) {
-  // this => formItem
-  const formItem = this
-  const { rules, max, extra, validateFn } = (formItem || {})
+export default function useFormItem(cloneProps) {
+  const {
+    name,
+    value: valueProp,
+    validate: validateProp,
+    children: childrenProp,
+  } = cloneProps
 
-  return new Promise(async (resolve, reject) => {
-    if (rules && rules.length > 0) {
-      const len = rules.length
-      for (let i = 0; i < len; i++) {
-        const ruleFn = formItem.rules[i]
-        if (isFunction(ruleFn)) {
-          // 有报错信息
-          const errorMsg: string = await ruleFn(value)
-          if (errorMsg) {
-            return resolve(errorMsg)
-          }
-        }
-      }
-    }
-
-    if (validateFn && (isFunction(validateFn) || isPromise(validateFn))) {
-      const errMsg: string = validateFn(value)
-      if (errMsg) {
-        return resolve(errMsg)
-      }
-    }
-
-
-    if (max) {
-      const { isDeyond } = getValueLength({ value, max })
-      if (isDeyond) {
-        return resolve({ isDeyond })
-      }
-    }
-
-    return resolve(undefined)
-  })
-}
-
-export default function useItem(formItem) {
-  const { name, validateFn, childrenProp, value: valueProp, max } = formItem
-
-  const formik = useFormikContext();
-
+  const formik = useFormikContext()
+  
   // 判断是否使用 src/components/Form
   if (!formik) {
     const value = valueProp || childrenProp?.props?.value
-
-    Object.assign(formItem, {
-      value: value,
-      error: (() => {
-        if (validateFn && isFunction(validateFn)) {
-          const errMsg: string = validateFn(value)
-          if (errMsg) {
-            return errMsg
-          }
-        }
-
-        if (max) {
-          const { isDeyond } = getValueLength({ value, max })
-          if (isDeyond) {
-            return { isDeyond }
-          }
-        }
-      })()
-    })
-
-    console.log(formItem)
-
-    return formItem
+    if (value !== undefined) {
+      Object.assign(cloneProps, {
+        value
+      })
+    }
+   
+    return cloneProps
   }
 
+  // 利用Formik特效来处理props
   const { getFieldMeta, getFieldProps, getFieldHelpers } = formik
   const fieldProps = getFieldProps({ name })
   const fieldMeta = getFieldMeta(name)
   const fieldHelpers = getFieldHelpers(name)
-  Object.assign(formItem, fieldMeta, fieldProps, fieldHelpers)
+
+  // 属性merge
+  Object.assign(cloneProps, fieldMeta, fieldProps, fieldHelpers)
 
   // 处理报错
   const { registerField, unregisterField } = formik;
   React.useEffect(() => {
     registerField(name, {
-      validate: _validate.bind(formItem)
+      validate: async (value) => {
+        console.log(value)
+        // await validate(value, )
+      }
     });
     return () => {
       unregisterField(name);
     };
-  }, [registerField, unregisterField, name, validateFn]);
+  }, [registerField, unregisterField, name, validateProp]);
 
-  return formItem
+  return cloneProps
 }

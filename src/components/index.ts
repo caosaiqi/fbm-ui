@@ -60,6 +60,10 @@ export * from './Chip'
 export { default as FormItem } from './FormItem';
 export * from './FormItem'
 
+export { default as TextField } from './TextField';
+export * from './TextField'
+
+
 export { default as Actions } from './Actions';
 
 // export { default as Autocomplete } from './Autocomplete';
