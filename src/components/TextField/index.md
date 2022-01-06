@@ -21,6 +21,7 @@ export default () => {
   const handleChange = (e) => {
     setValue(e.target.value)
   }
+  
 
   return (
     <Layout>
@@ -31,7 +32,11 @@ export default () => {
         max={5}
         value={value}
         onChange={handleChange}
+        onError={(error) => console.log(error)}
         onClear={() => setValue('')}
+        rules={[
+          rules.required('请输入名称')
+        ]}
       />
     </Layout>
   )

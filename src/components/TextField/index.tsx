@@ -12,7 +12,7 @@ const FbmTextField: React.FC<FbmFormItemProps & FbmInputProps> = ({
   max,
   rules,
   validate,
-  
+  onError,
   ...inputProps
 }) => {
 
@@ -23,6 +23,7 @@ const FbmTextField: React.FC<FbmFormItemProps & FbmInputProps> = ({
     max,
     rules,
     validate,
+    onError,
   })
 
   return (

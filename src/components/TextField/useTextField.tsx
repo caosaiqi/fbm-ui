@@ -1,27 +1,34 @@
-import React, { useCallback, useState, useEffect } from 'react'
+import React from 'react'
 
 import validate from '../FormItem/validate'
 
 export default function useTextField(cloneProps) {
-  const { value } = cloneProps
+  const { value, onError } = cloneProps
 
-  const [error, setError] = useState<string>()
+  const [error, setError] = React.useState<string>()
 
   if (value !== undefined) {
     Object.assign(cloneProps, { value })
   }
 
-  const validateFn = useCallback(async (value) => {
+  const validateFn = React.useCallback(async (value) => {
     const error = await validate(value, cloneProps)
     return error
   }, [])
+
 
   Object.assign(cloneProps, {
     error: error,
     handleChange: async (event) => {
       const value = event?.target.value
-      const error = await validateFn(value)
-      setError(error as string)
+      const errorMsg = await validateFn(value)
+      setError(() => {
+        if (errorMsg !== error) {
+          onError(errorMsg)
+          return errorMsg
+        }
+        return undefined
+      })
     }
   })
 
