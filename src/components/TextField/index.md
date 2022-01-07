@@ -26,7 +26,6 @@ export default () => {
   return (
     <Layout>
       <TextField
-        name='name' 
         extra='这是一段辅助文字'
         label='名称'
         max={5}
@@ -34,9 +33,6 @@ export default () => {
         onChange={handleChange}
         onError={(error) => console.log(error)}
         onClear={() => setValue('')}
-        rules={[
-          rules.required('请输入名称')
-        ]}
       />
     </Layout>
   )

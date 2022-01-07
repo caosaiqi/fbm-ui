@@ -1,6 +1,7 @@
 import React from 'react'
 
 import validate from '../FormItem/validate'
+import { isFunction } from '../../utils'
 
 export default function useTextField(cloneProps) {
   const { value, onError } = cloneProps
@@ -24,7 +25,9 @@ export default function useTextField(cloneProps) {
       const errorMsg = await validateFn(value)
       setError(() => {
         if (errorMsg !== error) {
-          onError(errorMsg)
+          if (isFunction(onError)) {
+            onError(errorMsg)
+          }
           return errorMsg
         }
         return undefined
