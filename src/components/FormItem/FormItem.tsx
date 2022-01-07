@@ -18,7 +18,7 @@ import Input, { FbmInputProps } from '../Input'
 import { isEmpty } from '../../utils'
 
 type Error = string | {
-  isDeyond?: boolean
+  isBeyond?: boolean
 }
 
 export interface FbmFormItemProps {
@@ -122,7 +122,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) 
     extra,
     error: statusError,
     id: `${name}-helper-text`,
-    children: helperText || (error?.isDeyond ? extra : error),
+    children: helperText || (error?.isBeyond ? extra : error),
     max: max,
     length: valueLength
   }

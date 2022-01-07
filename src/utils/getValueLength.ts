@@ -9,7 +9,7 @@ type Params = {
 
 type Return = {
   // 是否超出
-  isDeyond: boolean;
+  isBeyond: boolean;
   length: number;
 };
 
@@ -19,9 +19,9 @@ const getValueLength = ({
   max
 }: Params): Return => {
   const length = (value && value.length) || 0
-  const isDeyond = (value || '').length > max
+  const isBeyond = (value || '').length > max
   const data = {
-    isDeyond,
+    isBeyond,
     length
   }
  
