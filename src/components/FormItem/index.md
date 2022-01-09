@@ -22,6 +22,9 @@ export default () => {
     setValue(e.target.value)
   }
 
+  React.useEffect(() => {
+  })
+
   return (
     <Layout>
       <FormItem

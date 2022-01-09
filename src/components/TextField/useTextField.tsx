@@ -1,38 +1,32 @@
 import React from 'react'
 
+import getValueLength from '../../utils/getValueLength'
 import validate from '../FormItem/validate'
 import { isFunction } from '../../utils'
 
 export default function useTextField(cloneProps) {
-  const { value, onError } = cloneProps
+  const { name, max, value: valueProp, onChange: onChangeProp } = cloneProps
+  const [error, setError] = React.useState(undefined)
 
-  const [error, setError] = React.useState<string>()
+  const validateFn = React.useCallback(async (value = valueProp) => {
+    const newErrorMsg = await validate(value, cloneProps)
+    setError(newErrorMsg)
+    return newErrorMsg
+  }, [name])
 
-  if (value !== undefined) {
-    Object.assign(cloneProps, { value })
-  }
-
-  const validateFn = React.useCallback(async (value) => {
-    const error = await validate(value, cloneProps)
-    return error
-  }, [])
-
+  const handleChange = React.useCallback((event) => {
+    if (isFunction(onChangeProp)) {
+      onChangeProp(event)
+    }
+    const value = event?.target?.value
+    validateFn(value)
+  }, [name])
 
   Object.assign(cloneProps, {
     error: error,
-    handleChange: async (event) => {
-      const value = event?.target.value
-      const errorMsg = await validateFn(value)
-      setError(() => {
-        if (errorMsg !== error) {
-          if (isFunction(onError)) {
-            onError(errorMsg)
-          }
-          return errorMsg
-        }
-        return undefined
-      })
-    }
+    onChange: handleChange,
+    handleValidate: validateFn,
+    ...getValueLength({ value: valueProp, max })
   })
 
   return cloneProps

@@ -46,7 +46,7 @@ const EndButton = styled(IconButton)({
   }
 })
 
-const FbmInput: React.FC<FbmInputProps> = (inProps) => {
+const FbmInput: React.FC<FbmInputProps> = React.forwardRef((inProps, ref) => {
   const {clear, onClear, ...otherProps} = inProps
 
   const {
@@ -81,15 +81,17 @@ const FbmInput: React.FC<FbmInputProps> = (inProps) => {
         </EndButton>
       )
     }),
+    
     ...otherProps
   }
 
   return (
     <InputRoot
+      inputRef={ref}
       {...props}
     />
   )
-}
+})
 
 
 FbmInput.defaultProps = {

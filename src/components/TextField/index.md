@@ -14,26 +14,33 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import { Layout, TextField, rules } from 'fbm-ui'
+import { Layout, TextField, rules, useTextField, Button} from 'fbm-ui'
 
 export default () => {
-  const [value, setValue] = React.useState('123')
+  const [value, setValue] = React.useState('')
+  const ref = React.useRef(null)
   const handleChange = (e) => {
     setValue(e.target.value)
   }
   
+  const nameFieldProps = useTextField({
+    value,
+    max: 5,
+    onChange: handleChange,
+    rules: [rules.required()]
+  })
+
+  const handleSubmit = () => {
+    nameFieldProps.handleValidate()
+  }
 
   return (
     <Layout>
       <TextField
-        extra='这是一段辅助文字'
-        label='名称'
-        max={5}
-        value={value}
-        onChange={handleChange}
-        onError={(error) => console.log(error)}
-        onClear={() => setValue('')}
+        {...nameFieldProps}
       />
+
+      <Button onClick={handleSubmit}> 提交 </Button> 
     </Layout>
   )
 }

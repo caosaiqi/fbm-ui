@@ -29,7 +29,41 @@ export default () =>{
     }
   }, [loading])
 
-  const data = []
+ const data = [
+    {
+      name: "张三",
+      desc: `男 29岁 182381823`,
+      avatar: "https://joeschmoe.io/api/v1/random",
+      chips: [
+        {
+          label: "有纹身",
+          color: "error"
+        },
+        {
+          label: "大厂经历"
+        }
+      ],
+
+      status: "待审核",
+      date: "2021年11月08日"
+    },
+    {
+      name: "李四",
+      desc: `男 28岁 182381823`,
+      avatar: "https://joeschmoe.io/api/v1/random",
+      chips: [
+        {
+          label: "有纹身",
+          color: "error"
+        },
+        {
+          label: "大厂经历"
+        }
+      ],
+      status: "慎审核中",
+      date: "2021年11月08日"
+    }
+  ];
 
   const columns = [
     TableColumnCheckbox({
@@ -53,32 +87,10 @@ export default () =>{
     }),
     TableColumnUserInfo({
       label: '候选人资料',
-      formatProps: ({ row }) => {
-        return {
-          sex: row.sex,
-          avatar: row.avatar,
-          name: row.name,
-          desc: `男 19岁 182381823`,
-          chips: [
-            {
-              label: '大厂经历'
-            },
-            {
-              label: '有纹身',
-              color: 'error'
-            },
-          ]
-        }
-      }
     }),
     {
       id: 'name',
       label: '名称',
-    },
-    {
-      id: 'age',
-      label: '性别',
-      width: 350
     },
     TableColumnActions({
       actions: [

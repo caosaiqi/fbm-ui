@@ -31,9 +31,9 @@ export default async function validate(value, props) {
 
 
     if (max) {
-      const { isDeyond } = getValueLength({ value, max })
-      if (isDeyond) {
-        return resolve({ isDeyond })
+      const { isBeyond, length } = getValueLength({ value, max })
+      if (isBeyond) {
+        return resolve({ isBeyond, length })
       }
     }
 

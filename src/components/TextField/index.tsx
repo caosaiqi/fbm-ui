@@ -2,44 +2,22 @@ import React from 'react'
 
 import FormItem, { FbmFormItemProps } from '../FormItem/FormItem'
 import { FbmInputProps } from '../Input'
-import useTextField from './useTextField'
+
 import { isFunction } from '../../utils'
 
-const FbmTextField: React.FC<FbmFormItemProps & FbmInputProps> = ({
-  name,
-  label,
-  value,
-  max,
-  rules,
-  validate,
-  onError,
-  ...inputProps
-}) => {
+export { default as useTextField } from './useTextField'
 
-  const props = useTextField({
-    label,
-    name,
-    value,
-    max,
-    rules,
-    validate,
-    onError,
-  })
+interface FbmTextField extends FbmFormItemProps {
+  onError?: () => void;
+  onChange: FbmInputProps['onChange']
+}
 
+const FbmTextField: React.FC<FbmTextField> = React.forwardRef((inProps, ref) => {
   return (
     <FormItem
-      {...props}
-      inputProps={{
-        ...inputProps,
-        onChange: (event) => {
-          if (isFunction(inputProps.onChange)) {
-            inputProps.onChange(event)
-          }
-          props.handleChange(event)
-        }
-      }}
+      {...inProps}
     />
   )
-}
+})
 
 export default FbmTextField

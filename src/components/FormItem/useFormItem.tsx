@@ -38,7 +38,7 @@ export default function useFormItem(cloneProps) {
   React.useEffect(() => {
     registerField(name, {
       validate: async (value) => {
-        const error = await validate(value, cloneProps)
+        const error: any = await validate(value, cloneProps)
         return error
       }
     });

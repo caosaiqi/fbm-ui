@@ -17,12 +17,13 @@ import FormItemContext from './FormItemContext'
 import Input, { FbmInputProps } from '../Input'
 import { isEmpty } from '../../utils'
 
-type Error = string | {
+type Error = string & {
   isBeyond?: boolean
 }
 
 export interface FbmFormItemProps {
-  value: any,
+  value?: any,
+  length?: number;
   extra?: string;
   max?: number;
   error: Error
@@ -31,7 +32,7 @@ export interface FbmFormItemProps {
   labelProps?: InputLabelProps;
   helperText?: BaseTextFieldProps['helperText'];
   rules?: FbmFormItemProps['validate'][]
-  validate: (values: any) => void | object | Promise<FormikErrors<any>>
+  validate?: (values: any) => void | object | Promise<FormikErrors<any>>
   inputProps?: OutlinedInputProps;
 }
 
@@ -94,7 +95,7 @@ const Helper: React.FC<HelperProps> = (props) => {
   )
 }
 
-const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) => {
+const FbmFormItem: React.FC<FbmFormItemProps> =  React.forwardRef((inProps, ref) => {
   const {
     value,
     name,
@@ -104,10 +105,9 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) 
     helperText,
     extra,
     inputProps,
+    length,
     children: childrenProp,
   } = inProps
-
-  const valueLength = value?.length || 0
 
   // status
   const statusError: boolean = !isEmpty(error)
@@ -124,7 +124,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) 
     id: `${name}-helper-text`,
     children: helperText || (error?.isBeyond ? extra : error),
     max: max,
-    length: valueLength
+    length: length
   }
 
   const formItemProps = {
@@ -152,7 +152,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) 
 })
 
 FbmFormItem.defaultProps = {
-
+  length: 0,
 }
 
 export default FbmFormItem;

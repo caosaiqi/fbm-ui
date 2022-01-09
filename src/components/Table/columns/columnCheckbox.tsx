@@ -6,7 +6,7 @@ import { ArrowDropDownIcon } from '../../icons'
 import { ColumnProps, CellRenderProps } from '../types'
 import Popactions from '../../Popactions'
 import styled from '@mui/material/styles/styled'
-
+import { isFunction } from '../../../utils'
 
 export interface ColumnCheckboxProps {
   checked?: (props: CellRenderProps) => boolean;
@@ -68,7 +68,9 @@ const columnCheckbox = (options: ColumnCheckboxProps): ColumnProps => {
         },
       ].filter((item) => !!item)
 
-      const boolAllChecked: boolean = data && data.length > 0 ?  allChecked({ data }) : false
+      const boolAllChecked: boolean = (data && data.length > 0)
+        ? (isFunction(allChecked) && allChecked({ data }))
+        : false
       const boolIndeterminate: boolean = boolAllChecked === false && (selected && selected.length > 0)
 
       return (
@@ -99,7 +101,7 @@ const columnCheckbox = (options: ColumnCheckboxProps): ColumnProps => {
         if (typeof checked === 'boolean') return checked
         if (checked && typeof checked === 'function') return checked(props)
       }
-    
+
       return (
         <Checkbox
           checked={getChecked()}

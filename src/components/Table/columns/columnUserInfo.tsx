@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { ColumnProps} from '../types'
+import { ColumnProps } from '../types'
 import UserInfo, { FbmUserInfoProps } from '../../UserInfo'
 
-interface UserInfoOptions extends ColumnProps{
+interface UserInfoOptions extends ColumnProps {
   formatProps?: (props) => FbmUserInfoProps
 }
 
@@ -13,7 +13,7 @@ const columnUserInfo = (options: UserInfoOptions): ColumnProps => {
     id: 'columnUserInfo',
     render(props) {
       const userInfoProps = {
-        ...(formatProps && formatProps(props))
+        ...(formatProps ? formatProps(props) : (props as { row: object }).row)
       }
       return <UserInfo {...userInfoProps} />
     },
