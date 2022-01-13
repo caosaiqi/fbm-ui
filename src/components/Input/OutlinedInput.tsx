@@ -42,7 +42,6 @@ const InputRoot = styled(OutlinedInput)(({ theme }) => {
   }
 })
 
-
 const EndButton = styled(IconButton)({
   padding: 3,
   '& svg': {
@@ -96,11 +95,9 @@ const FbmInput: React.FC<FbmInputProps> = React.forwardRef((inProps, ref) => {
   )
 })
 
-
 FbmInput.defaultProps = {
   fullWidth: true,
 }
-
 
 export default FbmInput
 

@@ -7,8 +7,8 @@ interface UserInfoOptions extends ColumnProps {
   formatProps?: (props) => FbmUserInfoProps
 }
 
-const columnUserInfo = (options: UserInfoOptions): ColumnProps => {
-  const { formatProps, ...otherOptions } = options
+const columnUserInfo = (options?: UserInfoOptions): ColumnProps => {
+  const { formatProps, ...otherOptions } = (options || {})
   return {
     id: 'columnUserInfo',
     render(props) {

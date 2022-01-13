@@ -31,8 +31,8 @@ const ThRoot = styled(Box)({
 })
 
 
-const columnCheckbox = (options: ColumnCheckboxProps): ColumnProps => {
-  const { selected, checked, allChecked, onChange, onAllChange, onPageAllChange } = options
+const columnCheckbox = (options?: ColumnCheckboxProps): ColumnProps => {
+  const { selected, checked, allChecked, onChange, onAllChange, onPageAllChange } = (options || {})
 
   return {
     selected,

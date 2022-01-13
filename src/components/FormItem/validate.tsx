@@ -4,7 +4,7 @@ import { isFunction, isPromise} from '../../utils'
 export default async function validate(value, props) {
   // this => formItem
   const formItem = props || this
-  const { rules, max, validate: validateFn } = (formItem || {})
+  const { rules, max  } = (formItem || {})
   
   return new Promise(async (resolve) => {
     if (rules && rules.length > 0) {
@@ -21,14 +21,6 @@ export default async function validate(value, props) {
         }
       }
     }
-
-    if (validateFn && isFunction(validateFn)) {
-      const errMsg: string = await validateFn(value)
-      if (errMsg) {
-        return resolve(errMsg)
-      }
-    }
-
 
     if (max) {
       const { isBeyond, length } = getValueLength({ value, max })

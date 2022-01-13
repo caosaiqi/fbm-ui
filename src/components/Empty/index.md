@@ -3,9 +3,9 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Autocomplete
+  title: Empty 数据为空状态
 ---
-# Autocomplete
+# Empty 数据为空状态
 ## 代码演示
 
 ```tsx
@@ -29,7 +29,7 @@ export default () =>{
   ]
   return (
     <Layout>
-      <Empty title=" dasd"/>
+      <Empty desc="暂无用户信息"/>
     </Layout>
   )
 }

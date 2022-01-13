@@ -30,7 +30,6 @@ export interface FbmFormItemProps {
   name?: BaseTextFieldProps['name'];
   label?: BaseTextFieldProps['label'];
   labelProps?: InputLabelProps;
-  helperText?: BaseTextFieldProps['helperText'];
   rules?: FbmFormItemProps['validate'][]
   validate?: (values: any) => void | object | Promise<FormikErrors<any>>
   inputProps?: OutlinedInputProps;
@@ -102,7 +101,6 @@ const FbmFormItem: React.FC<FbmFormItemProps> =  React.forwardRef((inProps, ref)
     label,
     error,
     max,
-    helperText,
     extra,
     inputProps,
     length,
@@ -122,7 +120,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> =  React.forwardRef((inProps, ref)
     extra,
     error: statusError,
     id: `${name}-helper-text`,
-    children: helperText || (error?.isBeyond ? extra : error),
+    children: error?.isBeyond ? extra : error,
     max: max,
     length: length
   }

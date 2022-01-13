@@ -3,9 +3,9 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Popconfirm 
+  title: Popconfirm 带确定按钮的弹框
 ---
-# Popconfirm
+# Popconfirm 带确定按钮的弹框
 ## 代码演示
 
 ```tsx

@@ -3,9 +3,9 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Select 下拉选择 （进行中）
+  title: Select 下拉选择
 ---
-# Select 下拉选择 （进行中）
+# Select 下拉选择
 ## 代码演示
 
 ```tsx

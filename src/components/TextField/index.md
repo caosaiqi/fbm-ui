@@ -3,9 +3,9 @@ nav:
   title: 组件
   path: /components
 group:
-  title: TextField
+  title: TextField 带验证的输入框
 ---
-# TextField
+# TextField 带验证的输入框
 ## 代码演示
 
 ```tsx
@@ -21,17 +21,20 @@ export default () => {
   const ref = React.useRef(null)
   const handleChange = (e) => {
     setValue(e.target.value)
+    
   }
-  
+
   const nameFieldProps = useTextField({
+    label: '名称',
     value,
     max: 5,
     onChange: handleChange,
-    rules: [rules.required()]
+    rules: [rules.required()],
   })
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     nameFieldProps.handleValidate()
+    // nameFieldProps.setError('123123')
   }
 
   return (
@@ -39,7 +42,6 @@ export default () => {
       <TextField
         {...nameFieldProps}
       />
-
       <Button onClick={handleSubmit}> 提交 </Button> 
     </Layout>
   )

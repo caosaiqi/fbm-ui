@@ -3,9 +3,9 @@ nav:
   title: 组件
   path: /components
 group:
-  title: FormItem
+  title: FormItem 配合Form组件使用
 ---
-# FormItem
+# FormItem 配合Form组件使用
 ## 代码演示
 
 ```tsx

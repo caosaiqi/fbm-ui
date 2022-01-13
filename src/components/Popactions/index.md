@@ -3,9 +3,9 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Popactions 
+  title: Popactions 弹框下拉多操作
 ---
-# Popactions
+# Popactions 弹框下拉多操作
 ## 代码演示
 
 ```tsx

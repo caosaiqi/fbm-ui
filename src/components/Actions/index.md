@@ -3,9 +3,9 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Actions 多类型按钮操作
+  title: Actions 多按钮操作
 ---
-# Actions 多类型按钮操作
+# Actions 多按钮操作
 
 ## 代码演示
 

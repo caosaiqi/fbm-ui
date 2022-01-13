@@ -4,7 +4,7 @@ import { defineConfig } from 'dumi';
 export default defineConfig({
   base: '/fbm-ui',
   // publicPath: '/fbm-ui/',
-  title: 'fbm',
+  title: 'fbm-ui',
   favicon: 'https://avatars.githubusercontent.com/u/91235154?s=50&v=4',
   logo: 'https://avatars.githubusercontent.com/u/91235154?s=200&v=4',
   outputPath: 'docs-dist',
