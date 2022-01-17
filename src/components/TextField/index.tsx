@@ -3,19 +3,31 @@ import React from 'react'
 import FormItem, { FbmFormItemProps } from '../FormItem/FormItem'
 import { FbmInputProps } from '../Input'
 
-import { isFunction } from '../../utils'
-
 export { default as useTextField } from './useTextField'
 
 interface FbmTextField extends FbmFormItemProps {
   onError?: () => void;
-  onChange: FbmInputProps['onChange']
+  onChange?: FbmInputProps['onChange']
+
+  setError?: () => void;
+  handleValidate?: () => void;
+  isBeyond?: boolean;
 }
 
-const FbmTextField: React.FC<FbmTextField> = React.forwardRef((inProps, ref) => {
+const FbmTextField: React.FC<FbmTextField> = React.forwardRef(({
+  /** useTextField生成的 无需传给FormItem   */
+  setError,
+  handleValidate,
+  isBeyond,
+ /** end  */
+
+  ...props
+}, ref) => {
+  
   return (
     <FormItem
-      {...inProps}
+      inputRef={ref}
+      {...props}
     />
   )
 })

@@ -64,9 +64,7 @@ const FbmAlert: React.FC<FbmAlertProps> = ({
   color: componentColor,
   ...otherProps
 }) => {
-
   const color = componentColor || type
-
   const AlertProps = {
     type,
     color,

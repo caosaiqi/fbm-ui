@@ -7,7 +7,7 @@ import {
   FormHelperText,
   inputLabelClasses,
 
-  OutlinedInputProps,
+  FormControlProps,
   BaseTextFieldProps,
   InputLabelProps,
   FormHelperTextProps
@@ -17,22 +17,24 @@ import FormItemContext from './FormItemContext'
 import Input, { FbmInputProps } from '../Input'
 import { isEmpty } from '../../utils'
 
-type Error = string & {
+type ErrorType = {
   isBeyond?: boolean
 }
 
 export interface FbmFormItemProps {
+  name?: string;
   value?: any,
   length?: number;
   extra?: string;
   max?: number;
-  error: Error
-  name?: BaseTextFieldProps['name'];
+  error?: string & ErrorType
   label?: BaseTextFieldProps['label'];
   labelProps?: InputLabelProps;
   rules?: FbmFormItemProps['validate'][]
   validate?: (values: any) => void | object | Promise<FormikErrors<any>>
-  inputProps?: OutlinedInputProps;
+  inputProps?: FbmInputProps;
+  inputRef?: React.Ref<any>;
+  variant?: FbmInputProps['variant']
 }
 
 export interface HelperProps extends FormHelperTextProps {
@@ -42,16 +44,21 @@ export interface HelperProps extends FormHelperTextProps {
   error: boolean;
 }
 
-const FormItemRoot = styled(FormControl)({
+const FormItemRoot: React.FC<FormControlProps> = styled(FormControl)({
   display: 'block',
   height: '84px',
 });
 
-const LabelRoot = styled(InputLabel)({
-  lineHeight: 1,
-  [`&.${inputLabelClasses.shrink}`]: {
-    transform: 'translate(14px, -7px) scale(0.75)',
-  },
+const LabelRoot = styled(InputLabel)(({ variant }) => {
+  return {
+    lineHeight: 1,
+    zIndex: 1,
+    ...(variant === 'outlined' && {
+      [`&.${inputLabelClasses.shrink}`]: {
+        transform: 'translate(14px, -7px) scale(0.75)',
+      }
+    })
+  }
 });
 
 const HelperTextRoot = styled(FormHelperText)({
@@ -94,16 +101,19 @@ const Helper: React.FC<HelperProps> = (props) => {
   )
 }
 
-const FbmFormItem: React.FC<FbmFormItemProps> =  React.forwardRef((inProps, ref) => {
+const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) => {
   const {
-    value,
     name,
     label,
     error,
     max,
     extra,
-    inputProps,
     length,
+
+    variant,
+    value,
+    inputProps,
+    inputRef,
     children: childrenProp,
   } = inProps
 
@@ -111,6 +121,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> =  React.forwardRef((inProps, ref)
   const statusError: boolean = !isEmpty(error)
 
   const labelProps = {
+    variant: (variant as InputLabelProps['variant']),
     id: `${name}-label`,
     htmlFor: name,
     children: label,
@@ -126,8 +137,9 @@ const FbmFormItem: React.FC<FbmFormItemProps> =  React.forwardRef((inProps, ref)
   }
 
   const formItemProps = {
-    error: statusError
-  }
+    variant: (variant as FormControlProps['variant']),
+    error: statusError,
+  };
 
   let children = childrenProp
   if (childrenProp != null) {
@@ -135,7 +147,14 @@ const FbmFormItem: React.FC<FbmFormItemProps> =  React.forwardRef((inProps, ref)
   } else if (typeof childrenProp === 'function') {
     children = childrenProp(inProps)
   } else {
-    children = <Input value={value} {...inputProps} />
+    children = (
+      <Input
+        value={value}
+        variant={variant}
+        inputRef={inputRef}
+        {...inputProps}
+      />
+    )
   }
 
   return (
@@ -151,6 +170,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> =  React.forwardRef((inProps, ref)
 
 FbmFormItem.defaultProps = {
   length: 0,
+  variant: 'outlined'
 }
 
 export default FbmFormItem;

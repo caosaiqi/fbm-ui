@@ -22,12 +22,10 @@ export default () => {
     setValue(e.target.value)
   }
 
-  React.useEffect(() => {
-  })
-
   return (
     <Layout>
       <FormItem
+        clear={false}
         label='名称'
         max={5}
         value={value}

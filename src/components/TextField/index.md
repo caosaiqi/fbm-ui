@@ -5,6 +5,7 @@ nav:
 group:
   title: TextField 带验证的输入框
 ---
+
 # TextField 带验证的输入框
 ## 代码演示
 
@@ -14,14 +15,13 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import { Layout, TextField, rules, useTextField, Button} from 'fbm-ui'
+import { Layout, TextField, rules, useTextField, Button } from 'fbm-ui'
 
 export default () => {
   const [value, setValue] = React.useState('')
   const ref = React.useRef(null)
   const handleChange = (e) => {
     setValue(e.target.value)
-    
   }
 
   const nameFieldProps = useTextField({
@@ -30,11 +30,13 @@ export default () => {
     max: 5,
     onChange: handleChange,
     rules: [rules.required()],
+    onClear: () => {
+       setValue('')
+    },
   })
 
   const handleSubmit = async () => {
     nameFieldProps.handleValidate()
-    // nameFieldProps.setError('123123')
   }
 
   return (
@@ -49,4 +51,46 @@ export default () => {
 
 ```
 
-<API></API>
+```tsx
+/**
+ * title: standard
+ * desc: 基本使用
+ */
+import * as React from 'react';
+import { Demo, TextField, rules, useTextField, Button} from 'fbm-ui'
+
+export default () => {
+  const [value, setValue] = React.useState('')
+  const ref = React.useRef(null)
+  const handleChange = (e) => {
+    setValue(e.target.value)
+  }
+
+  const nameFieldProps = useTextField({
+    label: '名称',
+    value,
+    max: 5,
+    onChange: handleChange,
+    rules: [rules.required()],
+    variant: 'standard',
+    onClear: () => {
+       setValue('')
+    },
+  })
+
+  const handleSubmit = async () => {
+    nameFieldProps.handleValidate()
+  }
+
+  return (
+    <Demo white={true}>
+      <TextField
+        {...nameFieldProps}
+      />
+      <Button onClick={handleSubmit}> 提交 </Button> 
+    </Demo>
+  )
+}
+
+```
+

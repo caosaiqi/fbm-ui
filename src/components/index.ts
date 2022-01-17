@@ -1,6 +1,7 @@
 
 export * from './icons'
 export * from './Table/columns';
+export { default as Demo }  from './Demo';
 
 export { default as Layout } from './Layout';
 

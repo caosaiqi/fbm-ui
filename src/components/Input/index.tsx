@@ -1,46 +1,28 @@
-import * as React from 'react';
+import React from 'react';
 import {
-  OutlinedInput,
-  OutlinedInputProps,
-  outlinedInputClasses,
   IconButton,
 } from '@mui/material'
 import styled from '@mui/material/styles/styled'
 
-import useFormItemContext from '../FormItem/useFormItemContext';
+import Outlined, { FbmOutlinedProps } from './Outlined'
+import Standard, { FbmStandardProps } from './Standard'
+import useInputProps from './useInputProps'
 import { CloseIcon } from '../icons'
 import { isFunction } from '../../utils'
 
-export interface FbmInputProps extends OutlinedInputProps {
+const variantComponent = {
+  standard: Standard,
+  // filled: FilledInput,
+  outlined: Outlined,
+};
+
+export interface BaseInputProps {
   clear?: boolean;
   onClear?: () => void;
+  variant?: string;
 }
 
-const InputRoot = styled(OutlinedInput)(({ theme }) => {
-  return {
-    backgroundColor: '#FFF',
-    [`.${outlinedInputClasses.notchedOutline}`]: {
-      borderColor: 'rgba(0,0,0,0.08)',
-    },
-    [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
-      borderColor: 'rgba(0,0,0,0.26)',
-    },
-    [`& .${outlinedInputClasses.input}`]: {
-      padding: '12px'
-    },
-    [`&.${outlinedInputClasses.focused} .${outlinedInputClasses.notchedOutline}`]: {
-      borderColor: theme.palette.primary.main,
-      borderWidth: 1,
-    },
-    [`&.${outlinedInputClasses.error} .${outlinedInputClasses.notchedOutline}`]: {
-      borderColor: theme.palette.error.main,
-    },
-    [`&.${outlinedInputClasses.disabled} .${outlinedInputClasses.notchedOutline}`]: {
-      borderColor: 'rgba(0, 0, 0, 0.08)',
-      backgroundColor: theme.palette.action.disabledBackground
-    },
-  }
-})
+export type FbmInputProps = BaseInputProps & FbmOutlinedProps & FbmStandardProps
 
 
 const EndButton = styled(IconButton)({
@@ -51,56 +33,51 @@ const EndButton = styled(IconButton)({
 })
 
 const FbmInput: React.FC<FbmInputProps> = React.forwardRef((inProps, ref) => {
-  const { clear, onClear, ...otherProps } = inProps
-
   const {
-    value,
-    onChange,
-    name,
-    label,
-    statusError,
-    setValue,
-    initialValue,
-  } = useFormItemContext()
+    variant,
+    clear,
+    onClear,
+
+    ...props
+  } = useInputProps(inProps)
 
   const handleClear = (e) => {
     if (isFunction(onClear)) {
       onClear()
     }
-    if (setValue) {
-      setValue(initialValue)
+    if (props?.helpers?.setValue) {
+      const setValue = props?.helpers?.setValue
+      setValue(props?.meta?.initialValue)
     }
   }
 
-  const props = {
-    name,
-    value,
-    label,
-    onChange,
-    error: statusError,
-    ...((value && (clear || isFunction(onClear))) && {
-      endAdornment: (
+  const InputComponent = variantComponent[variant]
+
+  const ClearEndAdornment = () => {
+    if (props.value && (clear || onClear)) {
+      return (
         <EndButton size='small' onClick={handleClear}>
           <CloseIcon />
         </EndButton>
       )
-    }),
-    ...otherProps
+    }
+    return null
   }
 
   return (
-    <InputRoot
-      inputRef={ref}
+    <InputComponent
+      ref={ref}
+      endAdornment={<ClearEndAdornment />}
       {...props}
     />
   )
 })
 
-
 FbmInput.defaultProps = {
+  variant: 'outlined',
   fullWidth: true,
+  clear: false,
 }
-
 
 export default FbmInput
 

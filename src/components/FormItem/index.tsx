@@ -1,40 +1,48 @@
 import React from 'react'
 
 import FormItem, { FbmFormItemProps } from './FormItem'
-import { FbmInputProps} from '../Input'
+import { FbmInputProps } from '../Input'
 import useFormItem from './useFormItem'
 
 const FormItemIndex: React.FC<FbmFormItemProps & FbmInputProps> = ({
   label,
   clear,
-  name,
-  value,
   max,
   extra,
   rules,
-  validate,
-  children,
-  inputProps = {}
+  name,
+  value,
+  inputProps,
 }) => {
-  const props = useFormItem({
-    label,
-    name,
+
+  const {
+    meta,
+    helpers,
+    ...field
+  } = useFormItem({
     value,
     max,
     rules,
-    validate,
-    children,
-    extra,
+    name,
   })
 
+  const props = {
+    meta,
+    helpers,
+    label,
+    max,
+    extra,
+    name,
+    inputProps: {
+      clear,
+      ...inputProps,
+    },
+    ...field,
+    error: meta?.error
+  }
+
   return (
-    <FormItem
-      {...props}
-      inputProps={{
-        clear,
-        ...inputProps
-      }}
-    />
+    <FormItem {...props} />
   )
 }
 
