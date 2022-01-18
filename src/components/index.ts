@@ -73,3 +73,6 @@ export { default as Empty } from './Empty';
 
 export * as rules from '../utils/rules';
 
+
+
+export { default as DateRangePicker } from './DateRangePicker';

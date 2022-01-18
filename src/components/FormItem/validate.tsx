@@ -14,7 +14,7 @@ export default async function validate(value, props) {
         
         // 处理报错方法
         if (isFunction(ruleFn)) {
-          const errorMsg: string = await ruleFn(value)
+          const errorMsg: string = await ruleFn(value, formItem)
           if (errorMsg) {
             return resolve(errorMsg)
           }

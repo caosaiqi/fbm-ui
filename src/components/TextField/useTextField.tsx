@@ -6,11 +6,12 @@ import { isFunction } from '../../utils'
 
 export default function useTextField(cloneProps) {
   const {
-    name,
     max,
+    inputProps,
     error: errorProp,
     value: valueProp,
     onChange: onChangeProp,
+    onBlur: onBlurProp,
     validate: validateFn,
   } = cloneProps
 
@@ -25,6 +26,20 @@ export default function useTextField(cloneProps) {
   const handleChange = React.useCallback((event) => {
     if (isFunction(onChangeProp)) {
       onChangeProp(event)
+    }
+    if (isFunction(inputProps?.onChange)) {
+      inputProps.onChange(event)
+    }
+    const value = event?.target?.value
+    validateRules(value)
+  }, [valueProp])
+
+  const handleBlur = React.useCallback((event) => {
+    if (isFunction(onBlurProp)) {
+      onBlurProp(event)
+    }
+    if (isFunction(inputProps?.onBlur)) {
+      inputProps.onBlur(event)
     }
     const value = event?.target?.value
     validateRules(value)
@@ -47,12 +62,18 @@ export default function useTextField(cloneProps) {
     }
   }, [error, valueProp])
 
+  const { length } = getValueLength({ value: valueProp, max })
+
   Object.assign(cloneProps, {
     error: errorProp || error,
+    length,
     setError,
-    onChange: handleChange,
     handleValidate: handleValidate,
-    ...getValueLength({ value: valueProp, max })
+    inputProps: {
+      ...inputProps,
+      onChange: handleChange,
+      onBlur: handleBlur,
+    }
   })
 
   return cloneProps

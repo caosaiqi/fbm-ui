@@ -2,11 +2,15 @@ import React from 'react'
 import styled from '@mui/material/styles/styled'
 import { FormikErrors } from 'formik'
 import {
+  FieldMetaProps,
+  FieldHelperProps
+} from 'formik'
+
+import {
   FormControl,
   InputLabel,
   FormHelperText,
   inputLabelClasses,
-
   FormControlProps,
   BaseTextFieldProps,
   InputLabelProps,
@@ -21,20 +25,22 @@ type ErrorType = {
   isBeyond?: boolean
 }
 
-export interface FbmFormItemProps {
+type rule = (values: any) => void | object | Promise<FormikErrors<any>>;
+
+export type FbmFormItemProps = FbmInputProps & {
   name?: string;
   value?: any,
   length?: number;
   extra?: string;
   max?: number;
   error?: string & ErrorType
+  rules?: rule[]
   label?: BaseTextFieldProps['label'];
   labelProps?: InputLabelProps;
-  rules?: FbmFormItemProps['validate'][]
-  validate?: (values: any) => void | object | Promise<FormikErrors<any>>
   inputProps?: FbmInputProps;
   inputRef?: React.Ref<any>;
-  variant?: FbmInputProps['variant']
+  meta?: FieldMetaProps<any>;
+  helpers?: FieldHelperProps<any>;
 }
 
 export interface HelperProps extends FormHelperTextProps {
@@ -53,9 +59,10 @@ const LabelRoot = styled(InputLabel)(({ variant }) => {
   return {
     lineHeight: 1,
     zIndex: 1,
+    top: '-2px',
     ...(variant === 'outlined' && {
       [`&.${inputLabelClasses.shrink}`]: {
-        transform: 'translate(14px, -7px) scale(0.75)',
+        transform: 'translate(14px, -5px) scale(0.75)',
       }
     })
   }
@@ -103,18 +110,37 @@ const Helper: React.FC<HelperProps> = (props) => {
 
 const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) => {
   const {
-    name,
+    meta,
+    helpers,
+    clear,
+    onClear,
     label,
     error,
     max,
     extra,
     length,
-
+    labelProps: labelPropsProp,
+    children: childrenProp,
     variant,
     value,
     inputProps,
     inputRef,
-    children: childrenProp,
+    autoComplete,
+    autoFocus = false,
+    defaultValue,
+    fullWidth = true,
+    id,
+    maxRows,
+    minRows,
+    multiline = false,
+    name,
+    onBlur,
+    onChange,
+    onFocus,
+    placeholder,
+    rows,
+    endAdornment,
+    ...other
   } = inProps
 
   // status
@@ -125,13 +151,14 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) 
     id: `${name}-label`,
     htmlFor: name,
     children: label,
+    ...labelPropsProp,
   }
 
   const helperTextProps = {
     extra,
     error: statusError,
     id: `${name}-helper-text`,
-    children: error?.isBeyond ? extra : error,
+    children: (error as ErrorType)?.isBeyond ? extra : error,
     max: max,
     length: length
   }
@@ -139,6 +166,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) 
   const formItemProps = {
     variant: (variant as FormControlProps['variant']),
     error: statusError,
+    ...(other as any),
   };
 
   let children = childrenProp
@@ -149,16 +177,46 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) 
   } else {
     children = (
       <Input
+        clear={clear}
+        onClear={onClear}
+        label={label}
+        error={statusError}
         value={value}
         variant={variant}
+        aria-describedby={helperTextProps.id}
+        autoComplete={autoComplete}
+        autoFocus={autoFocus}
+        defaultValue={defaultValue}
+        fullWidth={fullWidth}
+        multiline={multiline}
+        name={name}
+        rows={rows}
+        maxRows={maxRows}
+        minRows={minRows}
+        id={id}
         inputRef={inputRef}
+        onBlur={onBlur}
+        onChange={onChange}
+        onFocus={onFocus}
+        placeholder={placeholder}
+        endAdornment={endAdornment}
         {...inputProps}
       />
     )
   }
 
+  const childContent = {
+    onBlur,
+    onChange,
+    name,
+    length,
+    value,
+    meta,
+    helpers,
+  }
+
   return (
-    <FormItemContext.Provider value={inProps}>
+    <FormItemContext.Provider value={childContent}>
       <FormItemRoot {...formItemProps}>
         <Label {...labelProps} />
         {children}
@@ -170,7 +228,8 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) 
 
 FbmFormItem.defaultProps = {
   length: 0,
-  variant: 'outlined'
+  variant: 'outlined',
+  fullWidth: true,
 }
 
 export default FbmFormItem;

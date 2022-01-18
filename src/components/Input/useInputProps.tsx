@@ -10,7 +10,7 @@ import { isEmpty, isObject } from '../../utils'
 export default function useInputProps(inputProps = {}) {
   const formItemValues = useFormItemContext()
   if (isObject(formItemValues) && !isEmpty(formItemValues)) {
-    const props = Object.assign(
+    const mergeProps = Object.assign(
       {},
       formItemValues,
       {
@@ -18,7 +18,14 @@ export default function useInputProps(inputProps = {}) {
       },
       inputProps
     )
-    return props
+    
+    for(const key in mergeProps) {
+      if (mergeProps[key] === undefined) {
+        delete mergeProps[key]
+      }
+    }
+
+    return mergeProps
   } else {
     return inputProps
   }

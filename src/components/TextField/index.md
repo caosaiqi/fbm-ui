@@ -15,7 +15,7 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import { Layout, TextField, rules, useTextField, Button } from 'fbm-ui'
+import { Layout, TextField, rules, useTextField, Button, SearchIcon} from 'fbm-ui'
 
 export default () => {
   const [value, setValue] = React.useState('')
@@ -25,14 +25,19 @@ export default () => {
   }
 
   const nameFieldProps = useTextField({
-    label: '名称',
+    label: '名称*',
     value,
     max: 5,
     onChange: handleChange,
     rules: [rules.required()],
     onClear: () => {
-       setValue('')
+      setValue('')
     },
+    inputProps: {
+      onBlur: () => {
+        console.log('--')
+      },
+    }
   })
 
   const handleSubmit = async () => {
@@ -57,7 +62,7 @@ export default () => {
  * desc: 基本使用
  */
 import * as React from 'react';
-import { Demo, TextField, rules, useTextField, Button} from 'fbm-ui'
+import { Demo, TextField, rules, useTextField, Button, SearchIcon} from 'fbm-ui'
 
 export default () => {
   const [value, setValue] = React.useState('')
@@ -67,15 +72,61 @@ export default () => {
   }
 
   const nameFieldProps = useTextField({
-    label: '名称',
     value,
     max: 5,
     onChange: handleChange,
     rules: [rules.required()],
     variant: 'standard',
     onClear: () => {
-       setValue('')
+      setValue('')
     },
+  })
+
+  const handleSubmit = async () => {
+    nameFieldProps.handleValidate()
+  }
+
+  return (
+    <Demo white={true}>
+      <TextField
+        {...nameFieldProps}
+      />
+      <Button onClick={handleSubmit}> 提交 </Button> 
+    </Demo>
+  )
+}
+
+```
+
+
+
+```tsx
+/**
+ * title: textarea
+ * desc: 基本使用
+ */
+import * as React from 'react';
+import { Demo, TextField, rules, useTextField, Button, SearchIcon} from 'fbm-ui'
+
+export default () => {
+  const [value, setValue] = React.useState('')
+  const ref = React.useRef(null)
+  const handleChange = (e) => {
+    setValue(e.target.value)
+  }
+
+  const nameFieldProps = useTextField({
+    value,
+    rules: [rules.required()],
+    onChange: handleChange,
+    sx: {
+      height: 'auto',
+    },
+    inputProps: {
+      rows: 10,
+      placeholder: '内容',
+      multiline: true,
+    }
   })
 
   const handleSubmit = async () => {

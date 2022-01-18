@@ -14,21 +14,22 @@ const FormItemIndex: React.FC<FbmFormItemProps & FbmInputProps> = ({
   value,
   inputProps,
 }) => {
-
-  const {
-    meta,
-    helpers,
-    ...field
-  } = useFormItem({
+  const formikItem = useFormItem({
     value,
     max,
     rules,
     name,
   })
 
-  const props = {
+  const {
     meta,
     helpers,
+    ...field
+  } = formikItem
+
+  const props = {
+    meta: formikItem.meta,
+    helpers: formikItem.helpers,
     label,
     max,
     extra,
@@ -38,7 +39,7 @@ const FormItemIndex: React.FC<FbmFormItemProps & FbmInputProps> = ({
       ...inputProps,
     },
     ...field,
-    error: meta?.error
+    error: (meta?.error as never)
   }
 
   return (

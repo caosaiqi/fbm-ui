@@ -37,7 +37,6 @@ const FbmInput: React.FC<FbmInputProps> = React.forwardRef((inProps, ref) => {
     variant,
     clear,
     onClear,
-
     ...props
   } = useInputProps(inProps)
 
@@ -76,7 +75,6 @@ const FbmInput: React.FC<FbmInputProps> = React.forwardRef((inProps, ref) => {
 FbmInput.defaultProps = {
   variant: 'outlined',
   fullWidth: true,
-  clear: false,
 }
 
 export default FbmInput

@@ -6,9 +6,9 @@ import {
   outlinedInputClasses,
 } from '@mui/material'
 
-export interface FbmOutlinedProps extends OutlinedInputProps {}
+export interface FbmOutlinedProps extends OutlinedInputProps { }
 
-const FbmOutlinedInput = styled(OutlinedInput)(({ theme }) => {
+const FbmOutlinedInput = styled(OutlinedInput)(({ theme, startAdornment, endAdornment}) => {
   return {
     backgroundColor: '#FFF',
     [`.${outlinedInputClasses.notchedOutline}`]: {
@@ -18,7 +18,7 @@ const FbmOutlinedInput = styled(OutlinedInput)(({ theme }) => {
       borderColor: 'rgba(0,0,0,0.26)',
     },
     [`& .${outlinedInputClasses.input}`]: {
-      padding: '12px'
+      padding: '10px 12px 11px 12px'
     },
     [`&.${outlinedInputClasses.focused} .${outlinedInputClasses.notchedOutline}`]: {
       borderColor: theme.palette.primary.main,
@@ -31,6 +31,15 @@ const FbmOutlinedInput = styled(OutlinedInput)(({ theme }) => {
       borderColor: 'rgba(0, 0, 0, 0.08)',
       backgroundColor: theme.palette.action.disabledBackground
     },
+    ...(startAdornment && {
+      paddingLeft: 4,
+      [`& .${outlinedInputClasses.input}`]: {
+        padding: '10px 12px 11px 4px'
+      },
+    }),
+    ...(endAdornment && {
+      paddingRight: 4,
+    }),
   }
 })
 
