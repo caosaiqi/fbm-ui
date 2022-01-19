@@ -1,5 +1,10 @@
+
 export const required = (helperText) => {
-  return (value, { label } = {}) => {
+  return (
+    value,
+    formItem = {}
+  ) => {
+    const { label } = (formItem as { label: string })
     if (!value || (typeof value === 'string' && value.trim() === '')) {
 
       if (helperText) return helperText
@@ -12,10 +17,8 @@ export const required = (helperText) => {
           labelStr = label
         }
       }
-      // 拼接为
-      labelStr += '为'
 
-      return `${labelStr}必填项`
+      return `${labelStr}不能为空`
     }
   }
 }

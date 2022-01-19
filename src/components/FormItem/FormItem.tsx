@@ -140,6 +140,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) 
     placeholder,
     rows,
     endAdornment,
+    readOnly,
     ...other
   } = inProps
 
@@ -200,6 +201,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) 
         onFocus={onFocus}
         placeholder={placeholder}
         endAdornment={endAdornment}
+        readOnly={readOnly}
         {...inputProps}
       />
     )
