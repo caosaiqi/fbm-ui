@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Dialog 对话框
+  title: 反馈
 ---
 # Dialog 对话框
 ## 代码演示

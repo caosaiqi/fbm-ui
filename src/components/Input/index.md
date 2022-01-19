@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Input 输入框
+  title: 数据录入
 ---
 # Input 输入框
 ## 代码演示

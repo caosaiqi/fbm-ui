@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: TextField 带验证的输入框
+  title: 数据录入
 ---
 
 # TextField 带验证的输入框

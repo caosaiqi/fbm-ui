@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Typography 文字铸排
+  title: 通用
 ---
 # Typography 文字铸排
 ## 代码演示

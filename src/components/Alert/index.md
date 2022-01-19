@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Alert 提醒
+  title: 数据展示
 ---
 # Alert 提醒
 

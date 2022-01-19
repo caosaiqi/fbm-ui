@@ -3,7 +3,8 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Button 按钮
+  order: 1
+  title: 通用
 ---
 # Button 按钮
 ## 代码演示
@@ -13,44 +14,42 @@ group:
  * title: 基本
  */
 import * as React from 'react';
-import { Layout, Button, Box, ButtonGroup, AddIcon} from 'fbm-ui'
+import { Demo, Button, Box, ButtonGroup, AddIcon} from 'fbm-ui'
 
 export default () => (
-  <Layout>
-    <Box style={{ backgroundColor: '#FAFAFA'}}>
+  <Demo>
+    <Box sx={{mb: 2}}>
+      <Button sx={{mr: 1}} size="small">按钮</Button> 
+      <Button sx={{mr: 1}} size="medium">按钮</Button> 
+      <Button sx={{mr: 1}} size="large">按钮</Button> 
+      <Button sx={{mr: 1}} size="medium" color="error">按钮</Button> 
+    </Box>
       <Box sx={{mb: 2}}>
-        <Button sx={{mr: 1}} size="small">按钮</Button> 
-        <Button sx={{mr: 1}} size="medium">按钮</Button> 
-        <Button sx={{mr: 1}} size="large">按钮</Button> 
-        <Button sx={{mr: 1}} size="medium" color="error">按钮</Button> 
-      </Box>
-       <Box sx={{mb: 2}}>
-        <Button sx={{mr: 1}} startIcon={<AddIcon />} size="small">按钮</Button> 
-        <Button sx={{mr: 1}} startIcon={<AddIcon />} size="medium">按钮</Button> 
-        <Button sx={{mr: 1}} startIcon={<AddIcon />} size="large">按钮</Button> 
-      </Box>
+      <Button sx={{mr: 1}} startIcon={<AddIcon />} size="small">按钮</Button> 
+      <Button sx={{mr: 1}} startIcon={<AddIcon />} size="medium">按钮</Button> 
+      <Button sx={{mr: 1}} startIcon={<AddIcon />} size="large">按钮</Button> 
+    </Box>
+    <Box sx={{mb: 2}}>
+      <Button sx={{mr: 1}}  variant="outlined" size="small" color="error">按钮</Button> 
+      <Button sx={{mr: 1}}  variant="outlined" size="medium">按钮</Button> 
+      <Button sx={{mr: 1}}  variant="outlined" size="large">按钮</Button> 
+    </Box>
       <Box sx={{mb: 2}}>
-        <Button sx={{mr: 1}}  variant="outlined" size="small" color="error">按钮</Button> 
-        <Button sx={{mr: 1}}  variant="outlined" size="medium">按钮</Button> 
-        <Button sx={{mr: 1}}  variant="outlined" size="large">按钮</Button> 
-      </Box>
-       <Box sx={{mb: 2}}>
-        <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="outlined" size="small">按钮</Button> 
-        <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="outlined" size="medium">按钮</Button> 
-        <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="outlined" size="large">按钮</Button> 
-      </Box>
-      <Box sx={{mb: 2}}>
-        <Button sx={{mr: 1}} variant="text" size="small">按钮</Button> 
-        <Button sx={{mr: 1}} variant="text" size="medium">按钮</Button> 
-        <Button sx={{mr: 1}} variant="text" size="large">按钮</Button> 
-      </Box>
-         <Box sx={{mb: 2}}>
-        <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="text" size="small">按钮</Button> 
-        <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="text" size="medium">按钮</Button> 
-        <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="text" size="large">按钮</Button> 
-      </Box>
-     </Box>
-  </Layout>
+      <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="outlined" size="small">按钮</Button> 
+      <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="outlined" size="medium">按钮</Button> 
+      <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="outlined" size="large">按钮</Button> 
+    </Box>
+    <Box sx={{mb: 2}}>
+      <Button sx={{mr: 1}} variant="text" size="small">按钮</Button> 
+      <Button sx={{mr: 1}} variant="text" size="medium">按钮</Button> 
+      <Button sx={{mr: 1}} variant="text" size="large">按钮</Button> 
+    </Box>
+        <Box sx={{mb: 2}}>
+      <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="text" size="small">按钮</Button> 
+      <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="text" size="medium">按钮</Button> 
+      <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="text" size="large">按钮</Button> 
+    </Box>
+  </Demo>
 )
 ```
 <!-- 

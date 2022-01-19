@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Select 下拉选择
+  title: 数据录入
 ---
 # Select 下拉选择
 ## 代码演示

@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Loading 加载
+  title: 反馈
 ---
 # Loading 加载
 ## 代码演示

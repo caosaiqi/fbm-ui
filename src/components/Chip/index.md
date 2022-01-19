@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Chip 标签
+  title: 数据展示
 ---
 # Chip 标签
 ## 代码演示
@@ -18,8 +18,6 @@ import {  Layout, Chip } from 'fbm-ui'
 
 export default () => {
   const colors = ['default', 'primary', 'secondary', 'error', 'info', 'success', 'warning']
-
-  
 
   return (
     <Layout>

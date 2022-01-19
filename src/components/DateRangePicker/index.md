@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: DateRangePicker 日期范围选择器
+  title: 数据录入
 ---
 # DateRangePicker 日期范围选择器
 ## 代码演示

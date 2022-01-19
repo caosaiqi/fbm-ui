@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Header 标题+操作
+  title: 导航
 ---
 # Header 标题+操作
 ## 代码演示

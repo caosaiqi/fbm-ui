@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: confirm 二次确认方法
+  title: 反馈
 ---
 # confirm 二次确认方法
 ## 代码演示

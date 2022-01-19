@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Box 容器
+  title: 布局
 ---
 # Box 容器
 ## 代码演示

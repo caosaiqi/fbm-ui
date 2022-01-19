@@ -3,9 +3,9 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Table 列表
+  title: 数据录入 
 ---
-# Table 列表
+# Table 表格
 ## 代码演示
 
 ```tsx

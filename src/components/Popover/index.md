@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Popover 弹框
+  title: 反馈
 ---
 # Popover 弹框
 ## 代码演示

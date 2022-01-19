@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: UserInfo 用户详情
+  title: 数据展示
 ---
 # UserInfo 用户详情
 ## 代码演示

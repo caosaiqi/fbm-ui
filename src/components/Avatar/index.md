@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Avatar 头像
+  title: 数据展示
 ---
 # Avatar 头像
 ## 代码演示

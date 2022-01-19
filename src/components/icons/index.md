@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Icon 图标
+  title: 数据展示
 ---
 # Icon 图标
 ## 代码演示

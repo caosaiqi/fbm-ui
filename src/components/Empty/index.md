@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Empty 数据为空状态
+  title: 数据展示
 ---
 # Empty 数据为空状态
 ## 代码演示

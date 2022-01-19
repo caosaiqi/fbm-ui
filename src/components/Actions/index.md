@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Actions 多按钮操作
+  title: 通用
 ---
 # Actions 多按钮操作
 
@@ -17,7 +17,30 @@ const actions = [
   {
     text: '创建',
     variant: 'outlined',
-  },
+     icon: <AddIcon />,
+      actions: [
+        { 
+          text: 'Excel导入',
+          icon: <DocExcelIcon />,
+          // onClick: () => Message.success('编辑用户')
+        },
+        { 
+          text: '手动添加',
+          actions: [
+            {
+              text: '手动添加A',
+              icon: <DocPdfIcon />,
+              // onClick: () => Message.success('删除用户')
+            },
+              {
+              text: '手动添加B',
+              icon: <DocPdfIcon />,
+              // onClick: () => Message.success('删除用户')
+            }
+          ]
+        }
+      ]
+    },
   {
     text: '更新',
   },

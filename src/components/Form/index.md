@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Form 表单
+  title: 数据录入
 ---
 # Form 表单
 ## 代码演示

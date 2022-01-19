@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: Toast 全局提示
+  title: 反馈
 ---
 # Toast 全局提示
 ## 代码演示

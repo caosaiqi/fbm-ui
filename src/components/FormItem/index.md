@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: FormItem 配合Form组件使用
+  title: 数据录入
 ---
 # FormItem 配合Form组件使用
 ## 代码演示
