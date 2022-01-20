@@ -19,6 +19,7 @@ const FormItemIndex: React.FC<FbmFormItemProps & FbmInputProps> = ({
     max,
     rules,
     name,
+    label
   })
 
   const {
@@ -41,7 +42,7 @@ const FormItemIndex: React.FC<FbmFormItemProps & FbmInputProps> = ({
     ...field,
     error: (meta?.error as never)
   }
-
+  
   return (
     <FormItem {...props} />
   )

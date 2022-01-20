@@ -15,7 +15,8 @@ type Params = {
   max?: FbmFormItemProps['max'];
   value?: FbmFormItemProps['value'];
   children?: React.ReactElement & React.ReactNode;
-  rules?: FbmFormItemProps['rules']
+  rules?: FbmFormItemProps['rules'],
+  label: FbmFormItemProps['label']
 }
 
 type Return = FieldInputProps<any> & {
