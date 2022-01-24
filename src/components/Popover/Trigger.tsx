@@ -23,7 +23,6 @@ const FbmTrigger: React.FC<TriggerProps> = ({
 }) => {
 
   const events = BIND_EVNENTS[trigger](popupState)
-
   if (typeof children === 'function') {
     return <>{children(events)}</>
   }

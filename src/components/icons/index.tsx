@@ -138,3 +138,5 @@ export { default as VideoPauseIcon } from './src/VideoPauseIcon';
 export { default as VideoRecordIcon } from './src/VideoRecordIcon';
 export { default as VideoStopIcon } from './src/VideoStopIcon';
 export { default as RobotIcon } from './src/RobotIcon';
+export { default as Qrcode } from './src/Qrcode';
+export { default as ClockCircle } from './src/ClockCircle';

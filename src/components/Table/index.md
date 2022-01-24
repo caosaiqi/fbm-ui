@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: 数据录入 
+  title: 数据展示 
 ---
 # Table 表格
 ## 代码演示

@@ -25,18 +25,15 @@ export default () => {
   }
 
   const nameFieldProps = useTextField({
-    label: '名称*',
+    // label: '名称*',
     value,
     max: 5,
     onChange: handleChange,
-    rules: [rules.required()],
     onClear: () => {
       setValue('')
     },
-    inputProps: {
-      onBlur: () => {
-        console.log('--')
-      },
+    sx: {
+      height: 300
     }
   })
 
@@ -80,6 +77,7 @@ export default () => {
     onClear: () => {
       setValue('')
     },
+    
   })
 
   const handleSubmit = async () => {
@@ -89,6 +87,8 @@ export default () => {
   return (
     <Demo white={true}>
       <TextField
+        size="small"
+        
         {...nameFieldProps}
       />
       <Button onClick={handleSubmit}> 提交 </Button> 
