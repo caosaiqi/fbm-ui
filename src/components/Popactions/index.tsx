@@ -81,7 +81,6 @@ const ActionMenu: React.FC<ActionsMenu> = (props) => {
 const Popactions: React.FC<PropsType> = (props) => {
   const { children, actions, ...popoverProps } = props
   const content = (popupProps) => <ActionMenu {...popupProps} actions={actions} />
-
   return (
     <Popover
       content={content}

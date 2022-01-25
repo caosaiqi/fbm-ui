@@ -3,106 +3,68 @@ import styled from '@mui/material/styles/styled'
 
 import Popover from '../Popover'
 import Box from '../Box'
-import ConfirmFooter, { FbmConfirmFooterProps } from '../ConfirmFooter'
 import Typography from '../Typography'
-import { InfoIcon } from '../icons'
+import ConfirmFooter, { FbmConfirmFooterProps } from '../ConfirmFooter'
+import { isFunction } from '../../utils'
 
-interface FbmPopoverProps extends FbmConfirmFooterProps {
+export interface FbmPopoverProps extends FbmConfirmFooterProps {
+  /** 弹框标题 */
+  title?: React.ReactNode;
+  /** 弹框内容 */
   content?: React.ReactNode;
-  message?: React.ReactNode;
+  /** 弹框显示icon */
   icon?: React.ReactNode;
+  /** 弹框target */
+  children?: React.ReactNode;
 }
 
-interface PopcContentProps {
-  onOk: FbmConfirmFooterProps['onOk'];
-  onClose: FbmConfirmFooterProps['onClose'];
-  content: FbmPopoverProps['content'];
-  message?: FbmPopoverProps['message'];
-}
-
-interface PopmessageProps {
-  icon?: React.ReactNode;
-}
-
-const ContentRoot = styled(Box)({
-  padding: '12px 16px'
+const PopContent = styled(Box)({})
+const PopTitle = styled(Typography)({
+  fontSize: 16,
+  paddingBottom: 12,
+  color: '#000',
+  fontWeight: 500,
 })
-
-const MessageRoot = styled(Box)({
-  display: 'flex',
-  alignItems: 'center',
-  marginBottom: 28,
-  minWidth: 170,
-})
-
-const Message: React.FC<PopmessageProps> = ({
-  icon: iconProp,
-  children,
-}) => {
-  let icon = iconProp
-  if (!icon) {
-    icon = InfoIcon
-  }
-  return (
-    <MessageRoot>
-      <Box>
-        {icon}
-      </Box>
-      <Typography>
-        {children}
-      </Typography>
-    </MessageRoot>
-  )
-}
-
-const Content: React.FC<PopcContentProps> = ({
-  onOk,
-  onClose,
-  message,
-  children: childrenProp,
-}) => {
-  let children = childrenProp
-  if (!children) {
-    children = (
-      <Message>
-        {message}
-      </Message>
-    )
-  }
-  return (
-    <ContentRoot>
-      {children}
-      <ConfirmFooter
-        onOk={onOk}
-        onClose={onClose}
-      />
-    </ContentRoot>
-  )
-}
 
 const Popconfirm: React.FC<FbmPopoverProps> = ({
-  onOk,
+  title,
   content,
   children,
-  message,
-  ...otherProps
+  onOk,
+  onClose,
+  ...popoverProps
 }) => {
-  const popoverContent = (popoverProps) => {
-    const props = {
-      onOk,
-      message,
-      ...popoverProps,
+
+  const contentRender = (popover) => {
+    const hanldeClose = async () => {
+      if (isFunction(popover?.hanldeClose)) {
+        popover.hanldeClose()
+      }
+      if(isFunction(onClose)) {
+        onClose()
+      }
     }
+
     return (
-      <Content {...props}>
-        {content}
-      </Content>
+      <div>
+        <PopTitle>
+          {title}
+        </PopTitle >
+        <PopContent>
+          {content}
+        </PopContent>
+        <ConfirmFooter
+          onOk={onOk}
+          onClose={hanldeClose}
+        />
+      </div>
     )
   }
+
   return (
     <Popover
-      content={popoverContent}
-      {...otherProps}
+      content={contentRender}
+      {...popoverProps}
     >
       {children}
     </Popover>
