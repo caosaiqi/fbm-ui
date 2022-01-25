@@ -55,7 +55,7 @@ export default () => {
           extra='这是一段辅助文字'
           max={20}
           rules={[
-            rules.required
+            rules.required()
           ]}
          />
       </Form>

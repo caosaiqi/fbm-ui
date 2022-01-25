@@ -33,6 +33,7 @@ const ConfirmFooterRoot = styled(Box)({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-end',
+  height: '56px'
 })
 
 const FbmConfirmFooter: React.FC<FbmConfirmFooterProps> = React.forwardRef((props, ref) => {
@@ -60,19 +61,6 @@ const FbmConfirmFooter: React.FC<FbmConfirmFooterProps> = React.forwardRef((prop
       }
     }
   }
-
-  const handleOk = async () => {
-    if (onOk) {
-      try {
-        setLoading(true)
-        await onOk(props)
-        setLoading(false)
-      } catch (error) {
-        throw error
-      }
-    }
-  }
-
   const closeButtonProps = {
     size,
     onClick: handleClose,
@@ -88,6 +76,17 @@ const FbmConfirmFooter: React.FC<FbmConfirmFooterProps> = React.forwardRef((prop
     )
   }
 
+  const handleOk = async () => {
+    if (onOk) {
+      try {
+        setLoading(true)
+        await onOk(props)
+        setLoading(false)
+      } catch (error) {
+        throw error
+      }
+    }
+  }
   const okButtonProps = {
     loading,
     size,
