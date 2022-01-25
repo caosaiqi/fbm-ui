@@ -13,10 +13,17 @@ group:
  * title: 基本
  */
 import * as React from 'react';
-import { Layout, Input, Form, FormItem, Button, Select, rules } from 'fbm-ui'
+import { 
+  Layout,
+  Input,
+  Form, 
+  FormItem,
+  Button,
+  Select, 
+  rules,
+} from 'fbm-ui'
 
-
-import {useFormik} from 'formik'
+import { useFormik } from 'formik'
 
 const formProps= {
   initialValues: {
@@ -41,6 +48,7 @@ const sexs = [
 
 export default () => {
   const formikValues = useFormik(formProps)
+
   const handleSubmit = () => {
     formikValues.handleSubmit()
   }
@@ -55,7 +63,14 @@ export default () => {
           extra='这是一段辅助文字'
           max={20}
           rules={[
-            rules.required()
+            { 
+              required: true,
+              message: '请输入密码'
+            },
+            { 
+              required: true,
+              message: '请输入密码'
+            }
           ]}
          />
       </Form>
