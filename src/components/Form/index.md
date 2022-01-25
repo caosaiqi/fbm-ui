@@ -27,28 +27,16 @@ import { useFormik } from 'formik'
 
 const formProps= {
   initialValues: {
-    name:'123123',
-    sex: 1,
+    name:'',
+    sex: 2,
   },
   onSubmit: values => {
     console.log('onSubmit', values)
   },
 }
 
-const sexs = [
-  {
-    label: '男',
-    value: 1
-  },
-  {
-    label: '女',
-    value: 2
-  }
-]
-
 export default () => {
   const formikValues = useFormik(formProps)
-
   const handleSubmit = () => {
     formikValues.handleSubmit()
   }
@@ -56,29 +44,38 @@ export default () => {
   return (
     <Layout>
       <Form {...formikValues}>
-        <FormItem 
-          clear={true}
+        <FormItem
+          required
           name='name' 
           label="名称"
           extra='这是一段辅助文字'
           max={20}
           rules={[
-            { 
-              required: true,
-              message: '请输入密码'
-            },
-            { 
-              required: true,
-              message: '请输入密码'
-            }
+            { type: 'email', message: '请输入正确的邮箱' }
           ]}
          />
+         <FormItem 
+          required
+          name='sex' 
+          label='性别'
+         >
+          <Select options={[
+            {
+              label: '男',
+              value: 1
+            },
+            {
+              label: '女',
+              value: 2
+            }
+          ]}/>
+         </FormItem>
       </Form>
+      <Button variant="outlined" onClick={formikValues.handleReset} sx={{ mr:1 }}>
+          重置
+      </Button>
       <Button onClick={handleSubmit}>
         提交
-      </Button>
-      <Button variant="outlined" onClick={formikValues.handleReset}>
-          重置
       </Button>
     </Layout>
   )

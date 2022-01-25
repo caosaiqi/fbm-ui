@@ -1,7 +1,8 @@
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MOBILE_REGEX = /^1[3456789]\d{9}$/;
 
-export const required = (helperText) => {
+// 验证是否必填
+export const required = (helperText?: string) => {
   return (
     value,
     formItem = {}
@@ -25,25 +26,19 @@ export const required = (helperText) => {
   }
 }
 
-export const max = (helperText) => {
+// 验证手机号
+export const mobile = (helperText?: string) => {
   return (value) => {
-    if ((value && max) && value.length > max) {
-      return helperText
-    }
-  }
-}
-
-export const mobile = (helperText) => {
-  return (value) => {
-    if (!MOBILE_REGEX.test(value)) {
+    if (value && !MOBILE_REGEX.test(value)) {
       return helperText || '请输入正确的手机号';
     }
   }
 }
 
-export const email = (helperText) => {
+// 验证邮箱地址
+export const email = (helperText?: string) => {
   return (value) => {
-    if (!EMAIL_REGEX.test(value)) {
+    if (value && !EMAIL_REGEX.test(value)) {
       return helperText || '请输入正确的邮箱'
     }
   }

@@ -31,8 +31,7 @@ const FbmSelect: React.FC<FbmSelectProps> = React.forwardRef((props, ref) => {
   } = props
 
   let children = null
-  
-  if (childrenProp != null) {
+  if (childrenProp) {
     children = childrenProp
   } else if (!isEmpty(options)) {
     children = options.map(({label, value}) => (
@@ -50,7 +49,7 @@ const FbmSelect: React.FC<FbmSelectProps> = React.forwardRef((props, ref) => {
 })
 
 FbmSelect.defaultProps = {
-  input: <Input />,
+  input: <Input/>,
   IconComponent: ArrowDropDownIcon,
   options: [],
   fullWidth: true,

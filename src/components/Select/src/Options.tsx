@@ -10,7 +10,6 @@ export interface OptionsProps {
   options?: Option[]
 }
 
-
 const FbmOptions: React.FC<OptionsProps> = (props, ref) => {
   const { options } = props
   if (!options || (options && options.length === 0)) {
@@ -20,7 +19,7 @@ const FbmOptions: React.FC<OptionsProps> = (props, ref) => {
   const optionsNode = options.map(({ label, value }) => {
     return (
       <MenuItem key={value} value={value}>
-          {label || value}
+        {label || value}
       </MenuItem>
     )
   })

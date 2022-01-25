@@ -30,12 +30,13 @@ type rule = (values: any) => void | object | Promise<FormikErrors<any>>;
 export type FbmFormItemProps = FbmInputProps & {
   name?: string;
   value?: any,
-  length?: number;
+  label?: BaseTextFieldProps['label'];
   extra?: string;
   max?: number;
   error?: string & ErrorType
+  length?: number;
   rules?: rule[]
-  label?: BaseTextFieldProps['label'];
+  required?: boolean;
   labelProps?: InputLabelProps;
   inputProps?: FbmInputProps;
   inputRef?: React.Ref<any>;
@@ -145,7 +146,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) 
   } = inProps
 
   // status
-  const statusError: boolean = !isEmpty(error)
+  const statusError: boolean = error && !isEmpty(error)
 
   const labelProps = {
     variant: (variant as InputLabelProps['variant']),
@@ -170,8 +171,9 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) 
     ...(other as any),
   };
 
-  let children = childrenProp
-  if (childrenProp != null) {
+  let children = null
+  
+  if (childrenProp) {
     children = childrenProp
   } else if (typeof childrenProp === 'function') {
     children = childrenProp(inProps)
@@ -208,13 +210,14 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) 
   }
 
   const childContent = {
-    onBlur,
-    onChange,
     name,
-    length,
+    label,
     value,
+    length,
     meta,
     helpers,
+    onBlur,
+    onChange,
   }
 
   return (

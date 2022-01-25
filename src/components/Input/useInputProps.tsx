@@ -7,25 +7,42 @@ import { isEmpty, isObject } from '../../utils'
  * @B 配合TextFiled使用
  * @C 直接Input
  */
-export default function useInputProps(inputProps = {}) {
+export default function useInputProps(inputProps = {}): any {
+  // 获取FormItemProvder
   const formItemValues = useFormItemContext()
+
   if (isObject(formItemValues) && !isEmpty(formItemValues)) {
-    const mergeProps = Object.assign(
-      {},
-      formItemValues,
-      {
-        error: !!formItemValues.error
-      },
-      inputProps
-    )
+    const {
+      name,
+      value,
+      label,
+      onChange,
+      onBlur,
+      length, //chineseLength
+      meta = {},
+      helpers = {},
+    } = formItemValues
     
-    for(const key in mergeProps) {
-      if (mergeProps[key] === undefined) {
-        delete mergeProps[key]
+    const InputProps = {
+      name,
+      value,
+      label,
+      onChange,
+      onBlur,
+      length,
+      meta,
+      helpers,
+      error: !isEmpty(meta.error),
+      ...inputProps,
+    }
+
+    for (const key in InputProps) {
+      if (InputProps[key] === undefined) {
+        delete InputProps[key]
       }
     }
 
-    return mergeProps
+    return InputProps
   } else {
     return inputProps
   }

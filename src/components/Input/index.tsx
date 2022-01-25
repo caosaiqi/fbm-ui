@@ -24,7 +24,6 @@ export interface BaseInputProps {
 
 export type FbmInputProps = BaseInputProps & FbmOutlinedProps & FbmStandardProps
 
-
 const EndButton = styled(IconButton)({
   padding: 3,
   '& svg': {
@@ -34,26 +33,30 @@ const EndButton = styled(IconButton)({
 
 const FbmInput: React.FC<FbmInputProps> = React.forwardRef((inProps, ref) => {
   const {
+    value,
     variant,
     clear,
     onClear,
-    ...props
+    // formItemProvder
+    helpers,
+    meta,
+    ...InputProps
   } = useInputProps(inProps)
 
   const handleClear = (e) => {
     if (isFunction(onClear)) {
       onClear()
     }
-    if (props?.helpers?.setValue) {
-      const setValue = props?.helpers?.setValue
-      setValue(props?.meta?.initialValue)
+    if (helpers?.setValue) {
+      const setValue = helpers?.setValue
+      setValue(meta?.initialValue)
     }
   }
 
   const InputComponent = variantComponent[variant]
 
   const ClearEndAdornment = () => {
-    if (props.value && (clear || onClear)) {
+    if (value && (clear || onClear)) {
       return (
         <EndButton size='small' onClick={handleClear}>
           <CloseIcon />
@@ -66,8 +69,9 @@ const FbmInput: React.FC<FbmInputProps> = React.forwardRef((inProps, ref) => {
   return (
     <InputComponent
       ref={ref}
+      value={value}
       endAdornment={<ClearEndAdornment />}
-      {...props}
+      {...InputProps}
     />
   )
 })
