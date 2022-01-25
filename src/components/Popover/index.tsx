@@ -11,8 +11,7 @@ import {
 import { isFunction } from '../../utils'
 
 type TriggerMap = 'click' | 'hover' | 'focus'
-export interface FmbPopoverProps {
-  title: TooltipProps['title'];
+export interface FbmPopoverProps {
   /** 是否显示弹框 */
   open?: TooltipProps['open'];
   /** 弹框内容 */
@@ -24,7 +23,7 @@ export interface FmbPopoverProps {
   /** 弹框位置 */
   placement?: TooltipProps['placement'];
   /** 弹框关闭回调 */
-  onClose: TooltipProps['onClose'];
+  onClose?: TooltipProps['onClose'];
   /** 弹框背景色 */
   bgColor?: string
   /** 点击除弹框外其他区域弹框消失 */
@@ -33,27 +32,30 @@ export interface FmbPopoverProps {
 }
 
 interface ClickWrapProps extends ClickAwayListenerProps {
-  trigger: FmbPopoverProps['trigger'];
-  isAway?: FmbPopoverProps['isAway'];
+  trigger: FbmPopoverProps['trigger'];
+  isAway?: FbmPopoverProps['isAway'];
 }
 
 interface UseOpen {
-  ({ open, trigger }: { open: FmbPopoverProps['open']; trigger: TriggerMap })
-    : [
-      boolean,
-      (open: boolean) => void
-    ]
+  ({ open, trigger }: { open: FbmPopoverProps['open']; trigger: TriggerMap })
+    : [boolean, (open: boolean) => void]
 };
 
-const PopoverRoot: React.FC<TooltipProps> = styled(({ className, ...props }) => {
-  return <Tooltip {...props} classes={{ popper: className }} />
+const PopoverRoot: React.FC<TooltipProps> = styled((inProps) => {
+  const { className, ...props } = (inProps as TooltipProps)
+  return (
+    <Tooltip
+      {...props}
+      classes={{ popper: className }}
+    />
+  )
 })(({ theme }) => ({
   [`& .${tooltipClasses.tooltip}`]: {
     backgroundColor: theme.palette.common.white,
     color: 'rgba(0, 0, 0, 0.87)',
     boxShadow: '0px 1px 10px 0px rgb(0 0 0 / 12%)',
-    // marginTop: '2px !important',
     padding: 0,
+    maxWidth: '100%',
   },
   [`& .${tooltipClasses.arrow}:before`]: {
     color: '#fff',
@@ -102,7 +104,7 @@ const useOpen: UseOpen = ({
   return [open, handleSetOpen]
 }
 
-const FmbPopover: React.FC<FmbPopoverProps> = React.forwardRef((props, ref) => {
+const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
   const {
     open: openProp,
     content: contentProp,

@@ -11,7 +11,7 @@ group:
 ```tsx
 /**
  * title: 基本
- * desc: 给某个模块添加loaidng
+ * desc: confirm 基础使用
  */
 import * as React from 'react';
 import { confirm, Layout, Button} from 'fbm-ui'
@@ -39,7 +39,9 @@ const CustomFooter = ({onOK, onClose}) =>(
 
 export default () =>(
   <Layout>
-    <Button onClick={() => {
+    <Button
+      sx={{ mr: 1 }}
+      onClick={() => {
       confirm({
         title: '确认？',
         content: '确认添加李小刚到此步骤',
@@ -48,7 +50,7 @@ export default () =>(
     }} >默认</Button>
 
 
-    <Button onClick={() => {
+    <Button  sx={{ mr: 1 }} onClick={() => {
       confirm({
         header: null,
         content: '确认将李小刚从该职位移动到所选职位吗？该操作无法被撤销。',
@@ -61,7 +63,7 @@ export default () =>(
     }}  color="error"> 告警 </Button>
 
 
-    <Button onClick={() => {
+    <Button  sx={{ mr: 1 }} onClick={() => {
       confirm({
         header: null,
         content: '确认添加李小刚到此步骤？',
@@ -69,7 +71,7 @@ export default () =>(
       })
     }}  >  隐藏 header </Button>
 
-    <Button onClick={() => {
+    <Button  sx={{ mr: 1 }} onClick={() => {
       confirm({
         header:CustomHeader,
         content: '确认添加李小刚到此步骤？',
@@ -78,7 +80,7 @@ export default () =>(
     }}  >  自定义 header </Button>
 
 
-    <Button onClick={() => {
+    <Button  sx={{ mr: 1 }} onClick={() => {
       confirm({
         footer: null,
         content: '确认添加李小刚到此步骤？',
@@ -87,7 +89,7 @@ export default () =>(
     }}  >  隐藏 footer </Button>
 
 
-    <Button onClick={() => {
+    <Button  sx={{ mr: 1 }} onClick={() => {
       confirm({
         footer: CustomFooter,
         content: '确认添加李小刚到此步骤？',
@@ -96,7 +98,7 @@ export default () =>(
     }}  >  自定义 footer </Button>
 
 
-     <Button onClick={() => {
+     <Button  sx={{ mr: 1 }} onClick={() => {
       confirm({
         width: 600,
         title: '设置大小',

@@ -5,7 +5,7 @@ nav:
 group:
   title: 反馈
 ---
-# Toast 全局提示
+# Message 全局提示
 ## 代码演示
 
 ```tsx
@@ -14,19 +14,26 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import {  Layout, Message, Button } from 'fbm-ui'
-
+import {  Message, Button, Demo } from 'fbm-ui'
 
 const types = ['error', 'warning', 'success', 'info' ]
 
-
-export default () =>
-types.map(type => (
-  // eslint-disable-next-line react/jsx-key
-  <Layout>
-    <Button color={type} key={type} onClick={() => Message[type](`这是一段${type}提示`)}> {type}</Button>
-    </Layout>
- ))
+export default () => (
+  <Demo>
+    {
+      types.map(type => (
+        <Button 
+          color={type}
+          key={type}
+          sx={{ mr: 2.5 }}
+          onClick={() => Message[type](`这是一段${type}提示`)}
+        > 
+          {type}
+        </Button>
+      ))
+    }
+  </Demo>
+)
 ```
 
 <API></API>

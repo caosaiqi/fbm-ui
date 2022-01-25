@@ -6,7 +6,7 @@ import Popover, { FbmPopoverProps } from '../Popover'
 import { FbmButtonProps } from '../Button'
 import { FbmActionProps } from '../Actions'
 
-export interface PropsType extends FbmPopoverProps {
+export interface FbmPopactionsProps extends FbmPopoverProps {
   actions?: FbmActionProps[]
 }
 
@@ -78,7 +78,7 @@ const ActionMenu: React.FC<ActionsMenu> = (props) => {
   )
 }
 
-const Popactions: React.FC<PropsType> = (props) => {
+const Popactions: React.FC<FbmPopactionsProps> = (props) => {
   const { children, actions, ...popoverProps } = props
   const content = (popupProps) => <ActionMenu {...popupProps} actions={actions} />
   return (
@@ -94,6 +94,7 @@ const Popactions: React.FC<PropsType> = (props) => {
 Popactions.defaultProps = {
   trigger: 'hover',
   actions: [],
+  arrow: false,
 }
 
 export default Popactions

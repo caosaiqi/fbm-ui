@@ -36,7 +36,6 @@ const FormItemIndex: React.FC<FbmFormItemProps & FbmInputProps> = ({
     }
   }
 
-
   const {
     name,
     value,

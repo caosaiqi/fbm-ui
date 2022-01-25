@@ -40,7 +40,7 @@ export default () =>{
  * desc: 配合Form使用
  */
 import * as React from 'react';
-import {Popconfirm, Demo, TextField, useTextField, rules, Button} from 'fbm-ui'
+import {Popconfirm, Demo, TextField, useTextField, rules, Button, Box } from 'fbm-ui'
 
 export default () => {
   const [value, setValue] = React.useState()
@@ -52,8 +52,9 @@ export default () => {
     onChange: (e) => {
       setValue(e.target.value)
     },
+    max: 12,
     sx: {
-      height: 'auto'
+      height: '68px'
     }
   })
 
@@ -76,7 +77,11 @@ export default () => {
       <Popconfirm
         isAway={false}
         title="修改名称"
-        content={<TextField {...nameTextField} />}
+        content={
+          <Box sx={{ width: '360px', }}>
+            <TextField {...nameTextField} />
+          </Box>
+        }
         onOk={handleOk}
       >
         <Button >Popconfirm</Button>

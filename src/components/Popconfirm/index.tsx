@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from '@mui/material/styles/styled'
 
-import Popover from '../Popover'
+import Popover, { FbmPopoverProps } from '../Popover'
 import Box from '../Box'
 import Typography from '../Typography'
 import ConfirmFooter, { FbmConfirmFooterProps } from '../ConfirmFooter'
 import { isFunction } from '../../utils'
 
-export interface FbmPopoverProps extends FbmConfirmFooterProps {
+export interface FbmPopconfirmProps extends FbmConfirmFooterProps {
   /** 弹框标题 */
   title?: React.ReactNode;
   /** 弹框内容 */
@@ -15,18 +15,33 @@ export interface FbmPopoverProps extends FbmConfirmFooterProps {
   /** 弹框显示icon */
   icon?: React.ReactNode;
   /** 弹框target */
+  children: FbmPopoverProps['children'];
+}
+
+interface PopTitleProps {
   children?: React.ReactNode;
 }
 
-const PopContent = styled(Box)({})
-const PopTitle = styled(Typography)({
-  fontSize: 16,
-  paddingBottom: 12,
-  color: '#000',
-  fontWeight: 500,
+const PopContent = styled(Box)({
+  padding: '0 16px',
 })
 
-const Popconfirm: React.FC<FbmPopoverProps> = ({
+const PopTitle: React.FC<PopTitleProps> = styled((props) => {
+  const { children } = (props as PopTitleProps)
+  if (children) {
+    return <Typography {...props} />
+  }
+  return null
+})({
+  fontSize: 16,
+  color: '#000',
+  fontWeight: 500,
+  height: '56px',
+  alignItems: 'center',
+  display: 'flex',
+})
+
+const Popconfirm: React.FC<FbmPopconfirmProps> = ({
   title,
   content,
   children,
@@ -40,24 +55,22 @@ const Popconfirm: React.FC<FbmPopoverProps> = ({
       if (isFunction(popover?.hanldeClose)) {
         popover.hanldeClose()
       }
-      if(isFunction(onClose)) {
+      if (isFunction(onClose)) {
         onClose()
       }
     }
 
     return (
-      <div>
+      <PopContent>
         <PopTitle>
           {title}
         </PopTitle >
-        <PopContent>
-          {content}
-        </PopContent>
+        {content}
         <ConfirmFooter
           onOk={onOk}
           onClose={hanldeClose}
         />
-      </div>
+      </PopContent>
     )
   }
 

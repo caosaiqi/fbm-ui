@@ -52,12 +52,9 @@ const DialogRoot: React.FC<RootProps> = styled(Box)(({
   isNullFooter,
 }) => ({
   width: width || 360,
-  padding: '16px 16px 12px 24px',
+  padding: '0 16px',
   ...(isNullHeader && {
     paddingTop: 0,
-  }),
-  ...(isNullFooter && {
-    paddingBottom: 0,
   }),
 }))
 
@@ -79,6 +76,7 @@ const Header: React.FC<HeaderProps> = (props) => {
     ...(!title && {
       justifyContent: 'flex-end',
     }),
+    height: '56px'
   })
 
   const Title = () => {
@@ -133,7 +131,6 @@ const Footer: React.FC<FooterProps> = (props) => {
 
   return <ConfirmFooter  {...confirmFooterProps} />
 }
-
 
 const FbmDialog: React.FC<FbmDialogProps> = React.forwardRef((inProps, ref) => {
   const {

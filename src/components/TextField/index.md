@@ -32,9 +32,6 @@ export default () => {
     onClear: () => {
       setValue('')
     },
-    sx: {
-      height: 300
-    }
   })
 
   const handleSubmit = async () => {
