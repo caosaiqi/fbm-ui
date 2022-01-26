@@ -21,39 +21,25 @@ import {
   Button,
   Select, 
   rules,
+  useForm
 } from 'fbm-ui'
 
-import { useFormik } from 'formik'
-
-const formProps= {
-  validateOnChange: false,
-  initialValues: {
-    name:'',
-    sex: 2,
-  },
-  onSubmit: values => {
-    console.log('onSubmit', values)
-  },
-}
-
 export default () => {
-  const formikValues = useFormik(formProps)
-  const handleSubmit = () => {
-    formikValues.handleSubmit()
-  }
+  const form = useForm({
+    initialValues: {
+      name:'',
+      sex: 2,
+    }
+  })
 
   return (
     <Layout>
-      <Form {...formikValues}>
+      <Form {...form}>
         <FormItem
           required
           name='name' 
           label="名称"
-          extra='这是一段辅助文字'
           max={20}
-          rules={[
-            { type: 'email', message: '请输入正确的邮箱' }
-          ]}
          />
          <FormItem 
           required
@@ -62,10 +48,10 @@ export default () => {
          >
          </FormItem>
       </Form>
-      <Button variant="outlined" onClick={formikValues.handleReset} sx={{ mr:1 }}>
+      <Button variant="outlined" sx={{ mr:1 }}>
           重置
       </Button>
-      <Button onClick={handleSubmit}>
+      <Button onClick={form.handleSubmit}>
         提交
       </Button>
     </Layout>

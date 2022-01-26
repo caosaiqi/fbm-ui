@@ -51,9 +51,9 @@ const Popconfirm: React.FC<FbmPopconfirmProps> = ({
 }) => {
 
   const contentRender = (popover) => {
-    const hanldeClose = async () => {
-      if (isFunction(popover?.hanldeClose)) {
-        popover.hanldeClose()
+    const handleClose = async () => {
+      if (isFunction(popover?.handleClose)) {
+        popover.handleClose()
       }
       if (isFunction(onClose)) {
         onClose()
@@ -68,7 +68,7 @@ const Popconfirm: React.FC<FbmPopconfirmProps> = ({
         {content}
         <ConfirmFooter
           onOk={onOk}
-          onClose={hanldeClose}
+          onClose={handleClose}
         />
       </PopContent>
     )

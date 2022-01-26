@@ -31,8 +31,6 @@ export { default as Dialog } from './Dialog';
 
 export { default as Drawer } from './Drawer';
 
-export { default as Form } from './Form';
-
 export { default as Input } from './Input';
 
 export { default as Button } from './Button';
@@ -58,16 +56,16 @@ export { default as UserInfo } from './UserInfo';
 export { default as Chip } from './Chip';
 export * from './Chip'
 
+export { default as Form } from './Form';
+export * from './Form'
+
 export { default as FormItem } from './FormItem';
 export * from './FormItem'
 
 export { default as TextField } from './TextField';
 export * from './TextField'
 
-
 export { default as Actions } from './Actions';
-
-// export { default as Autocomplete } from './Autocomplete';
 
 export { default as Empty } from './Empty';
 

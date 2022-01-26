@@ -3,7 +3,8 @@ import {
   useFormikContext,
   FieldInputProps,
   FieldMetaProps,
-  FieldHelperProps
+  FieldHelperProps,
+  FormikValues
 } from 'formik'
 
 import validate from './validate'
@@ -33,7 +34,7 @@ export default function useFormItem(params: Params): Return {
   } = params
 
   const formik = useFormikContext()
-  
+
   if (!formik) {
     return {
       value,
@@ -42,10 +43,10 @@ export default function useFormItem(params: Params): Return {
 
   // 利用Formik处理验证
   const { getFieldMeta, getFieldProps, getFieldHelpers } = formik
-  const field: FieldInputProps<any> = getFieldProps({ name })
-  const meta: FieldMetaProps<any> = getFieldMeta(name)
-  const helpers: FieldHelperProps<any> = getFieldHelpers(name)
-  const { length } = getValueLength({ value: field.value, max })
+  const field: FieldInputProps<FormikValues> = getFieldProps({ name })
+  const meta: FieldMetaProps<FormikValues> = getFieldMeta(name)
+  const helpers: FieldHelperProps<FormikValues> = getFieldHelpers(name)
+  const { length } = getValueLength({ value: (field.value as any), max })
   const legacyBag = {
     ...field,
     meta,

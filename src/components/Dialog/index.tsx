@@ -110,7 +110,7 @@ const Header: React.FC<HeaderProps> = (props) => {
 }
 
 const Content: React.FC = ({ children }) => (
-  <Box m='24px 0 28px 0'>
+  <Box>
     {children}
   </Box>
 )

@@ -21,20 +21,20 @@ export default () =>{
   const [open, setOpen] = React.useState(true)
   const content =(
     <div style={{height: 100, width: 600}}>
-      <h1>🥑 鳄梨科技</h1>
+      <div>🥑 鳄梨科技</div>
     </div>
   )
 
   return (
     <Demo>
       <Popover content={content} trigger="hover">
-        <Button  sx={{ m: 0.5 }}>hover</Button>
+        <Button  sx={{ mr: 1 }}>hover</Button>
       </Popover>
-      <Popover content={content} 
-                TriggerProps={{ sx: { height: '100%' } }}
-                ClickWrapProps={{ sx: { height: '100%' }}}
+      <Popover 
+          arrow={false}
+          content={content} 
         >
-        <Button  sx={{ m: 0.5 }}>Click</Button>
+        <Button  >Click</Button>
       </Popover>
     </Demo>
   )
@@ -53,8 +53,8 @@ import { Grid } from '@mui/material'
 export default () =>{
   const [open, setOpen] = React.useState(true)
   const content = (
-    <div style={{height: 50, width: 100}}>
-      <h2>🥑 鳄梨科技</h2>
+   <div style={{height: 100, width: 600}}>
+      <div>🥑 鳄梨科技</div>
     </div>
   )
 

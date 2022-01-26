@@ -53,13 +53,16 @@ const PopoverRoot: React.FC<TooltipProps> = styled((inProps) => {
       classes={{ popper: className }}
     />
   )
-})(({ theme }) => ({
+})(({ theme, arrow }) => ({
   [`& .${tooltipClasses.tooltip}`]: {
     backgroundColor: theme.palette.common.white,
     color: 'rgba(0, 0, 0, 0.87)',
     boxShadow: '0px 1px 10px 0px rgb(0 0 0 / 12%)',
     padding: 0,
     maxWidth: '100%',
+    ...(arrow === false && {
+      margin: '3px !important'
+    })
   },
   [`& .${tooltipClasses.arrow}:before`]: {
     color: '#fff',
@@ -144,7 +147,7 @@ const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
     trigger
   })
 
-  const hanldeClose = (event: Event) => {
+  const handleClose = (event: Event) => {
     setOpen(false)
     if (isFunction(onClose)) {
       onClose(event)
@@ -164,7 +167,7 @@ const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
   let content = null
   if (typeof contentProp === 'function') {
     content = contentProp({
-      hanldeClose,
+      handleClose,
       handleOpen,
     })
   } else {
@@ -175,7 +178,7 @@ const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
     <ClickWrap
       isAway={isAway}
       trigger={trigger}
-      onClickAway={hanldeClose}
+      onClickAway={handleClose}
       {...ClickAwayListenerProps}
     >
       <PopoverRoot
@@ -183,7 +186,7 @@ const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
         open={open}
         arrow={arrow}
         placement={placement}
-        onClose={hanldeClose}
+        onClose={handleClose}
         title={content}
         onClick={handleOpen}
         {...disableListeners}
