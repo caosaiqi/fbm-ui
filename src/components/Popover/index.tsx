@@ -5,7 +5,9 @@ import {
   TooltipProps,
   ClickAwayListener,
   tooltipClasses,
-  ClickAwayListenerProps
+  ClickAwayListenerProps,
+  Box,
+  BoxProps,
 } from '@mui/material'
 
 import { isFunction } from '../../utils'
@@ -28,6 +30,8 @@ export interface FbmPopoverProps {
   bgColor?: string
   /** 点击除弹框外其他区域弹框消失 */
   isAway?: boolean;
+  TriggerProps?: BoxProps;
+  ClickAwayListenerProps?: ClickAwayListenerProps | BoxProps ;
   children: TooltipProps['children'];
 }
 
@@ -63,19 +67,35 @@ const PopoverRoot: React.FC<TooltipProps> = styled((inProps) => {
   },
 }));
 
-const PopoverContent = styled('div')({
+const ClickWrapRoot: React.FC<BoxProps> = styled(Box)({
   display: 'inline-block',
 })
 
-const ClickWrapRoot = styled('div')({
+const TriggerRoot: React.FC<BoxProps> = styled(Box)({
   display: 'inline-block',
 })
 
-const ClickWrap: React.FC<ClickWrapProps> = ({ trigger, children, isAway, ...props }) => {
+const ClickWrap: React.FC<ClickWrapProps> = ({
+  trigger,
+  children,
+  isAway,
+  disableReactTree,
+  mouseEvent,
+  onClickAway,
+  touchEvent,
+  ...props
+}) => {
   if (trigger !== 'click' || isAway === false) return children
   return (
-    <ClickAwayListener {...props}>
-      <ClickWrapRoot>
+    <ClickAwayListener
+      disableReactTree={disableReactTree}
+      mouseEvent={mouseEvent}
+      onClickAway={onClickAway}
+      touchEvent={touchEvent}
+    >
+      <ClickWrapRoot
+        {...props}
+      >
         {children}
       </ClickWrapRoot>
     </ClickAwayListener>
@@ -114,7 +134,9 @@ const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
     children,
     onClose,
     isAway,
-    ...other
+    TriggerProps,
+    ClickAwayListenerProps,
+    ...PopoverProps
   } = props
 
   const [open, setOpen] = useOpen({
@@ -154,6 +176,7 @@ const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
       isAway={isAway}
       trigger={trigger}
       onClickAway={hanldeClose}
+      {...ClickAwayListenerProps}
     >
       <PopoverRoot
         ref={ref}
@@ -164,11 +187,13 @@ const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
         title={content}
         onClick={handleOpen}
         {...disableListeners}
-        {...other}
+        {...PopoverProps}
       >
-        <PopoverContent>
+        <TriggerRoot
+          {...TriggerProps}
+        >
           {children}
-        </PopoverContent>
+        </TriggerRoot>
       </PopoverRoot>
     </ClickWrap>
   )
@@ -182,6 +207,8 @@ FmbPopover.defaultProps = {
   content: null,
   children: null,
   isAway: true,
+  ClickAwayListenerProps: {},
+  TriggerProps: {},
 }
 
 export default FmbPopover

@@ -8,6 +8,7 @@ export default function useTextField(cloneProps) {
   const {
     max,
     inputProps,
+    InputProps,
     error: errorProp,
     value: valueProp,
     onChange: onChangeProp,
@@ -69,8 +70,9 @@ export default function useTextField(cloneProps) {
     length,
     setError,
     handleValidate: handleValidate,
-    inputProps: {
+    InputProps: {
       ...inputProps,
+      ...InputProps,
       onChange: handleChange,
       onBlur: handleBlur,
     }

@@ -26,6 +26,7 @@ import {
 import { useFormik } from 'formik'
 
 const formProps= {
+  validateOnChange: false,
   initialValues: {
     name:'',
     sex: 2,
@@ -59,16 +60,6 @@ export default () => {
           name='sex' 
           label='性别'
          >
-          <Select options={[
-            {
-              label: '男',
-              value: 1
-            },
-            {
-              label: '女',
-              value: 2
-            }
-          ]}/>
          </FormItem>
       </Form>
       <Button variant="outlined" onClick={formikValues.handleReset} sx={{ mr:1 }}>

@@ -39,6 +39,7 @@ export type FbmFormItemProps = FbmInputProps & {
   required?: boolean;
   labelProps?: InputLabelProps;
   inputProps?: FbmInputProps;
+  InputProps?: FbmInputProps;
   inputRef?: React.Ref<any>;
   meta?: FieldMetaProps<any>;
   helpers?: FieldHelperProps<any>;
@@ -125,6 +126,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) 
     variant,
     value,
     inputProps,
+    InputProps,
     inputRef,
     autoComplete,
     autoFocus = false,
@@ -204,7 +206,8 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) 
         placeholder={placeholder}
         endAdornment={endAdornment}
         readOnly={readOnly}
-        {...inputProps}
+        inputProps={inputProps}
+        {...InputProps}
       />
     )
   }

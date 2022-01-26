@@ -14,7 +14,7 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import {  Popover, Button, Layout } from 'fbm-ui'
+import {  Popover, Button, Demo } from 'fbm-ui'
 
 
 export default () =>{
@@ -26,14 +26,17 @@ export default () =>{
   )
 
   return (
-    <Layout>
+    <Demo>
       <Popover content={content} trigger="hover">
         <Button  sx={{ m: 0.5 }}>hover</Button>
       </Popover>
-      <Popover content={content} >
+      <Popover content={content} 
+                TriggerProps={{ sx: { height: '100%' } }}
+                ClickWrapProps={{ sx: { height: '100%' }}}
+        >
         <Button  sx={{ m: 0.5 }}>Click</Button>
       </Popover>
-    </Layout>
+    </Demo>
   )
 }
 ```

@@ -51,8 +51,8 @@ export default function useFormItem(params: Params): Return {
     meta,
     helpers,
     length,
+    formik,
   }
-
   // 处理验证
   const { registerField, unregisterField } = formik;
   React.useEffect(() => {
@@ -65,7 +65,7 @@ export default function useFormItem(params: Params): Return {
     return () => {
       unregisterField(name);
     };
-  }, [registerField, unregisterField, name]);
+  }, [name]);
 
   return legacyBag
 }

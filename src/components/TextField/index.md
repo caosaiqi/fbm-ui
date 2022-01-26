@@ -74,7 +74,6 @@ export default () => {
     onClear: () => {
       setValue('')
     },
-    
   })
 
   const handleSubmit = async () => {
@@ -85,7 +84,6 @@ export default () => {
     <Demo white={true}>
       <TextField
         size="small"
-        
         {...nameFieldProps}
       />
       <Button onClick={handleSubmit}> 提交 </Button> 
@@ -119,10 +117,13 @@ export default () => {
     sx: {
       height: 'auto',
     },
-    inputProps: {
-      rows: 10,
+    InputProps: {
+      rows:3 ,
       placeholder: '内容',
       multiline: true,
+      inputProps: {
+        maxLength: 3,
+      }
     }
   })
 
@@ -141,4 +142,3 @@ export default () => {
 }
 
 ```
-
