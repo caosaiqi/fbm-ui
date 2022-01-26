@@ -52,9 +52,13 @@ const DialogRoot: React.FC<RootProps> = styled(Box)(({
   isNullFooter,
 }) => ({
   width: width || 360,
-  padding: '0 16px',
+  paddingLeft: '16px',
+  paddingRight: '16px',
   ...(isNullHeader && {
-    paddingTop: 0,
+    paddingTop: '24px',
+  }),
+  ...(isNullFooter && {
+    paddingBottom: '24px',
   }),
 }))
 

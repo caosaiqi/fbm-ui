@@ -59,6 +59,8 @@ export default () =>{
             title="12312321"
             onClose={() => setOpen(false)}
             onOk={handleOk }
+            header={null}
+            footer={null}
           >
             <h1>content</h1 >
           </Dialog>
