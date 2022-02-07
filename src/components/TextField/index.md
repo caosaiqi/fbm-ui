@@ -94,8 +94,6 @@ export default () => {
 
 ```
 
-
-
 ```tsx
 /**
  * title: textarea
@@ -144,7 +142,6 @@ export default () => {
 
 ```
 
-
 ```tsx
 /**
  * title: 基本
@@ -186,3 +183,126 @@ export default () => {
 
 ```
 
+
+```tsx
+/**
+ * title: 类组件使用TextField
+ * desc: 如果校验规则想使用组件的校验规则即useTextField 需要配合useImperativeHandle调用子组件方法
+ */
+import * as React from 'react';
+import { Demo, TextField, rules, useTextField, Button, SearchIcon} from 'fbm-ui'
+import { FbmInputProps } from '../Input';
+
+class DemoForTextField extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      value: '',
+    }
+    this.exampleRef = React.createRef();
+  }
+
+  onChange = (e) => {
+    this.setState({
+      value: e.target.value,
+    })
+  }
+  
+  handleSubmit = async () => {
+    const isError = await this.exampleRef.current.validate();
+    // todo
+  };
+
+  render() {
+    return (
+    <Demo white={true}>
+      <Example
+        ref={this.exampleRef}
+        onChange={this.onChange}
+        value={this.state.value}
+      />
+      <Button onClick={this.handleSubmit}> 提交 </Button> 
+    </Demo>
+    )
+  }
+}
+export default DemoForTextField;
+
+interface ExampleProps {
+  onChange: FbmInputProps['onChange'],
+  value: string,
+}
+const Example: React.FC<ExampleProps> = React.forwardRef(({ 
+  onChange,
+  value,
+ }, ref) => {
+
+  const nameFieldProps = useTextField({
+    value,
+    onChange: (e) => onChange(e),
+    rules: [rules.required()],
+  })
+
+  React.useImperativeHandle(ref, () => {
+     return {
+       validate() {
+         return nameFieldProps.handleValidate();
+       }
+     }
+  });
+
+  return (
+    <TextField
+      {...nameFieldProps}
+    />
+  );
+})
+```
+
+```tsx
+/**
+ * title: 输入校验
+ * desc: 校验是实时校验,暂时提供的校验规则有手机号，邮箱和必填项(required, mobile, email), 也可自定义校验
+ */
+import * as React from 'react';
+import { Demo, TextField, rules, useTextField, Button, SearchIcon} from 'fbm-ui'
+
+export default () => {
+  const [value, setValue] = React.useState('')
+  
+  const handleChange = (e) => {
+    setValue(e.target.value)
+  }
+
+  const nameFieldProps = useTextField({
+    value,
+    rules: [rules.required(), rules.mobile('手机号不正确'), () => {
+      // 此处为自定义校验
+      // 若返回undefined 则表示校验通过 返回其他内容则作为提示给用户
+      return '输入不正确';
+    }],
+    onChange: handleChange,
+    sx: {
+      height: 'auto',
+    },
+    inputProps: {
+      placeholder: '内容',
+    }
+  })
+
+  const handleSubmit = async () => {
+    // handleValidate 会将rules的校验再次校验一次 返回值为一个promise（永远为resolve状态）多个useTextField使用可以使用Promise.all（但是建议使用Form）
+    const isError = await nameFieldProps.handleValidate();
+  }
+
+  return (
+    <Demo white={true}>
+      <TextField
+        {...nameFieldProps}
+      />
+      <Button onClick={handleSubmit}> 提交 </Button> 
+    </Demo>
+  )
+}
+
+```
