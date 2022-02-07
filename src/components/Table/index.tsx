@@ -1,5 +1,5 @@
 import React from 'react';
-import { TableContainer, Box, Paper } from '@mui/material'
+import { TableContainer, Box } from '@mui/material'
 import styled from '@mui/material/styles/styled'
 
 import Table from './src/Table'
@@ -8,8 +8,6 @@ import Tbody from './src/Tbody'
 import Loading from './src/Loading'
 import Pagination from './src/Pagination'
 import { FbmTableProps } from './types'
-
-const Container = styled(TableContainer)()
 
 const Root = styled(Box)({
   position: 'relative',
@@ -20,53 +18,46 @@ const FbmTable: React.FC<FbmTableProps> = ({
   loading,
   data,
   emptyText,
-  pagination,
   columns,
   batchActions,
   nameText,
-  tableContainerProps,
+  PaginationProps,
+  TableContainerProps,
 }) => {
-
-  const TheadProps = {
-    data,
-    nameText,
-    columns,
-    batchActions
-  }
-
-  const TbodyProps = {
-    data,
-    columns,
-    emptyText,
-    loading,
-  }
-
-  const loadingProps = {
-    loading,
-    nameText
-  }
-
   return (
     <Root>
-      <Loading {...loadingProps} />
-      <Container {...tableContainerProps}>
+      <Loading 
+        loading={loading}
+        nameText={nameText}
+      />
+      <TableContainer {...TableContainerProps}>
         <Table>
-          <Thead {...TheadProps} />
-          <Tbody {...TbodyProps} />
+          <Thead 
+            data={data}
+            nameText={nameText}
+            columns={columns}
+            batchActions={batchActions}
+          />
+          <Tbody 
+            data={data}
+            columns={columns}
+            emptyText={emptyText}
+            loading={loading}
+          />
         </Table>
-      </Container>
-      <Pagination {...pagination} />
+      </TableContainer>
+      <Pagination {...PaginationProps} />
     </Root>
   )
 }
 
 FbmTable.defaultProps = {
-  tableContainerProps: {},
   align: 'left',
   columns: [],
-  pagination: {
+  PaginationProps: {
     total: 0
-  }
+  },
+  TableContainerProps: {},
 }
 
 export default FbmTable

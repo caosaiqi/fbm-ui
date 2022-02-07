@@ -32,7 +32,7 @@ export default function useInputProps(inputProps = {}): any {
       length,
       meta,
       helpers,
-      error: !isEmpty(meta.error),
+      error: meta.touched && !isEmpty(meta.error),
       ...inputProps,
     }
 

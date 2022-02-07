@@ -29,9 +29,13 @@ export default () => {
     initialValues: {
       name:'',
       sex: 2,
+      email: ''
+    },
+    onSubmit: (values) => {
+      console.log(values)
     }
   })
-
+  
   return (
     <Layout>
       <Form {...form}>
@@ -41,14 +45,29 @@ export default () => {
           label="名称"
           max={20}
          />
+        <FormItem
+          name='email' 
+          label="邮箱"
+          required
+         />
          <FormItem 
           required
           name='sex' 
           label='性别'
-         >
+         >  
+          <Select options={[
+            {
+              label: '男',
+              value: 1
+            },
+            {
+              label: '女',
+              value: 2
+            }
+          ]}/>
          </FormItem>
       </Form>
-      <Button variant="outlined" sx={{ mr:1 }}>
+      <Button onClick={form.handleReset} variant="outlined" sx={{ mr:1 }}>
           重置
       </Button>
       <Button onClick={form.handleSubmit}>

@@ -68,8 +68,10 @@ export interface FbmTableLoading {
 export type FbmTableProps = {
   /** table对其方式 */
   align?: string;
-  /** 分页 */
-  pagination?: FbmPaginationProps;
+  /** table名称 */
   nameText?: NameText;
-  tableContainerProps?: TableContainerProps
+  /** 分页 */
+  PaginationProps?: FbmPaginationProps;
+  /** TableContainerProps */
+  TableContainerProps?: TableContainerProps
 } & FbmTbodyProps & FbmTheadProps

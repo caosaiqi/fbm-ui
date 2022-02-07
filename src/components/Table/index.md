@@ -146,10 +146,7 @@ export default () =>{
         data={data}
         columns={columns}
         batchActions={batchActions}
-        pagination={pagination}
-        tableContainerProps={{
-          component: Paper
-        }}
+        PaginationProps={pagination}
       />
     </Layout>
   )
