@@ -24,6 +24,7 @@ const FbmTable: React.FC<FbmTableProps> = ({
   PaginationProps,
   TableContainerProps,
 }) => {
+  
   return (
     <Root>
       <Loading 

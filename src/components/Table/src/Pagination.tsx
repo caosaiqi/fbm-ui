@@ -16,7 +16,6 @@ const Root = styled(Box)({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center'
-
 })
 
 const FbmPagination: React.FC<FbmPaginationProps> = ({
@@ -26,9 +25,7 @@ const FbmPagination: React.FC<FbmPaginationProps> = ({
   onPageChange,
   ...otherProps
 }) => {
-
   if (!total || total <= 0) return null;
-
   const [pageNum, setPageNum] = React.useState(page)
   // 总页数
   const count = Math.ceil(total / pageSize)
@@ -41,22 +38,20 @@ const FbmPagination: React.FC<FbmPaginationProps> = ({
           const newPageNum = typeof f === 'number' ? f : pageNum
           setPageNum(newPageNum)
         }
-      } catch(err) {
+      } catch (err) {
         throw err
       }
     }
   }
 
-  const paginationProps = {
-    count,
-    page: pageNum,
-    onChange: handleChange,
-    ...otherProps,
-  }
-
   return (
-    <Root>
-      <Pagination  {...paginationProps} />
+    <Root data-testid='pagination-root'>
+      <Pagination
+        count={count}
+        page={pageNum}
+        onChange={handleChange}
+        {...otherProps}
+      />
     </Root>
   )
 }

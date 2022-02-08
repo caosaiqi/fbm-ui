@@ -1,14 +1,14 @@
 
 import React from 'react'
 import styled from '@mui/material/styles/styled'
-import { CircularProgress, Box } from '@mui/material'
+import { CircularProgress } from '@mui/material'
 
-import { FbmTableLoading } from '../types'
+import { FbmTableLoadingProps } from '../types'
 import Typography from '../../Typography'
 
 const Root: React.FC<{
-  loading: FbmTableLoading['loading']
-}> = styled(Box)(({ theme, loading }) => {
+  loading?: FbmTableLoadingProps['loading']
+}> = styled('div')(({ theme, loading }) => {
   const height = 54
   const s = loading ? '0.07s' : '0.15s'
   return {
@@ -26,26 +26,25 @@ const Root: React.FC<{
   }
 })
 
-const Text = styled(Typography)(({ theme }) => (
-  {
-    color: theme.palette.primary.main,
-    marginLeft: 16,
-    fontSize: 14
-  }
-))
+const Text = styled(Typography)(({ theme }) => ({
+  color: theme.palette.primary.main,
+  marginLeft: 16,
+  fontSize: 14
+}))
 
-const TableLoading: React.FC<FbmTableLoading> = ({
+const TableLoading: React.FC<FbmTableLoadingProps> = ({
   loading,
   nameText,
 }) => {
   const getText = () => {
     let defaultText = '正在载入'
-      if (nameText) {
-        if (typeof nameText === 'string') return `${defaultText}${nameText}`
-        if (typeof nameText === 'function') return nameText('loading')
-      }
-      return defaultText
+    if (nameText) {
+      if (typeof nameText === 'string') return `${defaultText}${nameText}`
+      if (typeof nameText === 'function') return nameText('loading')
+    }
+    return defaultText
   }
+
   return (
     <Root loading={loading}>
       <CircularProgress size={16} />

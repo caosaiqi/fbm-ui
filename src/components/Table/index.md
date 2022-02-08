@@ -31,19 +31,9 @@ export default () =>{
 
  const data = [
     {
-      name: "张三",
+      name: '张三',
       desc: `男 29岁 182381823`,
       avatar: "https://joeschmoe.io/api/v1/random",
-      chips: [
-        {
-          label: "有纹身",
-          color: "error"
-        },
-        {
-          label: "大厂经历"
-        }
-      ],
-
       status: "待审核",
       date: "2021年11月08日"
     },
@@ -51,15 +41,6 @@ export default () =>{
       name: "李四",
       desc: `男 28岁 182381823`,
       avatar: "https://joeschmoe.io/api/v1/random",
-      chips: [
-        {
-          label: "有纹身",
-          color: "error"
-        },
-        {
-          label: "大厂经历"
-        }
-      ],
       status: "慎审核中",
       date: "2021年11月08日"
     }
@@ -92,8 +73,8 @@ export default () =>{
       id: 'name',
       label: '名称',
     },
-    TableColumnActions({
-      actions: [
+    TableColumnActions(
+      [
         { 
           text: '认证流程',
           variant: 'outlined',
@@ -101,41 +82,21 @@ export default () =>{
         { 
           text: '新增用户',
           onClick: ({ row }) => Message.success('新增用户')
-        },
+        }
       ]
-    })
+    )
   ]
 
   const batchActions = [ 
     { 
       text: '认证流程',
-      variant: 'outlined',
-      color: 'error',
-      actions: [
-        { 
-          text: '认证流程',
-          variant: 'outlined',
-          onClick: (data) => {
-          }
-        },
-        { 
-          text: '新增用户',
-          onClick: () => Message.success('新增用户')
-        },
-      ],
     },
-    { 
-      text: '新增用户',
-      color: 'error',
-      onClick: () => Message.success('新增用户')
-    }
   ]
 
   const pagination = {
     total: 20,
     onPageChange: async  (_, page) => {}
   }
-
   
   return (
     <Layout>

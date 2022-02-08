@@ -58,12 +58,10 @@ export interface FbmTbodyProps {
   loading?: boolean;
 }
 
-export interface FbmTableLoading {
+export interface FbmTableLoadingProps {
   loading?: boolean;
   nameText?: NameText;
 }
-
-
 
 export type FbmTableProps = {
   /** table对其方式 */
