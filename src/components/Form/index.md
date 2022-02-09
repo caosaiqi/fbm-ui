@@ -19,6 +19,7 @@ import {
   Form, 
   FormItem,
   Button,
+  DateRangePicker,
   Select, 
   rules,
   useForm
@@ -29,7 +30,8 @@ export default () => {
     initialValues: {
       name:'',
       sex: 2,
-      email: ''
+      email: '',
+      dates: [null, null]
     },
     onSubmit: (values) => {
       console.log(values)
@@ -49,6 +51,11 @@ export default () => {
           name='email' 
           label="邮箱"
           required
+          rules={[
+            { 
+              type: 'email'
+            }
+          ]}
          />
          <FormItem 
           required
@@ -65,6 +72,13 @@ export default () => {
               value: 2
             }
           ]}/>
+         </FormItem>
+         <FormItem 
+          required
+          name='dates' 
+          label='开始时间-结束时间'
+         >  
+          <DateRangePicker />
          </FormItem>
       </Form>
       <Button onClick={form.handleReset} variant="outlined" sx={{ mr:1 }}>

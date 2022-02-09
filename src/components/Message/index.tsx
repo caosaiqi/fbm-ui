@@ -52,7 +52,7 @@ const Message = (props: MessageProps) => {
     clearTimeout(t)
   }, autoHideDuration)
 
-  const Row =  styled(Box)({
+  const Row = styled(Box)({
     backgroundColor: '#fff',
     display: 'flex',
     alignItems: 'center',
@@ -65,7 +65,7 @@ const Message = (props: MessageProps) => {
   const Icon = styled(icons[type])({
     color: theme.palette[type].main,
   })
-  
+
   const Content = styled(Typography)({
     fontSize: 14,
     marginLeft: '14px',

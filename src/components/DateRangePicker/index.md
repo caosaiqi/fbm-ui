@@ -10,18 +10,23 @@ group:
 
 ```tsx
 /**
- * title: 两种大小
- * desc: 输入框定义了两种尺寸（默认、小），高度分别为44px和34px。
+ * title: StaticDateRangePicker
+ * desc: 
  */
 import * as React from 'react';
 import {  Demo, Input, Box, DateRangePicker } from 'fbm-ui'
 
-export default () => (
-  <Demo grey={true}>
-    <DateRangePicker />
-  </Demo>
-)
+export default () => {
+  const [value, setValue] = React.useState([null, null])
+
+  const handleChange = (value) => {
+    setValue(value)
+  }
+
+  return  (
+    <Demo grey={true}>
+      <DateRangePicker value={value} onChange={handleChange} />
+    </Demo>
+  )
+}
 ```
-
-
-<API></API>

@@ -1,3 +1,5 @@
+import { isArray } from './index'
+
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MOBILE_REGEX = /^1[3456789]\d{9}$/;
 
@@ -6,21 +8,38 @@ export const required = (helperText?: string) => {
   return (
     value,
     formItem = {}
-  ) => { 
+  ) => {
     const { label } = (formItem as { label: string })
-    if (!value || (typeof value === 'string' && value.trim() === '')) {
 
+    const isEmpty = (item) => {
+      // 空字符串
+      if (typeof item === 'string' && item.trim() === '') return true
+
+      //undefined
+      if(item === undefined) return true
+
+      // null
+      if(item === null) return true
+
+      //数组
+      if (isArray(item)) {
+        const found = item.find(element => {
+          return !isEmpty(element)
+        })
+        return found === undefined
+      }
+    }
+
+    if (isEmpty(value)) {
       if (helperText) return helperText
-
       let labelStr = '此处'
-      if (label && typeof label === 'string') {       
+      if (label && typeof label === 'string') {
         if (label.endsWith('*')) {
           labelStr = label.slice(0, -1)
         } else {
           labelStr = label
         }
       }
-
       return `${labelStr}不能为空`
     }
   }
