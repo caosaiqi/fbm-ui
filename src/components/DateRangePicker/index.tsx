@@ -12,6 +12,7 @@ interface FbmDateRangePickerProps {
   onChange: FbmStaticDateRangePickerProps['onChange'];
   formatStr?: string;
   placeholder: FbmInputProps['placeholder'];
+  disabled?: FbmInputProps['disabled'];
   InputProps?: FbmInputProps;
 }
 
@@ -31,9 +32,11 @@ const FbmDateRangePicker: React.FC<FbmDateRangePickerProps> = ({
   onChange,
   formatStr,
   placeholder,
+  disabled,
   InputProps,
   value: valueProp,
   children: childrenProp,
+  ...StaticDateRangePickerProps
 }) => {
   // 对接formItem
   const {
@@ -65,17 +68,18 @@ const FbmDateRangePicker: React.FC<FbmDateRangePickerProps> = ({
   } else {
     children = (
       <Input
-        sx={{ width: 300 }}
+        clear
+        sx={{ minWidth: 310 }}
         readOnly={true}
         value={valueStr}
         placeholder={placeholder}
+        disabled={disabled}
         {...InputProps}
       />
     )
   }
 
   const popoverContent = ({
-    handleOpen,
     handleClose,
   }) => {
     const handleDateRangePickerChange = (value) => {
@@ -94,12 +98,16 @@ const FbmDateRangePicker: React.FC<FbmDateRangePickerProps> = ({
         value={value}
         onChange={handleDateRangePickerChange}
         onAccept={handleDateRangePickerAccept}
+        {...StaticDateRangePickerProps}
       />
     )
   }
 
   return (
-    <Popover content={popoverContent}>
+    <Popover
+      arrow={false}
+      disabled={disabled}
+      content={popoverContent}>
       {children}
     </Popover>
   )

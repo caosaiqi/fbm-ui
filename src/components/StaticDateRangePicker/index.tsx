@@ -46,6 +46,7 @@ const FbmDateRangePicker: React.FC<FbmStaticDateRangePickerProps> = ({
   value,
   onChange,
   onAccept,
+  ...DateRangePickerProps
 }) => {
   return (
     <LocalizationProvider>
@@ -58,6 +59,7 @@ const FbmDateRangePicker: React.FC<FbmStaticDateRangePickerProps> = ({
         renderInput={(startProps, endProps) => {
           return null
         }}
+        {...DateRangePickerProps}
       />
     </LocalizationProvider>
   )

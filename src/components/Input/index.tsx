@@ -44,6 +44,7 @@ const FbmInput: React.FC<FbmInputProps> = React.forwardRef((inProps, ref) => {
   } = useInputProps(inProps)
 
   const handleClear = (e) => {
+    e.stopPropagation()
     if (isFunction(onClear)) {
       onClear()
     }

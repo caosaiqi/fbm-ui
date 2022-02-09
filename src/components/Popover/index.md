@@ -43,6 +43,36 @@ export default () =>{
 
 ```tsx
 /**
+ * title: disabled
+ * desc: disabled
+ */
+import * as React from 'react';
+import {  Popover, Button, Demo } from 'fbm-ui'
+
+
+export default () =>{
+  const [open, setOpen] = React.useState(true)
+  const content =(
+    <div style={{height: 100, width: 600}}>
+      <div>🥑 鳄梨科技</div>
+    </div>
+  )
+
+  return (
+    <Demo>
+      <Popover disabled content={content} trigger="hover">
+        <Button disabled sx={{ mr: 1 }}>hover</Button>
+      </Popover>
+      <Popover disabled content={content}>
+        <Button disabled >Click</Button>
+      </Popover>
+    </Demo>
+  )
+}
+```
+
+```tsx
+/**
  * title: 弹框的位置
  * desc: 有 12 个位置选项，而是依靠源头发出的运动来传递方向。
  */

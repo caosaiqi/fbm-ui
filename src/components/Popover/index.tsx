@@ -16,6 +16,8 @@ type TriggerMap = 'click' | 'hover' | 'focus'
 export interface FbmPopoverProps {
   /** 是否显示弹框 */
   open?: TooltipProps['open'];
+  /** 是否禁用弹框 */
+  disabled?: boolean;
   /** 弹框内容 */
   content?: TooltipProps['title'];
   /** 是否需要三角▶️ */
@@ -29,20 +31,25 @@ export interface FbmPopoverProps {
   /** 弹框背景色 */
   bgColor?: string
   /** 点击除弹框外其他区域弹框消失 */
-  isAway?: boolean;
+  isClickAway?: boolean;
   TriggerProps?: BoxProps;
-  ClickAwayListenerProps?: ClickAwayListenerProps | BoxProps ;
+  ClickAwayListenerProps?: ClickAwayListenerProps | BoxProps;
   children: TooltipProps['children'];
 }
 
 interface ClickWrapProps extends ClickAwayListenerProps {
   trigger: FbmPopoverProps['trigger'];
-  isAway?: FbmPopoverProps['isAway'];
+  isClickAway?: FbmPopoverProps['isClickAway'];
 }
 
 interface UseOpen {
-  ({ open, trigger }: { open: FbmPopoverProps['open']; trigger: TriggerMap })
-    : [boolean, (open: boolean) => void]
+  ({
+    open,
+    trigger,
+  }: {
+    open: FbmPopoverProps['open'];
+    trigger: TriggerMap;
+  }): [boolean, (open: boolean) => void]
 };
 
 const PopoverRoot: React.FC<TooltipProps> = styled((inProps) => {
@@ -81,14 +88,14 @@ const TriggerRoot: React.FC<BoxProps> = styled(Box)({
 const ClickWrap: React.FC<ClickWrapProps> = ({
   trigger,
   children,
-  isAway,
+  isClickAway,
   disableReactTree,
   mouseEvent,
   onClickAway,
   touchEvent,
   ...props
 }) => {
-  if (trigger !== 'click' || isAway === false) return children
+  if (trigger !== 'click' || isClickAway === false) return children
   return (
     <ClickAwayListener
       disableReactTree={disableReactTree}
@@ -107,7 +114,7 @@ const ClickWrap: React.FC<ClickWrapProps> = ({
 
 const useOpen: UseOpen = ({
   open: openProp,
-  trigger
+  trigger,
 }) => {
   const [open, setOpen] = React.useState(() => {
     // 强制控制open
@@ -119,6 +126,9 @@ const useOpen: UseOpen = ({
   })
 
   const handleSetOpen = (isOpen: boolean) => {
+    // disabled 禁用操作
+    // if (disabled) return
+
     if (trigger === 'click') {
       setOpen(isOpen)
     }
@@ -130,13 +140,14 @@ const useOpen: UseOpen = ({
 const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
   const {
     open: openProp,
+    disabled,
     content: contentProp,
     arrow,
     trigger,
     placement,
     children,
     onClose,
-    isAway,
+    isClickAway,
     TriggerProps,
     ClickAwayListenerProps,
     ...PopoverProps
@@ -144,7 +155,7 @@ const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
 
   const [open, setOpen] = useOpen({
     open: openProp,
-    trigger
+    trigger,
   })
 
   const handleClose = (event: Event) => {
@@ -155,12 +166,14 @@ const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
   }
 
   const handleOpen = () => {
-    setOpen(true);
+    if (disabled === false) {
+      setOpen(true);
+    }
   };
 
   const disableListeners = {
-    disableFocusListener: trigger !== 'focus',
-    disableHoverListener: trigger !== 'hover',
+    disableFocusListener: disabled || trigger !== 'focus',
+    disableHoverListener: disabled || trigger !== 'hover',
     disableTouchListener: true,
   }
 
@@ -176,7 +189,7 @@ const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
 
   return (
     <ClickWrap
-      isAway={isAway}
+      isClickAway={isClickAway}
       trigger={trigger}
       onClickAway={handleClose}
       {...ClickAwayListenerProps}
@@ -209,9 +222,10 @@ FmbPopover.defaultProps = {
   arrow: true,
   content: null,
   children: null,
-  isAway: true,
+  isClickAway: true,
   ClickAwayListenerProps: {},
   TriggerProps: {},
+  disabled: false
 }
 
 export default FmbPopover

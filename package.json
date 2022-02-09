@@ -70,7 +70,7 @@
     "@mui/material": "^5.1.1",
     "@umijs/test": "^3.5.20",
     "copy-to-clipboard": "^3.3.1",
-    "date-fns": "2.20.3",
+    "date-fns": "^2.28.0",
     "formik": "^2.2.9",
     "material-ui-popup-state": "^2.0.0",
     "moment": "2.29.1",
