@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Box } from '@mui/material'
+import { Box, BoxProps } from '@mui/material'
 import styled from '@mui/material/styles/styled'
 
 import { FbmThemeOptions } from '../ThemeProvider'
 
 type ColorMap = 'white' | 'dark'
-export interface FbmMaskProps { 
+export interface FbmMaskProps extends BoxProps { 
   color?: ColorMap | string
 }
 

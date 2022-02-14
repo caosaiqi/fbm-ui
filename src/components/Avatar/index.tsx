@@ -19,6 +19,7 @@ const BoxRoot = styled(Box)({
   display: 'inline-block',
   borderRadius: '50%',
   position: 'relative',
+  backgroundColor: '#fff',
 })
 
 const SexRoot: React.FC<{
@@ -89,8 +90,14 @@ const FbmAvatar: React.FC<FbmAvatarPropos> = ({
     )
   }
 
+  const BoxMaskProps ={
+    sx: {
+      borderRadius: '50%'
+    }
+  }
+
   return (
-    <BoxRoot disabled={disabled}>
+    <BoxRoot disabled={disabled} MaskProps={BoxMaskProps}>
       <AvatarRoot  {...avatarProps} />
       <SexRender />
     </BoxRoot>
