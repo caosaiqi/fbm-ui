@@ -18,15 +18,19 @@ interface FbmDateRangePickerProps {
 
 function useFormItem() {
   const formItemValues = useFormItemContext()
+  console.log(formItemValues)
   return {
     value: formItemValues?.value,
     setValue: (newValue) => {
       if (!formItemValues || isEmpty(formItemValues)) return
       const { helpers } = formItemValues;
       helpers?.setValue(newValue)
-    }
+    },
+    ...formItemValues,
   }
 }
+
+let InputBlurTime = null
 
 const FbmDateRangePicker: React.FC<FbmDateRangePickerProps> = ({
   onChange,
@@ -66,7 +70,9 @@ const FbmDateRangePicker: React.FC<FbmDateRangePickerProps> = ({
   } else if (childrenProp != null) {
     children = childrenProp
   } else {
-    children = (
+    children = ({
+      open
+    }) => (
       <Input
         clear
         sx={{ minWidth: 310 }}
@@ -74,9 +80,21 @@ const FbmDateRangePicker: React.FC<FbmDateRangePickerProps> = ({
         value={valueStr}
         placeholder={placeholder}
         disabled={disabled}
+        onBlur={(e) => {
+          clearTimeout(InputBlurTime)
+          if (open) {
+            InputBlurTime = setTimeout(() => {
+              e.target.focus()
+            })
+          }
+        }}
         {...InputProps}
       />
     )
+  }
+
+  const handlePopoverClose = (event) => {
+
   }
 
   const popoverContent = ({
@@ -107,7 +125,9 @@ const FbmDateRangePicker: React.FC<FbmDateRangePickerProps> = ({
     <Popover
       arrow={false}
       disabled={disabled}
-      content={popoverContent}>
+      content={popoverContent}
+      onClose={handlePopoverClose}
+    >
       {children}
     </Popover>
   )

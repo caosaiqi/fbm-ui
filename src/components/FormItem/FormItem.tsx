@@ -110,7 +110,7 @@ const Helper: React.FC<HelperProps> = (props) => {
   )
 }
 
-const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) => {
+const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) => {
   const {
     meta,
     helpers,
@@ -145,7 +145,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) 
     endAdornment,
     readOnly,
     ...other
-  } = inProps
+  } = props
 
   // status
   const statusError: boolean = error && !isEmpty(error)
@@ -178,7 +178,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((inProps, ref) 
   if (childrenProp) {
     children = childrenProp
   } else if (typeof childrenProp === 'function') {
-    children = childrenProp(inProps)
+    children = childrenProp(props)
   } else {
     children = (
       <Input

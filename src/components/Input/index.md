@@ -47,6 +47,7 @@ import {  Demo, Input, Box, SearchIcon} from 'fbm-ui'
 export default () => (
   <Demo>
     <Input 
+     
       startAdornment={
         <SearchIcon color="disabled" />
       }
