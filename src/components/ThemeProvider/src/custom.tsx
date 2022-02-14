@@ -21,6 +21,4 @@ export default {
     dark: 'rgba(0, 0, 0, .56)',
     white: 'rgba(255, 255, 255, .8)',
   },
-
-  
 }

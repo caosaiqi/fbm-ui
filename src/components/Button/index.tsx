@@ -21,11 +21,15 @@ const loadingProps = {
   size: 16,
 }
 
-const ButtonRoot = styled(Button)(({ color, theme, variant }) => {
+const ButtonRoot = styled(Button)(({ color, theme, variant, size }) => {
   return {
+    minWidth: 'auto',
     '&:hover': {
       boxShadow: 'none',
     },
+    ...(size === 'small' && {
+      padding: '1px 8px',
+    }),
     ...(color === 'inherit' && {
       borderColor: 'rgba(0,0,0,.12)',
       color: theme.palette.text.primary,
@@ -34,8 +38,21 @@ const ButtonRoot = styled(Button)(({ color, theme, variant }) => {
         borderColor: 'rgba(0,0,0,.04)',
       },
     }),
+    ...(variant === 'text' &&
+      color !== 'inherit' && {
+      color: theme.palette[color].main,
+    }),
     ...(variant === 'outlined' && {
-      backgroundColor: '#fff'
+      backgroundColor: '#fff',
+      ...(size === 'small' && {
+        padding: '0px 7px',
+      }),
+      ...(size === 'medium' && {
+        padding: '4px 15px',
+      }),
+      ...(size === 'large' && {
+        padding: '8px 23px',
+      }),
     })
   }
 })
@@ -60,6 +77,8 @@ const FbmButton: React.FC<FbmButtonProps> = (props) => {
 FbmButton.defaultProps = {
   variant: 'contained',
   loading: false,
+  color: 'primary',
+  size: 'medium',
 }
 
 export default FbmButton
