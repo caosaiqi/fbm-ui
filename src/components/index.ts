@@ -74,3 +74,4 @@ export * as rules from '../utils/rules';
 
 
 export { default as DateRangePicker } from './DateRangePicker';
+export { default as InfoList } from './InfoList';
