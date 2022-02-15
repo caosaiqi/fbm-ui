@@ -14,7 +14,7 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import { Drawer, Layout, Button} from 'fbm-ui'
+import { Drawer, Layout, Button, Typography } from 'fbm-ui'
 
 export default () => {
   const [ open, setOpen ] = React.useState(false)
@@ -31,9 +31,14 @@ export default () => {
   }
   return (
     <Layout>
-      <Button onClick={() => setOpen(true)}>ASDAS</Button>
+      <Button onClick={() => setOpen(true)}>open</Button>
+      
       <Drawer open={open} onOk={handleOk} onClose={handleClose}>
-        <h1  style={{ width: 960 }}>asdasdada</h1>
+        <Typography variant="h4"> 招聘管理 面面俱到</Typography>
+        <Typography variant="body1">
+          从简历筛选到offer管理的招聘流程线上自动化，各模块100%可
+          配置，帮助HR提升招聘效率
+        </Typography>
       </Drawer>
     </Layout>
   )
