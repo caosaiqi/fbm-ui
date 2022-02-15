@@ -31,6 +31,14 @@ export default () => {
         value={value}
         onChange={handleChange}
       />
+      <FormItem
+        clear={false}
+        label='名称'
+        size={'small'}
+        max={5}
+        value={value}
+        onChange={handleChange}
+      />
     </Layout>
   )
 }

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Alert, AlertProps } from '@mui/material'
 import styled from '@mui/material/styles/styled'
-import { FbmThemeOptions } from '../ThemeProvider'
 
+import { FbmThemeOptions } from '../ThemeProvider'
 import {
   CheckIcon,
   ErrorIcon,

@@ -52,12 +52,16 @@ export interface HelperProps extends FormHelperTextProps {
   error: boolean;
 }
 
+export interface FbmInputLabelProps extends  InputLabelProps {
+  size?: FbmInputProps['size']
+}
+
 const FormItemRoot: React.FC<FormControlProps> = styled(FormControl)({
   display: 'block',
   height: '84px',
 });
 
-const LabelRoot = styled(InputLabel)(({ variant }) => {
+const LabelRoot:React.FC<FbmInputLabelProps> = styled(InputLabel)(({ variant, size }) => {
   return {
     lineHeight: 1,
     zIndex: 1,
@@ -66,7 +70,14 @@ const LabelRoot = styled(InputLabel)(({ variant }) => {
       [`&.${inputLabelClasses.shrink}`]: {
         transform: 'translate(14px, -5px) scale(0.75)',
       }
+    }),
+    ...(variant === 'outlined' && size === 'small' && {
+      top: '1px',
+      [`&.${inputLabelClasses.shrink}`]: {
+        transform: 'translate(14px, -7px) scale(0.75)',
+      }
     })
+    
   }
 });
 
@@ -144,6 +155,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
     rows,
     endAdornment,
     readOnly,
+    size,
     ...other
   } = props
 
@@ -151,6 +163,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
   const statusError: boolean = error && !isEmpty(error)
 
   const labelProps = {
+    size,
     variant: (variant as InputLabelProps['variant']),
     id: `${name}-label`,
     htmlFor: name,
@@ -182,6 +195,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
   } else {
     children = (
       <Input
+        size={size}
         clear={clear}
         onClear={onClear}
         label={label}
@@ -238,6 +252,7 @@ FbmFormItem.defaultProps = {
   length: 0,
   variant: 'outlined',
   fullWidth: true,
+  size: 'medium',
 }
 
 export default FbmFormItem;
