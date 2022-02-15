@@ -1,6 +1,7 @@
-import React, { ReactNode } from 'react';
+import React, { FC } from 'react';
+
 import InfoTitle, { InfoTitleProps } from './InfoTitle';
-import InfoItem, { InfoItemProps, row } from './InfoItem';
+import InfoItem, { Row } from './InfoItem';
 import Box from '../Box';
 
 export interface InfoListProps {
@@ -9,13 +10,13 @@ export interface InfoListProps {
   /** 数据源 */
   data: any;
   /** 行格式要求 */
-  rows: Array<row>;
+  rows: Array<Row>;
   /** 是否显示loading */
   loading?: boolean;
   // todo style
 }
 
-const InfoList = (props: InfoListProps) => {
+const InfoList: FC<InfoListProps> = (props) => {
   const { data, title, loading, rows } = props;
   return (
     <Box loading={loading} border={'1px solid rgba(0, 0, 0, 0.08)'}>
@@ -36,7 +37,8 @@ const InfoList = (props: InfoListProps) => {
 }
 
 InfoList.defaultProps = {
-  data: {}
+  data: {},
+  loading: false
 }
 
 export default InfoList;

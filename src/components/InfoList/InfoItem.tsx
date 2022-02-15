@@ -1,27 +1,28 @@
-import React, { ReactNode, useMemo } from 'react';
+import React, { ReactNode, useMemo, FC } from 'react';
 import styled from '@mui/material/styles/styled';
+
 import Box from '../Box';
 import Actions, { FbmActionProps } from '../Actions';
 import Typography from '../Typography';
 import { isFunction } from '../../utils';
 
-export interface row {
+export interface Row {
   /** 左侧标签 */
   label: string;
   /** InfoItem 标识 */
   id: string;
   /** 右侧内容 */
-  render?: string | Function | ReactNode;
-  /** 辅助文字  当render无内容时显示该文字  辅助文字颜色不同rgba(0, 0, 0, 0,56) */
+  render?: ReactNode;
+  /** 辅助文字  当render无内容时显示该文字  辅助文字颜色不同:rgba(0, 0, 0, 0,56) */
   auxiliaryText?: string;
   /** 右侧按钮属性 */
   actions?: FbmActionProps['actions'];
   /** 自定义按钮内容 */
-  renderAction?: string | Function | ReactNode;
+  renderAction?: ReactNode;
 }
 
 export interface InfoItemProps {
-  row: row,
+  row: Row,
   data: any
 }
 
@@ -77,10 +78,10 @@ if (isFunction(a)) {
 }
 
 interface RightContentProps {
-  renderProps: row['render'];
+  renderProps: Row['render'];
   data: any;
   disabledEdit: boolean;
-  auxiliaryText: row['auxiliaryText'];
+  auxiliaryText: Row['auxiliaryText'];
 }
 const RightContent = (props: RightContentProps) => {
   const { renderProps, data, disabledEdit, auxiliaryText } = props;
@@ -92,8 +93,8 @@ const RightContent = (props: RightContentProps) => {
 }
 
 interface HoverActionsProps {
-  actions: row['actions'],
-  renderActionsProps: row['renderAction']
+  actions: Row['actions'],
+  renderActionsProps: Row['renderAction']
 }
 const HoverActions = (props: HoverActionsProps) => {
   const { renderActionsProps, actions } = props;
@@ -106,7 +107,7 @@ const HoverActions = (props: HoverActionsProps) => {
   );
 }
 
-const InfoItem = (props: InfoItemProps) => {
+const InfoItem: FC<InfoItemProps> = (props) => {
   const { row, data } = props;
   const {
     label,
@@ -134,11 +135,6 @@ const InfoItem = (props: InfoItemProps) => {
       </Box>
     </InfoItemRoot>
   )
-}
-
-InfoItem.defaultProps = {
-  popConfirmProps: {},
-
 }
 
 export default InfoItem;
