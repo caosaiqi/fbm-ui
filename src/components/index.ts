@@ -76,3 +76,4 @@ export { default as Actions } from './Actions';
 export { default as Empty } from './Empty';
 
 export { default as DateRangePicker } from './DateRangePicker';
+export { default as InfoList } from './InfoList';
