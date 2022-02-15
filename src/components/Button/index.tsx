@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Button, ButtonProps } from '@mui/material'
 import styled from '@mui/material/styles/styled'
+import { alpha } from '@mui/system';
 
 import Loading from '../Loading'
 
@@ -26,6 +27,13 @@ const ButtonRoot = styled(Button)(({ color, theme, variant, size }) => {
     minWidth: 'auto',
     '&:hover': {
       boxShadow: 'none',
+      ...(variant === 'text' &&
+        color !== 'inherit' && {
+          backgroundColor: alpha(
+            theme.palette[color].main,
+            theme.palette.action.hoverOpacity,
+          ),
+      })
     },
     ...(size === 'small' && {
       padding: '1px 8px',
@@ -53,7 +61,7 @@ const ButtonRoot = styled(Button)(({ color, theme, variant, size }) => {
       ...(size === 'large' && {
         padding: '8px 23px',
       }),
-    })
+    }),
   }
 })
 

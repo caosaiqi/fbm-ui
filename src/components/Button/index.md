@@ -61,7 +61,7 @@ export default () => (
 
  ```tsx
 /**
- * title: 按钮变颜色
+ * title: 按钮颜色
  * desc: primary(主题色 默认值) error(错误色) warning(警告色) success(成功色) info(信息色) secondary()
  */
 import * as React from 'react';
