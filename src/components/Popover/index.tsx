@@ -34,7 +34,7 @@ export interface FbmPopoverProps {
   isClickAway?: boolean;
   TriggerProps?: BoxProps;
   ClickAwayListenerProps?: ClickAwayListenerProps | BoxProps;
-  children: TooltipProps['children'];
+  children: React.ReactNode;
 }
 
 interface ClickWrapProps extends ClickAwayListenerProps {
@@ -45,10 +45,8 @@ interface ClickWrapProps extends ClickAwayListenerProps {
 interface UseOpen {
   ({
     open,
-    trigger,
   }: {
     open: FbmPopoverProps['open'];
-    trigger: TriggerMap;
   }): [boolean, (open: boolean) => void]
 };
 
@@ -114,24 +112,16 @@ const ClickWrap: React.FC<ClickWrapProps> = ({
 
 const useOpen: UseOpen = ({
   open: openProp,
-  trigger,
 }) => {
-  const [open, setOpen] = React.useState(() => {
-    // 强制控制open
-    if (trigger === 'click') {
-      return !!openProp
-    }
-    // 如何open是undefined则交给mui Tooltip 处理
-    return openProp
-  })
+  // 如果open是undefined则交给mui Tooltip 处理
+  const isAutomaticOpen = openProp === undefined
+  if (!isAutomaticOpen) {
+    return [openProp, () => undefined]
+  }
 
+  const [open, setOpen] = React.useState(false)
   const handleSetOpen = (isOpen: boolean) => {
-    // disabled 禁用操作
-    // if (disabled) return
-
-    if (trigger === 'click') {
-      setOpen(isOpen)
-    }
+    setOpen(isOpen)
   }
 
   return [open, handleSetOpen]
@@ -145,7 +135,7 @@ const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
     arrow,
     trigger,
     placement,
-    children,
+    children: childrenProp,
     onClose,
     isClickAway,
     TriggerProps,
@@ -155,7 +145,6 @@ const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
 
   const [open, setOpen] = useOpen({
     open: openProp,
-    trigger,
   })
 
   const handleClose = (event: Event) => {
@@ -182,9 +171,21 @@ const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
     content = contentProp({
       handleClose,
       handleOpen,
+      open,
     })
   } else {
     content = contentProp
+  }
+
+  let children = null
+  if (typeof childrenProp === 'function') {
+    children = childrenProp({
+      handleClose,
+      handleOpen,
+      open,
+    })
+  } else {
+    children = childrenProp
   }
 
   return (

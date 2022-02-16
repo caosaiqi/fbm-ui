@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Avatar, AvatarProps } from '@mui/material'
+import { Avatar, AvatarProps, avatarClasses } from '@mui/material'
 import styled from '@mui/material/styles/styled'
 
 import Box from '../Box'
@@ -42,21 +42,17 @@ const SexRoot: React.FC<{
   }
 })
 
-
-const AvatarRoot: React.FC<FbmAvatarPropos> = styled(Avatar)
-  (({ size }) => ({
-    width: size,
-    height: size
-  }))
-
-const formatSize = (size) => {
-  const defaultSizes = {
-    small: 24,
-    middle: 36,
-    large: 48
-  }
-  return defaultSizes[size] || size
+const defaultSizes = {
+  small: 24,
+  middle: 36,
+  large: 48
 }
+const AvatarRoot: React.FC<FbmAvatarPropos> = styled(Avatar)(({ size }) => {
+  return {
+    width: defaultSizes[size] || size,
+    height: defaultSizes[size] || size,
+  }
+})
 
 const FbmAvatar: React.FC<FbmAvatarPropos> = ({
   size,
@@ -64,11 +60,6 @@ const FbmAvatar: React.FC<FbmAvatarPropos> = ({
   sex,
   ...otherProps
 }) => {
-
-  const avatarProps = {
-    size: formatSize(size),
-    ...otherProps
-  }
 
   const SexRender = () => {
     const icons = {
@@ -90,8 +81,18 @@ const FbmAvatar: React.FC<FbmAvatarPropos> = ({
   }
 
   return (
-    <BoxRoot disabled={disabled}>
-      <AvatarRoot  {...avatarProps} />
+    <BoxRoot
+      disabled={disabled}
+      MaskProps={{
+        sx: {
+          borderRadius: '50%'
+        }
+      }}
+    >
+      <AvatarRoot
+        size={size}
+        {...otherProps}
+      />
       <SexRender />
     </BoxRoot>
   )

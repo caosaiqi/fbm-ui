@@ -46,6 +46,7 @@ export default () => {
           name='name' 
           label="名称"
           max={20}
+        
          />
         <FormItem
           name='email' 

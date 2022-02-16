@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dialog, Fade, IconButton, DialogProps } from '@mui/material'
+import { Dialog, Fade, IconButton, DialogProps, dialogClasses } from '@mui/material'
 import useThemeProps from '@mui/material/styles/useThemeProps'
 import styled from '@mui/material/styles/styled'
 
@@ -11,6 +11,7 @@ import ConfirmFooter, { FbmConfirmFooterProps } from '../ConfirmFooter'
 
 export const componentName: string = 'ADialog'
 
+type SizeMap = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 interface HeaderProps {
   /** 标题 */
   title?: string;
@@ -33,34 +34,56 @@ export interface FbmDialogProps extends HeaderProps, FooterProps {
   /** 弹框宽度 */
   width?: number;
   /** ref */
-  ref?: React.Ref<HTMLDivElement>,
-  BackdropProps?: DialogProps['BackdropProps']
+  ref?: React.Ref<HTMLDivElement>;
+  /** 弹框尺寸 */
+  size?: SizeMap;
+  BackdropProps?: DialogProps['BackdropProps'];
 }
 
-export interface RootProps {
+export interface DialogContainerProps {
   /** 弹框宽度 */
   width?: number;
   /** 是否显示header */
   isNullHeader: boolean;
   /** 是否显示footer */
   isNullFooter: boolean;
+  /** 弹框大小 */
+  size?: SizeMap
 }
 
-const DialogRoot: React.FC<RootProps> = styled(Box)(({
+const DialogRoot: React.FC<DialogProps> = styled(Dialog)({
+  [`& .${dialogClasses.paper}`]: {
+    maxWidth: 'none',
+    maxHeight: 'none'
+  }
+})
+
+const defaultSizes = {
+  'xs': '360px',
+  'sm': '588px',
+  'md': '800px',
+  'lg': '960px',
+  'xl': '1280px'
+}
+
+const DialogContainer: React.FC<DialogContainerProps> = styled(Box)(({
+  size,
   width,
   isNullHeader,
   isNullFooter,
-}) => ({
-  width: width || 360,
-  paddingLeft: '16px',
-  paddingRight: '16px',
-  ...(isNullHeader && {
-    paddingTop: '24px',
-  }),
-  ...(isNullFooter && {
-    paddingBottom: '24px',
-  }),
-}))
+}) => {
+  return {
+    width: width || defaultSizes[(size as string)],
+    paddingLeft: '16px',
+    paddingRight: '16px',
+    ...(isNullHeader && {
+      paddingTop: '24px',
+    }),
+    ...(isNullFooter && {
+      paddingBottom: '24px',
+    }),
+  }
+})
 
 const Header: React.FC<HeaderProps> = (props) => {
   const { title, isShowClose, header, onClose } = props
@@ -138,6 +161,8 @@ const Footer: React.FC<FooterProps> = (props) => {
 
 const FbmDialog: React.FC<FbmDialogProps> = React.forwardRef((inProps, ref) => {
   const {
+    open,
+    size,
     width,
     title,
     header,
@@ -154,50 +179,48 @@ const FbmDialog: React.FC<FbmDialogProps> = React.forwardRef((inProps, ref) => {
     ...otherProps
   } = useThemeProps({ props: inProps, name: componentName })
 
-  const rootProps = {
-    width,
-    isNullHeader: header === null,
-    isNullFooter: footer === null,
-  }
-
-  const dialogProps = {
-    open: false,
-    TransitionComponent: Fade,
-    ...otherProps
-  }
-
-  const HeaderProps = {
-    title,
-    header,
-    isShowClose,
-    onClose,
-  }
-
-  const footerProps = {
-    footer,
-    okText,
-    closeText,
-    isCloseButton,
-    closeProps,
-    onClose,
-    onOk,
-    okProps,
-  }
+  const isNullHeader = header === null
+  const isNullFooter = footer === null
 
   return (
-    <Dialog {...dialogProps} ref={ref}>
-      <DialogRoot {...rootProps}>
-        <Header {...HeaderProps} />
+    <DialogRoot
+      open={open}
+      TransitionComponent={Fade}
+      {...otherProps}
+      ref={ref}
+    >
+      <DialogContainer
+        width={width}
+        size={size}
+        isNullHeader={isNullHeader}
+        isNullFooter={isNullFooter}
+      >
+        <Header
+          title={title}
+          header={header}
+          isShowClose={isShowClose}
+          onClose={onClose}
+        />
         <Content>
           {children}
         </Content>
-        <Footer {...footerProps} />
-      </DialogRoot>
-    </Dialog>
+        <Footer
+          footer={footer}
+          okText={okText}
+          closeText={closeText}
+          isCloseButton={isCloseButton}
+          closeProps={closeProps}
+          okProps={okProps}
+          onClose={onClose}
+          onOk={onOk}
+        />
+      </DialogContainer>
+    </DialogRoot>
   )
 })
 
 FbmDialog.defaultProps = {
+  size: 'xs',
   isShowClose: false,
   isCloseButton: true,
   closeText: '取消',

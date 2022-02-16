@@ -43,6 +43,43 @@ export default () =>{
 
 ```tsx
 /**
+ * title: 手动控制Popover
+ * desc: 基本使用
+ */
+import * as React from 'react';
+import {  Popover, Button, Demo } from 'fbm-ui'
+
+export default () =>{
+  const [open, setOpen] = React.useState(false)
+  const content =(
+    <div style={{height: 100, width: 600}}>
+      <div>🥑 鳄梨科技</div>
+    </div>
+  )
+
+  const handleClick = () => {
+    setOpen(!open)
+  }
+
+  return (
+    <Demo>
+      <Popover
+        open={open}
+        content={content} 
+      >
+        <Button
+          onClick={handleClick}
+        >
+          手动控制
+        </Button>
+      </Popover>
+    </Demo>
+  )
+}
+```
+
+```tsx
+/**
  * title: disabled
  * desc: disabled
  */
@@ -154,3 +191,5 @@ export default () =>{
   )
 }
 ```
+
+

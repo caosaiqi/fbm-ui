@@ -9,89 +9,125 @@ group:
 # Button 按钮
 ## 代码演示
 
- ```tsx
+```tsx
 /**
  * title: 基本
+ * desc: Button（按钮）组件有三种形式：实心（默认值），文本、以及描边。
  */
 import * as React from 'react';
 import { Demo, Button, Box, ButtonGroup, AddIcon} from 'fbm-ui'
 
 export default () => (
   <Demo>
-    <Box sx={{mb: 2}}>
-      <Button sx={{mr: 1}} size="small">按钮</Button> 
-      <Button sx={{mr: 1}} size="medium">按钮</Button> 
-      <Button sx={{mr: 1}} size="large">按钮</Button> 
-      <Button sx={{mr: 1}} size="medium" color="error">按钮</Button> 
-    </Box>
-      <Box sx={{mb: 2}}>
-      <Button sx={{mr: 1}} startIcon={<AddIcon />} size="small">按钮</Button> 
-      <Button sx={{mr: 1}} startIcon={<AddIcon />} size="medium">按钮</Button> 
-      <Button sx={{mr: 1}} startIcon={<AddIcon />} size="large">按钮</Button> 
-    </Box>
-    <Box sx={{mb: 2}}>
-      <Button sx={{mr: 1}}  variant="outlined" size="small" color="error">按钮</Button> 
-      <Button sx={{mr: 1}}  variant="outlined" size="medium">按钮</Button> 
-      <Button sx={{mr: 1}}  variant="outlined" size="large">按钮</Button> 
-    </Box>
-      <Box sx={{mb: 2}}>
-      <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="outlined" size="small">按钮</Button> 
-      <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="outlined" size="medium">按钮</Button> 
-      <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="outlined" size="large">按钮</Button> 
-    </Box>
-    <Box sx={{mb: 2}}>
-      <Button sx={{mr: 1}} variant="text" size="small">按钮</Button> 
-      <Button sx={{mr: 1}} variant="text" size="medium">按钮</Button> 
-      <Button sx={{mr: 1}} variant="text" size="large">按钮</Button> 
-    </Box>
-        <Box sx={{mb: 2}}>
-      <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="text" size="small">按钮</Button> 
-      <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="text" size="medium">按钮</Button> 
-      <Button sx={{mr: 1}} startIcon={<AddIcon />} variant="text" size="large">按钮</Button> 
-    </Box>
+    <Button sx={{mr: 1}} >按钮</Button> 
+    <Button sx={{mr: 1}} variant="text">按钮</Button> 
+    <Button sx={{mr: 1}} variant="outlined">按钮</Button> 
   </Demo>
 )
 ```
-<!-- 
+
 ```tsx
 /**
- * title: 按钮组
+ * title: 三种按钮大小 
+ * desc: small(小) medium(中 默认) large(大)
  */
 import * as React from 'react';
-import {  Layout, Button, Box, ButtonGroup, OverflowIcon} from 'fbm-ui'
+import { Demo, Button, Box, ButtonGroup, AddIcon} from 'fbm-ui'
 
 export default () => (
-  <Layout>
-      <ButtonGroup variant="contained" sx={{mb: 2}}>
-        <Button >按钮</Button> 
-         <Button
-          size="small"
-        >
-          <OverflowIcon />
-        </Button>
-      </ButtonGroup>
-
-  </Layout>
+  <Demo>
+    <Button sx={{mr: 1}} size="small">按钮</Button> 
+    <Button sx={{mr: 1}}>按钮</Button> 
+    <Button sx={{mr: 1}} size="large">按钮</Button> 
+  </Demo>
 )
-``` -->
+```
+
+```tsx
+/**
+ * title: 添加Icon 
+ */
+import * as React from 'react';
+import { Demo, Button, Box, ButtonGroup, AddIcon} from 'fbm-ui'
+
+export default () => (
+  <Demo>
+    <Button sx={{mr: 1}} size="small" icon={<AddIcon />}>按钮</Button> 
+    <Button sx={{mr: 1}} icon={<AddIcon />}>按钮</Button> 
+    <Button sx={{mr: 1}} size="large"icon={<AddIcon />}>按钮</Button> 
+  </Demo>
+)
+```
+
+ ```tsx
+/**
+ * title: 按钮颜色
+ * desc: primary(主题色 默认值) error(错误色) warning(警告色) success(成功色) info(信息色) secondary()
+ */
+import * as React from 'react';
+import { Demo, Button, Box, AddIcon} from 'fbm-ui'
+
+export default () => (
+  <Demo>
+    <Box sx={{ mb: 2}}>
+      <Button sx={{mr: 1}}>按钮</Button> 
+      <Button sx={{mr: 1}} color='error'>按钮</Button> 
+      <Button sx={{mr: 1}} color='warning'>按钮</Button> 
+      <Button sx={{mr: 1}} color='success'>按钮</Button> 
+      <Button sx={{mr: 1}} color='info'>按钮</Button> 
+    </Box>  
+    <Box sx={{ mb: 2}}>
+      <Button sx={{mr: 1}} variant="outlined" >按钮</Button> 
+      <Button sx={{mr: 1}} variant="outlined" color='error'>按钮</Button> 
+      <Button sx={{mr: 1}} variant="outlined" color='warning'>按钮</Button> 
+      <Button sx={{mr: 1}} variant="outlined" color='success'>按钮</Button> 
+      <Button sx={{mr: 1}} variant="outlined" color='info'>按钮</Button> 
+      <Button sx={{mr: 1}} variant="outlined" color='inherit'>按钮</Button> 
+    </Box>  
+    <Box>
+      <Button sx={{mr: 1}} variant="text" >按钮</Button> 
+      <Button sx={{mr: 1}} variant="text" color='error'>按钮</Button> 
+      <Button sx={{mr: 1}} variant="text" color='warning'>按钮</Button> 
+      <Button sx={{mr: 1}} variant="text" color='success'>按钮</Button> 
+      <Button sx={{mr: 1}} variant="text" color='info'>按钮</Button> 
+      <Button sx={{mr: 1}} variant="text" color='inherit'>按钮</Button> 
+    </Box>  
+  </Demo>
+)
+```
+
+```tsx
+/**
+ * title: IconButton
+ * desc: small(小) medium(中 默认)
+ */
+import * as React from 'react';
+import {  Demo, IconButton, ClockCircle} from 'fbm-ui'
+export default () => (
+  <Demo>
+    <IconButton size="small"><ClockCircle /></IconButton> 
+    <IconButton><ClockCircle /></IconButton> 
+  </Demo>
+)
+```
 
 
-<!-- ```tsx
+```tsx
 /**
  * title: disabled
  */
 import * as React from 'react';
-import {  Layout, Button } from 'fbm-ui'
+import {  Demo, Button } from 'fbm-ui'
 
 export default () => (
-  <Layout>
+  <Demo>
     <Button disabled>按钮</Button> 
-  </Layout>
+  </Demo>
 )
-``` -->
+```
 
 
-<!-- ```tsx
+ ```tsx
 /**
  * title: loading
  */
@@ -100,33 +136,9 @@ import {  Layout, Button, IconButton, CheckIcon} from 'fbm-ui'
 
 export default () => (
   <Layout>
-    <Button loading>按钮</Button> <br/><br/>
+    <Button loading>按钮</Button>
   </Layout>
 )
-``` -->
-
-<!-- 
-```tsx
-/**
- * title: IconButton
- */
-import * as React from 'react';
-import {Layout, IconButton, CheckIcon} from 'fbm-ui'
-
-export default () => (
-  <Layout>
-    
-    <IconButton size="small" aria-label="add to shopping cart">
-      <CheckIcon />
-    </IconButton>
-
-     <br/> 
-     
-    <IconButton  aria-label="add to shopping cart">
-     <CheckIcon />
-    </IconButton>
-  </Layout>
-)
-``` -->
+```
 
 <API></API>

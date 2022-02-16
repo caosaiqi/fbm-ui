@@ -3,7 +3,7 @@ import { Box, BoxProps } from '@mui/material'
 import styled from '@mui/material/styles/styled'
 
 import Loading from '../Loading'
-import Mask from '../Mask'
+import Mask, { FbmMaskProps } from '../Mask'
 
 interface LoadingProps {
   /** 遮罩loading */
@@ -14,16 +14,18 @@ interface LoadingProps {
   desc?: React.ReactNode;
   /** 是否需要遮罩 */
   isMask?: boolean;
+ 
 }
 
 export interface FbmBoxProps extends BoxProps {
   /** loading */
   loading?: boolean | LoadingProps;
   /** 是否禁用 */
-  disabled?: boolean
+  disabled?: boolean;
+  MaskProps?: FbmMaskProps
 }
 
-const BoxRoot: React.FC<FbmBoxProps> = styled(Box)({
+const BoxRoot: React.FC = styled(Box)({
   position: 'relative',
   boxSizing: 'border-box',
 })
@@ -50,6 +52,7 @@ const FbmBox: React.FC<FbmBoxProps> = ({
   loading,
   disabled,
   children,
+  MaskProps,
   ...otherProps
 }) => {
 
@@ -60,11 +63,14 @@ const FbmBox: React.FC<FbmBoxProps> = ({
         : loading
     ),
   }
-  
+
   return (
     <BoxRoot {...otherProps}>
       <LoadingRender {...loadingProps} />
-      <DisabledMaskRender disabled={disabled} />
+      <DisabledMaskRender
+        disabled={disabled}
+        {...MaskProps}
+      />
       {children}
     </BoxRoot>
   )

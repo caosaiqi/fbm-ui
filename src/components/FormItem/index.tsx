@@ -14,8 +14,11 @@ const FormItemIndex: React.FC<FbmFormItemProps & FbmInputProps> = ({
   extra,
   max,
   required,
-  inputProps,
   children,
+  autoFocus,
+  inputProps,
+  InputProps,
+  ...otherProps
 }) => {
 
   let label = labelProp
@@ -65,10 +68,13 @@ const FormItemIndex: React.FC<FbmFormItemProps & FbmInputProps> = ({
       helpers={helpers}
       onChange={onChange}
       onBlur={onBlur}
+      autoFocus={autoFocus}
       inputProps={{
         clear,
         ...inputProps
       }}
+      {...InputProps}
+      {...otherProps}
     >
       {children}
     </FormItem>
