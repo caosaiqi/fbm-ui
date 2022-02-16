@@ -114,4 +114,84 @@ export default () =>{
 }
 ```
 
+```tsx
+/**
+ * title: Empty 
+ * desc: 数据为空状态
+ */
+import * as React from 'react';
+import { Table, Layout, Message, TableColumnActions, TableColumnUserInfo, TableColumnCheckbox, Button, Paper } from 'fbm-ui'
+
+
+export default () =>{
+  const [actions, setActions] = React.useState([])
+ const data = [ ];
+
+  const columns = [
+    TableColumnCheckbox({
+      selected: actions,
+      checked: ({ row }) => actions.includes(row.id),
+      allChecked: ({ data }) => {
+        return  actions.length >= data.length
+      } ,
+      onAllChange: (checked) => {
+        setActions(()=> {
+          if (checked) return data.map(row => row.id)
+          return []
+        })
+      },
+      onChange:(checked, { row }) => {
+        setActions(() => { 
+          if (checked) return actions.concat(row.id)
+          return actions.filter(id => id !== row.id)
+        })
+      }
+    }),
+    TableColumnUserInfo({
+      label: '候选人资料',
+    }),
+    {
+      id: 'name',
+      label: '名称',
+    },
+    TableColumnActions(
+      [
+        { 
+          text: '认证流程',
+          variant: 'outlined',
+        },
+        { 
+          text: '新增用户',
+          onClick: ({ row }) => Message.success('新增用户')
+        }
+      ]
+    )
+  ]
+
+  const batchActions = [ 
+    { 
+      text: '认证流程',
+    },
+  ]
+
+  const pagination = {
+    total: data.length,
+    onPageChange: async  (_, page) => {}
+  }
+  
+  return (
+    <Layout>
+      <Table
+        emptyText="暂无候选人数据"
+        nameText="候选人"
+        data={data}
+        columns={columns}
+        batchActions={batchActions}
+        PaginationProps={pagination}
+      />
+    </Layout>
+  )
+}
+```
+
 <API></API>
