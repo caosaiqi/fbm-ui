@@ -23,34 +23,31 @@ const FbmTable: React.FC<FbmTableProps> = ({
   nameText,
   PaginationProps,
   TableContainerProps,
-}) => {
-  
-  return (
-    <Root>
-      <Loading 
-        loading={loading}
-        nameText={nameText}
-      />
-      <TableContainer {...TableContainerProps}>
-        <Table>
-          <Thead 
-            data={data}
-            nameText={nameText}
-            columns={columns}
-            batchActions={batchActions}
-          />
-          <Tbody 
-            data={data}
-            columns={columns}
-            emptyText={emptyText}
-            loading={loading}
-          />
-        </Table>
-      </TableContainer>
-      <Pagination {...PaginationProps} />
-    </Root>
-  )
-}
+}) => (
+  <Root>
+    <Loading
+      loading={loading}
+      nameText={nameText}
+    />
+    <TableContainer {...TableContainerProps}>
+      <Table>
+        <Thead
+          data={data}
+          nameText={nameText}
+          columns={columns}
+          batchActions={batchActions}
+        />
+        <Tbody
+          data={data}
+          columns={columns}
+          emptyText={emptyText}
+          loading={loading}
+        />
+      </Table>
+    </TableContainer>
+    <Pagination {...PaginationProps} />
+  </Root>
+)
 
 FbmTable.defaultProps = {
   align: 'left',

@@ -4,11 +4,9 @@ import styled from '@mui/material/styles/styled'
 import Box from '../Box'
 import Button, { FbmButtonProps } from '../Button'
 
-type sizeMap = 'small' | 'medium' | 'large'
+// type SizeMap = 'small' | 'medium' | 'large'
 
 export interface FbmConfirmFooterProps {
-  /** footer尺寸 按钮尺寸 */
-  size?: sizeMap;
   /** 确定按钮 */
   onOk?: (props: FbmConfirmFooterProps) => void | Promise<void>;
   /** 确定按钮文案 */
@@ -38,7 +36,6 @@ const ConfirmFooterRoot = styled(Box)({
 
 const FbmConfirmFooter: React.FC<FbmConfirmFooterProps> = React.forwardRef((props, ref) => {
   const {
-    size,
     onOk,
     okText,
     okDisabled,
@@ -62,7 +59,6 @@ const FbmConfirmFooter: React.FC<FbmConfirmFooterProps> = React.forwardRef((prop
     }
   }
   const closeButtonProps = {
-    size,
     onClick: handleClose,
     sx: { mr: '8px' },
     ...closeProps
@@ -89,7 +85,6 @@ const FbmConfirmFooter: React.FC<FbmConfirmFooterProps> = React.forwardRef((prop
   }
   const okButtonProps = {
     loading,
-    size,
     disabled: okDisabled,
     onClick: handleOk,
     ...okProps
@@ -110,7 +105,6 @@ const FbmConfirmFooter: React.FC<FbmConfirmFooterProps> = React.forwardRef((prop
 
 
 FbmConfirmFooter.defaultProps = {
-  size: 'medium',
   okDisabled: false,
   okText: '确定',
   okProps: {},

@@ -15,7 +15,6 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import {  } from '@mui/material'
 import { Layout, TextField, rules, useTextField, Button, SearchIcon} from 'fbm-ui'
 
 export default () => {
@@ -26,7 +25,7 @@ export default () => {
   }
 
   const nameFieldProps = useTextField({
-    // label: '名称*',
+    label: '名称*',
     value,
     max: 5,
     onChange: handleChange,
@@ -48,7 +47,6 @@ export default () => {
     </Layout>
   )
 }
-
 ```
 
 ```tsx

@@ -11,14 +11,19 @@ group:
 ```tsx
 /**
  * title: 两种大小
- * desc: 输入框定义了两种尺寸（默认、小），高度分别为44px和34px。
+ * desc: 输入框定义了两种尺寸（默认、小），高度分别为36px和48px。
  */
 import * as React from 'react';
-import {  Demo, Input, Box } from 'fbm-ui'
+import {  Demo, Input, Box} from 'fbm-ui'
 
 export default () => (
   <Demo grey={true}>
-    <Input placeholder="请输入姓名"  />
+    <Box sx={{ mb: 2 }}>
+      <Input size="small" placeholder="请输入姓名"  />
+    </Box>
+    <Box>
+      <Input placeholder="请输入姓名"  />
+    </Box>
   </Demo>
 )
 ```

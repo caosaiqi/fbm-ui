@@ -19,7 +19,7 @@ import { Avatar, Demo} from 'fbm-ui'
 
 const imgurl = 'https://joeschmoe.io/api/v1/random'
 export default () =>(
-  <Demo>
+  <Demo white>
     <Avatar  src={imgurl} />
   </Demo>
 )
@@ -36,7 +36,7 @@ import { Avatar, Demo} from 'fbm-ui'
 
 const imgurl = 'https://joeschmoe.io/api/v1/random'
 export default () =>(
-  <Demo>
+  <Demo white>
     <Avatar>H</Avatar>
     <Avatar sx={{ bgcolor: '#4caf50' }}>N</Avatar>
     <Avatar sx={{ bgcolor: '#ff6c6c' }}>N</Avatar>
@@ -55,7 +55,7 @@ import { Avatar, Demo} from 'fbm-ui'
 
 const imgurl = 'https://joeschmoe.io/api/v1/random'
 export default () =>(
-  <Demo>
+  <Demo white>
     <Avatar  src={imgurl} size={'small'} />
     <Avatar  src={imgurl} size={'middle'} />
     <Avatar  src={imgurl} size={'large'} />
@@ -74,7 +74,7 @@ import { Avatar, Demo} from 'fbm-ui'
 
 const imgurl = 'https://joeschmoe.io/api/v1/random'
 export default () =>(
-  <Demo>
+  <Demo white>
     <Avatar  src={imgurl} sex={'1'} />
     <Avatar  src={imgurl} sex={'2'} />
   </Demo>
@@ -91,7 +91,7 @@ import { Avatar, Demo} from 'fbm-ui'
 
 const imgurl = 'https://joeschmoe.io/api/v1/random'
 export default () =>(
-  <Demo>
+  <Demo white>
     <Avatar  src={imgurl} size='large' disabled/>
   </Demo>
 )

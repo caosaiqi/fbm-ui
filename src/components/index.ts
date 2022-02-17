@@ -3,7 +3,8 @@ export * from './icons'
 export * from './Table/columns';
 export * as rules from '../utils/rules';
 
-export { default as Demo }  from './Demo';
+
+export { default as Demo } from './Demo';
 
 export { default as Layout } from './Layout';
 
@@ -76,3 +77,4 @@ export { default as Actions } from './Actions';
 export { default as Empty } from './Empty';
 
 export { default as DateRangePicker } from './DateRangePicker';
+export { default as InfoList } from './InfoList';
