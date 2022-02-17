@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Root from './src/Root'
+import DrawerRoot, { FbmDrawerRootProps } from './src/DrawerRoot'
 import Content from './src/Content'
 import Footer from './src/Footer'
 import { FbmConfirmFooterProps } from '../ConfirmFooter'
@@ -8,48 +8,55 @@ import { FbmConfirmFooterProps } from '../ConfirmFooter'
 export interface FbmDrawerProps extends FbmConfirmFooterProps {
   open: boolean;
   footer?: React.ReactNode | null;
-  zIndex?: number;
+  anchor?: FbmDrawerRootProps['anchor'];
 }
 
 const FbmDrawer: React.FC<FbmDrawerProps> = (props) => {
   const {
+    open,
+    anchor,
     children,
     onOk,
     onClose,
     okText,
     closeText,
-    open,
     okProps,
+    closeProps,
     footer,
   } = props
 
-  const footerProps = {
-    footer,
-    onOk,
-    onClose,
-    okText,
-    closeText,
-    okProps,
-  }
-
   const drawerProps = {
     open,
-    anchor: 'right',
+    anchor,
     onClose
   }
 
   return (
-    <Root {...drawerProps}>
+    <DrawerRoot
+      open={open}
+      anchor={anchor}
+      onClose={onClose}
+      {...drawerProps}
+    >
       <Content>
         {children}
       </Content>
-      <Footer {...footerProps} />
-    </Root>
+      <Footer
+        footer={footer}
+        onOk={onOk}
+        onClose={onClose}
+        okText={okText}
+        closeText={closeText}
+        okProps={okProps}
+        closeProps={closeProps}
+      />
+    </DrawerRoot>
   )
 }
 
 FbmDrawer.defaultProps = {
   open: false,
+  anchor: 'right'
 }
 
 export default FbmDrawer

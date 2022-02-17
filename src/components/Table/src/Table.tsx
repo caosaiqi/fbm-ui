@@ -1,9 +1,7 @@
 import React from 'react';
 import { Table } from '@mui/material'
 
-interface FbmTableProps {
-
-}
+interface FbmTableProps {}
 
 const FbmTable:React.FC<FbmTableProps> = ({
   children

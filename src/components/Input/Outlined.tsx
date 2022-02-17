@@ -8,7 +8,7 @@ import {
 
 export interface FbmOutlinedProps extends OutlinedInputProps { }
 
-const FbmOutlinedInput = styled(OutlinedInput)(({ theme, startAdornment, endAdornment}) => {
+const FbmOutlinedInput = styled(OutlinedInput)(({ theme, startAdornment, endAdornment, size }) => {
   return {
     backgroundColor: '#FFF',
     [`.${outlinedInputClasses.notchedOutline}`]: {
@@ -18,8 +18,13 @@ const FbmOutlinedInput = styled(OutlinedInput)(({ theme, startAdornment, endAdor
       borderColor: 'rgba(0,0,0,0.26)',
     },
     [`& .${outlinedInputClasses.input}`]: {
-      padding: '10px 12px 11px 12px'
+      padding: '12px 12px 13px 12px'
     },
+    ...(size === 'small' &&  {
+      [`& .${outlinedInputClasses.input}`]: {
+        padding: '6px 12px 7px 12px'
+      },
+    }), 
     [`&.${outlinedInputClasses.focused} .${outlinedInputClasses.notchedOutline}`]: {
       borderColor: theme.palette.primary.main,
       borderWidth: 1,

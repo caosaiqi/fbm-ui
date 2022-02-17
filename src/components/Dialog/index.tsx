@@ -18,7 +18,7 @@ interface HeaderProps {
   /** 是否显示dialog又上角“x” */
   isShowClose?: boolean;
   /** 传null则不显示， 传vnode则自定义底部内容， 不传则展示默认footer */
-  header?: React.ReactElement | null;
+  header?: React.ReactNode | null;
   /** 关闭弹框事件 */
   onClose?: FbmConfirmFooterProps['onClose'];
 }
