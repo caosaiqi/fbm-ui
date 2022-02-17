@@ -33,12 +33,12 @@ export type FbmFormItemProps = FbmInputProps & {
   label?: BaseTextFieldProps['label'];
   extra?: string;
   max?: number;
-  error?: string & ErrorType
+  error?: boolean | string | ErrorType
   length?: number;
   rules?: rule[]
   required?: boolean;
   labelProps?: InputLabelProps;
-  inputProps?: FbmInputProps;
+  inputProps?: FbmInputProps['inputProps'];
   InputProps?: FbmInputProps;
   inputRef?: React.Ref<any>;
   meta?: FieldMetaProps<any>;

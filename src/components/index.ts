@@ -3,7 +3,8 @@ export * from './icons'
 export * from './Table/columns';
 export * as rules from '../utils/rules';
 
-export { default as Demo }  from './Demo';
+
+export { default as Demo } from './Demo';
 
 export { default as Layout } from './Layout';
 
