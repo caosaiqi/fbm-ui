@@ -62,3 +62,10 @@ export const email = (helperText?: string) => {
     }
   }
 }
+
+
+export default {
+  required,
+  mobile,
+  email
+}
