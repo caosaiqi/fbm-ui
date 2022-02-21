@@ -90,7 +90,7 @@ const Header: React.FC<HeaderProps> = (props) => {
   if (header === null) return null
 
   if (typeof (header) === 'function') {
-    const CustomHeader: React.FC<HeaderProps> = header
+    const CustomHeader = header(props)
     return <CustomHeader {...props} />
   }
 
