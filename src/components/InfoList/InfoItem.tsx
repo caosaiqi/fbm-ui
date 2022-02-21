@@ -34,6 +34,7 @@ const InfoItemRoot = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'flex-start',
   paddingLeft: theme.spacing(4.5),
+  paddingRight: theme.spacing(2),
   borderTop: '1px solid rgba(0, 0, 0, 0.08)',
   '& .action-hover': {
     position: 'absolute',

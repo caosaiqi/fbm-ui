@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import styled from '@mui/material/styles/styled';
 
 import InfoTitle, { InfoTitleProps } from './InfoTitle';
 import InfoItem, { Row } from './InfoItem';
@@ -19,7 +20,9 @@ export interface InfoListProps {
 const InfoList: FC<InfoListProps> = (props) => {
   const { data, title, loading, rows } = props;
   return (
-    <Box loading={loading} border={'1px solid rgba(0, 0, 0, 0.08)'}>
+    <Box loading={loading} sx={{
+      border: '1px solid rgba(0, 0, 0, 0.08)'
+    }}>
       {title && <InfoTitle title={title} />}
       <Box>
       {
