@@ -8,6 +8,7 @@ type BeforeUploadValueType = void | boolean | string | Blob | File;
 
 export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
 export type Action = string | ((file: RcFile) => string | PromiseLike<string>);
+export type UploadType = 'button' | 'drop'
 export interface HttpRequestHeader {
   [key: string]: string;
 }
@@ -51,6 +52,8 @@ export interface UploadChangeParam<T extends object = UploadFile> {
 }
 
 export interface FbmUploadProps<T = any> {
+  /** 上传类型 button点击上传 dragger拖拽上传*/
+  type?: UploadType
   /** 接受上传的文件类型 */
   accept?: string;
   /** 发到后台的文件参数名 */
@@ -68,7 +71,7 @@ export interface FbmUploadProps<T = any> {
   customRequest: (options: RcCustomRequestOptions) => void;
   /** 默认已经上传的文件列表 */
   defaultFileList?: Array<UploadFile<T>>;
-  /** 已经上传的文件列表（受控 */
+  /** 已经上传的文件列表（受控)*/
   fileList?: Array<UploadFile<T>>;
   maxCount?: number;
   onChange?: (info: UploadChangeParam) => void;
@@ -77,6 +80,7 @@ export interface FbmUploadProps<T = any> {
   method?: 'POST' | 'PUT' | 'PATCH' | 'post' | 'put' | 'patch';
   onRemove?: (file: UploadFile<T>) => void | boolean | Promise<void | boolean>;
   itemRender: (listItemProps: ListItemProps) => React.ReactNode;
+  showUploadList?: boolean;
 }
 
 export interface RcFile extends OriRcFile {

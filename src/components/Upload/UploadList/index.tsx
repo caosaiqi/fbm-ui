@@ -21,7 +21,7 @@ const FbmUploadList: React.FC<UploadListProps> = props => {
   return (
     <UploadListRoot>
       {(items || []).map((item) => {
-        const listItemProps = {
+        const itemProps = {
           name: item.name,
           percent: item.percent,
           status: item.status,
@@ -31,18 +31,11 @@ const FbmUploadList: React.FC<UploadListProps> = props => {
 
         let children: React.ReactNode = null
         if (itemRender && typeof itemRender === 'function') {
-          children = itemRender(listItemProps)
+          children = itemRender(itemProps)
         } else {
-          children = (
-            <ListItem
-              name={item.name}
-              percent={item.percent}
-              status={item.status}
-              onClose={() => handleClose(item)}
-              onRefresh={() => handleRefresh(item)}
-            />
-          )
+          children = <ListItem key={item.uid} {...itemProps} />
         }
+
         return (
           <span key={item.uid}>
             {children}

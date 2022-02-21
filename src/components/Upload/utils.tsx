@@ -49,7 +49,7 @@ export function removeFileItem(file: UploadFile, fileList: UploadFile[]) {
 }
 
 export const FileIcons = {
-  '': DocUnknownIcon,
+  'undefined': DocUnknownIcon,
   '.doc': DocWordIcon,
   '.docx': DocWordIcon,
   '.pdf': DocPdfIcon,

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@mui/material/styles/styled'
-import { LinearProgress, LinearProgressProps, Box } from '@mui/material'
+import LinearProgress from '@mui/material/LinearProgress'
+import Box from '@mui/material/Box'
 import Tooltip from '@mui/material/Tooltip';
 
 import { RefreshIcon, CancelIcon } from '../../icons'
@@ -75,7 +76,7 @@ const ListItem: React.FC<ListItemProps> = props => {
   } = props
 
   const fileFormat: string = getFileFormat(name)
-  const FileIcon: React.FC<any> = FileIcons[fileFormat] || null
+  const FileIcon: React.FC<any> = FileIcons[fileFormat] ||  FileIcons['undefined']
 
   const StatusIcons = {
     uploading: (

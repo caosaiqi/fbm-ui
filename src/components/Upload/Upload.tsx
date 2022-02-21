@@ -5,15 +5,18 @@ import UploadList from './UploadList/index'
 import { FbmUploadProps, RcFile, UploadFile, UploadChangeParam } from './types'
 import { file2Obj, getFileItem, updateFileList, removeFileItem } from './utils'
 import { useMergedState } from '../../hooks'
+import UploadChildrenButton from './UploadChildren/Button'
+import UploadChildrenDragger from './UploadChildren/Dragger'
 
 const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
 const FbmUpload: React.FC<FbmUploadProps> = props => {
   const {
+    type,
     accept,
     name,
     multiple,
-    children,
+    children: childrenProp,
     action,
     customRequest,
     fileList,
@@ -22,6 +25,7 @@ const FbmUpload: React.FC<FbmUploadProps> = props => {
     itemRender,
     onChange,
     onRemove,
+    showUploadList
   } = props
 
   const [mergedFileList, setMergedFileList] = useMergedState(defaultFileList || [], {
@@ -191,6 +195,9 @@ const FbmUpload: React.FC<FbmUploadProps> = props => {
     onInternalChange(targetItem, nextFileList);
   };
 
+  const onFileDrop = () => {
+  }
+
   const onProgress = (e: { percent: number }, file: RcFile) => {
     // removed
     if (!getFileItem(file, mergedFileList)) {
@@ -240,6 +247,18 @@ const FbmUpload: React.FC<FbmUploadProps> = props => {
     uploadFiles([file])
   }
 
+  let children: React.ReactNode = null;
+  if (childrenProp) {
+    children = childrenProp
+  } else if (type === 'drop') {
+    children = <UploadChildrenDragger />
+  } else {
+    // drop
+    children = (
+      <UploadChildrenButton />
+    )
+  }
+
   const uploadButton = (
     <RcUpload
       ref={upload}
@@ -258,17 +277,21 @@ const FbmUpload: React.FC<FbmUploadProps> = props => {
     </RcUpload>
   )
 
-  const uploadList = (
+  const uploadList = showUploadList ? (
     <UploadList
       items={mergedFileList}
       onRemove={handleRemove}
       onRefresh={handleRefresh}
       itemRender={itemRender}
     />
-  )
+  ) : null
 
   return (
-    <div>
+    <div
+      onDrop={onFileDrop}
+      onDragOver={onFileDrop}
+      onDragLeave={onFileDrop}
+    >
       {uploadButton}
       {uploadList}
     </div>
@@ -280,6 +303,7 @@ FbmUpload.defaultProps = {
   action: '',
   data: {},
   accept: '',
+  type: 'button',
 };
 
 export default FbmUpload
