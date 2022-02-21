@@ -8,7 +8,10 @@ type BeforeUploadValueType = void | boolean | string | Blob | File;
 
 export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
 export type Action = string | ((file: RcFile) => string | PromiseLike<string>);
-
+export type UploadType = 'button' | 'drop'
+export interface HttpRequestHeader {
+  [key: string]: string;
+}
 export interface UploadFile<T = any> {
   uid: string;
   size?: number;
@@ -29,6 +32,19 @@ export interface UploadFile<T = any> {
   preview?: string;
 }
 
+export interface ListItemProps {
+  /** 文件名称 */
+  name?: UploadFile['name'];
+  /** 上传进度 */
+  percent: UploadFile['percent'];
+  /** 文件上传状态 */
+  status: UploadFile['status'];
+  /** 取消上传 */
+  onClose: (file?: UploadFile) => void;
+  /** 重新上传 */
+  onRefresh: (file?: UploadFile) => void;
+}
+
 export interface UploadChangeParam<T extends object = UploadFile> {
   file: T;
   fileList: UploadFile[];
@@ -36,6 +52,12 @@ export interface UploadChangeParam<T extends object = UploadFile> {
 }
 
 export interface FbmUploadProps<T = any> {
+  /** 上传类型 button点击上传 dragger拖拽上传*/
+  type?: UploadType
+  /** 接受上传的文件类型 */
+  accept?: string;
+  /** 发到后台的文件参数名 */
+  name?: string;
   /** 上传地址 */
   action?: Action;
   /** 是否支持多选文件，ie10+ 支持。开启后按住 ctrl 可选择多个文件 */
@@ -49,10 +71,16 @@ export interface FbmUploadProps<T = any> {
   customRequest: (options: RcCustomRequestOptions) => void;
   /** 默认已经上传的文件列表 */
   defaultFileList?: Array<UploadFile<T>>;
-  /** 已经上传的文件列表（受控 */
+  /** 已经上传的文件列表（受控)*/
   fileList?: Array<UploadFile<T>>;
   maxCount?: number;
   onChange?: (info: UploadChangeParam) => void;
+  data?: Record<string, unknown> | ((file: UploadFile<T>) => Record<string, unknown> | Promise<Record<string, unknown>>);
+  headers?: HttpRequestHeader;
+  method?: 'POST' | 'PUT' | 'PATCH' | 'post' | 'put' | 'patch';
+  onRemove?: (file: UploadFile<T>) => void | boolean | Promise<void | boolean>;
+  itemRender: (listItemProps: ListItemProps) => React.ReactNode;
+  showUploadList?: boolean;
 }
 
 export interface RcFile extends OriRcFile {
@@ -61,4 +89,12 @@ export interface RcFile extends OriRcFile {
 
 export interface InternalUploadFile<T = any> extends UploadFile<T> {
   originFileObj: RcFile;
+}
+
+export interface UploadListProps<T = any> {
+  onPreview?: (file: UploadFile<T>) => void;
+  onRefresh?: (file: UploadFile<T>) => void;
+  onRemove?: (file: UploadFile<T>) => void | boolean;
+  itemRender?: FbmUploadProps['itemRender'];
+  items?: Array<UploadFile<T>>;
 }

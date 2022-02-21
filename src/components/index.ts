@@ -78,3 +78,5 @@ export { default as Empty } from './Empty';
 
 export { default as DateRangePicker } from './DateRangePicker';
 export { default as InfoList } from './InfoList';
+
+export  { default as Upload } from './Upload'
