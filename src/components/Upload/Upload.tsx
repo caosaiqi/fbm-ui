@@ -248,15 +248,20 @@ const FbmUpload: React.FC<FbmUploadProps> = props => {
   }
 
   let children: React.ReactNode = null;
-  if (childrenProp) {
-    children = childrenProp
-  } else if (type === 'drop') {
-    children = <UploadChildrenDragger />
-  } else {
-    // drop
+  if (type === 'drop') {
     children = (
-      <UploadChildrenButton />
+      <UploadChildrenDragger>
+        {childrenProp}
+      </UploadChildrenDragger>
     )
+  } else if (type === 'button') {
+    children = (
+      <UploadChildrenButton>
+        {childrenProp}
+      </UploadChildrenButton>
+    )
+  } else {
+    children = childrenProp
   }
 
   const uploadButton = (
@@ -304,6 +309,7 @@ FbmUpload.defaultProps = {
   data: {},
   accept: '',
   type: 'button',
+  showUploadList: true,
 };
 
 export default FbmUpload

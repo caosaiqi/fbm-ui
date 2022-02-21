@@ -29,7 +29,9 @@ export default () =>{
   };
   return (
     <Demo>
-      <Upload  {...props} />
+      <Upload  {...props}>
+        上传
+      </Upload>
     </Demo>
   )
 }
@@ -116,9 +118,7 @@ export default () =>{
   return (
     <Demo>
       <Upload  {...props}>
-        <Button variant="outlined" color='inherit'>
-          上传
-        </Button>
+        上传
       </Upload>
     </Demo>
   )
