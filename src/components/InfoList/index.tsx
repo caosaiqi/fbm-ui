@@ -21,7 +21,7 @@ const InfoList: FC<InfoListProps> = (props) => {
   const { data, title, loading, rows } = props;
   return (
     <Box loading={loading} sx={{
-      border: '1px solid rgba(0, 0, 0, 0.08)'
+      border: '1px solid #ededed'
     }}>
       {title && <InfoTitle title={title} />}
       <Box>

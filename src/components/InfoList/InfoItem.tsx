@@ -11,6 +11,8 @@ export interface Row {
   label: string;
   /** InfoItem 标识 */
   id: string;
+  /** 使用组件自带的hover效果 */
+  useHover?: boolean;
   /** 右侧内容 */
   render?: ReactNode;
   /** 辅助文字  当render无内容时显示该文字  辅助文字颜色不同:rgba(0, 0, 0, 0,56) */
@@ -19,11 +21,13 @@ export interface Row {
   actions?: FbmActionProps['actions'];
   /** 自定义按钮内容 */
   renderAction?: ReactNode;
+  /** 完全自定义右侧内容 */
+  renderRightContent?: ReactNode;
 }
 
 export interface InfoItemProps {
-  row: Row,
-  data: any
+  row: Row;
+  data: any;
 }
 
 const InfoItemRoot = styled(Box)(({ theme }) => ({
@@ -35,12 +39,14 @@ const InfoItemRoot = styled(Box)(({ theme }) => ({
   justifyContent: 'flex-start',
   paddingLeft: theme.spacing(4.5),
   paddingRight: theme.spacing(2),
-  borderTop: '1px solid rgba(0, 0, 0, 0.08)',
-  '& .action-hover': {
+  borderTop: '1px solid #f4f4f0',
+  '& .actions-container': {
     position: 'absolute',
     top: '50%',
     right: theme.spacing(2),
     transform: 'translateY(-50%)',
+  },
+  '& .action-hover': {
     visibility: 'hidden',
   },
   '&:hover .action-hover': {
@@ -79,13 +85,16 @@ if (isFunction(a)) {
 }
 
 interface RightContentProps {
-  renderProps: Row['render'];
+  renderProps?: Row['render'];
   data: any;
   disabledEdit: boolean;
-  auxiliaryText: Row['auxiliaryText'];
+  auxiliaryText?: Row['auxiliaryText'];
+  renderRightContent?: Row['renderRightContent'];
 }
+
 const RightContent = (props: RightContentProps) => {
-  const { renderProps, data, disabledEdit, auxiliaryText } = props;
+  const { renderProps, data, disabledEdit, auxiliaryText, renderRightContent: rightcontent } = props;
+  if (rightcontent) return renderElement(rightcontent);
   if (renderProps) {
     return renderElement(renderProps, data);
   } else {
@@ -93,20 +102,29 @@ const RightContent = (props: RightContentProps) => {
   }
 }
 
+
 interface HoverActionsProps {
-  actions: Row['actions'],
-  renderActionsProps: Row['renderAction']
+  actions?: Row['actions'];
+  renderActionsProps?: Row['renderAction'];
+  useHover: boolean;
 }
+
 const HoverActions = (props: HoverActionsProps) => {
-  const { renderActionsProps, actions } = props;
+  const { renderActionsProps, actions, useHover } = props;
+
+  const action = !!renderActionsProps ? renderElement(renderActionsProps) : (<Actions actions={actions} />)
+
+  if (!useHover) {
+    return action;
+  }
+
   return (
-    <Box className="action-hover">
-      {
-        !!renderActionsProps ? renderElement(renderActionsProps) : (<Actions actions={actions} />)
-      }
+    <Box className="action-hover actions-container">
+      {action}
     </Box>
   );
 }
+
 
 const InfoItem: FC<InfoItemProps> = (props) => {
   const { row, data } = props;
@@ -115,23 +133,28 @@ const InfoItem: FC<InfoItemProps> = (props) => {
     actions,
     renderAction: renderActionsProps,
     render: renderProps,
-    auxiliaryText
+    auxiliaryText,
+    renderRightContent,
+    useHover = true
   } = row || {};
 
   const disabledEdit = useMemo(() => actions?.length < 1 && !renderActionsProps, [actions, renderActionsProps]);
 
   return (
     <InfoItemRoot>
-      <Typography variant="body2" color="secondary" weight="medium" width={165}>{label}</Typography>
+      <Box sx={{ alignSelf: 'flex-start', mt: '18px' }}>
+        <Typography variant="body2" color="secondary" weight="medium" width={165}>{label}</Typography>
+      </Box>
       <Box flex={1} position="relative">
         <RightContent
+          renderRightContent={renderRightContent}
           renderProps={renderProps}
           data={data}
           auxiliaryText={auxiliaryText}
           disabledEdit={disabledEdit}
-          />
+        />
         {
-          !disabledEdit && <HoverActions renderActionsProps={renderActionsProps} actions={actions} />
+          !disabledEdit && <HoverActions useHover={useHover} renderActionsProps={renderActionsProps} actions={actions} />
         }
       </Box>
     </InfoItemRoot>
