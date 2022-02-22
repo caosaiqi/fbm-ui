@@ -39,7 +39,7 @@ const InfoItemRoot = styled(Box)(({ theme }) => ({
   justifyContent: 'flex-start',
   paddingLeft: theme.spacing(4.5),
   paddingRight: theme.spacing(2),
-  borderTop: '1px solid rgba(0, 0, 0, 0.08)',
+  borderTop: '1px solid #f4f4f0',
   '& .actions-container': {
     position: 'absolute',
     top: '50%',
