@@ -39,6 +39,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 const PopButton = (props) => {
   const { onChange, name } = props;
   const [value, setValue] = useState(name);
+  const [isClick, setIsClick] = useState(false);
   const nameTextField = useTextField({
     value,
     label: '姓名',
@@ -58,20 +59,26 @@ const PopButton = (props) => {
     // fetch
     onChange(value)
     // 关闭弹框
+    setIsClick(false);
     onClose()
   }
   return (
-    <Popconfirm
-      title="修改名称"
-      content={
-        <Box sx={{ width: '360px', }}>
-          <TextField {...nameTextField}/>
-        </Box>
-      }
-      onOk={handleOk}
-      >
-      <Button variant="text" size="medium">修改</Button>
-    </Popconfirm>
+    <Box className={["actions-container", !isClick&&'action-hover'].join(' ')}>
+      <Popconfirm
+        title="修改名称"
+        content={
+          <Box sx={{ width: '360px', }}>
+            <TextField {...nameTextField}/>
+          </Box>
+        }
+        clickAwayListener={() => setIsClick(false)}
+        onClose={() => setIsClick(false)}
+        onOk={handleOk}
+        >
+        <Button variant="text" size="medium" onClick={() => setIsClick(true)}>修改</Button>
+      </Popconfirm>
+    </Box>
+
   )
 }
 
@@ -109,6 +116,7 @@ export default () => {
           console.log(111, e)
         },
       }],
+      useHover: false,
       renderAction: () => {
         return <PopButton name={data.name} onChange={(name) => setData({...data, name })} />;
       },
