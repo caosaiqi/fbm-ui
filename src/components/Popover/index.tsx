@@ -163,6 +163,7 @@ const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
   };
 
   const handleClickAway = (event) => {
+    if(open === false) return
     const bool: boolean | void = onClickAway?.(event)
     if (bool === false) {
       return
