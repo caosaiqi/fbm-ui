@@ -43,7 +43,7 @@ const InfoItemRoot = styled(Box)(({ theme }) => ({
   '& .actions-container': {
     position: 'absolute',
     top: '50%',
-    right: theme.spacing(2),
+    right: 0,
     transform: 'translateY(-50%)',
   },
   '& .action-hover': {
@@ -143,9 +143,9 @@ const InfoItem: FC<InfoItemProps> = (props) => {
   return (
     <InfoItemRoot>
       <Box sx={{ alignSelf: 'flex-start', mt: '18px' }}>
-        <Typography variant="body2" color="secondary" weight="medium" width={165}>{label}</Typography>
+        <Typography variant="body2" color="secondary" weight="medium" sx={{ flexShrink: 0, width: 165 }}>{label}</Typography>
       </Box>
-      <Box flex={1} position="relative">
+      <Box sx={{ flexGrow: 1, position: 'relative', width: '100%' }}>
         <RightContent
           renderRightContent={renderRightContent}
           renderProps={renderProps}
