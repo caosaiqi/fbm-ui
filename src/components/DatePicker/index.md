@@ -3,7 +3,7 @@ nav:
   title: 组件
   path: /components
 group:
-  title: 录入数据
+  title: 数据录入
 ---
 # DatePicker
 ## 代码演示

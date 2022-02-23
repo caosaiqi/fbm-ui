@@ -27,13 +27,13 @@ type ErrorType = {
 
 type rule = (values: any) => void | object | Promise<FormikErrors<any>>;
 
-export type FbmFormItemProps = FbmInputProps & {
+export type FbmFormItemProps = {
   name?: string;
   value?: any,
   label?: BaseTextFieldProps['label'];
   extra?: string;
   max?: number;
-  error?: boolean | string | ErrorType
+  error?: boolean | string | ErrorType;
   length?: number;
   rules?: rule[]
   required?: boolean;
@@ -43,7 +43,7 @@ export type FbmFormItemProps = FbmInputProps & {
   inputRef?: React.Ref<any>;
   meta?: FieldMetaProps<any>;
   helpers?: FieldHelperProps<any>;
-}
+} & FbmInputProps
 
 export interface HelperProps extends FormHelperTextProps {
   extra?: FbmFormItemProps['extra'];
@@ -224,11 +224,12 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
     )
   }
 
-  // useFormItem
+  // 如果调用了Form组件 则获取useFormItem 返回值，给formItem子组件用
   const childContext = meta ? {
     name,
     label,
     value,
+    error, // meta.error && meta.touched
     length,
     meta,
     helpers,

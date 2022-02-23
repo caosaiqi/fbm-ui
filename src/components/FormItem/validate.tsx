@@ -1,8 +1,14 @@
-import getValueLength from '../../utils/getValueLength'
+import getValueLength, { GetValueLengthReturn } from '../../utils/getValueLength'
 import { isFunction, isObject } from '../../utils'
 import * as ruleFuns from '../../utils/rules'
+import { UseFormItemParams } from './useFormItem'
 
-export default async function validate(value, props) {
+/**
+ * @description: 提供表单验证
+ * @param {*} value 输入框值
+ * @param {*} props useFormItemParams
+ */
+export default async function validate(value, props: UseFormItemParams): Promise<string | GetValueLengthReturn | undefined> {
   // this => formItem
   const formItem = props || this
   const { rules, max } = (formItem || {})
@@ -27,7 +33,7 @@ export default async function validate(value, props) {
           const { message, required, type } = rule
           const key = required ? 'required' : type
           const ruleFn = ruleFuns[key]
-         
+
           if (isFunction(ruleFn)) {
             const errorMsg: string = await ruleFn(message)(value, formItem)
             if (errorMsg) {

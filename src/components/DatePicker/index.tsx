@@ -7,8 +7,9 @@ import {
 import Input, { FbmInputProps } from '../Input'
 import LocalizationProvider from '../LocalizationProvider'
 import useFormItemContext from '../FormItem/useFormItemContext';
+import { DateIcon } from '../icons'
 
-export interface FbmStaticDateRangePickerProps {
+export interface FbmStaticDateRangePickerProps extends DesktopDatePickerProps {
   value: DesktopDatePickerProps['value'];
   onChange: DesktopDatePickerProps['onChange'];
   inputFormat: DesktopDatePickerProps['inputFormat'];
@@ -76,12 +77,16 @@ const FbmDateRangePicker: React.FC<FbmStaticDateRangePickerProps> = props => {
       InputProps
     } = props
 
+    if (value === null) {
+      inputProps.value = ''
+    }
+
     return (
       <Input
         disabled={disabled}
         inputRef={inputRef}
         inputProps={inputProps}
-        error={!!error}
+        // error={!!error}
         endAdornment={InputProps?.endAdornment}
         onBlur={handleBlur}
         onChange={() => {}}
@@ -106,7 +111,10 @@ const FbmDateRangePicker: React.FC<FbmStaticDateRangePickerProps> = props => {
 
 FbmDateRangePicker.defaultProps = {
   inputFormat: 'yyyy/MM/dd',
-  disableMaskedInput: true
+  disableMaskedInput: true,
+  components: {
+    OpenPickerIcon: DateIcon,
+  }
 }
 
 
