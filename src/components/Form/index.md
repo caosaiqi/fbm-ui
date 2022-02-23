@@ -22,7 +22,8 @@ import {
   DateRangePicker,
   Select, 
   rules,
-  useForm
+  useForm,
+  DatePicker
 } from 'fbm-ui'
 
 export default () => {
@@ -31,10 +32,10 @@ export default () => {
       name:'',
       sex: 2,
       email: '',
-      dates: [null, null]
+      dates: [null, null],
+      date: null
     },
     onSubmit: (values) => {
-      console.log(values)
     }
   })
   
@@ -46,7 +47,6 @@ export default () => {
           name='name' 
           label="名称"
           max={20}
-        
          />
         <FormItem
           name='email' 
@@ -74,13 +74,20 @@ export default () => {
             }
           ]}/>
          </FormItem>
-         <FormItem 
+        
+        <FormItem
+          name="date"
+          label="日期"
           required
-          name='dates' 
-          label='开始时间-结束时间'
-         >  
-          <DateRangePicker />
-         </FormItem>
+          rules={[
+            {
+              type: 'date'
+            }
+          ]}
+        >
+          <DatePicker />
+        </FormItem>
+
       </Form>
       <Button onClick={form.handleReset} variant="outlined" sx={{ mr:1 }}>
           重置
@@ -159,6 +166,4 @@ export default () => {
 
 }
 ```
-
-
 <API></API>

@@ -10,8 +10,7 @@ import { isEmpty, isObject } from '../../utils'
 export default function useInputProps(inputProps = {}): any {
   // 获取FormItemProvder
   const formItemValues = useFormItemContext()
-
-  if (isObject(formItemValues) && !isEmpty(formItemValues)) {
+  if (isObject(formItemValues) && !isEmpty(formItemValues.meta)) {
     const {
       name,
       value,
@@ -22,7 +21,8 @@ export default function useInputProps(inputProps = {}): any {
       meta = {},
       helpers = {},
     } = formItemValues
-    
+     
+    // 和form组件建立连接
     const InputProps = {
       name,
       value,

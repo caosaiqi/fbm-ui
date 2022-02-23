@@ -15,7 +15,7 @@ const DraggerBox = styled(Box)({
 const Dragger: React.FC = props => {
   return (
     <DraggerBox {...props}>
-        
+      文件拖拽至此处
       
     </DraggerBox>
   )

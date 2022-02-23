@@ -80,3 +80,5 @@ export { default as DateRangePicker } from './DateRangePicker';
 export { default as InfoList } from './InfoList';
 
 export  { default as Upload } from './Upload'
+
+export  { default as DatePicker } from './DatePicker'

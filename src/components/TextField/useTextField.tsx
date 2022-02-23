@@ -2,7 +2,7 @@ import React from 'react'
 
 import getValueLength from '../../utils/getValueLength'
 import validate from '../FormItem/validate'
-import { isFunction } from '../../utils'
+import { isFunction, isString } from '../../utils'
 
 export default function useTextField(cloneProps) {
   const {
@@ -31,7 +31,7 @@ export default function useTextField(cloneProps) {
     if (isFunction(inputProps?.onChange)) {
       inputProps.onChange(event)
     }
-    const value = event?.target?.value
+    const value = event?.target ? event?.target?.value : event
     validateRules(value)
   }
 
@@ -42,7 +42,8 @@ export default function useTextField(cloneProps) {
     if (isFunction(inputProps?.onBlur)) {
       inputProps.onBlur(event)
     }
-    const value = event?.target?.value
+
+    const value = event?.target ? event?.target?.value : event
     validateRules(value)
   }
 

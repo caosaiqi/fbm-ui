@@ -15,34 +15,30 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import { Layout, TextField, rules, useTextField, Button, SearchIcon} from 'fbm-ui'
+import { Layout, TextField, rules, useTextField, Button, SearchIcon, DatePicker } from 'fbm-ui'
 
 export default () => {
-  const [value, setValue] = React.useState('')
-  const ref = React.useRef(null)
-  const handleChange = (e) => {
-    setValue(e.target.value)
+  const [value, setValue] = React.useState(null)
+
+  const handleChange = (newValue) => {
+    setValue(newValue)
   }
 
-  const nameFieldProps = useTextField({
-    label: '名称*',
+ const dateFieldProps = useTextField({
     value,
-    max: 5,
+    rules: [rules.required(), rules.date()],
     onChange: handleChange,
-    onClear: () => {
-      setValue('')
-    },
+    component: 'DatePicker',
   })
 
   const handleSubmit = async () => {
-    nameFieldProps.handleValidate()
+    dateFieldProps.handleValidate()
+    console.log(dateFieldProps)
   }
 
   return (
     <Layout>
-      <TextField
-        {...nameFieldProps}
-      />
+      <TextField {...dateFieldProps} />
       <Button onClick={handleSubmit}> 提交 </Button> 
     </Layout>
   )
@@ -171,7 +167,6 @@ export default () => {
         options={top100Films}
         sx={{ width: 300 }}
         renderInput={(params) => {
-          console.log(params.inputProps)
           return <input {...params.inputProps} />
         }}
       />

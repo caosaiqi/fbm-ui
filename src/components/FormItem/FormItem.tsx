@@ -52,7 +52,7 @@ export interface HelperProps extends FormHelperTextProps {
   error: boolean;
 }
 
-export interface FbmInputLabelProps extends  InputLabelProps {
+export interface FbmInputLabelProps extends InputLabelProps {
   size?: FbmInputProps['size']
 }
 
@@ -61,11 +61,11 @@ const FormItemRoot: React.FC<FormControlProps> = styled(FormControl)({
   height: '84px',
 });
 
-const LabelRoot:React.FC<FbmInputLabelProps> = styled(InputLabel)(({ variant, size }) => {
+const LabelRoot: React.FC<FbmInputLabelProps> = styled(InputLabel)(({ variant, size }) => {
   return {
     lineHeight: 1,
     zIndex: 1,
-    top: '-2px',
+    top: '0',
     ...(variant === 'outlined' && {
       [`&.${inputLabelClasses.shrink}`]: {
         transform: 'translate(14px, -5px) scale(0.75)',
@@ -77,7 +77,7 @@ const LabelRoot:React.FC<FbmInputLabelProps> = styled(InputLabel)(({ variant, si
         transform: 'translate(14px, -7px) scale(0.75)',
       }
     })
-    
+
   }
 });
 
@@ -85,7 +85,6 @@ const HelperTextRoot = styled(FormHelperText)({
   display: 'flex',
   alignItems: 'center',
 });
-
 
 const Label: React.FC<InputLabelProps> = (props) => {
   const { children, ...labelProps } = props
@@ -187,7 +186,6 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
   };
 
   let children = null
-  
   if (childrenProp) {
     children = childrenProp
   } else if (typeof childrenProp === 'function') {
@@ -197,7 +195,6 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
       <Input
         size={size}
         clear={clear}
-        onClear={onClear}
         label={label}
         error={statusError}
         value={value}
@@ -217,6 +214,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
         onBlur={onBlur}
         onChange={onChange}
         onFocus={onFocus}
+        onClear={onClear}
         placeholder={placeholder}
         endAdornment={endAdornment}
         readOnly={readOnly}
@@ -226,7 +224,8 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
     )
   }
 
-  const childContent = {
+  // useFormItem
+  const childContext = meta ? {
     name,
     label,
     value,
@@ -235,10 +234,10 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
     helpers,
     onBlur,
     onChange,
-  }
+  } : {}
 
   return (
-    <FormItemContext.Provider value={childContent}>
+    <FormItemContext.Provider value={childContext}>
       <FormItemRoot {...formItemProps}>
         <Label {...labelProps} />
         {children}

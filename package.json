@@ -4,7 +4,7 @@
   "private": false,
   "description": "React components library",
   "author": "avocado",
-  "main": "lib/components/index.js",
+  "main": "src/components/index.ts",
   "types": "lib/components/index.d.ts",
   "license": "MIT",
   "keywords": [
@@ -68,7 +68,7 @@
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
-    "@mui/lab": "^5.0.0-alpha.53",
+    "@mui/lab": "^5.0.0-alpha.69",
     "@mui/material": "^5.1.1",
     "@umijs/test": "^3.5.20",
     "copy-to-clipboard": "^3.3.1",

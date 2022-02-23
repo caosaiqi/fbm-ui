@@ -184,10 +184,13 @@ export default () => {
   return (
     <Demo>
        <Chip 
-          variant="filled"
           size="large"
-          color={'#FD8C17'}
           label={'标齐'}
+          color={'primary'}
+          style={{
+            backgroundColor: '#E8F5E9',
+            border: '1px solid transparent',
+          }}
         />
     </Demo>
   )

@@ -16,10 +16,10 @@ export const required = (helperText?: string) => {
       if (typeof item === 'string' && item.trim() === '') return true
 
       //undefined
-      if(item === undefined) return true
+      if (item === undefined) return true
 
       // null
-      if(item === null) return true
+      if (item === null) return true
 
       //数组
       if (isArray(item)) {
@@ -63,9 +63,19 @@ export const email = (helperText?: string) => {
   }
 }
 
+export const date = (helperText?: string) => {
+  return (value) => {
+    const isValid = Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value)
+    if (!isValid) {
+      return helperText || '请输入正确的时间格式'
+    }
+  }
+}
+
 
 export default {
   required,
   mobile,
-  email
+  email,
+  date
 }
