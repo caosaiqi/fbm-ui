@@ -31,7 +31,7 @@ import React, { useState, useEffect, useMemo } from 'react';
   const dataInit = {
     name: '小明',
     phone: 12312321,
-    department: ['测试1', '测试2'],
+    department: ['测试1', '测试2', '测试2', '测试2', '测试2','测试2','测试2','测试2','测试2','测试2','测试2','测试2','测试2','测试2','测试2','测试2','测试2','测试2','测试2','测试2', '测试2','测试2','测试2','测试2','测试2','测试2'],
     portrait: '',
     password: '*****'
   }
@@ -136,7 +136,7 @@ export default () => {
       label: '所属分部',
       render: (row) => {
         return <Chips options={row}></Chips>
-      }
+      },
     },
   ];
 
