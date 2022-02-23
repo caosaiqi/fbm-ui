@@ -60,14 +60,16 @@ export default function useFormItem(params: UseFormItemParams): UseFormItemRetur
     return () => {
       unregisterField(name);
     };
-  }, [name]);
+  }, [name, formik.values]);
 
-  const handleChange = (event: React.ChangeEvent<any>) => {
-    if (meta.touched === false) {
-      helpers.setTouched(true)
-    }
-    return field.onChange(event)
-  }
+  const handleChange = React.useCallback(
+    (event: React.ChangeEvent<any>) => {
+      if (meta.touched === false) {
+        helpers.setTouched(true)
+      }
+      return field.onChange(event)
+    }, [name]
+  )
 
   return {
     ...field,

@@ -155,6 +155,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
     endAdornment,
     readOnly,
     size,
+    type,
     ...other
   } = props
 
@@ -193,6 +194,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
   } else {
     children = (
       <Input
+        type={type}
         size={size}
         clear={clear}
         label={label}

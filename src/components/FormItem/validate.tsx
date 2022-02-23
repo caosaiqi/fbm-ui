@@ -28,14 +28,14 @@ export default async function validate(value, props: UseFormItemParams): Promise
           }
         }
 
-        // 处理报错对象
+        // 处理对象 { type: 'RuleName' ...parasm }
         if (isObject(rule)) {
           const { message, required, type } = rule
           const key = required ? 'required' : type
           const ruleFn = ruleFuns[key]
 
           if (isFunction(ruleFn)) {
-            const errorMsg: string = await ruleFn(message)(value, formItem)
+            const errorMsg: string = await ruleFn(message, rule)(value, formItem)
             if (errorMsg) {
               return resolve(errorMsg)
             }

@@ -20,6 +20,10 @@ export function isString(value: unknown): Boolean {
   return Object.prototype.toString.call(value) === '[object String]';
 }
 
+export function isDate(value: any): Boolean {
+  return Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value)
+}
+
 export function isEmpty(value: any): Boolean {
   if (value === '') {
     return true

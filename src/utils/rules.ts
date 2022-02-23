@@ -1,10 +1,10 @@
-import { isArray } from './index'
+import { isArray, isDate } from './index'
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MOBILE_REGEX = /^1[3456789]\d{9}$/;
 
 // 验证是否必填
-export const required = (helperText?: string) => {
+export const required = (message?: string) => {
   return (
     value,
     formItem = {}
@@ -31,7 +31,7 @@ export const required = (helperText?: string) => {
     }
 
     if (isEmpty(value)) {
-      if (helperText) return helperText
+      if (message) return message
       let labelStr = '此处'
       if (label && typeof label === 'string') {
         if (label.endsWith('*')) {
@@ -46,32 +46,30 @@ export const required = (helperText?: string) => {
 }
 
 // 验证手机号
-export const mobile = (helperText?: string) => {
+export const mobile = (message?: string) => {
   return (value) => {
     if (value && !MOBILE_REGEX.test(value)) {
-      return helperText || '请输入正确的手机号';
+      return message || '请输入正确的手机号';
     }
   }
 }
 
 // 验证邮箱地址
-export const email = (helperText?: string) => {
+export const email = (message?: string) => {
   return (value) => {
     if (value && !EMAIL_REGEX.test(value)) {
-      return helperText || '请输入正确的邮箱'
+      return message || '请输入正确的邮箱'
     }
   }
 }
 
-export const date = (helperText?: string) => {
+export const date = (message?: string) => {
   return (value) => {
-    const isValid = Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value)
-    if (!isValid) {
-      return helperText || '请输入正确的时间格式'
+    if (!isDate(value)) {
+      return message || '请输入正确的时间格式'
     }
   }
 }
-
 
 export default {
   required,
