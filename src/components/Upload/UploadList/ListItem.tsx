@@ -53,12 +53,7 @@ interface ActionIconSpanProps {
   status: ListItemProps['status']
 }
 const ActionIconSpan: React.FC<ActionIconSpanProps> = styled('span')(({ status, theme }) => ({
-  ...(status === 'error' && {
-    color: theme.palette.error.main
-  }),
-  ...(status === 'uploading' && {
-    color: theme.palette.info.main
-  }),
+  color: theme.palette.secondary.main
 }))
 
 const HelperText = styled(Typography)({
@@ -98,9 +93,9 @@ const ListItem: React.FC<ListItemProps> = props => {
   const statusIcon: React.ReactNode = StatusIcons[status] || null
 
   const progressColors = {
-    uploading: 'info',
+    uploading: 'primary',
     error: 'error',
-    done: 'success'
+    done: 'primary'
   }
 
   return (

@@ -32,7 +32,6 @@ export default () => {
       name:'',
       sex: 2,
       email: '',
-      dates: [null, null],
       date: null
     },
     onSubmit: (values) => {
@@ -61,6 +60,17 @@ export default () => {
         >
           <DatePicker />
         </FormItem>
+
+        <FormItem
+          name="email"
+          label="邮箱"
+          required
+          rules={[
+            {
+              type: 'email'
+            }
+          ]}
+        />
 
       </Form>
       <Button onClick={form.handleReset} variant="outlined" sx={{ mr:1 }}>

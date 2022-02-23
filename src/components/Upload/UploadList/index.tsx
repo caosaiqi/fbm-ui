@@ -31,7 +31,7 @@ const FbmUploadList: React.FC<UploadListProps> = props => {
 
         let children: React.ReactNode = null
         if (itemRender && typeof itemRender === 'function') {
-          children = itemRender(itemProps)
+          children = <div key={item.uid}> {itemRender(itemProps)} </div>
         } else {
           children = <ListItem key={item.uid} {...itemProps} />
         }

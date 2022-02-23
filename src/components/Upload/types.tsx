@@ -8,7 +8,7 @@ type BeforeUploadValueType = void | boolean | string | Blob | File;
 
 export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
 export type Action = string | ((file: RcFile) => string | PromiseLike<string>);
-export type UploadType = 'button' | 'drop'
+export type UploadType = 'button' | 'drop' | 'custom'
 export interface HttpRequestHeader {
   [key: string]: string;
 }
@@ -81,6 +81,7 @@ export interface FbmUploadProps<T = any> {
   onRemove?: (file: UploadFile<T>) => void | boolean | Promise<void | boolean>;
   itemRender: (listItemProps: ListItemProps) => React.ReactNode;
   showUploadList?: boolean;
+  onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
 }
 
 export interface RcFile extends OriRcFile {
