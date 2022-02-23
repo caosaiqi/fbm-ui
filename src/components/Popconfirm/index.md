@@ -25,6 +25,9 @@ export default () =>{
       <Popconfirm 
         content={'您确定要删除吗'} 
         onOk={handleOk}
+        onClickAway={(e) => {
+          console.log(e)
+        }}
       >
         <Button >Popconfirm</Button>
       </Popconfirm>

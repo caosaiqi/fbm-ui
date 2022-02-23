@@ -34,6 +34,7 @@ export interface FbmPopoverProps {
   isClickAway?: boolean;
   TriggerProps?: BoxProps;
   ClickAwayListenerProps?: ClickAwayListenerProps | BoxProps;
+  onClickAway?: (event: MouseEvent | TouchEvent) => void | boolean;
   children: React.ReactNode;
 }
 
@@ -140,6 +141,7 @@ const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
     isClickAway,
     TriggerProps,
     ClickAwayListenerProps,
+    onClickAway,
     ...PopoverProps
   } = props
 
@@ -159,6 +161,14 @@ const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
       setOpen(true);
     }
   };
+
+  const handleClickAway = (event) => {
+    const bool: boolean | void = onClickAway?.(event)
+    if (bool === false) {
+      return
+    }
+    handleClose(event)
+  }
 
   const disableListeners = {
     disableFocusListener: disabled || trigger !== 'focus',
@@ -192,7 +202,7 @@ const FmbPopover: React.FC<FbmPopoverProps> = React.forwardRef((props, ref) => {
     <ClickWrap
       isClickAway={isClickAway}
       trigger={trigger}
-      onClickAway={handleClose}
+      onClickAway={handleClickAway}
       {...ClickAwayListenerProps}
     >
       <PopoverRoot
