@@ -66,6 +66,7 @@ export const email = (helperText?: string) => {
 export const date = (helperText?: string) => {
   return (value) => {
     const isValid = Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value)
+    console.log(isValid, value)
     if (!isValid) {
       return helperText || '请输入正确的时间格式'
     }

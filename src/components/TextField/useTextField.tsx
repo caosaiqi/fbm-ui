@@ -2,7 +2,7 @@ import React from 'react'
 
 import getValueLength from '../../utils/getValueLength'
 import validate from '../FormItem/validate'
-import { isFunction, isString } from '../../utils'
+import { isFunction } from '../../utils'
 
 export default function useTextField(cloneProps) {
   const {
@@ -48,7 +48,7 @@ export default function useTextField(cloneProps) {
   }
 
   const handleValidate = React.useCallback(async (value = valueProp) => {
-    // Rules验证没通过
+    // onChang 验证没通过
     if (error !== undefined) return error
     // 没触发onchange，则重新调一遍ruls验证
     if (error === undefined) {
@@ -74,6 +74,7 @@ export default function useTextField(cloneProps) {
     InputProps: {
       ...inputProps,
       ...InputProps,
+      value: valueProp,
       onChange: handleChange,
       onBlur: handleBlur,
     }

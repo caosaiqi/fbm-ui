@@ -59,14 +59,10 @@ const FbmDateRangePicker: React.FC<FbmStaticDateRangePickerProps> = props => {
 
   const handleChange = (newValue) => {
     onChange?.(newValue)
-    // 为了兼容uesTextField
-    InputProps?.onChange?.(newValue)
   }
 
-  const handleBlur = (newValue = value) => {
-    onBlur?.(newValue)
-    // 为了兼容uesTextField
-    InputProps?.onBlur?.(newValue)
+  const handleBlur = () => {
+    onBlur?.(value)
   }
 
   const renderInput = (props) => {
@@ -86,8 +82,7 @@ const FbmDateRangePicker: React.FC<FbmStaticDateRangePickerProps> = props => {
         disabled={disabled}
         inputRef={inputRef}
         inputProps={inputProps}
-        // error={!!error}
-        endAdornment={InputProps?.endAdornment}
+        {...InputProps}
         onBlur={handleBlur}
         onChange={() => {}}
       />

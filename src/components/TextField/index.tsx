@@ -14,34 +14,20 @@ interface FbmTextField extends FbmFormItemProps {
   isBeyond?: boolean;
 }
 
-const components = {
-  DatePicker: DatePicker
-}
-
 const FbmTextField: React.FC<FbmTextField> = React.forwardRef(({
   /** useTextField生成的 无需传给FormItem   */
   setError,
   handleValidate,
   isBeyond,
   /** end  */
-  children: childrenProp,
-  component,
   ...props
 }, ref) => {
-
-  let children = null
-  if (component) {
-    const Component = components[component]
-    children = <Component {...props}/>
-  }
-
+  
   return (
     <FormItem
       inputRef={ref}
       {...props}
-    >
-      {children}
-    </FormItem>
+    />
   )
 })
 

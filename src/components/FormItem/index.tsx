@@ -56,7 +56,7 @@ const FormItemIndex: React.FC<FbmFormItemProps & FbmInputProps> = ({
   })
 
   let errorMsg: string = undefined
-  if (meta.touched) {
+  if (meta?.touched === true) {
     errorMsg = meta.error
   }
 

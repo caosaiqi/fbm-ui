@@ -15,7 +15,6 @@ export default function useInputProps(props) {
       name,
       label,
       value,
-      error, // meta.error && meta.touched
       length,
       meta,
       helpers,
@@ -33,8 +32,6 @@ export default function useInputProps(props) {
       length,
       meta,
       helpers,
-      // Input error 接受的是boolean
-      error: !!error,
       // 小心覆盖
       ...props,
     }

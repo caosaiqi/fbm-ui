@@ -229,7 +229,6 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
     name,
     label,
     value,
-    error, // meta.error && meta.touched
     length,
     meta,
     helpers,
@@ -239,7 +238,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
 
   return (
     <FormItemContext.Provider value={childContext}>
-      <FormItemRoot {...formItemProps}>
+      <FormItemRoot {...formItemProps} ref={ref}>
         <Label {...labelProps} />
         {children}
         <Helper {...helperTextProps} />
