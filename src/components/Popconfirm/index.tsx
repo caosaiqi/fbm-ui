@@ -16,6 +16,16 @@ export interface FbmPopconfirmProps extends FbmConfirmFooterProps {
   icon?: React.ReactNode;
   /** 弹框target */
   children: FbmPopoverProps['children'];
+  /** 是否显示弹框 */
+  open?: FbmPopoverProps['open'];
+  /** 是否禁用弹框 */
+  disabled?: FbmPopoverProps['disabled'];
+  /** 是否需要三角▶️ */
+  arrow?: FbmPopoverProps['arrow'];
+  /** 触发行为 */
+  trigger?: FbmPopoverProps['trigger'];
+  /** 弹框位置 */
+  placement?: FbmPopoverProps['placement'];
 }
 
 interface PopTitleProps {
