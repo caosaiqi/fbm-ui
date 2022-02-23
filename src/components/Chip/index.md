@@ -171,6 +171,32 @@ export default () => {
 }
 ```
 
+
+ ```tsx
+/**
+ * title: 自定义颜色
+ * desc: 带删除icon的chip
+ */
+import * as React from 'react';
+import { Demo, Box, Chip } from 'fbm-ui'
+
+export default () => {
+  return (
+    <Demo>
+       <Chip 
+          size="large"
+          label={'标齐'}
+          color={'primary'}
+          style={{
+            backgroundColor: '#E8F5E9',
+            border: '1px solid transparent',
+          }}
+        />
+    </Demo>
+  )
+}
+```
+
  ```tsx
 /**
  * title: Avatar chip

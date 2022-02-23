@@ -1,8 +1,8 @@
 
 export * from './icons'
 export * from './Table/columns';
-export * as rules from '../utils/rules';
 
+export { default as rules } from '../utils/rules';
 
 export { default as Demo } from './Demo';
 
@@ -80,3 +80,5 @@ export { default as DateRangePicker } from './DateRangePicker';
 export { default as InfoList } from './InfoList';
 
 export  { default as Upload } from './Upload'
+
+export  { default as DatePicker } from './DatePicker'

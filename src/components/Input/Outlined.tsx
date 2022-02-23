@@ -42,9 +42,9 @@ const FbmOutlinedInput = styled(OutlinedInput)(({ theme, startAdornment, endAdor
         padding: '10px 12px 11px 4px'
       },
     }),
-    ...(endAdornment && {
-      paddingRight: 4,
-    }),
+    // ...(endAdornment && {
+    //   paddingRight: 4,
+    // }),
   }
 })
 

@@ -11,7 +11,7 @@ import validate from './validate'
 import getValueLength, { GetValueLengthReturn } from '../../utils/getValueLength'
 import { FbmFormItemProps } from './FormItem'
 
-type Params = {
+export type UseFormItemParams = {
   name: FbmFormItemProps['name'];
   max?: FbmFormItemProps['max'];
   value?: FbmFormItemProps['value'];
@@ -20,13 +20,13 @@ type Params = {
   label: FbmFormItemProps['label']
 }
 
-type Return = FieldInputProps<any> & {
+export type UseFormItemReturn = FieldInputProps<any> & {
   meta: FieldMetaProps<any>;
   helpers: FieldHelperProps<any>;
   length: GetValueLengthReturn['length']
 }
 
-export default function useFormItem(params: Params): Return {
+export default function useFormItem(params: UseFormItemParams): UseFormItemReturn {
   const {
     name,
     max,
@@ -38,7 +38,7 @@ export default function useFormItem(params: Params): Return {
   if (!formik) {
     return {
       value,
-    } as Return
+    } as UseFormItemReturn
   }
 
   // 利用Formik处理验证
@@ -60,14 +60,16 @@ export default function useFormItem(params: Params): Return {
     return () => {
       unregisterField(name);
     };
-  }, [name]);
+  }, [name, formik.values]);
 
-  const handleChange = (event: React.ChangeEvent<any>) => {
-    if (meta.touched === false) {
-      helpers.setTouched(true)
-    }
-    return field.onChange(event)
-  }
+  const handleChange = React.useCallback(
+    (event: React.ChangeEvent<any>) => {
+      if (meta.touched === false) {
+        helpers.setTouched(true)
+      }
+      return field.onChange(event)
+    }, [name]
+  )
 
   return {
     ...field,

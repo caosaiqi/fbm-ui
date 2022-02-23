@@ -5,7 +5,6 @@ import styled from '@mui/material/styles/styled'
 interface FbmButtonGroupProps extends ButtonGroupProps { }
 
 const FbmButtonGroupRoot = styled(ButtonGroup)(({ variant, orientation, theme }) => {
-  console.log(theme)
   return {
     boxShadow: 'none',
     [`& .${buttonGroupClasses.grouped}`]: {

@@ -55,6 +55,11 @@ const FormItemIndex: React.FC<FbmFormItemProps & FbmInputProps> = ({
     label,
   })
 
+  let errorMsg: string = undefined
+  if (meta?.touched === true) {
+    errorMsg = meta.error
+  }
+
   return (
     <FormItem
       name={name}
@@ -63,7 +68,7 @@ const FormItemIndex: React.FC<FbmFormItemProps & FbmInputProps> = ({
       length={length}
       max={max}
       extra={extra}
-      error={!!(meta?.touched && meta?.error) as FbmFormItemProps['error']}
+      error={(errorMsg as unknown as FbmFormItemProps['error'])}
       meta={meta}
       helpers={helpers}
       onChange={onChange}

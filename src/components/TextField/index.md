@@ -15,34 +15,120 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import { Layout, TextField, rules, useTextField, Button, SearchIcon} from 'fbm-ui'
+import { Layout, TextField,  useTextField, Button } from 'fbm-ui'
 
 export default () => {
   const [value, setValue] = React.useState('')
-  const ref = React.useRef(null)
-  const handleChange = (e) => {
-    setValue(e.target.value)
-  }
 
-  const nameFieldProps = useTextField({
-    label: '名称*',
+ const nameFieldProps = useTextField({
     value,
     max: 5,
-    onChange: handleChange,
-    onClear: () => {
-      setValue('')
+    rules: [{
+      required: true,
+    }],
+    onChange: (event) => {
+      setValue(event.target.value)
     },
   })
 
   const handleSubmit = async () => {
-    nameFieldProps.handleValidate()
+    const error:string = await nameFieldProps.handleValidate()
+    console.log(error, nameFieldProps)
   }
 
   return (
     <Layout>
-      <TextField
-        {...nameFieldProps}
-      />
+      <TextField {...nameFieldProps} />
+      <Button onClick={handleSubmit}> 提交 </Button> 
+    </Layout>
+  )
+}
+```
+
+```tsx
+/**
+ * title: 基本
+ * desc: 基本使用
+ */
+import * as React from 'react';
+import { Layout, TextField, rules, useTextField, Button, SearchIcon, DatePicker, Select } from 'fbm-ui'
+
+export default () => {
+  const [value, setValue] = React.useState(null)
+
+  const handleChange = (event) => {
+    setValue(event)
+  }
+
+ const dateFieldProps = useTextField({
+    value,
+    rules: [rules.required()],
+    onChange: handleChange,
+  })
+
+  const handleSubmit = async () => {
+    const f = await dateFieldProps.handleValidate()
+    console.log(dateFieldProps)
+  }
+
+  return (
+    <Layout>
+      <TextField error={dateFieldProps.error}>
+        <DatePicker  {...dateFieldProps.InputProps} />
+      </TextField>
+      <Button onClick={handleSubmit}> 提交 </Button> 
+    </Layout>
+  )
+}
+```
+
+```tsx
+/**
+ * title: 基本
+ * desc: 基本使用
+ */
+import * as React from 'react';
+import { Layout, TextField, rules, useTextField, Button, SearchIcon, DatePicker, Select } from 'fbm-ui'
+
+export default () => {
+  const [value, setValue] = React.useState(2)
+
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
+
+ const dateFieldProps = useTextField({
+    value,
+    rules: [rules.required()],
+    onChange: handleChange,
+  })
+
+  const handleSubmit = async () => {
+    dateFieldProps.handleValidate()
+  }
+   const options = [
+    {
+      label: '全部',
+      value: '',
+    },
+    {
+      label: '20岁',
+      value: 20
+    },
+    {
+      label: '男',
+      value: 2
+    }
+  ]
+
+  return (
+    <Layout>
+      <TextField error={dateFieldProps.error}>
+        <Select 
+          options={options} 
+          {...dateFieldProps.InputProps}
+        />
+      </TextField>
       <Button onClick={handleSubmit}> 提交 </Button> 
     </Layout>
   )
@@ -171,7 +257,6 @@ export default () => {
         options={top100Films}
         sx={{ width: 300 }}
         renderInput={(params) => {
-          console.log(params.inputProps)
           return <input {...params.inputProps} />
         }}
       />

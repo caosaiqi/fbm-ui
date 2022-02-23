@@ -12,9 +12,16 @@ export const isPromise = (value: any): value is PromiseLike<any> => {
   return value && typeof value.then === 'function'
 }
 
-
 export function isArray(value: unknown): Boolean {
   return Object.prototype.toString.call(value) === '[object Array]';
+}
+
+export function isString(value: unknown): Boolean {
+  return Object.prototype.toString.call(value) === '[object String]';
+}
+
+export function isDate(value: any): Boolean {
+  return Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value)
 }
 
 export function isEmpty(value: any): Boolean {

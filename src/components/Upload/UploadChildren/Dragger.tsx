@@ -12,11 +12,15 @@ const DraggerBox = styled(Box)({
   cursor: 'pointer',
 })
 
-const Dragger: React.FC = props => {
+interface DraggerProps {
+  status?: string
+}
+
+const Dragger: React.FC<DraggerProps> = props => {
   return (
     <DraggerBox {...props}>
-        
-      
+      文件拖拽至此处
+
     </DraggerBox>
   )
 }

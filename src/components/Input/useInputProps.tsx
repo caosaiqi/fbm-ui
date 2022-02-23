@@ -1,5 +1,6 @@
 import useFormItemContext from '../FormItem/useFormItemContext';
-import { isEmpty, isObject } from '../../utils'
+import { UseFormItemReturn } from '../FormItem/useFormItem'
+import { isEmpty } from '../../utils'
 
 /**
  * @desc 处理input使用的三种情况
@@ -7,22 +8,21 @@ import { isEmpty, isObject } from '../../utils'
  * @B 配合TextFiled使用
  * @C 直接Input
  */
-export default function useInputProps(inputProps = {}): any {
-  // 获取FormItemProvder
+export default function useInputProps(props) {
   const formItemValues = useFormItemContext()
-
-  if (isObject(formItemValues) && !isEmpty(formItemValues)) {
+  if (!isEmpty(formItemValues)) {
     const {
       name,
-      value,
       label,
-      onChange,
+      value,
+      length,
+      meta,
+      helpers,
       onBlur,
-      length, //chineseLength
-      meta = {},
-      helpers = {},
+      onChange,
     } = formItemValues
-    
+     
+    // 和form组件建立连接
     const InputProps = {
       name,
       value,
@@ -32,8 +32,8 @@ export default function useInputProps(inputProps = {}): any {
       length,
       meta,
       helpers,
-      error: meta.touched && !isEmpty(meta.error),
-      ...inputProps,
+      // 小心覆盖
+      ...props,
     }
 
     for (const key in InputProps) {
@@ -43,7 +43,7 @@ export default function useInputProps(inputProps = {}): any {
     }
 
     return InputProps
-  } else {
-    return inputProps
   }
+
+  return props
 }

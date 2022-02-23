@@ -31,7 +31,7 @@ export default function useTextField(cloneProps) {
     if (isFunction(inputProps?.onChange)) {
       inputProps.onChange(event)
     }
-    const value = event?.target?.value
+    const value = event?.target ? event?.target?.value : event
     validateRules(value)
   }
 
@@ -42,12 +42,13 @@ export default function useTextField(cloneProps) {
     if (isFunction(inputProps?.onBlur)) {
       inputProps.onBlur(event)
     }
-    const value = event?.target?.value
+
+    const value = event?.target ? event?.target?.value : event
     validateRules(value)
   }
 
   const handleValidate = React.useCallback(async (value = valueProp) => {
-    // Rules验证没通过
+    // onChang 验证没通过
     if (error !== undefined) return error
     // 没触发onchange，则重新调一遍ruls验证
     if (error === undefined) {
@@ -73,6 +74,7 @@ export default function useTextField(cloneProps) {
     InputProps: {
       ...inputProps,
       ...InputProps,
+      value: valueProp,
       onChange: handleChange,
       onBlur: handleBlur,
     }

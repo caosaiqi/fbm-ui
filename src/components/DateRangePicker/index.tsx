@@ -18,7 +18,6 @@ interface FbmDateRangePickerProps {
 
 function useFormItem() {
   const formItemValues = useFormItemContext()
-  console.log(formItemValues)
   return {
     value: formItemValues?.value,
     setValue: (newValue) => {

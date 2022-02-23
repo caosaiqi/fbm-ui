@@ -27,13 +27,13 @@ type ErrorType = {
 
 type rule = (values: any) => void | object | Promise<FormikErrors<any>>;
 
-export type FbmFormItemProps = FbmInputProps & {
+export type FbmFormItemProps = {
   name?: string;
   value?: any,
   label?: BaseTextFieldProps['label'];
   extra?: string;
   max?: number;
-  error?: boolean | string | ErrorType
+  error?: boolean | string | ErrorType;
   length?: number;
   rules?: rule[]
   required?: boolean;
@@ -43,7 +43,7 @@ export type FbmFormItemProps = FbmInputProps & {
   inputRef?: React.Ref<any>;
   meta?: FieldMetaProps<any>;
   helpers?: FieldHelperProps<any>;
-}
+} & FbmInputProps
 
 export interface HelperProps extends FormHelperTextProps {
   extra?: FbmFormItemProps['extra'];
@@ -52,7 +52,7 @@ export interface HelperProps extends FormHelperTextProps {
   error: boolean;
 }
 
-export interface FbmInputLabelProps extends  InputLabelProps {
+export interface FbmInputLabelProps extends InputLabelProps {
   size?: FbmInputProps['size']
 }
 
@@ -61,11 +61,11 @@ const FormItemRoot: React.FC<FormControlProps> = styled(FormControl)({
   height: '84px',
 });
 
-const LabelRoot:React.FC<FbmInputLabelProps> = styled(InputLabel)(({ variant, size }) => {
+const LabelRoot: React.FC<FbmInputLabelProps> = styled(InputLabel)(({ variant, size }) => {
   return {
     lineHeight: 1,
     zIndex: 1,
-    top: '-2px',
+    top: '0',
     ...(variant === 'outlined' && {
       [`&.${inputLabelClasses.shrink}`]: {
         transform: 'translate(14px, -5px) scale(0.75)',
@@ -77,7 +77,7 @@ const LabelRoot:React.FC<FbmInputLabelProps> = styled(InputLabel)(({ variant, si
         transform: 'translate(14px, -7px) scale(0.75)',
       }
     })
-    
+
   }
 });
 
@@ -85,7 +85,6 @@ const HelperTextRoot = styled(FormHelperText)({
   display: 'flex',
   alignItems: 'center',
 });
-
 
 const Label: React.FC<InputLabelProps> = (props) => {
   const { children, ...labelProps } = props
@@ -156,6 +155,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
     endAdornment,
     readOnly,
     size,
+    type,
     ...other
   } = props
 
@@ -187,7 +187,6 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
   };
 
   let children = null
-  
   if (childrenProp) {
     children = childrenProp
   } else if (typeof childrenProp === 'function') {
@@ -195,9 +194,9 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
   } else {
     children = (
       <Input
+        type={type}
         size={size}
         clear={clear}
-        onClear={onClear}
         label={label}
         error={statusError}
         value={value}
@@ -217,6 +216,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
         onBlur={onBlur}
         onChange={onChange}
         onFocus={onFocus}
+        onClear={onClear}
         placeholder={placeholder}
         endAdornment={endAdornment}
         readOnly={readOnly}
@@ -226,7 +226,8 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
     )
   }
 
-  const childContent = {
+  // 如果调用了Form组件 则获取useFormItem 返回值，给formItem子组件用
+  const childContext = meta ? {
     name,
     label,
     value,
@@ -235,11 +236,11 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
     helpers,
     onBlur,
     onChange,
-  }
+  } : {}
 
   return (
-    <FormItemContext.Provider value={childContent}>
-      <FormItemRoot {...formItemProps}>
+    <FormItemContext.Provider value={childContext}>
+      <FormItemRoot {...formItemProps} ref={ref}>
         <Label {...labelProps} />
         {children}
         <Helper {...helperTextProps} />
