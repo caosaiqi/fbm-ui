@@ -12,11 +12,11 @@ describe('<Alert />', () => {
     const {  getByRole, rerender } = render(<Alert type="success"/>);
     expect(getByRole('alert')).toHaveAttribute('type', 'success');
 
+    rerender(<Alert type="info"/>);
+    expect(getByRole('alert')).toHaveAttribute('type', 'info');
+    
     rerender(<Alert type="warning"/>);
     expect(getByRole('alert')).toHaveAttribute('type', 'warning');
-
-    rerender(<Alert type="error"/>);
-    expect(getByRole('alert')).toHaveAttribute('type', 'error');
 
     rerender(<Alert type="error"/>);
     expect(getByRole('alert')).toHaveAttribute('type', 'error');
