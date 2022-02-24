@@ -16,7 +16,7 @@ const MaskRoot: React.FC<FbmMaskProps> = styled(Box)(({ theme, color }) => ({
   bottom: 0,
   left: 0,
   zIndex: 2,
-  backgroundColor:  (theme as FbmThemeOptions).custom.mask[color] || color,
+  backgroundColor:  (theme as FbmThemeOptions).custom?.mask[color] || color,
 }))
 
 const FbmMask: React.FC<FbmMaskProps> = ({

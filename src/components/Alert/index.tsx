@@ -35,7 +35,7 @@ const AlertRoot: React.FC<FbmAlertProps> = styled(Alert, {
     padding: '4px 16px',
     border: '1px solid',
     borderColor: theme.palette[type].main,
-    backgroundColor: (theme as FbmThemeOptions).custom.bgColor[type],
+    backgroundColor: (theme as FbmThemeOptions).custom?.bgColor[type],
   }
 })
 

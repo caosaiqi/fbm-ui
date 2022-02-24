@@ -24,7 +24,7 @@ export interface FbmLoadingProps {
 const MaskRoot: React.FC<FbmLoadingProps> = styled(Mask)(({ theme, isMask }) => {
   return {
     ...(isMask && {
-      backgroundColor: (theme as FbmThemeOptions).custom.mask.white,
+      backgroundColor: (theme as FbmThemeOptions).custom?.mask.white,
     }),
     display: 'flex',
     alignItems: 'center',
