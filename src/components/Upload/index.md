@@ -27,7 +27,7 @@ export default () =>{
     },
     type: 'custom',
     maxCount: 1,
-    // showUploadList: false,
+    showUploadList: false,
   };
   return (
     <Demo>
