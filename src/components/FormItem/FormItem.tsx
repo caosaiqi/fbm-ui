@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@mui/material/styles/styled'
-import { FormikErrors } from 'formik'
 import {
   FieldMetaProps,
   FieldHelperProps
@@ -25,7 +24,11 @@ type ErrorType = {
   isBeyond?: boolean
 }
 
-type rule = (values: any) => void | object | Promise<FormikErrors<any>>;
+export type RuleItemType = ((value: any, formItem: object) => void | string) | {
+  type?: string;
+  message?: string;
+  required?: boolean;
+};
 
 export type FbmFormItemProps = {
   name?: string;
@@ -35,7 +38,7 @@ export type FbmFormItemProps = {
   max?: number;
   error?: boolean | string | ErrorType;
   length?: number;
-  rules?: rule[]
+  rules?: RuleItemType[]
   required?: boolean;
   labelProps?: InputLabelProps;
   inputProps?: FbmInputProps['inputProps'];
