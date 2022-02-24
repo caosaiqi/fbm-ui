@@ -68,7 +68,7 @@ export interface FbmUploadProps<T = any> {
     FileList: RcFile[],
   ) => BeforeUploadValueType | Promise<BeforeUploadValueType>;
   /** 通过覆盖默认的上传行为，可以自定义自己的上传实现 */
-  customRequest: (options: RcCustomRequestOptions) => void;
+  customRequest?: (options: RcCustomRequestOptions) => void;
   /** 默认已经上传的文件列表 */
   defaultFileList?: Array<UploadFile<T>>;
   /** 已经上传的文件列表（受控)*/
@@ -79,7 +79,7 @@ export interface FbmUploadProps<T = any> {
   headers?: HttpRequestHeader;
   method?: 'POST' | 'PUT' | 'PATCH' | 'post' | 'put' | 'patch';
   onRemove?: (file: UploadFile<T>) => void | boolean | Promise<void | boolean>;
-  itemRender: (listItemProps: ListItemProps) => React.ReactNode;
+  itemRender?: (listItemProps: ListItemProps) => React.ReactNode;
   showUploadList?: boolean;
   onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
 }
