@@ -31,17 +31,16 @@ const EndButton = styled(IconButton)({
   }
 })
 
-const FbmInput: React.FC<FbmInputProps> = React.forwardRef((inProps, ref) => {
+const FbmInput: React.FC<FbmInputProps> = React.forwardRef((props, ref) => {
   const {
     value,
     variant,
     clear,
     onClear,
-    // formItemProvder
     helpers,
     meta,
     ...InputProps
-  } = useInputProps(inProps)
+  } = useInputProps(props)
 
   const handleClear = (e) => {
     e.stopPropagation()
@@ -55,7 +54,6 @@ const FbmInput: React.FC<FbmInputProps> = React.forwardRef((inProps, ref) => {
   }
 
   const InputComponent = variantComponent[variant]
-
   const ClearEndAdornment = () => {
     if (value && (clear || onClear)) {
       return (

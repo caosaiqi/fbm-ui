@@ -4,7 +4,7 @@ import getValueLength from '../../utils/getValueLength'
 import validate from '../FormItem/validate'
 import { isFunction } from '../../utils'
 
-export default function useTextField(cloneProps) {
+export default function useTextField(props) {
   const {
     max,
     inputProps,
@@ -14,12 +14,12 @@ export default function useTextField(cloneProps) {
     onChange: onChangeProp,
     onBlur: onBlurProp,
     validate: validateFn,
-  } = cloneProps
+  } = props
 
   const [error, setError] = React.useState(errorProp)
 
   const validateRules = React.useCallback(async (value = valueProp) => {
-    const ruleError = await validate(value, cloneProps)
+    const ruleError = await validate(value, props)
     setError(ruleError)
     return ruleError
   }, [valueProp])
@@ -59,14 +59,14 @@ export default function useTextField(cloneProps) {
     }
     // rules通过才走validate验证
     if (validateFn && isFunction(validateFn)) {
-      const errMsg: string = await validateFn(value, cloneProps)
+      const errMsg: string = await validateFn(value, props)
       setError(errMsg)
     }
   }, [error, valueProp])
 
   const { length } = getValueLength({ value: valueProp, max })
 
-  Object.assign(cloneProps, {
+  return Object.assign(props, {
     error: errorProp || error,
     length,
     setError,
@@ -79,6 +79,4 @@ export default function useTextField(cloneProps) {
       onBlur: handleBlur,
     }
   })
-
-  return cloneProps
 }

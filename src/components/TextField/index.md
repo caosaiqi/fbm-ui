@@ -33,7 +33,6 @@ export default () => {
 
   const handleSubmit = async () => {
     const error:string = await nameFieldProps.handleValidate()
-    console.log(error, nameFieldProps)
   }
 
   return (
@@ -62,13 +61,15 @@ export default () => {
 
  const dateFieldProps = useTextField({
     value,
-    rules: [rules.required()],
+    rules: [
+      { required:true },
+      { type: 'date' }
+    ],
     onChange: handleChange,
   })
 
   const handleSubmit = async () => {
     const f = await dateFieldProps.handleValidate()
-    console.log(dateFieldProps)
   }
 
   return (
@@ -233,7 +234,7 @@ export default () => {
  */
 import * as React from 'react';
 import { Autocomplete } from '@mui/material'
-import { Layout, rules, Button, SearchIcon,TextField } from 'fbm-ui'
+import { Layout, rules, Button, SearchIcon, TextField } from 'fbm-ui'
 
 export default () => {
   const [value, setValue] = React.useState('')
@@ -252,12 +253,12 @@ export default () => {
   return (
     <Layout>
       <Autocomplete
-        disablePortal
         id="combo-box-demo"
         options={top100Films}
         sx={{ width: 300 }}
         renderInput={(params) => {
-          return <input {...params.inputProps} />
+          console.log(params)
+          return <TextField {...params}/>
         }}
       />
     </Layout>

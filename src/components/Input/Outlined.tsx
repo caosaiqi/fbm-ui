@@ -42,17 +42,13 @@ const FbmOutlinedInput = styled(OutlinedInput)(({ theme, startAdornment, endAdor
         padding: '10px 12px 11px 4px'
       },
     }),
-    // ...(endAdornment && {
-    //   paddingRight: 4,
-    // }),
   }
 })
 
 const FbmInput: React.FC<FbmOutlinedProps> = React.forwardRef((props, ref) => {
   return (
-    <FbmOutlinedInput inputRef={ref} {...props} />
+    <FbmOutlinedInput ref={ref} {...props} />
   )
 })
 
 export default FbmInput
-

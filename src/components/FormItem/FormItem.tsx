@@ -40,7 +40,7 @@ export type FbmFormItemProps = {
   length?: number;
   rules?: RuleItemType[]
   required?: boolean;
-  labelProps?: InputLabelProps;
+  InputLabelProps?: InputLabelProps;
   inputProps?: FbmInputProps['inputProps'];
   InputProps?: FbmInputProps;
   inputRef?: React.Ref<any>;
@@ -134,7 +134,7 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
     max,
     extra,
     length,
-    labelProps: labelPropsProp,
+    InputLabelProps: labelPropsProp,
     children: childrenProp,
     variant,
     value,
