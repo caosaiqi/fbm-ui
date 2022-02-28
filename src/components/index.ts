@@ -88,3 +88,4 @@ export * from './DatePicker'
 export { default as LocalizationProvider } from './LocalizationProvider'
 export * from './LocalizationProvider'
 
+export * from './styled'
