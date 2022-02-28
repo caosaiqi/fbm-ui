@@ -140,3 +140,4 @@ export { default as VideoStopIcon } from './src/VideoStopIcon';
 export { default as RobotIcon } from './src/RobotIcon';
 export { default as Qrcode } from './src/Qrcode';
 export { default as ClockCircle } from './src/ClockCircle';
+export { default as HelpIcon } from './src/HelpIcon';
