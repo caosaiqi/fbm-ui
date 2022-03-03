@@ -80,8 +80,13 @@ export { default as DateRangePicker } from './DateRangePicker';
 export { default as InfoList } from './InfoList';
 
 export { default as Upload } from './Upload'
+export * from './Upload'
 
 export { default as Tooltip } from './Tooltip';
 export { default as DatePicker } from './DatePicker'
+export * from './DatePicker'
 
 export { default as LocalizationProvider } from './LocalizationProvider'
+export * from './LocalizationProvider'
+
+export * from './styled'

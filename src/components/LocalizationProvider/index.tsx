@@ -3,7 +3,7 @@ import { zhCN } from 'date-fns/locale';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider, { LocalizationProviderProps } from '@mui/lab/LocalizationProvider'
 
-interface FbmLocalizationProviderProps {
+export interface FbmLocalizationProviderProps {
   locale?: LocalizationProviderProps['locale']
   dateAdapter?: LocalizationProviderProps['dateAdapter']
 }

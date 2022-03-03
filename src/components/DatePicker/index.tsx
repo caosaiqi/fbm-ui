@@ -9,7 +9,7 @@ import LocalizationProvider from '../LocalizationProvider'
 import useFormItemContext from '../FormItem/useFormItemContext';
 import { DateIcon } from '../icons'
 
-export interface FbmStaticDateRangePickerProps extends DesktopDatePickerProps {
+export interface FbmDateRangePickerProps extends DesktopDatePickerProps {
   value: DesktopDatePickerProps['value'];
   onChange: DesktopDatePickerProps['onChange'];
   inputFormat: DesktopDatePickerProps['inputFormat'];
@@ -46,7 +46,7 @@ function useMergeProps(props) {
   return props
 }
 
-const FbmDateRangePicker: React.FC<FbmStaticDateRangePickerProps> = props => {
+const FbmDateRangePicker: React.FC<FbmDateRangePickerProps> = props => {
   const {
     value,
     error,

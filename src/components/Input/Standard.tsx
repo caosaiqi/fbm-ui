@@ -25,7 +25,7 @@ const StandardInput = styled(Input)(({ theme, color }) => {
 
 const FbmStandard: React.FC<FbmStandardProps> = React.forwardRef((props, ref) => {
   return (
-    <StandardInput inputRef={ref} {...props} />
+    <StandardInput ref={ref} {...props} />
   )
 })
 

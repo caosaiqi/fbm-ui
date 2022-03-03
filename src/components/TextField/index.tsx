@@ -4,6 +4,7 @@ import { FbmInputProps } from '../Input'
 import DatePicker from '../DatePicker'
 
 export { default as useTextField } from './useTextField'
+export { default as useInput } from './useInput'
 
 interface FbmTextField extends FbmFormItemProps {
   onError?: () => void;
