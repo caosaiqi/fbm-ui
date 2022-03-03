@@ -10,6 +10,7 @@ import { isEmpty } from '../../utils'
  */
 export default function useInputProps(props) {
   const formItemValues = useFormItemContext()
+  
   if (!isEmpty(formItemValues)) {
     const {
       name,

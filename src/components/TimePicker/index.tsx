@@ -18,6 +18,7 @@ interface TimePickerProps {
   onBlur?: (event: React.SyntheticEvent) => void;
   error?: FbmFormItemProps['error'];
   InputProps?: FbmFormItemProps['InputProps'];
+  disabled?: boolean;
 }
 
 const AutocompleteRoot = styled(Autocomplete)({
@@ -41,6 +42,7 @@ const TimePicker: React.FC<TimePickerProps> = React.forwardRef((props, ref) => {
     label,
     error,
     InputProps,
+    disabled,
   } = props
 
   const handleInputChange = (event, value) => {
@@ -63,6 +65,7 @@ const TimePicker: React.FC<TimePickerProps> = React.forwardRef((props, ref) => {
       options={options}
       disableClearable={true}
       freeSolo={true}
+      disabled={disabled}
       filterOptions={(options, { inputValue }) => {
         const filteredOptions = options.filter(option => {
           return (option as string).indexOf(inputValue) > -1
