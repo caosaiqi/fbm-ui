@@ -229,17 +229,22 @@ const FbmFormItem: React.FC<FbmFormItemProps> = React.forwardRef((props, ref) =>
     )
   }
 
-  // 如果调用了Form组件 则获取useFormItem 返回值，给formItem子组件用
-  const childContext = meta ? {
-    name,
-    label,
-    value,
-    length,
+  const formikValue = meta ? {
     meta,
     helpers,
     onBlur,
     onChange,
-  } : {}
+  }: {}
+
+  // 如果调用了Form组件 则获取useFormItem 返回值，给formItem子组件用
+  const childContext = {
+    name,
+    label,
+    value,
+    length,
+    size,
+    ...formikValue,
+  }
 
   return (
     <FormItemContext.Provider value={childContext}>
@@ -256,7 +261,6 @@ FbmFormItem.defaultProps = {
   length: 0,
   variant: 'outlined',
   fullWidth: true,
-  size: 'medium',
 }
 
 export default FbmFormItem;

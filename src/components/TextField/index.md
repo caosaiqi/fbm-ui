@@ -21,6 +21,7 @@ export default () => {
   const [value, setValue] = React.useState('')
 
  const nameFieldProps = useTextField({
+    size: 'small',
     value,
     max: 5,
     rules: [{
@@ -50,10 +51,12 @@ export default () => {
  * desc: 基本使用
  */
 import * as React from 'react';
-import { Layout, TextField, rules, useTextField, Button, SearchIcon, DatePicker, Select } from 'fbm-ui'
+import moment from 'moment'
+import { Layout, TextField, rules, useTextField, Button, SearchIcon, DatePicker, Select, TimePicker } from 'fbm-ui'
 
 export default () => {
   const [value, setValue] = React.useState(null)
+  const [time, setTime] = React.useState(null)
 
   const handleChange = (event) => {
     setValue(event)
@@ -68,15 +71,32 @@ export default () => {
     onChange: handleChange,
   })
 
+  const timeFieldProps = useTextField({
+    value:time,
+    rules: [
+      { type: 'time' }
+    ],
+    label:'时间',
+    size:'small',
+    onChange: (value) => {
+      setTime(value)
+    },
+  })
+
   const handleSubmit = async () => {
     const f = await dateFieldProps.handleValidate()
   }
 
   return (
     <Layout>
-      <TextField error={dateFieldProps.error}>
+      <TextField label='日历' error={dateFieldProps.error}>
         <DatePicker  {...dateFieldProps.InputProps} />
       </TextField>
+
+      <TimePicker 
+        {...timeFieldProps}
+      />
+
       <Button onClick={handleSubmit}> 提交 </Button> 
     </Layout>
   )
@@ -257,7 +277,6 @@ export default () => {
         options={top100Films}
         sx={{ width: 300 }}
         renderInput={(params) => {
-          console.log(params)
           return <TextField {...params}/>
         }}
       />
