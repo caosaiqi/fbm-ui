@@ -32,6 +32,7 @@ const EndButton = styled(IconButton)({
 })
 
 const FbmInput: React.FC<FbmInputProps> = React.forwardRef((props, ref) => {
+  console.log(props, '-----')
   const {
     value,
     variant,
@@ -78,7 +79,6 @@ const FbmInput: React.FC<FbmInputProps> = React.forwardRef((props, ref) => {
 FbmInput.defaultProps = {
   variant: 'outlined',
   fullWidth: true,
-  size: 'medium',
 }
 
 export default FbmInput

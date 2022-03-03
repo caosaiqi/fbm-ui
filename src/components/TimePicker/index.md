@@ -18,11 +18,11 @@ import * as React from 'react';
 import { Demo, TimePicker } from 'fbm-ui'
 
 export default () => {
-  const [value, setValue] = React.useState('')
+  const [value, setValue] = React.useState('22:22')
 
 return (
     <Demo>
-      <TimePicker />
+      <TimePicker value={value} disabled />
     </Demo>
   )
 }

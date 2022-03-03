@@ -14,17 +14,30 @@ group:
  * desc: 基本使用
  */
 import * as React from 'react';
-import { Demo, Typography, DatePicker } from 'fbm-ui'
+import { Demo, Typography, DatePicker, TextField, useTextField} from 'fbm-ui'
 
 export default () => {
-  
-  const handleChange = (newValue) => {
-    console.log(newValue)
+  const [value, setValue] = React.useState(null)
+
+  const handleChange = (event) => {
+    setValue(event)
   }
+
+  const dateFieldProps = useTextField({
+    value,
+    rules: [
+      { required:true },
+      { type: 'date' }
+    ],
+    onChange: handleChange,
+  })
 
   return (
     <Demo>
-      <DatePicker onChange={handleChange} />
+    
+      <TextField size='small' label='日历' error={dateFieldProps.error}>
+        <DatePicker {...dateFieldProps.InputProps} />
+      </TextField>
     </Demo>
   )
 }

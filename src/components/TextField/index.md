@@ -89,8 +89,8 @@ export default () => {
 
   return (
     <Layout>
-      <TextField label='日历' error={dateFieldProps.error}>
-        <DatePicker  {...dateFieldProps.InputProps} />
+      <TextField size='small' label='日历' error={dateFieldProps.error}>
+        <DatePicker {...dateFieldProps.InputProps} />
       </TextField>
 
       <TimePicker 
