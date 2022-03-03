@@ -88,3 +88,8 @@ export * from './DatePicker'
 export { default as LocalizationProvider } from './LocalizationProvider'
 export * from './LocalizationProvider'
 
+export { default as ListItem } from './ListItem'
+
+export { default as Autocomplete} from './Autocomplete'
+
+export { default as TimePicker} from './TimePicker'

@@ -21,7 +21,7 @@ export function isString(value: unknown): Boolean {
 }
 
 export function isDate(value: any): Boolean {
-  return Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value)
+  return Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value?.getTime?.())
 }
 
 export function isEmpty(value: any): Boolean {

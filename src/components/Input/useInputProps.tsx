@@ -20,6 +20,7 @@ export default function useInputProps(props) {
       helpers,
       onBlur,
       onChange,
+      size,
     } = formItemValues
      
     // 和form组件建立连接
@@ -32,6 +33,7 @@ export default function useInputProps(props) {
       length,
       meta,
       helpers,
+      size,
       // 小心覆盖
       ...props,
     }

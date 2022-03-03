@@ -1,4 +1,5 @@
-import { isArray, isDate } from './index'
+import { isArray, isDate, isObject } from './index'
+import moment from 'moment'
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MOBILE_REGEX = /^1[3456789]\d{9}$/;
@@ -27,6 +28,10 @@ export const required = (message?: string) => {
           return !isEmpty(element)
         })
         return found === undefined
+      }
+      //空对象
+      if(isObject(item)) {
+        return Object.keys(item).length === 0
       }
     }
 
@@ -66,6 +71,14 @@ export const email = (message?: string) => {
 export const date = (message?: string) => {
   return (value) => {
     if (!isDate(value)) {
+      return message || '请输入正确的日历格式'
+    }
+  }
+}
+
+export const time = (message?: string) => {
+  return (value) => {
+    if (!moment(value, 'HH:mm', true).isValid()) {
       return message || '请输入正确的时间格式'
     }
   }
