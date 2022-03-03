@@ -1,6 +1,7 @@
 
 export * from './icons'
 export * from './Table/columns';
+export * from './styled'
 
 export { default as rules } from '../utils/rules';
 
@@ -90,6 +91,5 @@ export * from './LocalizationProvider'
 
 export { default as ListItem } from './ListItem'
 
-export { default as Autocomplete} from './Autocomplete'
-
 export { default as TimePicker} from './TimePicker'
+
