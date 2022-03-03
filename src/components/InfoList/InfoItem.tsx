@@ -145,7 +145,7 @@ const InfoItem: FC<InfoItemProps> = (props) => {
       <Box sx={{ alignSelf: 'flex-start', mt: '18px' }}>
         <Typography variant="body2" color="secondary" weight="medium" sx={{ flexShrink: 0, width: 165 }}>{label}</Typography>
       </Box>
-      <Box sx={{ flexGrow: 1, position: 'relative', width: '100%' }}>
+      <Box sx={{ flexGrow: 1, position: 'relative', width: '100%', overflow: 'hidden' }}>
         <RightContent
           renderRightContent={renderRightContent}
           renderProps={renderProps}

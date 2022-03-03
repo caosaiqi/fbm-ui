@@ -82,6 +82,7 @@ export { default as InfoList } from './InfoList';
 export { default as Upload } from './Upload'
 export * from './Upload'
 
+export { default as Tooltip } from './Tooltip';
 export { default as DatePicker } from './DatePicker'
 export * from './DatePicker'
 

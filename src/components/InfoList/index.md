@@ -144,6 +144,7 @@ export default () => {
     <Demo white>
       <InfoList
         title="测试"
+        titleProps={{ beforeIcon: true }}
         rows={rows}
         data={data}
       />

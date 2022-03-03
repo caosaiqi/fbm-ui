@@ -14,16 +14,18 @@ export interface InfoListProps {
   rows: Array<Row>;
   /** 是否显示loading */
   loading?: boolean;
+  /** title额外属性 */
+  titleProps?: object;
   // todo style
 }
 
 const InfoList: FC<InfoListProps> = (props) => {
-  const { data, title, loading, rows } = props;
+  const { data, title, loading, rows, titleProps } = props;
   return (
     <Box loading={loading} sx={{
       border: '1px solid #ededed'
     }}>
-      {title && <InfoTitle title={title} />}
+      {title && <InfoTitle title={title} {...titleProps} />}
       <Box>
       {
         (rows || []).map((n) => (
