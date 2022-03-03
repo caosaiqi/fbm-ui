@@ -81,6 +81,10 @@ export default () => {
     onChange: (value) => {
       setTime(value)
     },
+    sx:{
+      width: 100,
+      height: 'auto',
+    }
   })
 
   const handleSubmit = async () => {
