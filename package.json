@@ -4,7 +4,7 @@
   "private": false,
   "description": "React components library",
   "author": "avocado",
-  "main": "lib/components/index.js",
+  "main": "src/components/index.ts",
   "types": "lib/components/index.d.ts",
   "license": "MIT",
   "keywords": [
