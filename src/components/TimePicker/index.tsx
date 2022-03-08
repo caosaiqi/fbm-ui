@@ -66,6 +66,8 @@ const TimePicker: React.FC<TimePickerProps> = React.forwardRef((props, ref) => {
       options={options}
       disableClearable={true}
       freeSolo={true}
+      forcePopupIcon={true}
+      popupIcon={<ArrowDropDownIcon style={{ color: 'rgba(0, 0, 0, 0.56)' }} />}
       disabled={disabled}
       filterOptions={(options, { inputValue }) => {
         const filteredOptions = options.filter(option => {
@@ -77,10 +79,6 @@ const TimePicker: React.FC<TimePickerProps> = React.forwardRef((props, ref) => {
         return (
           <TextField
             {...params}
-            InputProps={{
-              ...params.InputProps,
-              endAdornment: <ArrowDropDownIcon style={{ color: 'rgba(0, 0, 0, 0.56)' }} />,
-            }}
             placeholder={placeholder}
             size={size}
             label={label}
