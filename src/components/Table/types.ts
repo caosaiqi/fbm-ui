@@ -54,6 +54,8 @@ export interface FbmTbodyProps {
   columns?: ColumnProps[];
   /** table为空展示的文字 */
   emptyText?: string;
+  /** table为空展示的图片 */
+  emptyUrl?: string;
   /** loading */
   loading?: boolean;
 }

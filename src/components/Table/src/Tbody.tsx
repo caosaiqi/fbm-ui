@@ -13,10 +13,11 @@ const Tbody: React.FC<FbmTbodyProps> = ({
   columns,
   loading,
   emptyText,
+  emptyUrl
 }) => {
   const EmptyRender: React.FC = () => {
     if (!data || (data && data.length === 0) && !loading) {
-      return <Empty colSpan={columns.length} desc={emptyText} />;
+      return <Empty colSpan={columns.length} desc={emptyText} src={emptyUrl} />;
     }
     return null
   }
