@@ -32,7 +32,6 @@ const EndButton = styled(IconButton)({
 })
 
 const FbmInput: React.FC<FbmInputProps> = React.forwardRef((props, ref) => {
-  console.log(props, '-----')
   const {
     value,
     variant,
