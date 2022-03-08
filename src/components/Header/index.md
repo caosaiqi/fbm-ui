@@ -58,11 +58,16 @@ export default () =>{
     }
  ]
 
+  const renderAction = () => {
+    return <div>Ceshi</div>
+  }
+
  return (
     <Layout>
-      <Header 
+      <Header
         title="用户中心" 
         actions={actions}
+        // renderAction={renderAction}
       />
     </Layout>
  )
