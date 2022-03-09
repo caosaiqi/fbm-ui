@@ -10,6 +10,8 @@ export interface FbmHeaderProps {
   title?: React.ReactNode;
   /** 操作, 具体参数可查看Actions组件 */
   actions?: FbmActionProps['actions']
+  /** 自定义action组件 */
+  renderAction?: () => React.ReactNode;
 }
 
 const PageHeaderRoot = styled(Box)({
@@ -27,14 +29,24 @@ const TitleRender: React.FC = ({ children }) => (
   </Box>
 )
 
+
+
 const FbmHeader: React.FC<FbmHeaderProps> = ({
   title,
-  actions
+  actions,
+  renderAction
 }) => {
+  let action = null
+  if (typeof renderAction === 'function') {
+    action = renderAction()
+  } else {
+    action = <Actions actions={actions} />;
+  }
+  
   return (
     <PageHeaderRoot>
       <TitleRender> {title} </TitleRender>
-      <Actions actions={actions} />
+      {action}
     </PageHeaderRoot>
   )
 }
