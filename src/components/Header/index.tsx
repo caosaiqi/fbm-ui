@@ -29,8 +29,6 @@ const TitleRender: React.FC = ({ children }) => (
   </Box>
 )
 
-
-
 const FbmHeader: React.FC<FbmHeaderProps> = ({
   title,
   actions,
